@@ -1,0 +1,10 @@
+﻿@if (TempData["exception"] != null)
+{
+    var exception = (Exception)TempData["exception"];
+
+    <div class="col-md-12 text-left">
+        <div class="alert alert-danger" role="alert">
+            @exception.Message
+        </div>
+    </div>
+}

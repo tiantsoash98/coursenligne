@@ -1,0 +1,48 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Lesson.EditLessonViewModel
+
+@{
+    var id = string.Concat("edit-", Model.LessonId);
+}
+
+<div class="modal fade" id="@id" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title flex-center">&Eacute;dition</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container text-center">
+                    @{
+                        if (Model.Editable)
+                        {
+                            @Html.ActionLink("Modifier les informations", "Update", "Lesson", routeValues: new { lessonId = Model.LessonId, source = "edit" }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
+                            @Html.ActionLink("Modifier le contenu", "UpdateChapter", "Lesson", routeValues: new { lessonId = Model.LessonId }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
+                            @Html.ActionLink("Ajouter un chapitre", "AddChapter", "Lesson", routeValues: new { lessonId = Model.LessonId, source = "edit" }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
+                        }
+
+                        if (Model.HasImage)
+                        {
+                            @Html.ActionLink("Changer/Supprimer la miniature", "AddDetails", "Lesson", routeValues: new { lessonId = Model.LessonId, source = "edit" }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Ajouter une miniature", "AddDetails", "Lesson", routeValues: new { lessonId = Model.LessonId, source = "edit" }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
+                        }
+
+
+
+                        if (Model.Deletable)
+                        {
+                            <hr />
+                            @Html.ActionLink("Supprimer le cours", "Delete", "Lesson", routeValues: new { lessonId = Model.LessonId }, htmlAttributes: new { @class = "btn btn-outline-danger col-md-10" })
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Study.StudyViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/front-page-category/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/front-page-category/css/responsive.css")" rel="stylesheet" />
+}
+
+<section class="blog-area section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <h3>@Model.Study.STDNAME</h3>
+            </div>
+
+            <hr />
+
+            <div class="col-md-12 text-left">
+                <h3>Meilleurs cours dans la filière</h3>
+            </div>
+
+
+            @foreach (var lesson in Model.BestLessons)
+            {
+                <div class="col-lg-2 col-md-3">
+                    @Html.Partial("_LessonCard", lesson)
+                </div><!-- col-lg-4 col-md-6 -->
+            }
+
+        </div><!-- row -->
+
+        <div class="small-space-top">
+            @using (Html.BeginForm("Index", "Study", FormMethod.Get))
+            {
+                <input type="hidden" name="page" value="@(Model.Page + 1)" />
+                <input type="submit" class="col-md-2 personal-btn-simple" value="Voir plus" />
+            }
+        </div>
+
+    </div><!-- container -->
+</section><!-- section -->

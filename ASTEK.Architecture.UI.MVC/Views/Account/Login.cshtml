@@ -1,0 +1,108 @@
+﻿@using ASTEK.Architecture.UI.MVC.Models
+@using System.Configuration
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/responsive.css")" rel="stylesheet" />
+}
+<div class="slider" style="background-image: url(@Url.Content(ConfigurationManager.AppSettings.Get("BaseFileUrl") + ConfigurationManager.AppSettings.Get("ImageFolder") + "slider-1.jpg")">
+
+</div><!-- slider -->
+
+<section class="post-area">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-1 col-md-0"></div>
+            <div class="col-lg-10 col-md-12">
+
+                <div class="main-post">
+
+                    <div class="post-top-area">
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <h5 class="pre-title">Se connecter</h5>
+
+                                    <hr />
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Input.Email, new { @class = "col-md-12 control-label" })
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(m => m.Input.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Input.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Input.Password, new { @class = "col-md-12 control-label" })
+                                        <div class="col-md-12">
+                                            @Html.PasswordFor(m => m.Input.Password, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Input.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <div class="checkbox">
+                                                @Html.CheckBoxFor(m => m.Input.RememberMe)
+                                                @Html.LabelFor(m => m.Input.RememberMe)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="submit" if="form-submit" value="Se connecter" class="col-md-12 personal-btn-simple" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <p>
+                                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                            </p>
+                                        </div>
+                                    </div>           
+                                }
+                            </div>
+
+                            <div class="col-md-6">
+                                <section id="socialLoginForm">
+                                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                                </section>
+                            </div>
+
+                        </div><!-- row -->
+
+                    </div><!-- post-top-area -->
+
+                    <div class="post-bottom-area" style="padding: 20px;">
+                        <p>Vous n'avez pas encore de compte? <a href="#" data-toggle="modal" data-target="#modalRegister">Inscrivez-vous</a></p>
+
+                    </div>
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+        </div><!-- row -->
+    </div>
+</section>
+
+@Html.Partial("_RegisterModal")
+
+@section customScripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

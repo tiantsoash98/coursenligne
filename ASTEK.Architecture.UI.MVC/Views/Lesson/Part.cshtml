@@ -1,0 +1,80 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonPartViewModel
+@{
+    ViewBag.Title = "Part";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var teacher = Model.Lesson.Account.AccountTeachers.First();
+}
+
+@section customStyles
+{   
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/responsive.css")" rel="stylesheet" />
+}
+
+<div class="slider personal-slider-lesson" style="background-image: url(@Url.Content(Model.BaseFileUrl + "images/")@Model.Lesson.LSNPICTURE)">
+    <!-- <div class="display-table  center-text"> -->
+    <!-- <h1 class="title display-table-cell"><b>DESIGN</b></h1> -->
+    <!-- </div> -->
+</div>
+
+@Html.Partial("_BreadCrumb", Model.BreadCrumbs)
+
+<section class="post-area section">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-10 col-md-12 no-right-padding">
+
+                <div class="main-post lesson-content no-right-border">
+
+                    <div class="blog-post-inner">
+
+                        <h4><b>@Model.Lesson.LSNTITLE</b></h4>
+
+                        <h6 class="lesson-study">@Html.Action("StudyName", "Study", new { code = Model.Lesson.STDCODE })</h6>
+
+                        @*<div class="post-info">
+
+                            <div class="left-area">
+                                <a class="avatar" href="#"><img src="@Url.Content("~/Content/images/Teacher/")@Model.Lesson.Account.ACCPICTURE" alt="Profile Image"></a>
+                            </div>
+
+                            <div class="middle-area">
+                                <a class="name" href="#"><b>@StringUtilities.UserName(teacher.ACTFIRSTNAME, teacher.ACTNAME)</b></a>
+                                <h6 class="date">Posté le @Model.Lesson.LSNDATE.ToString("dd-MM-yyyy")</h6>
+                            </div>
+
+                        </div> *@
+
+                        <hr />
+
+                        <div style="display: inline-block">
+                            <h5>Partie @Model.Part.LSPNUMBER </h5>
+                            <h3>
+                                <b>
+                                    @Model.Part.LSPTITLE
+                                </b>
+                            </h3>
+                        </div>
+                        
+
+
+                        <div class="para">
+                            @Html.Raw(Model.Part.LSPCONTENT)
+                        </div>
+
+
+                    </div><!-- blog-post-inner -->
+
+                </div><!-- main-post -->
+            </div><!-- col-lg-10 col-md-12 -->
+
+        </div><!-- row -->
+
+        @Html.Partial("_NextPartButton", Model.NextStep)
+    </div><!-- container -->
+</section><!-- post-area -->
+
+@Html.Partial("_Navigation", Model.Navigation)

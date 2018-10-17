@@ -1,0 +1,88 @@
+﻿#navbar {
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0,0,0, .1);
+}
+
+    #navbar .nav-element {
+        padding-left: 0px;
+        padding-right: 0px;
+        height: 100%;
+        background-color: #fff;
+    }
+
+    #navbar .personal-logo {
+        margin: 15px 0px 10px 75px;
+        height: 25px;
+    }
+
+        #navbar .personal-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+    #navbar .main-menu {
+        display: inline-block;
+        float: left;
+    }
+
+        #navbar .main-menu > li {
+            float: left;
+        }
+
+            #navbar .main-menu > li > a {
+                height: 60px;
+                line-height: 60px;
+                padding: 0 25px;
+            }
+
+                #navbar .main-menu > li > a:hover {
+                    background: #eee;
+                }
+
+    /* #navbar .main-menu > li:first-child > a{  */
+    /* border-left: 1px solid #eee;  */
+    /* } */
+
+    #navbar .src-area {
+        position: relative;
+        height: 60px;
+        width: 100%;
+        float: right;
+        display: inline-block;
+        background: #F5F7F6;
+    }
+
+        #navbar .src-area .src-input {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 0 20px 0 70px;
+            background: transparent;
+            border: 0;
+            outline: 0;
+        }
+
+        #navbar .src-area .src-btn {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            background: none;
+            border: 0;
+            font-size: 1.2em;
+            outline: 0;
+            margin-left: 20px;
+            opacity: .6;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+    #navbar .add-lesson-element {
+        background-color: orange;
+        color: #fff;
+    }

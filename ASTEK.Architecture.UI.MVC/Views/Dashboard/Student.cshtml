@@ -1,0 +1,105 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Dashboard.DashboardStudentViewModel
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/responsive.css")" rel="stylesheet" />
+}
+
+<section class="post-area section">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="pre-title">Tableau de bord</h2>
+            </div>
+
+            <div class="col-md-12 small-space-top">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="stat-bloc text-right">
+                            <h5>@NumberUtilities.Format(Model.FollowedCount, 2) cours suivis</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 no-right-padding space-top">
+                <div class="table-header">
+                    <h4 class="pre-title">Retour sur les cours que vous avez suivis</h4>
+                </div>
+
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Cours</th>
+                            <th>Filière</th>
+                            <th>Progression</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var follow in Model.FollowedOutput.Response.Followed)
+                        {
+                            <tr>
+                                <td>@Html.ActionLink(follow.Lesson.LSNTITLE, "Index", "Lesson", new { lessonId = follow.LSNID }, null)</td>
+                                <td>@Html.ActionLink(follow.Lesson.Study.STDNAME, "Index", "Study", new { id = follow.Lesson.STDCODE }, null)</td>
+                                <td>
+                                    @{
+                                        if (follow.FollowState.FLSWORDING.Replace(" ", "").Equals("FINISHED"))
+                                        {
+                                            @Html.Action("GetProgressionByValue", "Lesson", new { value = 100 })
+                                        }
+                                        else if (follow.FollowState.FLSWORDING.Replace(" ", "").Equals("STARTED"))
+                                        {
+                                            @Html.Action("GetProgression", "Lesson", new { lessonId = follow.LSNID, chapterNumber = follow.LSFCHAPTER, partNumber = follow.LSFPART })
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            @if (Model.FollowedOutput.Response.Followed.Count > 0)
+            {
+                <div class="col-md-12">
+                    <div class="small-space-top">
+
+                        @using (Html.BeginForm("Student", "Dashboard", FormMethod.Get, new { @class = "pagination-form" }))
+                        {
+                            <div class="form-group row">
+                                <label for="page" class="control-label">Page</label>
+
+                                <ul class="personal-pagination-list">
+                                    @for (var i = 1; i <= Model.FollowedOutput.Response.TotalPages; i++)
+                                    {
+                                        <li>
+                                            @if (i == Model.FollowedOutput.Response.Page)
+                                            {
+                                                <input type="submit" name="page" value="@i" class="personal-pagination-item current-page" />
+                                            }
+                                            @if (i != Model.FollowedOutput.Response.Page)
+                                            {
+                                                <input type="submit" name="page" value="@i" class="personal-pagination-item" />
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div><!-- row -->
+    </div>
+
+
+</section><!-- post-area -->

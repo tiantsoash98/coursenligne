@@ -1,0 +1,74 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonAddDetailsViewModels
+
+@{
+    ViewBag.Title = "AddDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/responsive.css")" rel="stylesheet" />
+}
+<div class="slider" style="background-image: url(@Url.Content("~/Content/images/slider-1.jpg")"></div><!-- slider -->
+
+<section class="post-area">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-1 col-md-0"></div>
+            <div class="col-lg-10 col-md-12">
+
+                <div class="main-post">
+
+                    <div class="container">
+                        <div class="post-top-area">
+
+                            <!-- <h5 class="pre-title">FASHION</h5> -->
+
+                            <h3 class="pre-title">Ajouter une miniature</h3>
+
+                            <hr />
+
+                        </div><!-- post-top-area -->
+
+                        <div class="post-content new-lesson">
+                            @using (Html.BeginForm("AddDetails","Lesson", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "display: block;" })
+                                        @Html.ValidationMessage("Error", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="image" class="col-md-12 control-label">Image pour le cours</label>
+
+                                    <div class="col-md-12">
+                                        <input type="file" name="image" id="image" class="form-control"/>
+                                        
+                                    </div>
+                                </div>
+                                
+                                @Html.HiddenFor(m => m.LessonId)
+
+                                <div class="form-group text-right space-top">
+                                    <button type="submit" class="personal-btn-simple">Valider</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+
+
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- post-area -->
+
+@section customScripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,11 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.CultureViewModel
+
+<div class="col-lg-4 col-md-6">
+    <div class="footer-section">
+        @using (Html.BeginForm("ChangeCulture", "Base", FormMethod.Get, new { @id = "culture-form", @class = "col-md-8" }))
+        {
+            @Html.DropDownList("culture", new SelectList(Model.Cultures, "CLTCODE", "CLTWORDING", Model.CurrentCulture), new { @id = "culture", @class="form-control" })
+            <input type="hidden" name="returnUrl" value="@Request.Url.AbsolutePath" />
+        }
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+
+    <link href="@Url.Content("~/Content/common-css/bootstrap.css")" rel="stylesheet">
+    @RenderSection("customStyles", false)
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    <script src="@Url.Content("~/Scripts/common-js/jquery-3.1.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/bootstrap.js")"></script>
+    @RenderSection("customScripts", false)
+</body>
+</html>

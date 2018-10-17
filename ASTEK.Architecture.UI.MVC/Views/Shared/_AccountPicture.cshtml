@@ -1,0 +1,25 @@
+﻿@using System.Configuration
+@using System.IO
+@model ASTEK.Architecture.Domain.Entity.Account.Account
+
+@{
+    string baseFileUrl = ConfigurationManager.AppSettings.Get("BaseFileUrl");
+    string imageFolder = ConfigurationManager.AppSettings.Get("ImageFolder");
+    string thumbnailFolder = ConfigurationManager.AppSettings.Get("ThumbnailFolder");
+    string accountFolder = ConfigurationManager.AppSettings.Get("AccountFolder");
+
+    string picture = !string.IsNullOrEmpty(Model.ACCPICTURE) ? Model.ACCPICTURE : "default.jpg";
+    bool showThumbnail = ViewBag.ThumbnailAccountProfile ?? false;
+}
+
+
+@{
+    if (showThumbnail)
+    {
+        <img src="@Url.Content(Path.Combine(baseFileUrl, imageFolder, thumbnailFolder, accountFolder, picture))" alt="Profile Image">
+    }
+    else
+    {
+        <img src="@Url.Content(Path.Combine(baseFileUrl, imageFolder, accountFolder, picture))" alt="Profile Image">
+    }
+}

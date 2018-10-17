@@ -1,0 +1,28 @@
+﻿
+@{
+    if(ViewBag.Exception == null)
+    {
+        ViewBag.Exception = new Exception("Echec de l'opération");
+    }
+
+    Exception exception = ViewBag.Exception;
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ErrorPage</title>
+</head>
+<body>
+    <div>
+        <h4>@exception.Message</h4>
+        <br />
+        <h5>@exception.InnerException</h5>
+        <hr />
+        <p>StackTrace: @exception.StackTrace</p>
+    </div>
+</body>
+</html>

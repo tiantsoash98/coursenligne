@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNet.Identity
+
+<div class="col-md-3 nav-element">
+    <ul class="main-menu">
+        @if (Request.IsAuthenticated)
+        {
+            if (User.IsInRole("TEACHER"))
+            {
+                <li class="add-lesson-element">
+                    @Html.ActionLink("Nouveau cours", "Add", "Lesson")
+                </li>
+            }
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" role="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @User.Identity.GetUserName()
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="@Url.Action("Index", "Dashboard")">Tableau de bord</a>
+                    <a class="dropdown-item" href="@Url.Action("Update", "Account")">Modifier profil</a>
+                    <div class="dropdown-divider"></div>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a>
+                    }
+                </div>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a href="#" data-toggle="modal" data-target="#modalRegister">S'inscrire</a>
+            </li>
+            <li>
+                @Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </li>
+        }
+    </ul>
+</div>
+
+@if (!Request.IsAuthenticated)
+{
+    @Html.Partial("_RegisterModal")
+}

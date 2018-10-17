@@ -1,0 +1,191 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonAddChapterViewModel
+
+@{
+    ViewBag.Title = "AddChapter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int countParts = Model.PartsInput != null ? Model.PartsInput.Count : 0;
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/responsive.css")" rel="stylesheet" />
+}
+<div class="slider" style="background-image: url(@Url.Content("~/Content/images/slider-1.jpg")"></div><!-- slider -->
+
+<section class="post-area">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-9 col-md-12">
+
+                <div class="main-post new-lesson">
+
+                    <div class="container-fluid">
+                        <div class="post-top-area">
+
+                            <!-- <h5 class="pre-title">FASHION</h5> -->
+
+                            <h3 class="pre-title">Ajouter un chapitre</h3>
+
+                            <hr />
+
+                            <h4 class="pre-title">Nouveau chapitre </h4>
+
+                            <hr />
+
+                        </div><!-- post-top-area -->
+                        <!-- <div class="post-image"><img src="images/blog-1-1000x600.jpg" alt="Blog Image"></div> -->
+
+                        <div class="post-content">
+
+                            @using (Html.BeginForm("AddChapter", "Lesson", FormMethod.Post))
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("Errors", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("ValidatorErrors", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ChapterInput.Title, new { @class = "col-md-12 control-label", @for = "title-chapter" })
+
+                                    <div class="col-md-12">
+                                        @Html.TextAreaFor(m => m.ChapterInput.Title, new { @class = "form-control col-md-12", @rows = "3", id = "title-chapter" })
+                                        @Html.ValidationMessageFor(m => m.ChapterInput.Title, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group small-space-top">
+                                    @Html.LabelFor(m => m.ChapterInput.Description, new { @class = "col-md-12 control-label", @for = "desc-chapter" })
+
+                                    <div class="col-md-12">
+                                        @Html.TextAreaFor(m => m.ChapterInput.Description, new { @class = "form-control col-md-12", @rows = "6", id = "desc-chapter" })
+                                        @Html.ValidationMessageFor(m => m.ChapterInput.Description, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group small-space-top">
+
+                                    <div class="col-md-12 row">
+                                        <label class="col-md-2 control-label">Durée estimée</label>
+
+                                        <input type="number" class="form-control col-md-2" name="ChapterInput.Hours" placeholder="Heure" id="hours-chapter" value="0" />
+                                        @Html.LabelFor(m => m.ChapterInput.Hours, new { @class = "col-md-2 control-label", @for = "hours-chapter" })
+
+                                        <input type="number" class="form-control col-md-2" name="ChapterInput.Minutes" placeholder="Minute" id="minutes-chapter" value="0" />
+                                        @Html.LabelFor(m => m.ChapterInput.Minutes, new { @class = "col-md-2 control-label", @for = "minutes-chapter" })
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        @Html.ValidationMessageFor(m => m.ChapterInput.Hours, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessageFor(m => m.ChapterInput.Minutes, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group small-space-top">
+                                    @Html.LabelFor(m => m.ChapterInput.Content, new { @class = "col-md-12 control-label", @for = "content-lesson" })
+
+                                    <div class="col-md-12">
+                                        @Html.TextAreaFor(m => m.ChapterInput.Content, new { @class = "form-control col-md-12", @rows = "10", id = "content-lesson" })
+                                        @Html.ValidationMessageFor(m => m.ChapterInput.Content, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                @Html.HiddenFor(m => m.LessonId)
+
+                                <div id="chapter-parts">
+                                    <div class="col-md-12">
+                                        @Html.ValidationMessage("PartErrors", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("ValidatorPartErrors", new { @class = "text-danger" })
+                                    </div>
+
+                                    @{
+                                        for (int i = 1; i <= countParts; i++)
+                                        {
+                                            var divId = "part" + i;
+
+                                            <div id="@divId" class="lesson-part">
+                                                <hr />
+                                                <h5 class="pre-title">Partie @i</h5>
+
+                                                <div class="form-group small-space-top" id="form-group-title-@i">
+                                                    @Html.LabelFor(m => Model.PartsInput[i - 1].Title, new { @class = "col-md-12 control-label", @for = "title-part-" + i })
+
+                                                    <div class="col-md-12" id="row-title-@i">
+                                                        @Html.TextAreaFor(m => m.PartsInput[i - 1].Title, new { @class = "form-control col-md-12", @rows = "3", id = "title-part-" + i })
+                                                        @Html.ValidationMessageFor(m => m.PartsInput[i - 1].Title, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group small-space-top">
+                                                    @Html.LabelFor(m => Model.PartsInput[i - 1].Content, new { @class = "col-md-12 control-label", @for = "content-part-" + i })
+
+                                                    <div class="col-md-12">
+                                                        @Html.TextAreaFor(m => m.PartsInput[i - 1].Content, new { @class = "form-control col-md-12", @rows = "10", id = "content-part-" + i })
+                                                        @Html.ValidationMessageFor(m => m.PartsInput[i - 1].Content, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        }
+                                    }
+                                </div>
+
+                                <div class="form-group text-center small-space-top">
+                                    <div class="col-md-12">
+                                        <button type="button" class="personal-btn-simple" id="add-part">Ajouter une partie</button>
+                                    </div>
+                                </div>
+
+                                <hr />
+
+                                <div class="form-group text-center small-space-top">
+                                    <button type="submit" name="type" value="next" class="personal-btn-simple">Ajouter un chapitre</button>
+                                </div>
+
+                                <hr />
+
+                                <div class="form-group text-center small-space-top">
+                                    <button type="submit" name="type" value="validate" class="personal-btn-simple">Valider le cours</button>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+
+
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+
+            <div class="col-lg-3 col-md-12">
+                <div class="main-post navigation-content">
+                    <h5 class="pre-title">Plan du cours</h5>
+                    <hr />
+                    @Html.Partial("_NavigationEditLesson", Model.Navigation)
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- post-area -->
+
+@section customScripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="@Url.Content("~/Content/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/new-lesson.js")"></script>
+    <script>
+        $(document).ready(function () {
+            var index = @countParts + 1;
+
+            loadCKEditor(index);
+
+            $("#add-part").click(function () {
+                addPart(index);
+                index++;
+            });
+        });
+    </script>
+}

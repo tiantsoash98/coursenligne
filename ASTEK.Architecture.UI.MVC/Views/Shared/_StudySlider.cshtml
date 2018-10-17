@@ -1,0 +1,39 @@
+﻿@using System.Configuration
+@model List<ASTEK.Architecture.Domain.Entity.Study.Study>
+@{ 
+    string contentFolder = ConfigurationManager.AppSettings.Get("BaseFileUrl");
+    string imageFolder = ConfigurationManager.AppSettings.Get("ImageFolder");
+    string studyFolder = ConfigurationManager.AppSettings.Get("StudyFolder");
+    int slidesPerView = ViewBag.SlidesPerView ?? 4;
+}
+
+<div class="main-slider">
+    <div class="swiper-container position-static" data-slide-effect="slide" data-autoheight="false"
+         data-swiper-speed="500" data-swiper-autoplay="10000" data-swiper-margin="0" data-swiper-slides-per-view="@slidesPerView"
+         data-swiper-breakpoints="true" data-swiper-loop="true">
+        <div class="swiper-wrapper">
+
+            @foreach (var study in Model)
+            {
+                <div class="swiper-slide" title="@study.STDNAME">
+                    <a class="slider-category" href="@Url.Action("Index", "Study", new { id = study.STDCODE })">
+                        <div class="blog-image">
+                            <img src="@Url.Content(contentFolder + imageFolder + studyFolder)@study.STDPICTURE" alt="Blog Image">
+                        </div>
+
+                        <div class="category">
+                            <div class="display-table center-text">
+                                <div class="display-table-cell">
+                                    <h4>@study.STDNAME</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div><!-- swiper-slide -->
+            }
+
+        </div><!-- swiper-wrapper -->
+
+    </div><!-- swiper-container -->
+
+</div><!-- slider -->

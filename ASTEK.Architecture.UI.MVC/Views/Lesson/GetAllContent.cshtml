@@ -1,0 +1,114 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Lesson.AllContentLessonViewModel
+@{
+    ViewBag.Title = @Model.Lesson.LSNTITLE;
+    Layout = "~/Views/Shared/_LayoutBootstrap.cshtml";
+    var teacher = Model.Lesson.Account.AccountTeachers.First();
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/common-css/export-lesson.css")" rel="stylesheet" />
+}
+
+<div class="container">
+    <div class="lesson-export-header page-breaker">
+        <div class="col-md-12 text-center" id="studyName">
+            <h6>@Model.Lesson.Study.STDNAME</h6>
+        </div>
+        <div class="col-md-12 text-center" id="lessonTitle">
+            <h2>@Model.Lesson.LSNTITLE</h2>
+        </div>
+        <div class="col-md-12 text-center" id="teacherName">
+            <h6>@StringUtilities.UserName(teacher.ACTFIRSTNAME, teacher.ACTNAME)</h6>
+        </div>
+        <div class="col-md-12 text-center" id="lessonDate">
+            <p>@Model.Lesson.LSNDATE.ToString("dd/MM/yyyy")</p>
+        </div>
+    </div>
+
+    <div class="lesson-export-navigation page-breaker">
+        <div class="col-md-12" id="navigation-header">
+            <h5>SOMMAIRE</h5>
+        </div>
+        <div class="col-md-12" id="navigation-content">
+            @foreach (var chapter in Model.Lesson.LessonChapters)
+            {
+                <div class="lesson-export-chapter col-md-12">
+                    <div class="col-md-12 lesson-export-chapter-title">
+                        <h5>@NumberUtilities.ToRoman(chapter.LSCNUMBER). @chapter.LSCTITLE</h5>
+                    </div>
+
+                    @foreach (var part in chapter.LessonParts)
+                    {
+                        <div class="col-md-12 lesson-export-part-title">
+                            <h6>@part.LSPNUMBER. @part.LSPTITLE</h6>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="lesson-export-description">
+        <div class="col-md-12" id="lessonDescription">
+            <p>@Model.Lesson.LSNDESCRIPTION</p>
+        </div>
+    </div>
+
+    <div class="lesson-export-target page-breaker">
+        <div class="col-md-12" id="target-header">
+            <h5>Objectifs du cours</h5>
+        </div>
+        <div class="col-md-12" id="lessonTarget">
+            <ul>
+                @foreach (var target in Model.Targets)
+                {
+                    <li>@target</li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="lesson-export-content">
+        @foreach (var chapter in Model.Lesson.LessonChapters)
+        {
+            <div class="chapter page-breaker">
+                <div class="col-md-12 chapter-title">
+                    <h3>Chapitre @NumberUtilities.ToRoman(chapter.LSCNUMBER) : @chapter.LSCTITLE</h3>
+                </div>
+                @if (!string.IsNullOrEmpty(chapter.LSCDESCRIPTION))
+                {
+                    <div class="col-md-12 chapter-description">
+                        <p>@chapter.LSCDESCRIPTION</p>
+                    </div>
+                }
+
+                <div class="col-md-12 chapter-content">
+                    <div>@Html.Raw(chapter.LSCCONTENT)</div>
+                </div>
+
+                @if (chapter.LessonParts.Any())
+                {
+                    <div class="parts">
+                        @foreach (var part in chapter.LessonParts)
+                        {
+                            <div class="part">
+                                <div class="col-md-12 part-title">
+                                    <h5>Partie @part.LSPNUMBER : @part.LSPTITLE</h5>
+                                </div>
+                                <div class="col-md-12 part-content">
+                                    <div>@Html.Raw(part.LSPCONTENT)</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+
+            </div>
+        }
+    </div>
+
+    <div class="lesson-export-footer"></div>
+</div>
+

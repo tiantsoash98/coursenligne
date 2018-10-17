@@ -1,0 +1,7 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Lesson.ProgressBarViewModel
+
+<div class="progress progress-striped">
+    <div class="progress-bar" role="progressbar" aria-valuenow="@Model.ProgressionValue" aria-valuemin="0" aria-valuemax="100" style="width: @Model.ProgressionValue%">
+        @Model.ProgressionValue %
+    </div>
+</div>

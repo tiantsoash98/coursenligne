@@ -1,0 +1,29 @@
+﻿@model List<ASTEK.Architecture.UI.MVC.Models.BreadCrumbViewModel>
+
+@if (Model.Any())
+{
+    <div class="personal-breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb personal-breadcrumb-list">
+                    @foreach (var bc in Model)
+                    {
+
+                        if (bc.IsCurrent)
+                        {
+                            <li class="breadcrumb-item active" aria-current="page">
+                                @bc.Title 
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="breadcrumb-item">
+                                @Html.ActionLink(bc.Title, bc.Action, bc.Controller, bc.RouteValues, new Dictionary<string, object>{ {"class", "personal-breadcrumb-item" } })
+                            </li>
+                        }
+                    }
+                </ol>
+            </nav>
+        </div>
+    </div>
+}

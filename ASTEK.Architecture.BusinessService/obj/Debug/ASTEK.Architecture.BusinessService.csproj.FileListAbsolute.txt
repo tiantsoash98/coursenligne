@@ -1,0 +1,83 @@
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll.config
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.pdb
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.pdb
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.pdb
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.dll.config
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.xml
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csprojResolveAssemblyReference.cache
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csproj.CoreCompileInputs.cache
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll.config
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.xml
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.xml
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csprojResolveAssemblyReference.cache
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll.config
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.xml
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.xml
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csprojResolveAssemblyReference.cache
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csprojResolveAssemblyReference.cache
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll.config
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.xml
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.xml
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.BusinessStrings.resources
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csproj.GenerateResource.Cache
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\Fr-fr\ASTEK.Architecture.BusinessService.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\Fr-fr\ASTEK.Architecture.Domain.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.BusinessStrings.Fr-fr.resources
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\Fr-fr\ASTEK.Architecture.BusinessService.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\FluentValidation.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\System.ValueTuple.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\FluentValidation.xml
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\System.ValueTuple.xml
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\System.ComponentModel.Primitives.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.dll.config
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.dll.config
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.dll.config
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csproj.CoreCompileInputs.cache
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csproj.CopyComplete

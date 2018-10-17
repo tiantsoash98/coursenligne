@@ -1,0 +1,57 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Dashboard.StudentsProgressionViewModel
+
+@{
+    var id = string.Concat("followers-", Model.LessonId);
+}
+
+<div class="modal fade" id="@id" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog personal-modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalPreviewLabel">Progressions pour ce cours</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body personal-modal-body">
+                <div class="container text-center">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>&Eacute;tudiant</th>
+                                <th class="table-progression">Progression</th>
+                                <th>Chapitre / Partie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var follow in Model.Followers)
+                            {
+                                <tr>
+                                    <td>@follow.Name</td>
+                                    <td>@Html.Action("GetProgressionByValue", "Lesson", new { value = follow.Progression })</td>
+                                    <td>
+                                        @{
+
+                                            if (follow.Follower.LSFCHAPTER.HasValue && follow.Follower.LSFCHAPTER.Value > 0)
+                                            {
+                                                <span>Chapitre @follow.Follower.LSFCHAPTER.Value</span>
+                                            }
+
+                                            if (follow.Follower.LSFPART.HasValue && follow.Follower.LSFPART.Value > 0)
+                                            {
+                                                <span> / Partie @follow.Follower.LSFPART.Value</span>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer flex-center">
+                @Model.Followers.Count étudiant(s)  
+            </div>
+        </div>
+    </div>
+</div>

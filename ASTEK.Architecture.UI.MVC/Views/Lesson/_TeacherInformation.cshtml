@@ -1,0 +1,25 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@using System.Configuration
+@model ASTEK.Architecture.Domain.Entity.Lesson.Lesson
+
+@{
+    var teacher = Model.Account.AccountTeachers.First();
+    var baseFileUrl = ConfigurationManager.AppSettings.Get("BaseFileUrl");
+    var imageFolder = ConfigurationManager.AppSettings.Get("ImageFolder");
+    var accountFolder = ConfigurationManager.AppSettings.Get("AccountFolder");
+}
+
+
+<div class="sidebar-area about-area">
+    <div class="text-center">
+        <div class="profile-image">
+            @Html.Partial("_AccountPicture", Model.Account)
+        </div>
+        <div class="name personal-name">
+            <h6><b>@StringUtilities.UserName(teacher.ACTFIRSTNAME, teacher.ACTNAME)</b></h6>
+        </div>
+        <div class="name personal-name">
+            <h6>Posté le @Model.LSNDATE.ToString("dd-MM-yyyy")</h6>
+        </div>
+    </div>
+</div>

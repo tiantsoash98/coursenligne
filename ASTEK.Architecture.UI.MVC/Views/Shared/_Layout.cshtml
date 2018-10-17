@@ -1,0 +1,57 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.BaseViewModel
+
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+
+    <!-- Font -->
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+    <!-- Stylesheets -->
+
+
+    <link href="@Url.Content("~/Content/common-css/bootstrap.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/common-css/swiper.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/common-css/ionicons.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/common-css/mdb.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/common-css/inherit.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/common-css/navbar.css")" rel="stylesheet">
+
+    @RenderSection("customStyles", false)
+
+    <link href="@Url.Content("~/Content/common-css/custom.css")" rel="stylesheet" />
+
+</head>
+<body>
+
+    @Html.Partial("_TopMenu", Model)
+
+
+    @RenderBody()
+
+
+    @Html.Partial("_Footer", Model)
+
+
+    <!-- SCIPTS -->
+
+    <script src="@Url.Content("~/Scripts/common-js/jquery-3.1.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/tether.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/popper.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/mdb.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/swiper.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/scripts.js")"></script>
+    <script src="@Url.Content("~/Scripts/common-js/change-culture.js")"></script>
+
+    @RenderSection("customScripts", false)
+</body>
+</html>

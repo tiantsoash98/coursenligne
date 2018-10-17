@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA0A42CE-3BDD-4EAC-A9F5-26767457A824}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASTEK.Architecture.ApplicationService</RootNamespace>
+    <AssemblyName>ASTEK.Architecture.ApplicationService</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationStrings.Fr-fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationStrings.Fr-fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AccountStudent\AccountStudentAppService.cs" />
+    <Compile Include="Entity\AccountStudent\CreateAccountStudentExternalLoginInputModel.cs" />
+    <Compile Include="Entity\AccountStudent\CreateAccountStudentExternalLoginOutputModel.cs" />
+    <Compile Include="Entity\AccountStudent\CreateAccountStudentInputModel.cs" />
+    <Compile Include="Entity\AccountStudent\CreateAccountStudentOutputModel.cs" />
+    <Compile Include="Entity\AccountStudent\UpdateAccountStudentOutputModel.cs" />
+    <Compile Include="Entity\AccountTeacher\AccountTeacherAppService.cs" />
+    <Compile Include="Entity\AccountTeacher\CreateAccountTeacherExternalLoginInputModel.cs" />
+    <Compile Include="Entity\AccountTeacher\CreateAccountTeacherExternalLoginOutputModel.cs" />
+    <Compile Include="Entity\AccountTeacher\CreateAccountTeacherInputModel.cs" />
+    <Compile Include="Entity\AccountTeacher\CreateAccountTeacherOutputModel.cs" />
+    <Compile Include="Entity\AccountTeacher\UpdateAccountTeacherInputModel.cs" />
+    <Compile Include="Entity\AccountTeacher\UpdateAccountTeacherOutputModel.cs" />
+    <Compile Include="Entity\Account\AccountAppService.cs" />
+    <Compile Include="Entity\Account\CreateAccountInputModel.cs" />
+    <Compile Include="Entity\Account\GetAccountByEmailInputModel.cs" />
+    <Compile Include="Entity\Account\GetAccountByEmailOutputModel.cs" />
+    <Compile Include="Entity\Account\GetAllInformationsAccountInputModel.cs" />
+    <Compile Include="Entity\Account\GetAllInformationsAccountOutputModel.cs" />
+    <Compile Include="Entity\Account\LoginAccountInputModel.cs" />
+    <Compile Include="Entity\Account\LoginAccountOutputModel.cs" />
+    <Compile Include="Entity\AccountStudent\UpdateAccountStudentInputModel.cs" />
+    <Compile Include="Entity\Account\UploadAccountImageInputModel.cs" />
+    <Compile Include="Entity\Account\UploadAccountImageOutputModel.cs" />
+    <Compile Include="Entity\Country\CountryAppService.cs" />
+    <Compile Include="Entity\Country\GetAllCountryInputModel.cs" />
+    <Compile Include="Entity\Country\GetAllCountryOutputModel.cs" />
+    <Compile Include="Entity\Culture\CultureAppService.cs" />
+    <Compile Include="Entity\Culture\GetAllCultureInputModel.cs" />
+    <Compile Include="Entity\Culture\GetAllCultureOutputModel.cs" />
+    <Compile Include="Entity\DocumentConfidentiality\DocumentConfidentialityAppService.cs" />
+    <Compile Include="Entity\DocumentConfidentiality\GetAllDocumentConfidentialityInputModel.cs" />
+    <Compile Include="Entity\DocumentConfidentiality\GetAllDocumentConfidentialityOutputModel.cs" />
+    <Compile Include="Entity\Exercice\CountExerciceGroupByLessonInputModel.cs" />
+    <Compile Include="Entity\Exercice\CountExerciceGroupByLessonOutputModel.cs" />
+    <Compile Include="Entity\Exercice\ExerciceAppService.cs" />
+    <Compile Include="Entity\Gender\GenderAppService.cs" />
+    <Compile Include="Entity\Gender\GetAllGenderInputModel.cs" />
+    <Compile Include="Entity\Gender\GetAllGenderOutputModel.cs" />
+    <Compile Include="Entity\LessonChapter\CountChapterGroupByLessonInputModel.cs" />
+    <Compile Include="Entity\LessonChapter\CountChapterGroupByLessonOutputModel.cs" />
+    <Compile Include="Entity\LessonChapter\CreateLessonChapterInputModel.cs" />
+    <Compile Include="Entity\LessonChapter\CreateLessonChapterOutputModel.cs" />
+    <Compile Include="Entity\LessonChapter\GetChapterByNumberInputModel.cs" />
+    <Compile Include="Entity\LessonChapter\GetChapterByNumberOutputModel.cs" />
+    <Compile Include="Entity\LessonChapter\GetChapterTitleInputModel.cs" />
+    <Compile Include="Entity\LessonChapter\GetChapterTitleOutputModel.cs" />
+    <Compile Include="Entity\LessonChapter\LessonChapterAppService.cs" />
+    <Compile Include="Entity\LessonChapter\UpdateLessonChapterInputModel.cs" />
+    <Compile Include="Entity\LessonChapter\UpdateLessonChapterOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\CountByAccountInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\CountByAccountOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\CountTotalViewsOfAccountInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\CountTotalViewsOfAccountOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\GetByLessonInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\GetByLessonOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\GetFollowedByInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\CountByLessonInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\CountByLessonOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\FinishLessonInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\FinishLessonOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\FinishPartInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\FinishPartOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\FollowLessonInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\FollowLessonOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\GetFollowedByOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\LessonFollowedAppService.cs" />
+    <Compile Include="Entity\LessonPart\CountPartGroupByChapterInputModel.cs" />
+    <Compile Include="Entity\LessonPart\CountPartGroupByChapterOutputModel.cs" />
+    <Compile Include="Entity\LessonPart\CreateAllLessonPartInputModel.cs" />
+    <Compile Include="Entity\LessonPart\CreateAllLessonPartOutputModel.cs" />
+    <Compile Include="Entity\LessonPart\CreateLessonPartOutputModel.cs" />
+    <Compile Include="Entity\LessonPart\CreateLessonPartInputModel.cs" />
+    <Compile Include="Entity\LessonPart\GetPartByNumberInputModel.cs" />
+    <Compile Include="Entity\LessonPart\GetPartByNumberOutputModel.cs" />
+    <Compile Include="Entity\LessonPart\LessonPartAppService.cs" />
+    <Compile Include="Entity\LessonPart\UpdateAllLessonPartInputModel.cs" />
+    <Compile Include="Entity\LessonPart\UpdateAllLessonPartOutputModel.cs" />
+    <Compile Include="Entity\LessonPart\UpdateLessonPartInputModel.cs" />
+    <Compile Include="Entity\Lesson\CountLessonPostedByInputModel.cs" />
+    <Compile Include="Entity\Lesson\CountLessonPostedByOutputModel.cs" />
+    <Compile Include="Entity\Lesson\CreateLessonInputModel.cs" />
+    <Compile Include="Entity\Lesson\CreateLessonOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetAllContentLessonInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetAllContentLessonOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetBestLessonByStudyInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetBestLessonByStudyOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonChapterCountInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonChapterCountOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonExerciceCountInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonExerciceCountOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonMayLikeInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonMayLikeOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonNavigationInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonNavigationOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonNextStepInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonNextStepOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonByStateInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonByStateOutputModel.cs" />
+    <Compile Include="Entity\Lesson\LessonAppService.cs" />
+    <Compile Include="Entity\Lesson\PublishLessonInputModel.cs" />
+    <Compile Include="Entity\Lesson\PublishLessonOutputModel.cs" />
+    <Compile Include="Entity\Lesson\SearchLessonInputModel.cs" />
+    <Compile Include="Entity\Lesson\SearchLessonOutputModel.cs" />
+    <Compile Include="Entity\Lesson\UpdateLessonInputModel.cs" />
+    <Compile Include="Entity\Lesson\UpdateLessonOutputModel.cs" />
+    <Compile Include="Entity\Lesson\UploadLessonImageInputModel.cs" />
+    <Compile Include="Entity\Lesson\UploadLessonImageOutputModel.cs" />
+    <Compile Include="Entity\Study\GetAllStudyInputModel.cs" />
+    <Compile Include="Entity\Study\GetAllStudyOutputModel.cs" />
+    <Compile Include="Entity\Study\GetStudyInputModel.cs" />
+    <Compile Include="Entity\Study\GetStudyOutputModel.cs" />
+    <Compile Include="Entity\Study\StudyAppService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASTEK.Architecture.BusinessService\ASTEK.Architecture.BusinessService.csproj">
+      <Project>{01201aca-e5bc-4ff1-ab9c-f6cd3fb8b9da}</Project>
+      <Name>ASTEK.Architecture.BusinessService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTEK.Architecture.Domain\ASTEK.Architecture.Domain.csproj">
+      <Project>{c7e128ff-7af9-4655-88f1-a1adf51b1075}</Project>
+      <Name>ASTEK.Architecture.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTEK.Architecture.Infrastructure\ASTEK.Architecture.Infrastructure.csproj">
+      <Project>{1ea659bf-67f0-4401-94e0-b64a4efdd7c0}</Project>
+      <Name>ASTEK.Architecture.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ApplicationStrings.Fr-fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ApplicationStrings.Fr-fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplicationStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ApplicationStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.7.4.0.6452\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.7.4.0.6452\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.CSharp.7.4.0.6452\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

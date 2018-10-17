@@ -1,0 +1,6 @@
+﻿@model List<ASTEK.Architecture.Domain.Entity.Study.Study>
+
+@foreach(var study in Model)
+{
+    @Html.ActionLink(study.STDNAME, "Index", "Study", new { id = study.STDCODE }, new { @class = "dropdown-item" })
+}

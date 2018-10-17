@@ -1,0 +1,31 @@
+﻿@model ASTEK.Architecture.ApplicationService.Entity.Lesson.GetLessonNextStepOutputModel
+
+@if (Model.Response.Exist)
+{
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            @if (Model.Response.Type.Equals("Chapter"))
+            {
+                <a href="@Url.Action("Next", "Lesson", new { type = Model.Response.Type, lessonId = Model.Response.LessonId, chapterNumber = Model.Response.NextChapterNumber, currentChapter = Model.Response.CurrentChapterNumber, currentPart = Model.Response.CurrentPartNumber })" class="personal-btn-simple next-step-btn">
+                    <b>Chapitre @Model.Response.NextChapterNumber. @Model.Response.Title <i class="ion-ios-arrow-forward"></i></b>
+                </a>
+            }
+            @if (Model.Response.Type.Equals("Part"))
+            {
+                <a href="@Url.Action("Next", "Lesson", new { type = Model.Response.Type, lessonId = Model.Response.LessonId, chapterNumber = Model.Response.NextChapterNumber, partNumber = Model.Response.NextPartNumber, currentChapter = Model.Response.CurrentChapterNumber, currentPart = Model.Response.CurrentPartNumber })" class="personal-btn-simple next-step-btn">
+                    <b>Partie @Model.Response.NextPartNumber. @Model.Response.Title <i class="ion-ios-arrow-forward"></i></b>
+                </a>
+            }
+        </div>
+    </div>
+}
+@if (!Model.Response.Exist)
+{
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <a href="@Url.Action("End", "Lesson", new { lessonId = Model.Response.LessonId })" class="personal-btn-simple next-step-btn">
+                <b>Terminer le cours </b>
+            </a>
+        </div>
+    </div>
+}

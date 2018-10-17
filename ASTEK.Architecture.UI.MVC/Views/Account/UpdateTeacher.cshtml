@@ -1,0 +1,181 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Account.UpdateAccountTeacherViewModel
+@{
+    ViewBag.Title = "UpdateProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string picture = !string.IsNullOrEmpty(Model.Input.Picture) ? Model.Input.Picture : "default.jpg";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/responsive.css")" rel="stylesheet" />
+}
+
+<section class="post-area section">
+
+    <div class="container">
+        @if (!string.IsNullOrEmpty(Model.Status) && Model.Status.Equals("success"))
+        {
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                    Informations mis à jour
+                </div>
+            </div>
+
+        }
+
+        <div class="col-md-12">
+            <h4 class="pre-title">Modifier vos informations</h4>
+        </div>
+
+        <hr />
+
+        <div class="col-md-12">
+            @*<div class="row">*@
+            @using (Html.BeginForm("UpdateTeacher", "Account", FormMethod.Post, new { @class = "form-horizontal row", role = "form", enctype = "multipart/form-data" }))
+            {
+                <div class="col-md-4">
+                    <div class="col-md-12">
+                        <div class="form-group text-center">
+
+                            <div class="profile-image space-top">
+                                <img src="@Url.Content(Path.Combine(Model.BaseFileUrl, Model.ImageFolder, Model.AccountFolder, picture))" alt="Profile Image">
+                            </div>
+
+                            <div class="col-md-12 small-space-top">
+                                <input type="file" name="image" class="form-control" />
+                                @Html.ValidationMessage("ImageError", new { @class = "text-danger" })
+                                @Html.ValidationMessage("ImageValidatorErrors", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr />
+
+                    <div class="col-md-12">
+                        @if (Model.HasPassword)
+                        {
+                            @Html.ActionLink("Modifier mon mot de passe", "ChangePassword", "Manage")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Modifier mon mot de passe", "SetPassword", "Manage")
+                        }
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.ValidationMessage("Error", new { @class = "text-danger" })
+                            @Html.ValidationMessage("ValidatorErrors", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    @Html.HiddenFor(m => m.Input.AccountId)
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Input.Name, new { @class = "col-md-12 control-label" })
+
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Input.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Input.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Input.FirstName, new { @class = "col-md-12 control-label" })
+
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Input.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Input.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Input.BirthDay, new { @class = "col-md-12 control-label" })
+
+                            <div class="col-md-12">
+                                <input type="date" name="Input.BirthDay" value="@Model.Input.BirthDay.ToString("yyyy-MM-dd")" class="form-control" />
+                                @Html.ValidationMessageFor(m => m.Input.BirthDay, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Input.Gender, new { @class = "col-md-12 control-label" })
+
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(m => m.Input.Gender, new SelectList(Model.GenderOutput.Response.Genders, "GENCODE", "GENWORDING"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Input.Gender, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Input.Country, new { @class = "col-md-12 control-label" })
+
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(m => m.Input.Country, new SelectList(Model.CountryOutput.Response.Countries, "CTRCODE", "CTRNAME"), new { @class = "form-control " })
+                                @Html.ValidationMessageFor(m => m.Input.Country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(m => m.Input.PhoneNumber, new { @class = "col-md-12 control-label" })
+
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(m => m.Input.PhoneNumber, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Input.PhoneNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Input.Town, new { @class = "col-md-12 control-label" })
+
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Input.Town, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Input.Town, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Input.Address, new { @class = "col-md-12 control-label" })
+
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Input.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Input.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Input.PostalCode, new { @class = "col-md-12 control-label" })
+
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Input.PostalCode, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Input.PostalCode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group space-top">
+                        <div class="col-md-12 text-right">
+                            @Html.ActionLink("Ignorer les modifications", "Index", "Dashboard", new { style = "margin-right: 20px;" })
+                            <button type="submit" class="personal-btn-simple col-md-4">Valider les modifications</button>
+                        </div>
+                    </div>
+
+                </div>
+            }
+            @*</div>*@
+        </div>
+    </div>
+
+
+</section><!-- post-area -->

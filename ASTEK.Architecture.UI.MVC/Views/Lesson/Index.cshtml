@@ -1,0 +1,112 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonIndexViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var teacher = Model.Lesson.Account.AccountTeachers.First();
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/responsive.css")" rel="stylesheet" />
+}
+
+<div class="slider personal-slider-lesson" style="background-image: url(@Url.Content(Model.BaseFileUrl + "images/")@Model.Lesson.LSNPICTURE)">
+    <!-- <div class="display-table  center-text"> -->
+    <!-- <h1 class="title display-table-cell"><b>DESIGN</b></h1> -->
+    <!-- </div> -->
+</div>
+
+@Html.Partial("_BreadCrumb", Model.BreadCrumbs)
+
+<section class="post-area section">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-9 col-md-12 no-right-padding">
+
+                <div class="main-post lesson-content">
+
+                    <div class="blog-post-inner">
+
+                        <h3><b>@Model.Lesson.LSNTITLE</b></h3>
+
+                        <h6 class="lesson-study">@Html.Action("StudyName", "Study", new { code = Model.Lesson.STDCODE })</h6>
+
+                        <p class="para">@Model.Lesson.LSNDESCRIPTION</p>
+
+                        <h6 class="lesson-target"><b>Objectifs:</b></h6>
+
+                        <ul class="lesson-target-list">
+                            @foreach (var target in Model.Targets)
+                            {
+                                <li><i class="ion-android-checkbox-outline"></i>&nbsp; @target </li>
+                            }
+                        </ul>
+
+                    </div><!-- blog-post-inner -->
+
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+
+            <div class="col-lg-3 col-md-12 no-left-padding">
+
+                <div class="single-post info-area personal-info-area">
+
+                    @Html.Partial("_TeacherInformation", Model.Lesson)
+
+                    <div class="sidebar-area">
+
+                        @if (Model.Lesson.LSNDURATION.HasValue)
+                        {
+                            <div class="lesson-info">
+                                <i class="ion-clock"></i>
+                                <p class="lesson-info-value">@TimeSpanUtilities.Display(Model.Lesson.LSNDURATION)</p>
+                            </div>
+                        }
+
+                        <div class="lesson-info">
+                            <i class="ion-ios-albums-outline"></i>
+                            <p class="lesson-info-value">@Model.ChapterCount chap.</p>
+                        </div>
+
+                        @if (Model.ExerciceCount > 0)
+                        {
+                            <div class="lesson-info">
+                                <i class="ion-ios-book-outline"></i>
+                                <p class="lesson-info-value">@Model.ExerciceCount exo.</p>
+                            </div>
+                        }
+
+                    </div>
+
+                    <div class="sidebar-area">
+    
+                        <div class="lesson-info">
+                            <i class="ion-person"></i>
+                            <p class="lesson-info-value">@Model.FollowCount vues</p>
+                        </div>
+
+                    </div>
+
+                    @Html.Partial("_TagArea")
+                </div><!-- info-area -->
+
+            </div><!-- col-lg-4 col-md-12 -->
+
+        </div><!-- row -->
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4  text-center">
+                <a href="@Url.Action("StartLesson", "Lesson", new { lessonId = Model.Lesson.Id })" class="personal-btn-simple col-md-12">
+                    Commencer le cours
+                </a>
+            </div><!-- col-sm-12 -->
+        </div>
+    </div>
+
+
+</section><!-- post-area -->

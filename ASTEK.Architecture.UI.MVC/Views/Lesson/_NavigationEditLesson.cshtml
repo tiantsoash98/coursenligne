@@ -1,0 +1,59 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.Infrastructure.Navigation.LessonNavigation
+
+@{
+    var textLimitLength = 50;
+}
+
+@{
+    if (ViewBag.NavigationSource != null && ViewBag.NavigationSource.Equals("update"))
+    {
+        <div id="navigation-edit">
+            @foreach (var chapter in Model.Chapters)
+            {
+                string chapterTitle = string.Concat(NumberUtilities.ToRoman(chapter.Number), ". ", StringUtilities.LimitTextLength(chapter.Title, textLimitLength));
+
+                <div class="col-md-12">
+                    <div class="col-md-12 navigation-chapter-title">
+                        <h6>
+                            @Html.ActionLink(chapterTitle, "UpdateChapter", "Lesson", new { lessonId = Model.LessonId, chapterNumber = chapter.Number }, null)
+                        </h6>
+                    </div>
+
+                    @foreach (var part in chapter.Parts)
+                    {
+                        string partTitle = string.Concat(part.Number, ". ", StringUtilities.LimitTextLength(part.Title, textLimitLength));
+
+                        <div class="col-md-12 navigation-part-title">
+                            <p>
+                                @partTitle
+                            </p>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+    }
+    else
+    {
+        <div id="navigation-edit">
+            @foreach (var chapter in Model.Chapters)
+            {
+                <div class="col-md-12">
+                    <div class="col-md-12 navigation-chapter-title">
+                        <h6>@NumberUtilities.ToRoman(chapter.Number). @StringUtilities.LimitTextLength(chapter.Title, textLimitLength)</h6>
+                    </div>
+
+                    @foreach (var part in chapter.Parts)
+                    {
+                        <div class="col-md-12 navigation-part-title">
+                            <p>@part.Number. @StringUtilities.LimitTextLength(part.Title, textLimitLength)</p>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+    }
+}

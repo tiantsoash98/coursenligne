@@ -1,0 +1,75 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonSearchViewModel
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/front-page-category/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/front-page-category/css/responsive.css")" rel="stylesheet" />
+}
+
+<section class="blog-area section list-result">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-left">
+                @if (Model.Lessons.Count > 0)
+                {
+                    <h3>Résultats pour "@Model.Query"</h3>
+                }
+
+                @if (Model.Lessons.Count == 0)
+                {
+                    <h3>Aucun résultat trouvé pour "@Model.Query"</h3>
+                }
+            </div>
+
+            <hr />
+
+            @foreach (var lesson in Model.Lessons)
+            {
+                <div class="col-lg-2 col-md-3">
+                    @Html.Partial("_LessonCard", lesson)
+                </div><!-- col-lg-4 col-md-6 -->
+            }
+
+        </div><!-- row -->
+
+        @if (Model.Lessons.Count > 0)
+        {
+            <div class="col-md-12">
+                <div class="small-space-top">
+                    @using (Html.BeginForm("Search", "Lesson", FormMethod.Get, new { @class = "pagination-form" }))
+                    {
+                        @Html.HiddenFor(m => m.Query)
+
+                        <div class="form-group row">
+                            <label for="page" class="control-label">Page</label>
+
+                            <ul class="personal-pagination-list">
+                                @for (var i = 1; i <= Model.TotalPages; i++)
+                                {
+                                    <li>
+                                        @if (i == Model.Page)
+                                        {
+                                            <input type="submit" name="page" value="@i" class="personal-pagination-item current-page" />
+                                        }
+                                        @if (i != Model.Page)
+                                        {
+                                            <input type="submit" name="page" value="@i" class="personal-pagination-item" />
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+
+    </div><!-- container -->
+</section><!-- section -->

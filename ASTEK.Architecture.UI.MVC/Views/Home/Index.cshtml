@@ -1,0 +1,50 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Home.HomeViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/front-page-category/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/front-page-category/css/responsive.css")" rel="stylesheet" />
+}
+
+<div class="personal-slider home-slider" style="background-image: url(@Url.Content(Model.BaseFileUrl + Model.ImageFolder + "personal-slider-2.jpg"))">
+    <div class="display-table  center-text">
+        <div class="title display-table-cell">
+            <h2 class="hero-element-title">Ulla  uno nova cesserunt est indigestaque</h2>
+            <h6 class="hero-element-subtitle">HHow Did Van Gogh's Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h6>
+            <a class="hero-btn" data-toggle="modal" data-target="#modalRegister"><h6><b>@UIStrings.Home_BecomeMember</b></h6></a>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_StudySlider", Model.Studies.Response.Studies)
+
+
+
+<section class="blog-area section">
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Partial("_ErrorAlert")
+
+            <div class="col-md-12 text-left">
+                <h3>Cours que vous pourriez aimer</h3>
+            </div>
+
+            @foreach (var lesson in Model.MayLike)
+            {
+                <div class="col-lg-2 col-md-3">
+                    @Html.Partial("_LessonCard", lesson)
+                </div>
+            }
+
+        </div><!-- row -->
+
+        <div class="small-space-top">
+            <a class="col-md-2 personal-btn-simple" href="#"><b>Explorer</b></a>
+        </div>
+
+    </div><!-- container -->
+</section><!-- section -->

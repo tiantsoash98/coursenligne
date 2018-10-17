@@ -1,0 +1,100 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonAddViewModel
+@{
+    ViewBag.Title = "RegisterStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/responsive.css")" rel="stylesheet" />
+}
+<div class="slider" style="background-image: url(@Url.Content(Model.BaseFileUrl + Model.ImageFolder + "slider-1.jpg"))"></div><!-- slider -->
+
+<section class="post-area">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-1 col-md-0"></div>
+            <div class="col-lg-10 col-md-12">
+
+                <div class="main-post">
+
+                    <div class="container">
+                        <div class="post-top-area">
+
+                            <h3 class="pre-title">Publier un cours</h3>
+
+                            <hr />
+
+                        </div><!-- post-top-area -->
+
+                        <div class="post-content new-lesson">
+                            @using (Html.BeginForm("Add", "Lesson", FormMethod.Post))
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("ValidatorErrors", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.Title, new { @class = "col-md-12 control-label" })
+
+                                    <div class="col-md-12">
+                                        @Html.TextAreaFor(m => m.Input.Title, new { @class = "form-control col-md-12", rows = "3", id = "title-lesson" })
+                                        @Html.ValidationMessageFor(m => m.Input.Title, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.Study, new { @class = "col-md-12 control-label", @for = "study-lesson" })
+
+                                    <div class="col-md-12">
+                                        @Html.DropDownListFor(m => m.Input.Study, new SelectList(Model.Studies.Response.Studies, "STDCODE", "STDNAME"), new { @class = "form-control", id = "study-lesson" })
+                                        @Html.ValidationMessageFor(m => m.Input.Study, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group space-top">
+                                    @Html.LabelFor(m => m.Input.Description, new { @class = "col-md-12 control-label", @for = "desc-lesson" })
+
+                                    <div class="col-md-12">
+                                        @Html.TextAreaFor(m => m.Input.Description, new { @class = "form-control col-md-12", rows = "10", id = "desc-lesson" })
+                                        @Html.ValidationMessageFor(m => m.Input.Description, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group space-top">
+                                    @Html.LabelFor(m => m.Input.Targets, new { @class = "col-md-12 control-label", @for = "target-lesson" })
+                                    <p class="col-md-12"> &Eacute;numérer chaque objectif par un tiret en allant à la ligne à chaque fois</p>
+
+                                    <div class="col-md-12">
+                                        @Html.TextAreaFor(m => m.Input.Targets, new { @class = "form-control col-md-12", rows = "6", id = "target-lesson" })
+                                        @Html.ValidationMessageFor(m => m.Input.Targets, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.HiddenFor(m => m.Input.Confidentiality)
+                                </div>
+
+                                <div class="form-group text-right space-top">
+                                    <button type="submit" class="personal-btn-simple">Suivant: chapitres et parties</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+
+
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+        </div><!-- row -->
+    </div><!-- container -->
+</section><!-- post-area -->
+
+@section customScripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

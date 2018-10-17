@@ -1,0 +1,194 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Dashboard.DashboardTeacherViewModel
+@{
+    ViewBag.Title = "Teacher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/responsive.css")" rel="stylesheet" />
+}
+
+
+<section class="post-area section">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="pre-title">Tableau de bord</h2>
+            </div>
+
+            <div class="col-md-12 small-space-top">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="stat-bloc text-right">
+                            <h5>@NumberUtilities.Format(Model.PostedCount, 2) cours publiés</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <div class="stat-bloc text-right">
+                            <h5>@NumberUtilities.Format(Model.TotalViewCount, 2) vues au total</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+
+            <div class="col-md-12 no-right-padding space-top">
+                <div id="posted">
+                    <div class="table-header">
+                        <h4 class="pre-title">Retour sur les cours que vous avez publiés</h4>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Posté le</th>
+                                <th>Vues total</th>
+                                <th>Vues cette semaine</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var lesson in Model.PostedOutput.Response.Lessons)
+                            {
+                                var modalTarget = string.Concat("followers-", lesson.Id);
+                                var modalEditTarget = string.Concat("edit-", lesson.Id);
+
+                                <tr>
+                                    <td>
+                                        <a data-toggle="modal" data-target="#@modalTarget">@lesson.LSNTITLE</a>
+                                    </td>
+                                    <td>@lesson.LSNDATE</td>
+                                    <td>@Html.Action("CountFollow", "Lesson", new { lessonId = lesson.Id })</td>
+                                    <td>@Html.Action("CountFollow", "Lesson", new { lessonId = lesson.Id, fromDate = Model.FromDate, toDate = Model.ToDate })</td>
+                                    <td>
+                                        <a data-toggle="modal" data-target="#@modalEditTarget">&Eacute;diter</a>
+                                    </td>
+                                    <td>@Html.ActionLink("Voir en aperçu", "Index", "Lesson", new { lessonId = lesson.Id }, null)</td>
+                                    <td>@Html.ActionLink("Voir en entier", "GetAllContent", "Lesson", new { lessonId = lesson.Id }, null)</td>
+                                    <td>@Html.ActionLink("Exporter en PDF", "ExportPDF", "Lesson", new { lessonId = lesson.Id }, null)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @if (Model.PostedOutput.Response.Lessons.Count > 0)
+                    {
+                        <div class="col-md-12">
+                            <div class="small-space-top">
+
+                                @using (Html.BeginForm("Teacher", "Dashboard", FormMethod.Get, new { @class = "pagination-form" }))
+                                {
+                                    <div class="form-group row">
+                                        <label for="page" class="control-label">Page</label>
+
+                                        <ul class="personal-pagination-list">
+                                            @for (var i = 1; i <= Model.PostedOutput.Response.TotalPages; i++)
+                                            {
+                                                <li>
+                                                    @if (i == Model.PostedOutput.Response.Page)
+                                                    {
+                                                        <input type="submit" name="page" value="@i" class="personal-pagination-item current-page" />
+                                                    }
+                                                    @if (i != Model.PostedOutput.Response.Page)
+                                                    {
+                                                        <input type="submit" name="page" value="@i" class="personal-pagination-item" />
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <div id="unpublished" class="space-top">
+                    <div class="table-header">
+                        <h4 class="pre-title">Vos cours en rédaction / non-publiés</h4>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Filière</th>
+                                <th>Rédigé le</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var lesson in Model.UnpublishedOutput.Response.Lessons)
+                            {
+                                var modalEditTarget = string.Concat("edit-", lesson.Id);
+
+                                <tr>
+                                    <td>@Html.ActionLink(lesson.LSNTITLE, "Index", "Lesson", new { lessonId = lesson.Id }, null)</td>
+                                    <td>@lesson.Study.STDNAME</td>
+                                    <td>@lesson.LSNDATE</td>
+                                    <td>
+                                        <a data-toggle="modal" data-target="#@modalEditTarget">&Eacute;diter</a>
+                                    </td>
+                                    <td>@Html.ActionLink("Voir en entier", "GetAllContent", "Lesson", new { lessonId = lesson.Id }, null)</td>
+                                    <td>@Html.ActionLink("Exporter en PDF", "ExportPDF", "Lesson", new { lessonId = lesson.Id }, null)</td>
+                                    <td>@Html.ActionLink("Publier", "Publish", "Dashboard", new { lessonId = lesson.Id }, new { @class = "personal-btn-simple table-btn" })</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @if (Model.UnpublishedOutput.Response.Lessons.Count > 0)
+                    {
+                        <div class="col-md-12">
+                            <div class="small-space-top">
+
+                                @using (Html.BeginForm("Teacher", "Dashboard", FormMethod.Get, new { @class = "pagination-form" }))
+                                {
+                                    <div class="form-group row">
+                                        <label for="page" class="control-label">Page</label>
+
+                                        <ul class="personal-pagination-list">
+                                            @for (var i = 1; i <= Model.UnpublishedOutput.Response.TotalPages; i++)
+                                            {
+                                                <li>
+                                                    @if (i == Model.UnpublishedOutput.Response.Page)
+                                                    {
+                                                        <input type="submit" name="unpublishedPage" value="@i" class="personal-pagination-item current-page" />
+                                                    }
+                                                    @if (i != Model.UnpublishedOutput.Response.Page)
+                                                    {
+                                                        <input type="submit" name="unpublishedPage" value="@i" class="personal-pagination-item" />
+                                                    }
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div><!-- row -->
+        </div>
+</section><!-- post-area -->
+
+<div id="modals">
+    @foreach (var lesson in Model.PostedOutput.Response.Lessons)
+    {
+        @Html.Action("StudentsProgression", "Dashboard", new { lessonId = lesson.Id })
+        @Html.Action("EditLessonModal", "Lesson", new { lessonId = lesson.Id, type = "posted" })
+    }
+
+    @foreach (var lesson in Model.UnpublishedOutput.Response.Lessons)
+    {
+        @Html.Action("EditLessonModal", "Lesson", new { lessonId = lesson.Id, type = "unpublished", hasImage = !string.IsNullOrEmpty(lesson.LSNPICTURE) })
+    }
+</div>

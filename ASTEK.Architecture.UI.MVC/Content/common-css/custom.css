@@ -1,0 +1,350 @@
+﻿body.modal-open {
+    overflow: unset !important;
+}
+
+.modal-open {
+    overflow: unset !important;
+}
+
+
+.personal-modal-dialog {
+    overflow-y: initial !important;
+}
+
+.personal-modal-body {
+    height: 400px;
+    overflow-y: auto;
+}
+
+/* ---------------------------------
+4. SLIDER
+--------------------------------- */
+
+.personal-slider {
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    margin: 0;
+}
+
+    .personal-slider .title {
+        color: #fff;
+        text-shadow: 2px 2px 10px rgba(0,0,0,.3);
+    }
+
+.personal-breadcrumb-list {
+    background-color: inherit;
+    margin-bottom: 0px;
+}
+
+.post-style-1 .blog-info {
+    padding: 0 10px 10px 30px;
+}
+
+.start-btn {
+    background: #fff;
+}
+
+.hero-element-title {
+    margin-bottom: 15px;
+}
+
+.hero-element-subtitle {
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    padding: 15px 40px;
+    margin: 25px 0 30px;
+    border-radius: 25px;
+    transition: all .3s;
+    box-shadow: 0px 0px 1px rgba(0,0,0,.2);
+    background: #5ab4e8;
+    font-size: 110%;
+}
+
+    .hero-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 5px 10px 20px rgba(0,0,0,.3);
+        background: #38a6e4;
+        color: #fff;
+    }
+
+.personal-blog-image {
+    max-height: 125px;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+.lesson-card .post-footer ul {
+    height: 40px;
+    margin-top: 5px;
+    font-size: 0.5em;
+}
+
+.personal-avatar {
+    margin: 0px auto;
+    /*margin-left: 20px;*/
+    margin-top: -30px;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    z-index: 10;
+    border-radius: 100px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.2);
+}
+
+.lesson-card-content {
+    text-align: left;
+    padding: 20px 5px 5px 15px;
+}
+
+.lesson-card-content .post-footer{
+    color: gray;
+}
+
+.lesson-title a {
+    font-weight: 500;
+}
+
+.lesson-date {
+    color: gray;
+    margin-top: -25px;
+    font-size: 0.8em;
+    padding-right: 10px;
+}
+
+.study-name {
+    font-size: 0.8em;
+    padding-bottom: 5px;
+    color: gray;
+}
+
+.teacher-name {
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.lesson-target {
+    margin-bottom: 20px;
+}
+
+.lesson-target-list li {
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.profile-image {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    z-index: 10;
+    border-radius: 100px;
+    position: relative;
+    border: 5px solid #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.2);
+}
+
+.personal-name {
+    margin-top: 10px;
+}
+
+.lesson-info {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin: 0 5px;
+    padding: 5px;
+    border: 1px solid #eee;
+    background: #F5F6F8;
+    border-radius: 50px;
+    text-align: center;
+}
+
+    .lesson-info i {
+        color: gray;
+        font-size: 160%;
+    }
+
+    .lesson-info .lesson-info-value {
+        margin-top: -5px;
+    }
+
+.personal-slider-lesson {
+    height: 300px;
+    background-position-y: center;
+}
+
+.personal-btn {
+    all: inherit;
+    padding: 15px 40px;
+    margin: 10px 0 30px;
+    transition: all .2s;
+    box-shadow: 0px 0px 1px rgba(0,0,0,.4);
+    background: #C3D8F5;
+}
+
+    .personal-btn:hover {
+        box-shadow: 2px 3px 10px rgba(0,0,0,.3);
+    }
+
+.personal-btn-simple {
+    border: 0;
+    outline: 0;
+    padding: 10px 25px;
+    cursor: pointer;
+    border: 1px solid #D2E2FC;
+    background: #6299f4;
+    border-radius: 4px;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+    .personal-btn-simple:hover {
+        background: none;
+        color: #357cf1;
+        border: 1px solid #357cf1;
+    }
+
+
+
+.lesson-content {
+    padding-bottom: 100px;
+}
+
+
+.no-right-border {
+    border-right: 0px;
+}
+
+.next-step-btn i {
+    padding-left: 15px;
+}
+
+#navigateButton {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+
+    #navigateButton i {
+        font-size: 35px;
+        margin-left: -13px;
+    }
+
+.chapter-title {
+    font-size: 95%;
+}
+
+.part-list {
+    margin-top: 5px;
+    padding: 0px 10px 5px 20px;
+}
+
+    .part-list li {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+
+/* ---------------------------------
+4. NEW LESSON
+--------------------------------- */
+
+.post-content {
+    margin-top: 50px;
+}
+
+.space-top {
+    margin-top: 75px;
+}
+
+.small-space-top {
+    margin-top: 25px;
+}
+
+.lesson-part {
+    margin-top: 50px;
+}
+
+.list-result{
+    min-height: 450px;
+}
+
+.pagination-form {
+    float: right;
+    padding-right: 20px;
+}
+
+.personal-pagination-list li:first-child {
+    margin-left: 5px;
+}
+
+.personal-pagination-list .current-page {
+    background: #96bbf8;
+}
+
+.personal-pagination-item {
+    border: 0;
+    outline: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    border: 1px solid #D2E2FC;
+    background: #6299f4;
+    border-radius: 4px;
+    color: #fff;
+    transition: background 0.2s;
+}
+
+    .personal-pagination-item:hover {
+        background: none;
+        color: #357cf1;
+        border: 1px solid #357cf1;
+    }
+
+.stat-bloc {
+    height: 50px;
+    border: 1px solid gray;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.table-btn {
+    position: relative;
+    top: -5px;
+    height: 40px;
+}
+
+.navigation-content{
+    padding: 20px 25px 50px 25px;
+    min-height: 400px;
+}
+
+    .navigation-content .navigation-part-title{
+        padding-left: 10px;
+    }
+
+
+
+#navigation-edit div{
+    padding: 0px;
+}
+
+#navigation-edit .navigation-chapter-title{
+    padding-top: 20px;
+}
+
+
+#navigation-edit .navigation-part-title{
+    padding-left: 15px;
+}
+
+    #navigation-edit .navigation-part-title p {
+        color: gray;
+    }

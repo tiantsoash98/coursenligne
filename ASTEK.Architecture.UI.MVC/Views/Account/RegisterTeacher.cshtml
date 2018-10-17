@@ -1,0 +1,220 @@
+﻿@using ASTEK.Architecture.UI.MVC.Models
+@model RegisterTeacherViewModel
+@{
+    ViewBag.Title = "Inscription enseignant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/responsive.css")" rel="stylesheet" />
+}
+<div class="slider" style="background-image: url(@Url.Content(Model.BaseFileUrl + Model.ImageFolder + "slider-1.jpg")">
+
+</div><!-- slider -->
+
+<section class="post-area">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-1 col-md-0"></div>
+            <div class="col-lg-10 col-md-12">
+
+                <div class="main-post">
+
+                    <div class="post-top-area">
+
+                        <h3 class="pre-title">Créer un compte enseignant</h3>
+
+                        <hr />
+
+                    </div><!-- post-top-area -->
+
+                    <div class="post-content new-account">
+                        @using (Html.BeginForm("RegisterTeacher", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.ValidationMessage("ValidatorErrors", new { @class = "text-danger" })
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div id="personal" class="info-section">
+                                <div class="form-group title">
+                                    <div class="col-md-12">
+                                        <h5>Vos informations personnelles</h5>
+                                        <hr />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.Name, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Input.Name, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.FirstName, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Input.FirstName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.FirstName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(m => m.Input.BirthDay, new { @class = "col-md-12 control-label" })
+
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(m => m.Input.BirthDay, new { @class = "form-control", @type = "date" })
+                                            @Html.ValidationMessageFor(m => m.Input.BirthDay, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(m => m.Input.Gender, new { @class = "col-md-12 control-label" })
+
+                                        <div class="col-md-12">
+                                            @Html.DropDownListFor(m => m.Input.Gender, new SelectList(Model.GenderOutput.Response.Genders, "GENCODE", "GENWORDING"), new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Input.Gender, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div id="contact" class="info-section">
+                                <div class="form-group title">
+                                    <div class="col-md-12">
+                                        <h5>Vos coordonées</h5>
+                                        <hr />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.Country, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.DropDownListFor(m => m.Input.Country, new SelectList(Model.CountryOutput.Response.Countries, "CTRCODE", "CTRNAME"), new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.Country, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.Town, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Input.Town, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.Town, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.Address, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Input.Address, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.Address, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.PostalCode, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Input.PostalCode, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.PostalCode, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.PhoneNumber, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Input.PhoneNumber, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.PhoneNumber, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="login-info" class="info-section">
+                                <div class="form-group title">
+                                    <div class="col-md-12">
+                                        <h5>Vos informations de connexion</h5>
+                                        <hr />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.Email, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Input.Email, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.Password, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.PasswordFor(m => m.Input.Password, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Input.ConfirmPassword, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.PasswordFor(m => m.Input.ConfirmPassword, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Input.ConfirmPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<div id="specialities" class="info-section">
+                                    <div class="form-group title">
+                                        <div class="col-md-12">
+                                            <h5>Vos spécialisations</h5>
+                                            <hr />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-12">
+                                            @foreach (var study in Model.StudyOutput.Response.Studies)
+                                            {
+                                                @Html.CheckBox(study.STDCODE.ToString(), new { @class = "form-control" })
+                                                @Html.Label(study.STDCODE.ToString(), study.STDNAME, new { @class = "form-control" })
+                                            }
+                                            @Html.ValidationMessageFor(m => m.StudyOutput.Response.Studies, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div> *@
+
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <p>En appuyant sur Inscription, vous acceptez nos Conditions générales, notre Politique d’utilisation des données et notre Politique d’utilisation des cookies. </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-primary col-md-12">S'inscrire</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div><!-- post-content -->
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+        </div><!-- row -->
+    </div>
+</section>
+
+@section customScripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

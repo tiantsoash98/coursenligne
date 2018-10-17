@@ -1,0 +1,34 @@
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csprojResolveAssemblyReference.cache
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csproj.CoreCompileInputs.cache
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.dll
+c:\users\hp\source\repos\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csprojResolveAssemblyReference.cache
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Project\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\Local\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csprojResolveAssemblyReference.cache
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\ASTEK.Architecture.Infrastructure.dll.config
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\FluentValidation.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\System.ComponentModel.Primitives.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\System.ValueTuple.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\FluentValidation.xml
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\System.ValueTuple.xml
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.InfrastructureStrings.resources
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csproj.GenerateResource.Cache
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.InfrastructureStrings.Fr-fr.resources
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csproj.CoreCompileInputs.cache
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csproj.CopyComplete
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csprojResolveAssemblyReference.cache

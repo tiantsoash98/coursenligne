@@ -1,0 +1,12 @@
+﻿@model long
+
+@{
+    if (ViewBag.FormatNumber != null && ViewBag.FormatNumber == true)
+    {
+        @ASTEK.Architecture.Infrastructure.Utility.NumberUtilities.Format(Model, 2)
+    }
+    else
+    {
+        @Model
+    }
+}

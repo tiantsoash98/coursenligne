@@ -1,0 +1,49 @@
+﻿@using System.Configuration;
+@model ASTEK.Architecture.UI.MVC.Models.BaseViewModel
+
+@{
+    ViewBag.Title = "Confirm Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-2/css/responsive.css")" rel="stylesheet" />
+}
+
+<div class="slider" style="background-image: url(@Url.Content(ConfigurationManager.AppSettings.Get("BaseFileUrl") + ConfigurationManager.AppSettings.Get("ImageFolder") + "slider-1.jpg")">
+
+</div><!-- slider -->
+
+<section class="post-area">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-1 col-md-0"></div>
+            <div class="col-lg-10 col-md-12">
+
+                <div class="main-post" style="min-height: 300px;">
+
+                    <div class="post-top-area">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="pre-title">@ViewBag.Title</h5>
+                                <hr />
+                                <p>Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</p>
+                            </div>
+                        </div><!-- row -->
+
+                    </div><!-- post-top-area -->
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+        </div><!-- row -->
+    </div>
+</section>
+
+
+@section customScripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

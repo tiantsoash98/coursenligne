@@ -1,0 +1,76 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonNavigationViewModel
+
+<button id="navigateButton" type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#modalNavigation">
+    <i class="ion-ios-list-outline"></i>
+</button> 
+
+<!-- Modal: modalNavigation -->
+<div class="modal fade right" id="modalNavigation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-full-height modal-right" role="document">
+
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading lead">Navigation</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+
+                @foreach (var chapter in Model.Navigation.Chapters)
+                {
+                    var collapseId = "collapse" + chapter.Number;
+
+                    <div class="chapter-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="chapter-title">
+                                    <a data-toggle="collapse" href="#@collapseId"><b>@chapter.Number. @chapter.Title</b></a>
+                                </h4>
+                            </div>
+                            <div id="@collapseId" class="panel-collapse collapse">
+
+                                <ul class="part-list">
+                                    @{ 
+                                        var partsCount = chapter.Parts.Count;
+                                        var i = 0;
+                                    }
+                                    @foreach (var part in chapter.Parts)
+                                    {
+                                        var title = part.Number + ". " + part.Title;
+
+                                        <li>
+                                            @Html.ActionLink(title, "Part", new { lessonId = Model.LessonId, chapterNumber = chapter.Number, partNumber = part.Number })
+
+                                            @{
+                                                if ((i + 1) < partsCount)
+                                                {
+                                                    <hr />
+                                                }
+
+                                                i++;
+                                            }                                       
+                                        </li>
+                                    }
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                }                  
+
+            </div> <!-- Modal-body -->
+            <!--Footer-->
+            @*<div class="modal-footer justify-content-center">
+                <a href="#" class="btn btn-primary">Voir l'exercice</a>
+            </div>*@
+        </div>
+    </div>
+</div>
+<!-- Modal: modalNavigation -->
