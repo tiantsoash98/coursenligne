@@ -1,12 +1,10 @@
-﻿using System;
+﻿using ASTEK.Architecture.Domain.Entity.LessonFollowed;
+using ASTEK.Architecture.Infrastructure.Exception;
+using ASTEK.Architecture.Infrastructure.UnitOfWork;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
-using ASTEK.Architecture.Domain.Entity.Lesson;
-using ASTEK.Architecture.Domain.Entity.LessonFollowed;
-using ASTEK.Architecture.Infrastructure.Exception;
-using ASTEK.Architecture.Infrastructure.UnitOfWork;
 
 namespace ASTEK.Architecture.Repository.Concrete
 {
@@ -59,7 +57,7 @@ namespace ASTEK.Architecture.Repository.Concrete
                 if (partNumber.HasValue)
                 {
                     exist.LSFPART = partNumber.Value;
-                }       
+                }
 
                 Context.SaveChanges();
             }
@@ -69,7 +67,7 @@ namespace ASTEK.Architecture.Repository.Concrete
         {
             var follow = Context.LessonFolloweds.FirstOrDefault(f => f.ACCID.Equals(accountId) && f.LSNID.Equals(lessonId));
 
-            if(follow == null)
+            if (follow == null)
             {
                 Follow(accountId, lessonId, chapterNumber, partNumber);
             }
@@ -84,7 +82,7 @@ namespace ASTEK.Architecture.Repository.Concrete
 
         public void Follow(Guid accountId, Guid lessonId)
         {
-            Follow(accountId, lessonId, 1, null); 
+            Follow(accountId, lessonId, 1, null);
         }
 
         public void Follow(Guid accountId, Guid lessonId, short chapterNumber, short? partNumber)
@@ -138,8 +136,23 @@ namespace ASTEK.Architecture.Repository.Concrete
         {
             Context.LessonFolloweds.Include(f => f.Account.AccountStudents).ToList();
             Context.LessonFolloweds.Include(f => f.Account.AccountTeachers).ToList();
-           
+
             return Context.LessonFolloweds.Where(l => l.LSNID.Equals(lessonId)).ToList();
+        }
+
+        public List<LessonFollowed> GetFollowedBy(Guid accountId, Guid stateCode)
+        {
+            Context.LessonFolloweds
+                .Include(f => f.Lesson.Account.AccountTeachers)
+                .ToList();
+
+            Context.LessonFolloweds
+                .Include(f => f.Lesson.Study)
+                .ToList();
+
+            return Context.LessonFolloweds
+                    .Where(f => f.ACCID.Equals(accountId) && f.FLSCODE.Equals(stateCode))
+                    .ToList();
         }
     }
 }

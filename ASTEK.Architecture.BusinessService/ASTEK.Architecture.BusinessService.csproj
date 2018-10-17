@@ -138,6 +138,8 @@
     <Compile Include="Entity\LessonFollowed\GetByLessonResponse.cs" />
     <Compile Include="Entity\LessonFollowed\GetFollowedByRequest.cs" />
     <Compile Include="Entity\LessonFollowed\GetFollowedByResponse.cs" />
+    <Compile Include="Entity\LessonFollowed\GetFollowedByWithStateCodeRequest.cs" />
+    <Compile Include="Entity\LessonFollowed\GetFollowedByWithStateCodeResponse.cs" />
     <Compile Include="Entity\LessonFollowed\LessonFollowedBusinessService.cs" />
     <Compile Include="Entity\LessonPart\CountPartGroupByChapterRequest.cs" />
     <Compile Include="Entity\LessonPart\CountPartGroupByChapterResponse.cs" />

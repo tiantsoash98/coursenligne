@@ -54,5 +54,23 @@ namespace ASTEK.Architecture.RepositoryTest.LessonFollowed
                 Console.WriteLine(x.FollowState.FLSWORDING + " " +  x.Lesson.LSNTITLE);
             });
         }
+
+
+        [TestMethod]
+        public void GetFollowedByAccountWithState()
+        {
+            var accountId = new Guid("E8BC0C1E-BB9F-E811-8220-2C600C6934BE");
+            var stateCode = new Guid("7ABD2A4E-52B7-E811-8225-2C600C6934BE");
+
+            var ctx = new EFDbContext();
+            var rep = new EFLessonFollowedRepository(ctx);
+
+            var lessons = rep.GetFollowedBy(accountId, stateCode);
+
+            lessons.ForEach(x =>
+            {
+                Console.WriteLine(x.Lesson.LSNTITLE + " " + x.LSFCHAPTER.GetValueOrDefault() + "/" + x.LSFPART.GetValueOrDefault());
+            });
+        }
     }
 }
