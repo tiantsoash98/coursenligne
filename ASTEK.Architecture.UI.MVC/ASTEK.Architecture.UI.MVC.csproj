@@ -791,6 +791,7 @@
     <Content Include="Views\Account\ExternalLoginStudentConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginTeacherConfirmation.cshtml" />
     <Content Include="Views\Shared\_LessonAlternativePicture.cshtml" />
+    <Content Include="Views\Shared\_LessonCardFollowed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

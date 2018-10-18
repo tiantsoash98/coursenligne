@@ -1,0 +1,63 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@using System.Configuration
+@using System.IO
+@model ASTEK.Architecture.Domain.Entity.LessonFollowed.LessonFollowed
+
+@{
+    int textLimitLength = 60;
+
+    string baseFileUrl = ConfigurationManager.AppSettings.Get("BaseFileUrl");
+    string imageFolder = ConfigurationManager.AppSettings.Get("ImageFolder");
+    string accountFolder = ConfigurationManager.AppSettings.Get("AccountFolder");
+
+    var teacher = Model.Lesson.Account.AccountTeachers.First();
+    string name = StringUtilities.UserName(teacher.ACTFIRSTNAME, teacher.ACTNAME);
+    string date = Model.Lesson.LSNDATE.ToString("dd-MM-yyyy");
+    string contentLimited = StringUtilities.LimitTextLength(Model.Lesson.LSNTITLE, textLimitLength);
+    ViewBag.ThumbnailAccountProfile = true;
+}
+
+<div class="single-post post-style-1 lesson-card">
+
+    <div class="personal-blog-image">
+        <a href="@Url.Action("Index", "Lesson", new { lessonId = Model.Id })">
+            @*<img src="@Url.Content(Path.Combine(baseFileUrl, imageFolder, Model.LSNPICTURE))" alt="@name">*@
+            @Html.Action("GetAlternativePicture", "Lesson", new { lessonId = Model.LSNID, thumbnail = true })
+        </a>
+    </div>
+
+    <div class="personal-avatar">
+        @Html.Partial("_AccountPicture", Model.Lesson.Account)
+    </div>
+
+    <p class="lesson-date text-right">@date</p>
+
+    <div class="lesson-card-content">
+        <p class="study-name"><a href="@Url.Action("Index", "Study", new { id = Model.Lesson.STDCODE })">@Html.Action("StudyName", "Study", new { code = Model.Lesson.STDCODE })</a></p>
+
+        <h6 class="pre-title lesson-title">
+            @{
+                if (Model.LSFPART.HasValue && Model.LSFPART.Value > 0)
+                {
+                    <a href="@Url.Action("Part", "Lesson", new { lessonId = Model.LSNID, chapterNumber = Model.LSFCHAPTER.Value, partNumber = Model.LSFPART.Value })">
+                        @contentLimited
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Chapter", "Lesson", new { lessonId = Model.LSNID, chapterNumber = Model.LSFCHAPTER.GetValueOrDefault() })">
+                        @contentLimited
+                    </a>
+                }
+            }
+
+        </h6>
+        <p class="teacher-name">@name</p>
+
+        <ul class="post-footer">
+            <li><i class="ion-person"></i>@Html.Action("CountFollow", "Lesson", new { lessonId = Model.LSNID })</li>
+            <li><i class="ion-chatbubble"></i>6</li>
+            <li><i class="ion-eye"></i>138</li>
+        </ul>
+    </div>
+</div>

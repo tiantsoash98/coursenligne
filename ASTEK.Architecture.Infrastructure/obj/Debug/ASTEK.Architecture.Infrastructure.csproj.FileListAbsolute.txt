@@ -31,7 +31,6 @@ E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cour
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csproj.CoreCompileInputs.cache
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csproj.CopyComplete
-E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.InfrastructureStrings.resources
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.InfrastructureStrings.Fr-fr.resources

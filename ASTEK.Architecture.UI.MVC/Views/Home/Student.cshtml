@@ -16,6 +16,21 @@
 
 <section class="blog-area section">
     <div class="container-fluid">
+        <div class="row" style="padding-top: 20px; margin-bottom: 20px;">
+            @Html.Partial("_ErrorAlert")
+
+            <div class="col-md-12 text-left">
+                <h3>Cours que vous n'avez pas terminé</h3>
+            </div>
+
+            @foreach (var follow in Model.LessonsFollowed)
+            {
+                <div class="col-lg-2 col-md-3">
+                    @Html.Partial("_LessonCardFollowed", follow)
+                </div><!-- col-lg-4 col-md-6 -->
+            }
+
+        </div><!-- row -->
         <div class="row">
             @Html.Partial("_ErrorAlert")
 
