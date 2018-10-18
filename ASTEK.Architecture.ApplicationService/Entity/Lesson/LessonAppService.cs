@@ -239,5 +239,18 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
 
             return new UpdateLessonOutputModel() { Response = response };
         }
+
+        public GetLessonAlternativePictureOutputModel GetAlternativePicture(GetLessonAlternativePictureInputModel input)
+        {
+            var request = new GetLessonAlternativePictureRequest
+            {
+                LessonId = GuidUtilities.TryParse(input.LessonId),
+                GetThumbnailPicture = input.GetThumbnailPicture
+            };
+
+            GetLessonAlternativePictureResponse response = _service.GetAlternativePicture(request);
+
+            return new GetLessonAlternativePictureOutputModel { Response = response };
+        }
     }
 }

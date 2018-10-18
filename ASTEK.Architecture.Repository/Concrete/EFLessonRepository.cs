@@ -183,7 +183,7 @@ namespace ASTEK.Architecture.Repository.Concrete
         {
             var lesson = Context.Lessons.FirstOrDefault(m => m.Id.Equals(lessonId));
 
-            if(lesson is null)
+            if(lesson == null)
             {
                 throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Lesson);
             }

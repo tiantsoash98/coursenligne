@@ -801,6 +801,30 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             return PartialView("_EditLessonModal", editVM);
         }
 
+        [AllowAnonymous]
+        public PartialViewResult GetAlternativePicture(string lessonId, bool thumbnail)
+        {
+            var service = new LessonAppService();
+
+            var input = new GetLessonAlternativePictureInputModel
+            {
+                LessonId = lessonId,
+                GetThumbnailPicture = thumbnail
+            };
+
+            var output = service.GetAlternativePicture(input);
+
+            var alternativeVM = new LessonAlternativePictureViewModel
+            {
+                IsAlternative = output.Response.IsAlternative,
+                LessonTitle = output.Response.LessonTitle,
+                PicturePath = output.Response.PicturePath,
+                StudyName = output.Response.StudyName
+            };
+
+            return PartialView("_LessonAlternativePicture", alternativeVM);
+        }
+
         [Authorize(Roles = "TEACHER")]
         public ActionResult ExportPDF(string lessonId)
         {

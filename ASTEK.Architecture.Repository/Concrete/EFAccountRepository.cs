@@ -35,7 +35,7 @@ namespace ASTEK.Architecture.Repository.Concrete
             {
                 var student = Context.AccountStudents.FirstOrDefault(s => s.ACCID.Equals(accountId));
 
-                if(student is null)
+                if(student == null)
                 {
                     throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Account);
                 }
@@ -53,7 +53,7 @@ namespace ASTEK.Architecture.Repository.Concrete
             {
                 var teacher = Context.AccountTeachers.FirstOrDefault(s => s.ACCID.Equals(accountId));
 
-                if (teacher is null)
+                if (teacher == null)
                 {
                     throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Account);
                 }

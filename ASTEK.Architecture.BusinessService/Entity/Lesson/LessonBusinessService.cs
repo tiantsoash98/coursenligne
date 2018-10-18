@@ -778,5 +778,51 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                 };
             }
         }
+
+        public GetLessonAlternativePictureResponse GetAlternativePicture(GetLessonAlternativePictureRequest request)
+        {
+            var lesson = _repository.FindBy(request.LessonId);
+
+            if(lesson == null)
+            {
+                throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Lesson);
+            }
+
+            string studyFolder = ConfigurationManager.AppSettings.Get("StudyFolder");
+            string lessonFolder = ConfigurationManager.AppSettings.Get("LessonFolder");
+            string thumbnailFolder = ConfigurationManager.AppSettings.Get("ThumbnailFolder");
+
+            if (string.IsNullOrEmpty(lesson.LSNPICTURE))
+            {
+                var studyRequest = new GetStudyRequest
+                {
+                    Code = lesson.STDCODE
+                };
+
+                var studyResponse = new StudyBusinessService().Get(studyRequest);
+
+                return new GetLessonAlternativePictureResponse
+                {
+                    Success = true,
+                    IsAlternative = true,
+                    LessonTitle = lesson.LSNTITLE,
+                    StudyName = studyResponse.Study.STDNAME,
+                    PicturePath = Path.Combine(studyFolder, studyResponse.Study.STDPICTURE)      
+                };
+            }
+
+            string picturePath = request.GetThumbnailPicture ?
+                                    Path.Combine(thumbnailFolder, lessonFolder, lesson.LSNPICTURE) :
+                                    Path.Combine(lessonFolder, lesson.LSNPICTURE);
+
+            return new GetLessonAlternativePictureResponse
+            {
+                Success = true,
+                IsAlternative = false,
+                LessonTitle = lesson.LSNPICTURE,
+                PicturePath = picturePath,
+                StudyName = lesson.Study.STDNAME
+            };
+        }
     }
 }

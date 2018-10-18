@@ -10,8 +10,10 @@ namespace ASTEK.Architecture.Infrastructure.Utility
     {
         public static Guid TryParse(string id)
         {
-            Guid.TryParse(id, out Guid guid);
-            return guid;
+            var newGuid = Guid.Empty;
+
+            Guid.TryParse(id, out newGuid);
+            return newGuid;
         }
     }
 }

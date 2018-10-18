@@ -81,3 +81,31 @@ E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cour
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.dll.config
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csproj.CoreCompileInputs.cache
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csproj.CopyComplete
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll.config
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.BusinessService.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\Fr-fr\ASTEK.Architecture.BusinessService.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\FluentValidation.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\System.ValueTuple.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Domain.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\ASTEK.Architecture.Repository.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\FluentValidation.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\System.ValueTuple.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\Fr-fr\ASTEK.Architecture.Domain.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\bin\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csprojResolveAssemblyReference.cache
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.BusinessStrings.resources
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.BusinessStrings.Fr-fr.resources
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.csproj.GenerateResource.Cache
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\Fr-fr\ASTEK.Architecture.BusinessService.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.pdb

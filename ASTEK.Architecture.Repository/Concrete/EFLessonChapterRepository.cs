@@ -63,7 +63,7 @@ namespace ASTEK.Architecture.Repository.Concrete
         {
             var chapter = Context.LessonChapters.FirstOrDefault(c => c.LSNID.Equals(entity.LSNID) && c.LSCNUMBER.Equals(entity.LSCNUMBER));
 
-            if(chapter is null)
+            if(chapter == null)
             {
                 throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Chapter);
             }

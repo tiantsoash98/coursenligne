@@ -117,6 +117,8 @@
     <Compile Include="Entity\LessonFollowed\FollowLessonInputModel.cs" />
     <Compile Include="Entity\LessonFollowed\FollowLessonOutputModel.cs" />
     <Compile Include="Entity\LessonFollowed\GetFollowedByOutputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\GetFollowedByWithStateCodeInputModel.cs" />
+    <Compile Include="Entity\LessonFollowed\GetFollowedByWithStateCodeOutputModel.cs" />
     <Compile Include="Entity\LessonFollowed\LessonFollowedAppService.cs" />
     <Compile Include="Entity\LessonPart\CountPartGroupByChapterInputModel.cs" />
     <Compile Include="Entity\LessonPart\CountPartGroupByChapterOutputModel.cs" />
@@ -138,6 +140,8 @@
     <Compile Include="Entity\Lesson\GetAllContentLessonOutputModel.cs" />
     <Compile Include="Entity\Lesson\GetBestLessonByStudyInputModel.cs" />
     <Compile Include="Entity\Lesson\GetBestLessonByStudyOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonAlternativePictureInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonAlternativePictureOutputModel.cs" />
     <Compile Include="Entity\Lesson\GetLessonChapterCountInputModel.cs" />
     <Compile Include="Entity\Lesson\GetLessonChapterCountOutputModel.cs" />
     <Compile Include="Entity\Lesson\GetLessonExerciceCountInputModel.cs" />

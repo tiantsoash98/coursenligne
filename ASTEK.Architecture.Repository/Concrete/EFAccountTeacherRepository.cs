@@ -21,7 +21,7 @@ namespace ASTEK.Architecture.Repository.Concrete
 
             var teacher = Context.AccountTeachers.FirstOrDefault(s => s.ACCID.Equals(entity.ACCID));
 
-            if (teacher is null)
+            if (teacher == null)
             {
                 throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Account);
             }

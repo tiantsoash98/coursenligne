@@ -21,7 +21,8 @@
 
     <div class="personal-blog-image">
         <a href="@Url.Action("Index", "Lesson", new { lessonId = Model.Id })">
-            <img src="@Url.Content(Path.Combine(baseFileUrl, imageFolder, Model.LSNPICTURE))" alt="@name">
+            @*<img src="@Url.Content(Path.Combine(baseFileUrl, imageFolder, Model.LSNPICTURE))" alt="@name">*@
+            @Html.Action("GetAlternativePicture", "Lesson", new { lessonId = Model.Id, thumbnail = true })
         </a>
     </div>
 

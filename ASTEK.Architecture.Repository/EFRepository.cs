@@ -17,7 +17,12 @@ namespace ASTEK.Architecture.Repository
 
         protected EFRepository(IUnitOfWork uow)
         {
-            UnitOfWork = uow ?? throw new ArgumentNullException("uow");
+            if(uow == null)
+            {
+                throw new ArgumentNullException("uow");
+            }
+
+            UnitOfWork = uow;
 
             _repositoryTable = GetDbSet<T>();
             _repositoryQuery = _repositoryTable.AsQueryable();

@@ -80,7 +80,7 @@ namespace ASTEK.Architecture.Repository.Concrete
         {
             var part = Context.LessonParts.FirstOrDefault(c => c.LSCCODE.Equals(lessonPart) && c.LSPNUMBER.Equals(lessonPart.LSPNUMBER));
 
-            if(part is null)
+            if(part == null)
             {
                 Add(lessonPart);
                 return lessonPart;
@@ -98,7 +98,7 @@ namespace ASTEK.Architecture.Repository.Concrete
         {  
             var chapter = Context.LessonChapters.FirstOrDefault(c => c.LSCCODE.Equals(chapterCode));
 
-            if (chapter is null)
+            if (chapter == null)
             {
                 throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Chapter);
             }

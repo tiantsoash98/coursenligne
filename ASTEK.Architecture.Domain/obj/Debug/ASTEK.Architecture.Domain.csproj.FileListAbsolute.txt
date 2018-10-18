@@ -56,3 +56,26 @@ E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cour
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Domain\bin\Debug\ASTEK.Architecture.Infrastructure.dll.config
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Domain\obj\Debug\ASTEK.Architecture.Domain.csproj.CoreCompileInputs.cache
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Domain\obj\Debug\ASTEK.Architecture.Domain.csproj.CopyComplete
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\obj\Debug\ASTEK.Architecture.Domain.csprojResolveAssemblyReference.cache
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\obj\Debug\ASTEK.Architecture.Domain.DomainStrings.resources
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\obj\Debug\ASTEK.Architecture.Domain.DomainStrings.Fr-fr.resources
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\obj\Debug\ASTEK.Architecture.Domain.csproj.GenerateResource.Cache
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\obj\Debug\ASTEK.Architecture.Domain.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\obj\Debug\ASTEK.Architecture.Domain.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\ASTEK.Architecture.Domain.dll.config
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\ASTEK.Architecture.Domain.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\ASTEK.Architecture.Domain.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\Fr-fr\ASTEK.Architecture.Domain.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\EntityFramework.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\FluentValidation.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\System.ValueTuple.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\EntityFramework.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\FluentValidation.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\System.ValueTuple.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\obj\Debug\Fr-fr\ASTEK.Architecture.Domain.resources.dll

@@ -10,6 +10,7 @@ namespace ASTEK.Architecture.BusinessService.Interface
         GetLessonResponse Get(GetLessonRequest request);
         GetAllContentLessonResponse GetAllContent(GetAllContentLessonRequest request);
         GetBestLessonByStudyResponse GetBestByStudy(GetBestLessonByStudyRequest request);
+        GetLessonAlternativePictureResponse GetAlternativePicture(GetLessonAlternativePictureRequest request);
         GetLessonMayLikeResponse GetMayLike(GetLessonMayLikeRequest request);
         GetLessonExerciceCountResponse GetExerciceCount(GetLessonExerciceCountRequest request);
         GetLessonChapterCountResponse GetChapterCount(GetLessonChapterCountRequest request);

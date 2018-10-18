@@ -158,6 +158,8 @@
     <Compile Include="Entity\Lesson\CreateLessonResponse.cs" />
     <Compile Include="Entity\Lesson\GetAllContentLessonRequest.cs" />
     <Compile Include="Entity\Lesson\GetAllContentLessonResponse.cs" />
+    <Compile Include="Entity\Lesson\GetLessonAlternativePictureRequest.cs" />
+    <Compile Include="Entity\Lesson\GetLessonAlternativePictureResponse.cs" />
     <Compile Include="Entity\Lesson\GetLessonChapterCountRequest.cs" />
     <Compile Include="Entity\Lesson\GetLessonChapterCountResponse.cs" />
     <Compile Include="Entity\Lesson\GetLessonExerciceCountRequest.cs" />

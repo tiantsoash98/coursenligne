@@ -79,3 +79,30 @@ E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cour
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.Repository.dll.config
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.ApplicationService\obj\Debug\ASTEK.Architecture.ApplicationService.csproj.CoreCompileInputs.cache
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.ApplicationService\obj\Debug\ASTEK.Architecture.ApplicationService.csproj.CopyComplete
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.ApplicationService.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.ApplicationService.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\Fr-fr\ASTEK.Architecture.ApplicationService.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.BusinessService.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.Domain.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.Infrastructure.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.Repository.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\FluentValidation.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\EntityFramework.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\System.ValueTuple.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.BusinessService.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.Domain.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.Infrastructure.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\ASTEK.Architecture.Repository.pdb
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\FluentValidation.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\EntityFramework.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\System.ValueTuple.xml
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\Fr-fr\ASTEK.Architecture.BusinessService.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\Fr-fr\ASTEK.Architecture.Domain.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\bin\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\obj\Debug\ASTEK.Architecture.ApplicationService.csprojResolveAssemblyReference.cache
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\obj\Debug\ASTEK.Architecture.ApplicationService.ApplicationStrings.resources
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\obj\Debug\ASTEK.Architecture.ApplicationService.ApplicationStrings.Fr-fr.resources
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\obj\Debug\ASTEK.Architecture.ApplicationService.csproj.GenerateResource.Cache
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\obj\Debug\Fr-fr\ASTEK.Architecture.ApplicationService.resources.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\obj\Debug\ASTEK.Architecture.ApplicationService.dll
+C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.ApplicationService\obj\Debug\ASTEK.Architecture.ApplicationService.pdb
