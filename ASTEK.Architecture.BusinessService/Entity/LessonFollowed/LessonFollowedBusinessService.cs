@@ -244,5 +244,37 @@ namespace ASTEK.Architecture.BusinessService.Entity.LessonFollowed
                 };
             }
         }
+
+        public GetFollowedByWithStateCodeResponse GetFollowedByWithStateCode(GetFollowedByWithStateCodeRequest request)
+        {
+            try
+            {
+                var followed = _repository.GetFollowedBy(request.AccountId, request.StateCode);
+
+                int totalPages = ListUtilities.GetTotalPagesCount(followed.Count, request.Count);
+
+                List<Domain.Entity.LessonFollowed.LessonFollowed> pagedList = followed.OrderByDescending(l => l.LSFDATE)
+                                                                                        .Skip(((request.Page == 0 ? 1 : request.Page) - 1) * request.Count)
+                                                                                        .Take(request.Count)
+                                                                                        .ToList();
+
+                return new GetFollowedByWithStateCodeResponse()
+                {
+                    Success = true,
+                    Followed = pagedList,
+                    Page = request.Page,
+                    Count = request.Count,
+                    TotalPages = totalPages
+                };
+            }
+            catch (Exception ex)
+            {
+                return new GetFollowedByWithStateCodeResponse()
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
     }
 }

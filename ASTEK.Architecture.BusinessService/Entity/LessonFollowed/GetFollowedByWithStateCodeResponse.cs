@@ -9,5 +9,6 @@ namespace ASTEK.Architecture.BusinessService.Entity.LessonFollowed
 {
     public class GetFollowedByWithStateCodeResponse: Response
     {
+        public List<Domain.Entity.LessonFollowed.LessonFollowed> Followed { get; set; }
     }
 }

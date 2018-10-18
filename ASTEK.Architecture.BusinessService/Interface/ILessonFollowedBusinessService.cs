@@ -17,5 +17,6 @@ namespace ASTEK.Architecture.BusinessService.Interface
         FinishLessonResponse FinishLesson(FinishLessonRequest request);
         FollowLessonResponse Follow(FollowLessonRequest request);
         GetFollowedByResponse GetFollowedBy(GetFollowedByRequest request);
+        GetFollowedByWithStateCodeResponse GetFollowedByWithStateCode(GetFollowedByWithStateCodeRequest request);
     }
 }
