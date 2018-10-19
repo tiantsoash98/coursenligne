@@ -132,4 +132,28 @@
   <data name="Studies" xml:space="preserve">
     <value>Filières</value>
   </data>
+  <data name="Title_Account_ConfirmationForgotPassword" xml:space="preserve">
+    <value>Comfirmer mot de passe oublié</value>
+  </data>
+  <data name="Title_Account_ConfirmEmail" xml:space="preserve">
+    <value>Confirmer email</value>
+  </data>
+  <data name="Title_Account_ExternalLoginAccountType" xml:space="preserve">
+    <value>Type de compte</value>
+  </data>
+  <data name="Title_Account_ForgotPassword" xml:space="preserve">
+    <value>Mot de passe oublié?</value>
+  </data>
+  <data name="Title_Account_Login" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="Title_Account_RegisterStudent" xml:space="preserve">
+    <value>Inscription étudiant</value>
+  </data>
+  <data name="Title_Account_RegisterTeacher" xml:space="preserve">
+    <value>Inscription enseignant</value>
+  </data>
+  <data name="Title_Account_ResetPassword" xml:space="preserve">
+    <value>Réinitialiser mot de passe</value>
+  </data>
 </root>

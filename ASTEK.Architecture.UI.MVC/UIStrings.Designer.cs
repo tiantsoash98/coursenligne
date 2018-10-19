@@ -104,5 +104,77 @@ namespace ASTEK.Architecture.UI.MVC {
                 return ResourceManager.GetString("Studies", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot Password Confirmation.
+        /// </summary>
+        public static string Title_Account_ConfirmationForgotPassword {
+            get {
+                return ResourceManager.GetString("Title_Account_ConfirmationForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm email.
+        /// </summary>
+        public static string Title_Account_ConfirmEmail {
+            get {
+                return ResourceManager.GetString("Title_Account_ConfirmEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account type.
+        /// </summary>
+        public static string Title_Account_ExternalLoginAccountType {
+            get {
+                return ResourceManager.GetString("Title_Account_ExternalLoginAccountType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot your password?.
+        /// </summary>
+        public static string Title_Account_ForgotPassword {
+            get {
+                return ResourceManager.GetString("Title_Account_ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Title_Account_Login {
+            get {
+                return ResourceManager.GetString("Title_Account_Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register student.
+        /// </summary>
+        public static string Title_Account_RegisterStudent {
+            get {
+                return ResourceManager.GetString("Title_Account_RegisterStudent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register teacher.
+        /// </summary>
+        public static string Title_Account_RegisterTeacher {
+            get {
+                return ResourceManager.GetString("Title_Account_RegisterTeacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset password.
+        /// </summary>
+        public static string Title_Account_ResetPassword {
+            get {
+                return ResourceManager.GetString("Title_Account_ResetPassword", resourceCulture);
+            }
+        }
     }
 }
