@@ -212,12 +212,14 @@
     <Compile Include="Interface\ILessonPartBusinessService.cs" />
     <Compile Include="Interface\IStudyBusinessService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rule\ChapterCountRule.cs" />
     <Compile Include="Rule\ImageFileExtensionRule.cs" />
     <Compile Include="Rule\FileLengthRule.cs" />
     <Compile Include="Rule\SingleEmailRule.cs" />
     <Compile Include="Validator\CreateLessonChapterValidator.cs" />
     <Compile Include="Validator\CreateLessonValidator.cs" />
     <Compile Include="Validator\CreateLessonPartValidator.cs" />
+    <Compile Include="Validator\PublishLessonValidator.cs" />
     <Compile Include="Validator\SignUpAccountValidator.cs" />
     <Compile Include="Validator\UploadImageValidator.cs" />
   </ItemGroup>

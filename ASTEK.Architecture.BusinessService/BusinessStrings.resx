@@ -120,6 +120,9 @@
   <data name="AccountNotFoundException" xml:space="preserve">
     <value>Invalid login attempt</value>
   </data>
+  <data name="BusinessValidation_ChapterCount" xml:space="preserve">
+    <value>Lesson must have at least a chapter</value>
+  </data>
   <data name="BusinessValidation_FileLength" xml:space="preserve">
     <value>The file is too large</value>
   </data>

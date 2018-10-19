@@ -1,11 +1,6 @@
 ﻿using ASTEK.Architecture.BusinessService.Rule;
 using ASTEK.Architecture.Infrastructure.Validator.Abstract;
 using ASTEK.Architecture.Repository.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ASTEK.Architecture.BusinessService.Validator
 {

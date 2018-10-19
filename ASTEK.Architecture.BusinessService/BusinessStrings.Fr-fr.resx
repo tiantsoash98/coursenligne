@@ -120,6 +120,9 @@
   <data name="AccountNotFoundException" xml:space="preserve">
     <value>Tentative de connexion invalide</value>
   </data>
+  <data name="BusinessValidation_ChapterCount" xml:space="preserve">
+    <value>Le cours doit avoir au moins un chapitre</value>
+  </data>
   <data name="BusinessValidation_FileLength" xml:space="preserve">
     <value>Le fichier est trop volumineux</value>
   </data>

@@ -717,6 +717,25 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
         {
             try
             {
+                var lesson = _repository.GetAllContent(request.LessonId);
+
+                if(lesson == null)
+                {
+                    throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Lesson);
+                }
+
+                var validator = new PublishLessonValidator(lesson);
+                ValidationResult result = validator.Validate();
+
+                if (!result.IsValid)
+                {
+                    return new PublishLessonResponse
+                    {
+                        Success = false,
+                        ValidationFailures = result.Errors.ToList()
+                    };
+                }
+
                 _repository.Publish(request.AccountId, request.LessonId);
 
                 return new PublishLessonResponse
