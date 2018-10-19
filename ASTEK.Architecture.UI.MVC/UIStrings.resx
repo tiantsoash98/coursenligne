@@ -156,4 +156,10 @@
   <data name="Title_Account_ResetPassword" xml:space="preserve">
     <value>Reset password</value>
   </data>
+  <data name="Title_Account_ConfirmReset" xml:space="preserve">
+    <value>Reset password confirmation</value>
+  </data>
+  <data name="Title_Account_UpdateAccount" xml:space="preserve">
+    <value>Update profile informations</value>
+  </data>
 </root>

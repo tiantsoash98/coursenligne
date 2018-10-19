@@ -124,6 +124,15 @@ namespace ASTEK.Architecture.UI.MVC {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reset password confirmation.
+        /// </summary>
+        public static string Title_Account_ConfirmReset {
+            get {
+                return ResourceManager.GetString("Title_Account_ConfirmReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account type.
         /// </summary>
         public static string Title_Account_ExternalLoginAccountType {
@@ -174,6 +183,15 @@ namespace ASTEK.Architecture.UI.MVC {
         public static string Title_Account_ResetPassword {
             get {
                 return ResourceManager.GetString("Title_Account_ResetPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update profile informations.
+        /// </summary>
+        public static string Title_Account_UpdateAccount {
+            get {
+                return ResourceManager.GetString("Title_Account_UpdateAccount", resourceCulture);
             }
         }
     }
