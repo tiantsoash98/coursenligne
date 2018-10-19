@@ -19,6 +19,6 @@ namespace ASTEK.Architecture.Domain.Entity.LessonFollowed
         void FinishPart(Guid accountId, Guid lessonId, short chapterNumber, short? partNumber);
         void FinishLesson(Guid accountId, Guid lessonId, short? chapterNumber, short? partNumber);
         List<LessonFollowed> GetFollowedBy(Guid accountId);
-        List<LessonFollowed> GetFollowedBy(Guid accountId, Guid stateCode);
+        List<LessonFollowed> GetFollowedBy(Guid accountId, string state);
     }
 }

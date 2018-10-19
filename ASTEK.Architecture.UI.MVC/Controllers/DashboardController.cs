@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
+using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
 
 namespace ASTEK.Architecture.UI.MVC.Controllers
 {
@@ -91,7 +94,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var countPostedOutput = lessonAppService.CountPostedBy(countPostedInput);
 
             var lessonFollowedAppService = new LessonFollowedAppService();
-            
+
             var totalViewInput = new CountTotalViewsOfAccountInputModel
             {
                 AccountId = loggedId.ToString(),
@@ -148,7 +151,93 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             return RedirectToAction("Teacher");
         }
 
+        [Authorize(Roles = "TEACHER")]
+        public ActionResult ExportExcelStudentProgression(string lessonId)
+        {
+            if (string.IsNullOrEmpty(lessonId))
+            {
+                return RedirectToAction("Index");
+            }
+
+            var appService = new LessonAppService();
+
+            GetLessonOutputModel output = appService.Get(new GetLessonInputModel
+            {
+                Id = lessonId
+            });
+
+            if (!output.Response.Success)
+            {
+                return LessonNotFound(lessonId, output.Response.Exception);
+            }
+
+            var lesson = output.Response.Lesson;
+
+            List<FollowerProgressionViewModel> followersVM = GetListFollowersProgressionViewModel(lessonId);
+
+            var gv = new GridView();
+            gv.DataSource = followersVM.Select(x => new{
+                                                    x.Name,
+                                                    Chapter = x.Follower.LSFCHAPTER,
+                                                    Part = x.Follower.LSFPART,
+                                                    Progression = x.Progression + "%",
+                                                    Date = x.Follower.LSFDATE
+                                                });
+
+            gv.DataBind();
+
+            string fileName = string.Concat(lesson.LSNTITLE, "-progr", DateTime.Today.ToString("jjMMyyyy"), ".xls");
+
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+
+            StringWriter objStringWriter = new StringWriter();
+            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+
+            gv.RenderControl(objHtmlTextWriter);
+            Response.Output.Write(objStringWriter.ToString());
+
+            Response.Flush();
+            Response.End();
+
+            return View("Index");
+        }
+
         public PartialViewResult StudentsProgression(string lessonId)
+        {
+            List<FollowerProgressionViewModel> followersVM = GetListFollowersProgressionViewModel(lessonId);
+
+            var progressionVM = new StudentsProgressionViewModel
+            {
+                LessonId = lessonId,
+                //Navigation = output.Response.Navigation,
+                Followers = followersVM
+            };
+
+            return PartialView("_StudentsProgressionModal", progressionVM);
+        }
+
+        private string GetName(LessonFollowed follow)
+        {
+            if (follow.Account.AccountStudents.Any())
+            {
+                var account = follow.Account.AccountStudents.FirstOrDefault();
+                return StringUtilities.UserName(account.ACSFIRSTNAME, account.ACSNAME);
+            }
+
+            if (follow.Account.AccountTeachers.Any())
+            {
+                var account = follow.Account.AccountTeachers.FirstOrDefault();
+                return StringUtilities.UserName(account.ACTFIRSTNAME, account.ACTFIRSTNAME);
+            }
+
+            return "Anonyme";
+        }
+
+        private List<FollowerProgressionViewModel> GetListFollowersProgressionViewModel(string lessonId)
         {
             var service = new LessonAppService();
             var input = new GetLessonNavigationInputModel
@@ -178,31 +267,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 });
             });
 
-            var progressionVM = new StudentsProgressionViewModel
-            {
-                LessonId = lessonId,
-                Navigation = output.Response.Navigation,
-                Followers = followersVM
-            };
-
-            return PartialView("_StudentsProgressionModal", progressionVM);
-        }
-        
-        private string GetName(LessonFollowed follow)
-        {
-            if(follow.Account.AccountStudents.Any())
-            {
-                var account = follow.Account.AccountStudents.FirstOrDefault();
-                return StringUtilities.UserName(account.ACSFIRSTNAME, account.ACSNAME);
-            }
-
-            if(follow.Account.AccountTeachers.Any())
-            {
-                var account = follow.Account.AccountTeachers.FirstOrDefault();
-                return StringUtilities.UserName(account.ACTFIRSTNAME, account.ACTFIRSTNAME);
-            }
-
-            return "Anonyme";
+            return followersVM;
         }
     }
 }

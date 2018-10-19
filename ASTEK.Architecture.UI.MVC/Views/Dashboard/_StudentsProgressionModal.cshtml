@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="modal-footer flex-center">
-                @Model.Followers.Count étudiant(s)  
+                @Model.Followers.Count étudiant(s) @Html.ActionLink("Exporter en Excel", "ExportExcelStudentProgression", "Dashboard", new { @class = "text-right" }, new { lessonId = Model.LessonId }) 
             </div>
         </div>
     </div>

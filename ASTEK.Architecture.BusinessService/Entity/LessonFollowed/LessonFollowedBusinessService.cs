@@ -245,11 +245,11 @@ namespace ASTEK.Architecture.BusinessService.Entity.LessonFollowed
             }
         }
 
-        public GetFollowedByWithStateCodeResponse GetFollowedByWithStateCode(GetFollowedByWithStateCodeRequest request)
+        public GetFollowedByWithStateResponse GetFollowedByWithStateCode(GetFollowedByWithStateRequest request)
         {
             try
             {
-                var followed = _repository.GetFollowedBy(request.AccountId, request.StateCode);
+                var followed = _repository.GetFollowedBy(request.AccountId, request.State);
 
                 int totalPages = ListUtilities.GetTotalPagesCount(followed.Count, request.Count);
 
@@ -258,7 +258,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.LessonFollowed
                                                                                         .Take(request.Count)
                                                                                         .ToList();
 
-                return new GetFollowedByWithStateCodeResponse()
+                return new GetFollowedByWithStateResponse()
                 {
                     Success = true,
                     Followed = pagedList,
@@ -269,7 +269,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.LessonFollowed
             }
             catch (Exception ex)
             {
-                return new GetFollowedByWithStateCodeResponse()
+                return new GetFollowedByWithStateResponse()
                 {
                     Success = false,
                     Exception = ex

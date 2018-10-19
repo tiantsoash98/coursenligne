@@ -3,9 +3,9 @@ using System;
 
 namespace ASTEK.Architecture.BusinessService.Entity.LessonFollowed
 {
-    public class GetFollowedByWithStateCodeRequest: Request
+    public class GetFollowedByWithStateRequest: Request
     {
         public Guid AccountId { get; set; }
-        public Guid StateCode { get; set; }
+        public string State { get; set; }
     }
 }

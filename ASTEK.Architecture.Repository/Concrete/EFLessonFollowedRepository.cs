@@ -140,7 +140,7 @@ namespace ASTEK.Architecture.Repository.Concrete
             return Context.LessonFolloweds.Where(l => l.LSNID.Equals(lessonId)).ToList();
         }
 
-        public List<LessonFollowed> GetFollowedBy(Guid accountId, Guid stateCode)
+        public List<LessonFollowed> GetFollowedBy(Guid accountId, string state)
         {
             Context.LessonFolloweds
                 .Include(f => f.Lesson.Account.AccountTeachers)
@@ -151,7 +151,7 @@ namespace ASTEK.Architecture.Repository.Concrete
                 .ToList();
 
             return Context.LessonFolloweds
-                    .Where(f => f.ACCID.Equals(accountId) && f.FLSCODE.Equals(stateCode))
+                    .Where(f => f.ACCID.Equals(accountId) && f.FollowState.FLSWORDING.Equals(state))
                     .ToList();
         }
     }

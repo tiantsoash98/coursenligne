@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ASTEK.Architecture.BusinessService.Entity.LessonFollowed
 {
-    public class GetFollowedByWithStateCodeResponse: Response
+    public class GetFollowedByWithStateResponse: Response
     {
         public List<Domain.Entity.LessonFollowed.LessonFollowed> Followed { get; set; }
     }

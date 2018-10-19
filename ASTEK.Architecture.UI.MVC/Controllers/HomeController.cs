@@ -53,10 +53,10 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var mayLikeOutput = lessonAppService.GetMayLike(mayLikeInput);
 
             var followedAppService = new LessonFollowedAppService();
-            var followedInputModel = new GetFollowedByWithStateCodeInputModel
+            var followedInputModel = new GetFollowedByWithStateInputModel
             {
                 AccountId = accountLogged.Id.ToString(),
-                StateCode = "7ABD2A4E-52B7-E811-8225-2C600C6934BE",
+                State = "STARTED",
                 Page = 1,
                 Count = 8,              
             };

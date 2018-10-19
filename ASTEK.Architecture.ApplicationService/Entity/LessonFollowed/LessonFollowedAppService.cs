@@ -154,19 +154,19 @@ namespace ASTEK.Architecture.ApplicationService.Entity.LessonFollowed
             };
         }
 
-        public GetFollowedByWithStateCodeOutputModel GetFollowedWithStateCode(GetFollowedByWithStateCodeInputModel input)
+        public GetFollowedByWithStateOutputModel GetFollowedWithStateCode(GetFollowedByWithStateInputModel input)
         {
-            var request = new GetFollowedByWithStateCodeRequest
+            var request = new GetFollowedByWithStateRequest
             {
                 AccountId = GuidUtilities.TryParse(input.AccountId),
-                StateCode = GuidUtilities.TryParse(input.StateCode),
+                State = input.State,
                 Page = input.Page,
                 Count = input.Count
             };
 
-            GetFollowedByWithStateCodeResponse response = _service.GetFollowedByWithStateCode(request);
+            GetFollowedByWithStateResponse response = _service.GetFollowedByWithStateCode(request);
 
-            return new GetFollowedByWithStateCodeOutputModel
+            return new GetFollowedByWithStateOutputModel
             {
                 Response = response
             };

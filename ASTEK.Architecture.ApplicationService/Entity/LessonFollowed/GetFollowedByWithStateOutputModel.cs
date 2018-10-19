@@ -2,8 +2,8 @@
 
 namespace ASTEK.Architecture.ApplicationService.Entity.LessonFollowed
 {
-    public class GetFollowedByWithStateCodeOutputModel
+    public class GetFollowedByWithStateOutputModel
     {
-        public GetFollowedByWithStateCodeResponse Response { get; set; }
+        public GetFollowedByWithStateResponse Response { get; set; }
     }
 }
