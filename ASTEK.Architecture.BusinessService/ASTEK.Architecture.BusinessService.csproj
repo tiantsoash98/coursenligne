@@ -156,6 +156,8 @@
     <Compile Include="Entity\Lesson\CountLessonPostedByResponse.cs" />
     <Compile Include="Entity\Lesson\CreateLessonRequest.cs" />
     <Compile Include="Entity\Lesson\CreateLessonResponse.cs" />
+    <Compile Include="Entity\Lesson\DeleteLessonRequest.cs" />
+    <Compile Include="Entity\Lesson\DeleteLessonResponse.cs" />
     <Compile Include="Entity\Lesson\GetAllContentLessonRequest.cs" />
     <Compile Include="Entity\Lesson\GetAllContentLessonResponse.cs" />
     <Compile Include="Entity\Lesson\GetLessonAlternativePictureRequest.cs" />

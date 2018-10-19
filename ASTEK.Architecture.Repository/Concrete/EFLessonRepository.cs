@@ -199,5 +199,33 @@ namespace ASTEK.Architecture.Repository.Concrete
 
             return lesson;
         }
+
+        public Lesson Delete(Guid accountId, Guid lessonId)
+        {
+            var lesson = Context.Lessons.FirstOrDefault(l => l.Id.Equals(lessonId));
+
+            if (lesson == null)
+            {
+                throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Lesson);
+            }
+
+            if (lesson.ACCID != accountId)
+            {
+                throw new InvalidOperationException();
+            }
+
+            var state = Context.DocumentStates.FirstOrDefault(s => s.DCSWORDING.Equals("DELETED"));
+
+            if (state == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            lesson.DCSCODE = state.DCSCODE;
+
+            Save(lesson);
+
+            return lesson;
+        }
     }
 }

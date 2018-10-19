@@ -7,6 +7,7 @@ namespace ASTEK.Architecture.BusinessService.Interface
     {
         CountLessonPostedByResponse CountPostedBy(CountLessonPostedByRequest request);
         CreateLessonResponse Create(CreateLessonRequest request);
+        DeleteLessonResponse Delete(DeleteLessonRequest request);
         GetLessonResponse Get(GetLessonRequest request);
         GetAllContentLessonResponse GetAllContent(GetAllContentLessonRequest request);
         GetBestLessonByStudyResponse GetBestByStudy(GetBestLessonByStudyRequest request);

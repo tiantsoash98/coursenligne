@@ -824,5 +824,27 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                 StudyName = lesson.Study.STDNAME
             };
         }
+
+        public DeleteLessonResponse Delete(DeleteLessonRequest request)
+        {
+            try
+            {
+                var lesson = _repository.Delete(request.AccountId, request.LessonId);
+
+                return new DeleteLessonResponse
+                {
+                    Success = true,
+                    Lesson = lesson
+                };
+            }
+            catch (Exception ex)
+            {
+                return new DeleteLessonResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
     }
 }

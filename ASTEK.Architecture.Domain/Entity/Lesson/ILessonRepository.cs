@@ -8,6 +8,7 @@ namespace ASTEK.Architecture.Domain.Entity.Lesson
 {
     public interface ILessonRepository: IRepository<Lesson, Guid>
     {
+        Lesson Delete(Guid accountId, Guid lessonId);
         List<Lesson> GetBestByStudy(Guid studyCode);
         int GetChapterCount(Guid lessonId);
         int GetChapterCount(Lesson lesson);
@@ -17,7 +18,7 @@ namespace ASTEK.Architecture.Domain.Entity.Lesson
         LessonNavigation GetLessonNavigation(Guid lessonId);
         List<Lesson> GetMayLike();
         List<Lesson> GetByState(Guid accountId, string state);
-        void Publish(Guid accountId, Guid lessonId);
+        void Publish(Guid accountId, Guid lessonId);   
         Task<List<Lesson>> SearchAsync(string query);
         Lesson Update(Guid lessonId, Lesson entity);
     }

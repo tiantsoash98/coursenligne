@@ -136,6 +136,8 @@
     <Compile Include="Entity\Lesson\CountLessonPostedByOutputModel.cs" />
     <Compile Include="Entity\Lesson\CreateLessonInputModel.cs" />
     <Compile Include="Entity\Lesson\CreateLessonOutputModel.cs" />
+    <Compile Include="Entity\Lesson\DeleteLessonInputModel.cs" />
+    <Compile Include="Entity\Lesson\DeleteLessonOutputModel.cs" />
     <Compile Include="Entity\Lesson\GetAllContentLessonInputModel.cs" />
     <Compile Include="Entity\Lesson\GetAllContentLessonOutputModel.cs" />
     <Compile Include="Entity\Lesson\GetBestLessonByStudyInputModel.cs" />

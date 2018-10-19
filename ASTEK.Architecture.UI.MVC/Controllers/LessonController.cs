@@ -855,6 +855,26 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             }       
         }
 
+        [Authorize(Roles = "TEACHER")]
+        public ActionResult Delete(string lessonId)
+        {
+            var deleteInput = new DeleteLessonInputModel
+            {
+                LessonId = lessonId,
+                AccountId = GetAccountLogged().Id.ToString()
+            };
+
+            var deleteOutput = new LessonAppService().Delete(deleteInput);
+
+            if (!deleteOutput.Response.Success)
+            {
+                ViewBag.Exception = deleteOutput.Response.Exception;
+                return View("Error");
+            }
+
+            return RedirectToAction("Index", "Dashboard");
+        }
+
         private AllContentLessonViewModel GetAllContentLessonViewModel(string lessonId)
         {
             var service = new LessonAppService();
