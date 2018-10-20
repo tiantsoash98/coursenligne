@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AccountStudent\AccountStudentTests.cs" />
     <Compile Include="Account\AccountAppTest.cs" />
+    <Compile Include="Comment\CommentTest.cs" />
     <Compile Include="DocumentConfidentiality\DocumentConfidentiality.cs" />
     <Compile Include="LessonChapter\ChapterAppTest.cs" />
     <Compile Include="LessonFollowed\LessonFollowedTests.cs" />

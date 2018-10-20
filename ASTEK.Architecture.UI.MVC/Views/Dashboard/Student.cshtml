@@ -21,6 +21,8 @@
 
             <div class="col-md-12 small-space-top">
                 <div class="row">
+                    @Html.Partial("_ErrorAlert")
+
                     <div class="col-md-3">
                         <div class="stat-bloc text-right">
                             <h5>@NumberUtilities.Format(Model.FollowedCount, 2) cours suivis</h5>

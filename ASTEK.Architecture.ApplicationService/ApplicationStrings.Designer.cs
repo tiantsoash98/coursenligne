@@ -88,6 +88,15 @@ namespace ASTEK.Architecture.ApplicationService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The comment length cannot be empty or have more than 2000 characters.
+        /// </summary>
+        public static string ApplicationValidation_CommentLength {
+            get {
+                return ResourceManager.GetString("ApplicationValidation_CommentLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please confirm your password.
         /// </summary>
         public static string ApplicationValidation_ConfirmPasswordRequired {

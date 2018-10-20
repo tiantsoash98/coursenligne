@@ -388,7 +388,18 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             if (!output.Response.Success)
             {
-                ModelState.AddModelError("ValidatorErrors", output.Response.Exception);
+                if(output.Response.Exception != null)
+                {
+                    ModelState.AddModelError("ValidatorErrors", output.Response.Exception);
+                }
+                if(output.Response.ValidationErrors != null)
+                {
+                    foreach(var validationError in output.Response.ValidationErrors)
+                    {
+                        ModelState.AddModelError("", validationError.ErrorMessage);
+                    }
+                }
+                             
 
                 InitAddLessonViewModel(model);
                 return View(model);

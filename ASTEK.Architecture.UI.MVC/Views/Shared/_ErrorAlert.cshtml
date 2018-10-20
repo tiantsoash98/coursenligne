@@ -1,10 +1,28 @@
-﻿@if (TempData["exception"] != null)
+﻿@using FluentValidation.Results
+
+@if (TempData["exception"] != null)
 {
     var exception = (Exception)TempData["exception"];
 
     <div class="col-md-12 text-left">
         <div class="alert alert-danger" role="alert">
             @exception.Message
+        </div>
+    </div>
+}
+
+@if (TempData["validationFailures"] != null)
+{
+    List<ValidationFailure> validationFailures = (List<ValidationFailure>)TempData["validationFailures"];
+
+    <div class="col-md-12 text-left">
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach(var validationFailure in validationFailures)
+                {
+                    <li>@validationFailure.ErrorMessage <br /></li>
+                }
+            </ul>
         </div>
     </div>
 }

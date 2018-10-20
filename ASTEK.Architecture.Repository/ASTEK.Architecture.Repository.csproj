@@ -60,6 +60,8 @@
     <Compile Include="Concrete\EFAccountRepository.cs" />
     <Compile Include="Concrete\EFAccountStudentRepository.cs" />
     <Compile Include="Concrete\EFAccountTeacherRepository.cs" />
+    <Compile Include="Concrete\EFCommentAnswerRepository.cs" />
+    <Compile Include="Concrete\EFCommentRepository.cs" />
     <Compile Include="Concrete\EFCountryRepository.cs" />
     <Compile Include="Concrete\EFCultureRepository.cs" />
     <Compile Include="Concrete\EFDocumentConfidentialityRepository.cs" />

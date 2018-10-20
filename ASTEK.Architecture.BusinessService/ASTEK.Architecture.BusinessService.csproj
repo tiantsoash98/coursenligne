@@ -96,6 +96,9 @@
     <Compile Include="Entity\Account\UpdateAccountImageResponse.cs" />
     <Compile Include="Entity\Account\UploadAccountImageRequest.cs" />
     <Compile Include="Entity\Account\UploadAccountImageResponse.cs" />
+    <Compile Include="Entity\Comment\AddCommentRequest.cs" />
+    <Compile Include="Entity\Comment\AddCommentResponse.cs" />
+    <Compile Include="Entity\Comment\CommentBusinessService.cs" />
     <Compile Include="Entity\Country\CountryBusinessService.cs" />
     <Compile Include="Entity\Country\GetAllCountryRequest.cs" />
     <Compile Include="Entity\Country\GetAllCountryResponse.cs" />
@@ -201,6 +204,8 @@
     <Compile Include="Entity\Account\UpdateAccountResponse.cs" />
     <Compile Include="Interface\IAccountStudentBusinessService.cs" />
     <Compile Include="Interface\IAccountTeacherBusinessService.cs" />
+    <Compile Include="Interface\ICommentAnswerBusinessService.cs" />
+    <Compile Include="Interface\ICommentBusinessService.cs" />
     <Compile Include="Interface\ICountryBusinessService.cs" />
     <Compile Include="Interface\ICultureBusinessService.cs" />
     <Compile Include="Interface\IDocumentConfidentialityService.cs" />
@@ -253,5 +258,6 @@
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.7.4.0.6452\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.7.4.0.6452\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

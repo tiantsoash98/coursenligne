@@ -14,6 +14,8 @@
         public virtual DbSet<Domain.Entity.Account.Account> Accounts { get; set; }
         public virtual DbSet<AccountType> AccountTypes { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Domain.Entity.Comment.Comment> Comments { get; set; }
+        public virtual DbSet<Domain.Entity.CommentAnswer.CommentAnswer> CommentAnswers { get; set; }
         public virtual DbSet<Domain.Entity.Country.Country> Countries { get; set; }
         public virtual DbSet<Domain.Entity.Culture.Culture> Cultures { get; set; }
         public virtual DbSet<Curriculum> Curricula { get; set; }
@@ -58,6 +60,8 @@
             modelBuilder.Configurations.Add(new TableConfiguration.LessonPartConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.LessonFollowedConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.ExerciceConfiguration());
+            modelBuilder.Configurations.Add(new TableConfiguration.CommentConfiguration());
+            modelBuilder.Configurations.Add(new TableConfiguration.CommentAnswerConfiguration());
 
 
             modelBuilder.Entity<AccountType>()

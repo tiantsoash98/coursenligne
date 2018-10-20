@@ -126,6 +126,9 @@
   <data name="Display_BirthDay" xml:space="preserve">
     <value>Date de naissance</value>
   </data>
+  <data name="Display_Comment" xml:space="preserve">
+    <value>Commentaire</value>
+  </data>
   <data name="Display_Content" xml:space="preserve">
     <value>Contenu</value>
   </data>

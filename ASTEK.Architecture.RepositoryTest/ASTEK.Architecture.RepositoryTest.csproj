@@ -73,6 +73,8 @@
     <Compile Include="AccountStudent\AccountStudentTest.cs" />
     <Compile Include="AccountTeacher\AccountTeacherTest.cs" />
     <Compile Include="Account\AccountTest.cs" />
+    <Compile Include="CommentAnswer\CommentAnswerTest.cs" />
+    <Compile Include="Comment\CommentTests.cs" />
     <Compile Include="Country\CountryTest.cs" />
     <Compile Include="Culture\CultureTest.cs" />
     <Compile Include="DocumentConfidentiality\DocumentConfidentialityTest.cs" />

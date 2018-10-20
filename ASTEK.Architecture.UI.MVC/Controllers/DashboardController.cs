@@ -144,8 +144,17 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             if (!output.Response.Success)
             {
-                ViewBag.Exception = output.Response.Exception;
-                return View("Error");
+                if(output.Response.Exception != null)
+                {
+                    TempData["exception"] = output.Response.Exception;  
+                }
+                
+                if(output.Response.ValidationFailures != null && output.Response.ValidationFailures.Any())
+                {
+                    TempData["validationFailures"] = output.Response.ValidationFailures;
+                }
+
+                return RedirectToAction("Index");
             }
 
             return RedirectToAction("Teacher");
@@ -186,7 +195,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             gv.DataBind();
 
-            string fileName = string.Concat(lesson.LSNTITLE, "-progr", DateTime.Today.ToString("jjMMyyyy"), ".xls");
+            string fileName = string.Concat(lesson.LSNTITLE, "-progression", DateTime.Today.ToString("ddMMyyyy"), ".xls");
 
             Response.ClearContent();
             Response.Buffer = true;

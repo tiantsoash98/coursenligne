@@ -25,32 +25,35 @@
                         </thead>
                         <tbody>
                             @foreach (var follow in Model.Followers)
+                    {
+                        <tr>
+                            <td>@follow.Name</td>
+                            <td>@Html.Action("GetProgressionByValue", "Lesson", new { value = follow.Progression })</td>
+                            <td>
+                                @{
+
+                            if (follow.Follower.LSFCHAPTER.HasValue && follow.Follower.LSFCHAPTER.Value > 0)
                             {
-                                <tr>
-                                    <td>@follow.Name</td>
-                                    <td>@Html.Action("GetProgressionByValue", "Lesson", new { value = follow.Progression })</td>
-                                    <td>
-                                        @{
+                                <span>Chapitre @follow.Follower.LSFCHAPTER.Value</span>
+                    }
 
-                                            if (follow.Follower.LSFCHAPTER.HasValue && follow.Follower.LSFCHAPTER.Value > 0)
-                                            {
-                                                <span>Chapitre @follow.Follower.LSFCHAPTER.Value</span>
-                                            }
-
-                                            if (follow.Follower.LSFPART.HasValue && follow.Follower.LSFPART.Value > 0)
-                                            {
-                                                <span> / Partie @follow.Follower.LSFPART.Value</span>
-                                            }
-                                        }
-                                    </td>
-                                </tr>
-                            }
+                    if (follow.Follower.LSFPART.HasValue && follow.Follower.LSFPART.Value > 0)
+                    {
+                        <span> / Partie @follow.Follower.LSFPART.Value</span>
+            }
+                                }
+                            </td>
+                        </tr>
+            }
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="modal-footer flex-center">
-                @Model.Followers.Count étudiant(s) @Html.ActionLink("Exporter en Excel", "ExportExcelStudentProgression", "Dashboard", new { @class = "text-right" }, new { lessonId = Model.LessonId }) 
+                @Html.ActionLink("Exporter en Excel", "ExportExcelStudentProgression", "Dashboard", new { lessonId = Model.LessonId }, new { @class = "text-right" })
+            </div>
+            <div class="modal-footer flex-center">
+                @Model.Followers.Count étudiant(s)
             </div>
         </div>
     </div>

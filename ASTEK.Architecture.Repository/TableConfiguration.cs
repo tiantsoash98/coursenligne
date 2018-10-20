@@ -74,6 +74,59 @@ namespace ASTEK.Architecture.Repository
 
         #endregion
 
+        #region CommentConfiguration
+        public class CommentConfiguration : EntityTypeConfiguration<Domain.Entity.Comment.Comment>
+        {
+            public CommentConfiguration()
+            {
+                HasKey(e => e.Id);
+
+                Property(e => e.Id)
+                    .HasColumnName("COMID");
+
+                Property(e => e.Id)
+                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+                Ignore(e => e.COMID);
+
+                Ignore(e => e.DateCreation);
+
+                Ignore(e => e.IsDeleted);
+
+                Property(e => e.COMCONTENT).IsUnicode(false);
+
+                HasMany(e => e.CommentAnswers)
+                    .WithRequired(e => e.Comment)
+                    .WillCascadeOnDelete(false);
+            }
+        }
+        #endregion
+
+        #region CommentAnswerConfiguration
+        public class CommentAnswerConfiguration : EntityTypeConfiguration<Domain.Entity.CommentAnswer.CommentAnswer>
+        {
+            public CommentAnswerConfiguration()
+            {
+                HasKey(e => e.Id);
+
+                Property(e => e.Id)
+                    .HasColumnName("CANID");
+
+                Property(e => e.Id)
+                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+                Ignore(e => e.CANID);
+
+                Ignore(e => e.DateCreation);
+
+                Ignore(e => e.IsDeleted);
+
+                Property(e => e.CANCONTENT)
+                    .IsUnicode(false);
+            }
+        }
+        #endregion
+
         #region CountryConfiguration
         public class CountryConfiguration : EntityTypeConfiguration<Domain.Entity.Country.Country>
         {

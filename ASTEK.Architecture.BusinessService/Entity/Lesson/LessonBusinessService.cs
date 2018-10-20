@@ -85,24 +85,24 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                     throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Lesson);
                 }
 
-                //if (request.GetAlternativePicture)
-                //{
-                //    var studyRequest = new GetStudyRequest
-                //    {
-                //        Code = lesson.STDCODE
-                //    };
+                if (request.GetAlternativePicture)
+                {
+                    var studyRequest = new GetStudyRequest
+                    {
+                        Code = lesson.STDCODE
+                    };
 
-                //    var studyResponse = new StudyBusinessService().Get(studyRequest);
+                    var studyResponse = new StudyBusinessService().Get(studyRequest);
 
-                //    if (string.IsNullOrEmpty(lesson.LSNPICTURE))
-                //    {
-                //        lesson.LSNPICTURE = string.Concat(ConfigurationManager.AppSettings.Get("StudyFolder"), studyResponse.Study.STDPICTURE);
-                //    }
-                //    else
-                //    {
-                //        lesson.LSNPICTURE = string.Concat(ConfigurationManager.AppSettings.Get("LessonFolder"), lesson.LSNPICTURE);
-                //    }
-                //}
+                    if (string.IsNullOrEmpty(lesson.LSNPICTURE))
+                    {
+                        lesson.LSNPICTURE = string.Concat(ConfigurationManager.AppSettings.Get("StudyFolder"), studyResponse.Study.STDPICTURE);
+                    }
+                    else
+                    {
+                        lesson.LSNPICTURE = string.Concat(ConfigurationManager.AppSettings.Get("LessonFolder"), lesson.LSNPICTURE);
+                    }
+                }
 
                 return new GetLessonResponse
                 {

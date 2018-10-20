@@ -22,6 +22,8 @@
 
             <div class="col-md-12 small-space-top">
                 <div class="row">
+                    @Html.Partial("_ErrorAlert")
+
                     <div class="col-md-3">
                         <div class="stat-bloc text-right">
                             <h5>@NumberUtilities.Format(Model.PostedCount, 2) cours publiés</h5>

@@ -123,6 +123,9 @@
   <data name="ApplicationValidation_BirthDayRequired" xml:space="preserve">
     <value>Veuillez spécifier votre date de naissance</value>
   </data>
+  <data name="ApplicationValidation_CommentLength" xml:space="preserve">
+    <value>Le commentaire ne doit pas être vide et doit avoir au plus 2000 caractères</value>
+  </data>
   <data name="ApplicationValidation_ConfirmPasswordRequired" xml:space="preserve">
     <value>Veuillez confirmer votre mot de passe</value>
   </data>

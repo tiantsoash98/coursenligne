@@ -60,12 +60,12 @@ namespace ASTEK.Architecture.RepositoryTest.LessonFollowed
         public void GetFollowedByAccountWithState()
         {
             var accountId = new Guid("E8BC0C1E-BB9F-E811-8220-2C600C6934BE");
-            var stateCode = new Guid("7ABD2A4E-52B7-E811-8225-2C600C6934BE");
+            var state = "VALID";
 
             var ctx = new EFDbContext();
             var rep = new EFLessonFollowedRepository(ctx);
 
-            var lessons = rep.GetFollowedBy(accountId, stateCode);
+            var lessons = rep.GetFollowedBy(accountId, state);
 
             lessons.ForEach(x =>
             {

@@ -88,6 +88,15 @@ namespace ASTEK.Architecture.Infrastructure {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string Display_Comment {
+            get {
+                return ResourceManager.GetString("Display_Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Content.
         /// </summary>
         public static string Display_Content {

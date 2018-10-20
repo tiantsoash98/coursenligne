@@ -1,6 +1,5 @@
-﻿using System;
-using ASTEK.Architecture.Infrastructure.Domain;
-using ASTEK.Architecture.Domain.Entity;
+﻿using ASTEK.Architecture.Infrastructure.Domain;
+using System;
 
 namespace ASTEK.Architecture.Domain.Entity.Account
 {
