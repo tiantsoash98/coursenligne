@@ -196,6 +196,10 @@
     <Compile Include="Models\Account\UpdateAccountViewModel.cs" />
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\BreadCrumbViewModel.cs" />
+    <Compile Include="Models\Comment\AddCommentViewModel.cs" />
+    <Compile Include="Models\Comment\CommentSectionViewModel.cs" />
+    <Compile Include="Models\Comment\CommentViewModel.cs" />
+    <Compile Include="Models\Comment\ListCommentViewModel.cs" />
     <Compile Include="Models\CultureViewModel.cs" />
     <Compile Include="Models\Dashboard\DashboardStudentViewModel.cs" />
     <Compile Include="Models\Dashboard\DashboardTeacherViewModel.cs" />
@@ -790,6 +794,9 @@
     <Content Include="Views\Account\ExternalLoginTeacherConfirmation.cshtml" />
     <Content Include="Views\Shared\_LessonAlternativePicture.cshtml" />
     <Content Include="Views\Shared\_LessonCardFollowed.cshtml" />
+    <Content Include="Views\Lesson\_LessonIndexCommentSection.cshtml" />
+    <Content Include="Views\Comment\_CommentCard.cshtml" />
+    <Content Include="Views\Shared\_AccountName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

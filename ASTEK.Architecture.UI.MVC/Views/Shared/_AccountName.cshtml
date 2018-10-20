@@ -1,0 +1,22 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.Domain.Entity.Account.Account
+
+@{ 
+
+
+    string name = "Anonyme";
+
+    if (Model.AccountStudents.Any())
+    {
+        var account = Model.AccountStudents.FirstOrDefault();
+        name =  StringUtilities.UserName(account.ACSFIRSTNAME, account.ACSNAME);
+    }
+
+    if (Model.AccountTeachers.Any())
+    {
+        var account = Model.AccountTeachers.FirstOrDefault();
+        name = StringUtilities.UserName(account.ACTFIRSTNAME, account.ACTNAME);
+    }
+}
+
+@name

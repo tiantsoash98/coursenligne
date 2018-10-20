@@ -78,6 +78,8 @@
     <Compile Include="Entity\Comment\AddCommentInputModel.cs" />
     <Compile Include="Entity\Comment\AddCommentOutputModel.cs" />
     <Compile Include="Entity\Comment\CommentAppService.cs" />
+    <Compile Include="Entity\Comment\GetAllCommentInputModel.cs" />
+    <Compile Include="Entity\Comment\GetAllCommentOutputModel.cs" />
     <Compile Include="Entity\Country\CountryAppService.cs" />
     <Compile Include="Entity\Country\GetAllCountryInputModel.cs" />
     <Compile Include="Entity\Country\GetAllCountryOutputModel.cs" />

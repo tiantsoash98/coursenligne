@@ -34,5 +34,21 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Comment
                 Response = response
             };
         }
+
+        public GetAllCommentOutputModel GetAll(GetAllCommentInputModel input)
+        {
+            var request = new GetAllCommentRequest
+            {
+                LessonId = GuidUtilities.TryParse(input.LessonId),
+                Count = input.Count
+            };
+
+            GetAllCommentResponse response = _service.GetAll(request);
+
+            return new GetAllCommentOutputModel
+            {
+                Response = response
+            };
+        }
     }
 }

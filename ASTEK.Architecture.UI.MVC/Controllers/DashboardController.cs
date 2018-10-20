@@ -240,7 +240,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             if (follow.Account.AccountTeachers.Any())
             {
                 var account = follow.Account.AccountTeachers.FirstOrDefault();
-                return StringUtilities.UserName(account.ACTFIRSTNAME, account.ACTFIRSTNAME);
+                return StringUtilities.UserName(account.ACTFIRSTNAME, account.ACTNAME);
             }
 
             return "Anonyme";

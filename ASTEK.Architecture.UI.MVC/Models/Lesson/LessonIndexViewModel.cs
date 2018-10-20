@@ -6,5 +6,6 @@
         public int ExerciceCount { get; set; }
         public int ChapterCount { get; set; }
         public int FollowCount { get; set; }
+        public Comment.CommentSectionViewModel CommentSectionViewModel { get; set; }
     }
 }

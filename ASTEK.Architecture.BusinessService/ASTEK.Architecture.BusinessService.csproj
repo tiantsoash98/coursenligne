@@ -99,6 +99,8 @@
     <Compile Include="Entity\Comment\AddCommentRequest.cs" />
     <Compile Include="Entity\Comment\AddCommentResponse.cs" />
     <Compile Include="Entity\Comment\CommentBusinessService.cs" />
+    <Compile Include="Entity\Comment\GetAllCommentRequest.cs" />
+    <Compile Include="Entity\Comment\GetAllCommentResponse.cs" />
     <Compile Include="Entity\Country\CountryBusinessService.cs" />
     <Compile Include="Entity\Country\GetAllCountryRequest.cs" />
     <Compile Include="Entity\Country\GetAllCountryResponse.cs" />

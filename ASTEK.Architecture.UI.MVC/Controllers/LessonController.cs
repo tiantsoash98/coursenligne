@@ -1,10 +1,12 @@
-﻿using ASTEK.Architecture.ApplicationService.Entity.Exercice;
+﻿using ASTEK.Architecture.ApplicationService.Entity.Comment;
+using ASTEK.Architecture.ApplicationService.Entity.Exercice;
 using ASTEK.Architecture.ApplicationService.Entity.Lesson;
 using ASTEK.Architecture.ApplicationService.Entity.LessonChapter;
 using ASTEK.Architecture.ApplicationService.Entity.LessonFollowed;
 using ASTEK.Architecture.ApplicationService.Entity.LessonPart;
 using ASTEK.Architecture.Infrastructure.Utility;
 using ASTEK.Architecture.UI.MVC.Models;
+using ASTEK.Architecture.UI.MVC.Models.Comment;
 using ASTEK.Architecture.UI.MVC.Models.Lesson;
 using System;
 using System.Collections.Generic;
@@ -22,21 +24,36 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
     {
         // GET: Lesson
         [AllowAnonymous]
-        public ActionResult Index(string lessonId)
+        public ActionResult Index(string lessonId, int? page)
         {
             if (string.IsNullOrWhiteSpace(lessonId))
             {
                 return RedirectToAction("Index", "Home");
             }
-               
 
+            try
+            {
+                var summaryVM = InitLessonIndexViewModel(lessonId);
+                summaryVM.CommentSectionViewModel = InitCommentSectionViewModel(lessonId, page);
+
+                return View(summaryVM);
+            }
+            catch (Exception ex)
+            {
+                TempData["exception"] = ex;
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        private LessonIndexViewModel InitLessonIndexViewModel(string lessonId)
+        {
             var appService = new LessonAppService();
 
             GetLessonOutputModel output = appService.Get(new GetLessonInputModel() { Id = lessonId, GetAlternativePicture = true });
 
             if (!output.Response.Success)
             {
-                return LessonNotFound(lessonId, output.Response.Exception);
+                throw output.Response.Exception;
             }
 
             var lesson = output.Response.Lesson;
@@ -59,10 +76,105 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 ChapterCount = (int)chapterCountOutput.Response.Count,
                 ExerciceCount = (int)exerciceCountOutput.Response.Count,
                 FollowCount = (int)followCountOutput.Response.Count,
-                BreadCrumbs = GetBreadCrumbs(lesson.LSNTITLE, lessonId)          
+                BreadCrumbs = GetBreadCrumbs(lesson.LSNTITLE, lessonId)
             };
 
-            return View(summaryVM);
+            return summaryVM;
+        }
+
+        private CommentSectionViewModel InitCommentSectionViewModel(string lessonId, int? page)
+        {
+            var commentsInput = new GetAllCommentInputModel
+            {
+                LessonId = lessonId,
+                Count = (page ?? 1) * 8
+            };
+
+            var commentAppService = new CommentAppService();
+
+            var commentsOutput = commentAppService.GetAll(commentsInput);
+
+            if (!commentsOutput.Response.Success)
+            {
+                throw commentsOutput.Response.Exception;
+            }
+
+            List<CommentViewModel> commentsVM = commentsOutput.Response.Comments
+                                                                .Select(x => new CommentViewModel
+                                                                {
+                                                                    Comment = x
+                                                                })
+                                                                .ToList();
+
+            var listCommentVM = new ListCommentViewModel
+            {
+                Comments = commentsVM
+            };
+
+            return new CommentSectionViewModel
+            {
+                AddCommentInput = new AddCommentInputModel
+                {
+                    LessonId = lessonId
+                },
+                Comments = listCommentVM
+            };
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Comment(CommentSectionViewModel viewModel)
+        {
+            viewModel.LessonId = viewModel.AddCommentInput.LessonId;
+
+            if (!ModelState.IsValid)
+            {
+                try
+                {
+                    var summaryVM = InitLessonIndexViewModel(viewModel.LessonId);
+                    summaryVM.CommentSectionViewModel = viewModel;
+
+                    return View("Index", summaryVM);
+                }
+                catch (Exception ex)
+                {
+                    return LessonNotFound(viewModel.LessonId, ex);
+                }
+            }
+
+            viewModel.AddCommentInput.AccountId = GetAccountLogged().Id.ToString();
+
+            var commentAppService = new CommentAppService();
+            var output = commentAppService.Add(viewModel.AddCommentInput);
+
+            if (!output.Response.Success)
+            {
+                try
+                {
+                    if (output.Response.Exception != null)
+                    {
+                        ModelState.AddModelError("Exception", output.Response.Exception);
+                    }
+                    if (output.Response.ValidationFailures != null)
+                    {
+                        foreach (var validationError in output.Response.ValidationFailures)
+                        {
+                            ModelState.AddModelError("", validationError.ErrorMessage);
+                        }
+                    }
+
+                    var summaryVM = InitLessonIndexViewModel(viewModel.LessonId);
+                    summaryVM.CommentSectionViewModel = viewModel;
+
+                    return View("Index", summaryVM);
+                }
+                catch (Exception ex)
+                {
+                    return LessonNotFound(viewModel.LessonId, ex);
+                }
+            }
+
+            return RedirectToAction("Index", new { lessonId = viewModel.LessonId });
         }
 
         [AllowAnonymous]
@@ -81,7 +193,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             return PartialView("_CountResult", output.Response.Count);
         }
 
-        [AllowAnonymous] 
+        [AllowAnonymous]
         public PartialViewResult GetProgression(string lessonId, short chapterNumber, short? partNumber)
         {
             var service = new LessonAppService();
@@ -98,13 +210,13 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             {
                 ProgressionValue = progression
             };
-         
+
             return PartialView("_ProgressionBar", progressVM);
         }
 
         [AllowAnonymous]
         public PartialViewResult GetProgressionByValue(int value)
-        {     
+        {
             var progressVM = new ProgressBarViewModel
             {
                 ProgressionValue = value
@@ -134,12 +246,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         }
 
         public ActionResult Chapter(string lessonId, short? chapterNumber)
-        {   
+        {
             if (!chapterNumber.HasValue)
             {
                 return RedirectToAction("Chapter", new { lessonId, chapterNumber = 1 });
             }
-                
+
 
             short number = chapterNumber.Value;
 
@@ -178,13 +290,14 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 CurrentChapter = number
             };
 
-            GetLessonNextStepOutputModel nextOutputModel = 
-                appService.GetNextStep(new GetLessonNextStepInputModel() {
-                                                                            Navigation = navigation,
-                                                                            CurrentChapter = number,
-                                                                            CurrentPart = 0,
-                                                                            LessonId = lessonId
-                                                                    });
+            GetLessonNextStepOutputModel nextOutputModel =
+                appService.GetNextStep(new GetLessonNextStepInputModel()
+                {
+                    Navigation = navigation,
+                    CurrentChapter = number,
+                    CurrentPart = 0,
+                    LessonId = lessonId
+                });
 
             var chapterVM = new LessonChapterViewModel()
             {
@@ -219,11 +332,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             var partAppService = new LessonPartAppService();
 
-            GetPartByNumberOutputModel partOutput = partAppService.GetByNumber(new GetPartByNumberInputModel() {
-                                                                                                    LessonId = lessonId,
-                                                                                                    ChapterNumber = chapterNumber,
-                                                                                                    Number = number
-                                                                                                });
+            GetPartByNumberOutputModel partOutput = partAppService.GetByNumber(new GetPartByNumberInputModel()
+            {
+                LessonId = lessonId,
+                ChapterNumber = chapterNumber,
+                Number = number
+            });
 
             if (!partOutput.Response.Success)
             {
@@ -290,7 +404,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             }
 
             if (type.Equals("Chapter"))
-            {          
+            {
                 return RedirectToAction("Chapter", "Lesson", new { lessonId, chapterNumber });
             }
             else if (type.Equals("Part"))
@@ -332,7 +446,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             int _page = page ?? 1;
 
-            if(_page <= 0)
+            if (_page <= 0)
             {
                 return RedirectToAction("Search", new { query, page = 1 });
             }
@@ -388,18 +502,18 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             if (!output.Response.Success)
             {
-                if(output.Response.Exception != null)
+                if (output.Response.Exception != null)
                 {
                     ModelState.AddModelError("ValidatorErrors", output.Response.Exception);
                 }
-                if(output.Response.ValidationErrors != null)
+                if (output.Response.ValidationErrors != null)
                 {
-                    foreach(var validationError in output.Response.ValidationErrors)
+                    foreach (var validationError in output.Response.ValidationErrors)
                     {
                         ModelState.AddModelError("", validationError.ErrorMessage);
                     }
                 }
-                             
+
 
                 InitAddLessonViewModel(model);
                 return View(model);
@@ -465,7 +579,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 return View(model);
             }
 
-            if(model.PartsInput != null && model.PartsInput.Count > 0)
+            if (model.PartsInput != null && model.PartsInput.Count > 0)
             {
                 var createAllInputModel = new CreateAllLessonPartInputModel()
                 {
@@ -494,7 +608,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                     InitAddLessonChapterViewModel(model);
                     return View(model);
                 }
-            }      
+            }
 
             if (model.Type.Equals("next"))
             {
@@ -511,7 +625,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             if (string.IsNullOrWhiteSpace(lessonId))
             {
                 return RedirectToAction("Index", "Home");
-            }              
+            }
 
             var addVM = new LessonAddDetailsViewModels
             {
@@ -528,7 +642,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         {
             var service = new LessonAppService();
 
-            if(image != null && image.ContentLength > 0)
+            if (image != null && image.ContentLength > 0)
             {
                 var imageInput = new UploadLessonImageInputModel()
                 {
@@ -543,12 +657,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
                 if (!imageOutput.Response.Success)
                 {
-                    if(imageOutput.Response.Exception != null)
+                    if (imageOutput.Response.Exception != null)
                     {
                         ModelState.AddModelError("Error", imageOutput.Response.Exception);
                     }
-                    
-                    if(imageOutput.Response.ValidationFailures != null)
+
+                    if (imageOutput.Response.ValidationFailures != null)
                     {
                         foreach (var error in imageOutput.Response.ValidationFailures)
                         {
@@ -563,7 +677,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
                     return View(addVM);
                 }
-            }         
+            }
 
             return RedirectToAction("Index", "Lesson", new { lessonId });
         }
@@ -578,17 +692,17 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             try
             {
-                var lessonVM = GetAllContentLessonViewModel(lessonId);          
+                var lessonVM = GetAllContentLessonViewModel(lessonId);
                 return View(lessonVM);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return LessonNotFound(lessonId, ex);
             }
         }
 
         [Authorize(Roles = "TEACHER")]
-        public ActionResult Update(string lessonId, string status) 
+        public ActionResult Update(string lessonId, string status)
         {
             if (string.IsNullOrEmpty(lessonId))
             {
@@ -714,7 +828,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 ChapterInput = updateInput,
                 Status = status,
                 LessonId = lessonId,
-                ChapterNumber = _chapterNumber  ,
+                ChapterNumber = _chapterNumber,
                 PartsInput = partsInput
             };
 
@@ -857,13 +971,13 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                         Bottom = 10
                     },
                     CustomSwitches = "--page-offset 0 --footer-center [page] --footer-font-size 6",
-                    PageSize = Rotativa.Options.Size.A4,                 
+                    PageSize = Rotativa.Options.Size.A4,
                 };
             }
             catch (Exception ex)
             {
                 return LessonNotFound(lessonId, ex);
-            }       
+            }
         }
 
         [Authorize(Roles = "TEACHER")]
@@ -934,7 +1048,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         {
             List<UpdateLessonPartInputModel> partsInput = new List<UpdateLessonPartInputModel>();
 
-            foreach(var part in lessonParts)
+            foreach (var part in lessonParts)
             {
                 partsInput.Add(new UpdateLessonPartInputModel
                 {
@@ -975,7 +1089,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 Action = "Chapter",
                 Controller = "Lesson",
                 Title = chapterTitle,
-                RouteValues = new RouteValueDictionary { { "lessonId", lessonId }, {"chapterNumber", chapterNumber } },
+                RouteValues = new RouteValueDictionary { { "lessonId", lessonId }, { "chapterNumber", chapterNumber } },
                 IsCurrent = isCurrent
             };
 
@@ -992,7 +1106,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 Action = "Part",
                 Controller = "Lesson",
                 Title = partTitle,
-                RouteValues = new RouteValueDictionary { { "lessonId", lessonId }, { "chapterNumber", chapterNumber }, {"partNumber", partNumber } },
+                RouteValues = new RouteValueDictionary { { "lessonId", lessonId }, { "chapterNumber", chapterNumber }, { "partNumber", partNumber } },
                 IsCurrent = isCurrent
             };
 

@@ -81,6 +81,28 @@ namespace ASTEK.Architecture.BusinessService.Entity.Comment
             }
         }
 
+        public GetAllCommentResponse GetAll(GetAllCommentRequest request)
+        {
+            try
+            {
+                var comments = _repository.FindAll(request.LessonId);
+
+                return new GetAllCommentResponse
+                {
+                    Success = true,
+                    Comments = comments
+                };
+            }
+            catch(Exception ex)
+            {
+                return new GetAllCommentResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
+
         public override List<ValidationFailure> GetErrors(Domain.Entity.Comment.Comment entity, ValidationType validationType)
         {
             return new CommentValidator(validationType).Validate(entity).Errors.ToList();
