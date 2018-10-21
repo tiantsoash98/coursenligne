@@ -96,6 +96,11 @@
     <Compile Include="Entity\Account\UpdateAccountImageResponse.cs" />
     <Compile Include="Entity\Account\UploadAccountImageRequest.cs" />
     <Compile Include="Entity\Account\UploadAccountImageResponse.cs" />
+    <Compile Include="Entity\CommentAnswer\AddCommentAnswerRequest.cs" />
+    <Compile Include="Entity\CommentAnswer\AddCommentAnswerResponse.cs" />
+    <Compile Include="Entity\CommentAnswer\CommentAnswerBusinessService.cs" />
+    <Compile Include="Entity\CommentAnswer\GetAllCommentAnswerRequest.cs" />
+    <Compile Include="Entity\CommentAnswer\GetAllCommentAnswerResponse.cs" />
     <Compile Include="Entity\Comment\AddCommentRequest.cs" />
     <Compile Include="Entity\Comment\AddCommentResponse.cs" />
     <Compile Include="Entity\Comment\CommentBusinessService.cs" />

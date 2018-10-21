@@ -75,6 +75,11 @@
     <Compile Include="Entity\AccountStudent\UpdateAccountStudentInputModel.cs" />
     <Compile Include="Entity\Account\UploadAccountImageInputModel.cs" />
     <Compile Include="Entity\Account\UploadAccountImageOutputModel.cs" />
+    <Compile Include="Entity\CommentAnswer\AddCommentAnswerInputModel.cs" />
+    <Compile Include="Entity\CommentAnswer\AddCommentAnswerOutputModel.cs" />
+    <Compile Include="Entity\CommentAnswer\CommentAnswerAppService.cs" />
+    <Compile Include="Entity\CommentAnswer\GetAllCommentAnswerInputModel.cs" />
+    <Compile Include="Entity\CommentAnswer\GetAllCommentAnswerOutputModel.cs" />
     <Compile Include="Entity\Comment\AddCommentInputModel.cs" />
     <Compile Include="Entity\Comment\AddCommentOutputModel.cs" />
     <Compile Include="Entity\Comment\CommentAppService.cs" />

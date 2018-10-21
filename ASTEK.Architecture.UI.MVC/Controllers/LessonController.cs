@@ -1,4 +1,5 @@
 ﻿using ASTEK.Architecture.ApplicationService.Entity.Comment;
+using ASTEK.Architecture.ApplicationService.Entity.CommentAnswer;
 using ASTEK.Architecture.ApplicationService.Entity.Exercice;
 using ASTEK.Architecture.ApplicationService.Entity.Lesson;
 using ASTEK.Architecture.ApplicationService.Entity.LessonChapter;
@@ -87,7 +88,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var commentsInput = new GetAllCommentInputModel
             {
                 LessonId = lessonId,
-                Count = (page ?? 1) * 8
+                Count = (page ?? 1) * 8,
+                LoadAnswers = true
             };
 
             var commentAppService = new CommentAppService();
@@ -102,7 +104,13 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             List<CommentViewModel> commentsVM = commentsOutput.Response.Comments
                                                                 .Select(x => new CommentViewModel
                                                                 {
-                                                                    Comment = x
+                                                                    Comment = x,
+                                                                    Answers = x.CommentAnswers.ToList(),
+                                                                    AnswerInput = new AddCommentAnswerInputModel
+                                                                    {
+                                                                        CommentId = x.Id.ToString(),
+                                                                        LessonId = x.LSNID.ToString()
+                                                                    }
                                                                 })
                                                                 .ToList();
 
@@ -121,7 +129,6 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             };
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public ActionResult Comment(CommentSectionViewModel viewModel)
         {
@@ -165,6 +172,61 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
                     var summaryVM = InitLessonIndexViewModel(viewModel.LessonId);
                     summaryVM.CommentSectionViewModel = viewModel;
+
+                    return View("Index", summaryVM);
+                }
+                catch (Exception ex)
+                {
+                    return LessonNotFound(viewModel.LessonId, ex);
+                }
+            }
+
+            return RedirectToAction("Index", new { lessonId = viewModel.LessonId });
+        }
+
+        [HttpPost]
+        public ActionResult AnswerComment(CommentViewModel viewModel)
+        {
+            viewModel.LessonId = viewModel.AnswerInput.LessonId;
+
+            if (!ModelState.IsValid)
+            {
+                try
+                {
+                    var summaryVM = InitLessonIndexViewModel(viewModel.LessonId);
+                    summaryVM.CommentSectionViewModel = InitCommentSectionViewModel(viewModel.LessonId, 1);
+
+                    return View("Index", summaryVM);
+                }
+                catch (Exception ex)
+                {
+                    return LessonNotFound(viewModel.LessonId, ex);
+                }
+            }
+
+            viewModel.AnswerInput.AccountId = GetAccountLogged().Id.ToString();
+
+            var commentAppService = new CommentAnswerAppService();
+            var output = commentAppService.Add(viewModel.AnswerInput);
+
+            if (!output.Response.Success)
+            {
+                try
+                {
+                    if (output.Response.Exception != null)
+                    {
+                        ModelState.AddModelError("Exception", output.Response.Exception);
+                    }
+                    if (output.Response.ValidationFailures != null)
+                    {
+                        foreach (var validationError in output.Response.ValidationFailures)
+                        {
+                            ModelState.AddModelError("", validationError.ErrorMessage);
+                        }
+                    }
+
+                    var summaryVM = InitLessonIndexViewModel(viewModel.LessonId);
+                    summaryVM.CommentSectionViewModel = InitCommentSectionViewModel(viewModel.LessonId, 1);
 
                     return View("Index", summaryVM);
                 }

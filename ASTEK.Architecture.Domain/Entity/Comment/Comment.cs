@@ -1,12 +1,15 @@
 namespace ASTEK.Architecture.Domain.Entity.Comment
 {
+    using ASTEK.Architecture.Domain.Validator;
     using ASTEK.Architecture.Infrastructure.Domain;
+    using FluentValidation.Attributes;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Comment")]
+    [Validator(typeof(CommentValidator))]
     public partial class Comment: EntityBase<Guid>, IAggregateRoot
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

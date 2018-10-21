@@ -124,6 +124,7 @@
     <Compile Include="Validator\AccountStudentValidator.cs" />
     <Compile Include="Validator\AccountTeacherValidator.cs" />
     <Compile Include="Validator\AccountValidator.cs" />
+    <Compile Include="Validator\CommentAnswerValidator.cs" />
     <Compile Include="Validator\CommentValidator.cs" />
     <Compile Include="Validator\LessonChapterValidator.cs" />
     <Compile Include="Validator\LessonPartValidator.cs" />

@@ -196,7 +196,6 @@
     <Compile Include="Models\Account\UpdateAccountViewModel.cs" />
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\BreadCrumbViewModel.cs" />
-    <Compile Include="Models\Comment\AddCommentViewModel.cs" />
     <Compile Include="Models\Comment\CommentSectionViewModel.cs" />
     <Compile Include="Models\Comment\CommentViewModel.cs" />
     <Compile Include="Models\Comment\ListCommentViewModel.cs" />
@@ -797,6 +796,7 @@
     <Content Include="Views\Lesson\_LessonIndexCommentSection.cshtml" />
     <Content Include="Views\Comment\_CommentCard.cshtml" />
     <Content Include="Views\Shared\_AccountName.cshtml" />
+    <Content Include="Views\CommentAnswer\_CommentAnswerCard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

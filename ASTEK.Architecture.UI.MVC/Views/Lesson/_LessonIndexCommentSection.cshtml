@@ -2,11 +2,14 @@
 
 <section class="comment-section section">
     <div class="container">
-        <h4><b>POST COMMENT</b></h4>
+        
         <div class="row">
 
             <div class="col-lg-8 col-md-12">
                 <div class="comment-form">
+                    <h4 class="pre-title"><b>Poster un commentaire</b></h4>
+                    <hr />
+                    
                     @using (Html.BeginForm("Comment", "Lesson", FormMethod.Post))
                     {
                         <div class="row">
@@ -16,27 +19,29 @@
                                     @Html.ValidationMessageFor(m => m.AddCommentInput.Content, "", new { @class = "text-danger", style = "padding-bottom: 5px;" })
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-8">
                                 @Html.HiddenFor(m => m.AddCommentInput.LessonId)
-                                @Html.TextAreaFor(m => m.AddCommentInput.Content, new { @class = "text-area-messge form-control", @rows = "1", placeholder = "Enter your comment" })
+                                @Html.TextAreaFor(m => m.AddCommentInput.Content, new { @class = "text-area-messge form-control", @rows = "1", placeholder = "Votre commentaire" })
                             </div><!-- col-sm-12 -->
-                            <div class="col-sm-12">
+                            <div class="col-sm-4">
                                 <button class="personal-btn-simple" type="submit" id="form-submit"><b>Commenter</b></button>
-                            </div><!-- col-sm-12 -->
-
+                            </div>
                         </div><!-- row -->
                     }
 
                 </div><!-- comment-form -->
 
-                <h4><b>COMMENTS(@Model.Comments.Comments.Count)</b></h4>
+                <h4><b>Commentaires (@Model.Comments.Comments.Count)</b></h4>
 
                 @foreach (var comment in Model.Comments.Comments)
                 {
                     @Html.Partial("~/Views/Comment/_CommentCard.cshtml", comment)
                 }
 
-                <a class="more-comment-btn" href="#"><b>VIEW MORE COMMENTS</a>
+                @if (Model.Comments.Comments.Count > 8)
+                {
+                    <a class="more-comment-btn" href="#">Voir plus de commentaires</a>
+                }
 
             </div><!-- col-lg-8 col-md-12 -->
 

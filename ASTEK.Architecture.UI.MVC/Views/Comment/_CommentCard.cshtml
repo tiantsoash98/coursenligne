@@ -1,8 +1,8 @@
 ﻿@model ASTEK.Architecture.UI.MVC.Models.Comment.CommentViewModel
 
-<div class="commnets-area">
+<div class="personal-comments-area">
 
-    <div class="comment">
+    <div class="personal-comment main-comment">
 
         <div class="post-info">
 
@@ -11,48 +11,40 @@
             </div>
 
             <div class="middle-area">
-                <a class="name" href="#"><b>@Html.Partial("_AccountName", Model.Comment.Account)</b></a>
+                <span class="personal-comment-account-name"><b>@Html.Partial("_AccountName", Model.Comment.Account)</b></span>
                 <h6 class="date">@Model.Comment.COMDATE.ToString("dd-MM-yyyy hh:mm")</h6>
             </div>
 
-            <div class="right-area">
+            @*<div class="right-area">
                 <h5 class="reply-btn"><a href="#"><b>Répondre</b></a></h5>
-            </div>
+            </div>*@
 
         </div><!-- post-info -->
 
-        <p>
+        <p class="personal-comment-content">
             @Model.Comment.COMCONTENT
         </p>
 
     </div>
 
-    @*<div class="comment">
-        <h5 class="reply-for">Reply for <a href="#"><b>Katy Lui</b></a></h5>
 
-        <div class="post-info">
 
-            <div class="left-area">
-                <a class="avatar" href="#"><img src="images/avatar-1-120x120.jpg" alt="Profile Image"></a>
-            </div>
+    @foreach (var answer in Model.Answers)
+    {
+        @Html.Partial("~/Views/CommentAnswer/_CommentAnswerCard.cshtml", answer)
+    }
 
-            <div class="middle-area">
-                <a class="name" href="#"><b>Katy Liu</b></a>
-                <h6 class="date">on Sep 29, 2017 at 9:48 am</h6>
-            </div>
-
-            <div class="right-area">
-                <h5 class="reply-btn"><a href="#"><b>REPLY</b></a></h5>
-            </div>
-
-        </div> post-info 
-
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-            ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur
-            Ut enim ad minim veniam
-        </p>
-
-    </div>*@
+    <div class="personal-comment">
+        @using (Html.BeginForm("AnswerComment", "Lesson", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-sm-12">
+                    @Html.HiddenFor(m => m.AnswerInput.CommentId)
+                    @Html.HiddenFor(m => m.AnswerInput.LessonId)
+                    @Html.TextBoxFor(m => m.AnswerInput.Content, new { @class = "text-area-messge form-control add-comment-form", placeholder = "Votre réponse" })
+                </div><!-- col-sm-12 -->
+            </div><!-- row -->
+        }
+    </div><!-- comment-form -->
 
 </div><!-- commnets-area -->

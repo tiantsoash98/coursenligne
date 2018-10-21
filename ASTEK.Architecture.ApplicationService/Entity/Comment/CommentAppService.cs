@@ -40,7 +40,8 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Comment
             var request = new GetAllCommentRequest
             {
                 LessonId = GuidUtilities.TryParse(input.LessonId),
-                Count = input.Count
+                Count = input.Count,
+                LoadAnswers = input.LoadAnswers
             };
 
             GetAllCommentResponse response = _service.GetAll(request);

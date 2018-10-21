@@ -1,0 +1,21 @@
+﻿@model ASTEK.Architecture.Domain.Entity.CommentAnswer.CommentAnswer
+
+<div class="personal-comment answer-comment">
+
+    <div class="post-info">
+
+        <div class="left-area">
+            @Html.Partial("_AccountPicture", Model.Account)
+        </div>
+
+        <div class="middle-area">
+            <span class="comment-account-name"><b>@Html.Partial("_AccountName", Model.Account)</b></span>
+            <h6 class="date">@Model.CANDATE.ToString("dd-MM-yyyy hh:mm")</h6>
+        </div>
+    </div>
+
+    <p class="personal-comment-content">
+        @Model.CANCONTENT
+    </p>
+
+</div>

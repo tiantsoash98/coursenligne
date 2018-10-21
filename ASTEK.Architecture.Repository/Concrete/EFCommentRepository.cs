@@ -28,12 +28,24 @@ namespace ASTEK.Architecture.Repository.Concrete
             base.Add(entity);
         }
 
-        public List<Comment> FindAll(Guid lessonId)
+        public List<Comment> FindAll(Guid lessonId, bool loadAnswers = false)
         {
             Context.Comments.Include(c => c.Account.AccountStudents).ToList();
             Context.Comments.Include(c => c.Account.AccountTeachers).ToList();
 
-            return Context.Comments.Where(c => c.LSNID.Equals(lessonId) && c.DocumentState.DCSWORDING.Equals("VALID")).ToList();
+            if (loadAnswers)
+            {
+                Context.Comments.Include(c => c.CommentAnswers
+                                                        .Select(a => a.Account.AccountStudents))
+                                        .ToList();
+
+                Context.Comments.Include(c => c.CommentAnswers
+                                                        .Select(a => a.Account.AccountTeachers))
+                                        .ToList();
+            }
+
+            return Context.Comments.Where(c => c.LSNID.Equals(lessonId) && c.DocumentState.DCSWORDING.Equals("VALID"))
+                                    .ToList();
         }
     }
 }

@@ -1,11 +1,14 @@
 namespace ASTEK.Architecture.Domain.Entity.CommentAnswer
 {
+    using ASTEK.Architecture.Domain.Validator;
     using ASTEK.Architecture.Infrastructure.Domain;
+    using FluentValidation.Attributes;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("CommentAnswer")]
+    [Validator(typeof(AccountValidator))]
     public partial class CommentAnswer: EntityBase<Guid>, IAggregateRoot
     {
         [Key]

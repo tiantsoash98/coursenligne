@@ -2,6 +2,7 @@
 using ASTEK.Architecture.BusinessService.Interface;
 using ASTEK.Architecture.Domain.Validator;
 using ASTEK.Architecture.Infrastructure.Domain;
+using ASTEK.Architecture.Infrastructure.Utility;
 using ASTEK.Architecture.Repository;
 using ASTEK.Architecture.Repository.Concrete;
 using FluentValidation.Results;
@@ -85,12 +86,21 @@ namespace ASTEK.Architecture.BusinessService.Entity.Comment
         {
             try
             {
-                var comments = _repository.FindAll(request.LessonId);
+                var comments = _repository.FindAll(request.LessonId, request.LoadAnswers);
+
+                List<Domain.Entity.Comment.Comment> pagedList = comments;
+
+                if (request.Count > 0)
+                {
+                    pagedList = comments.OrderByDescending(c => c.COMDATE)
+                                                                        .Take(request.Count)
+                                                                        .ToList();
+                }
 
                 return new GetAllCommentResponse
                 {
                     Success = true,
-                    Comments = comments
+                    Comments = pagedList
                 };
             }
             catch(Exception ex)

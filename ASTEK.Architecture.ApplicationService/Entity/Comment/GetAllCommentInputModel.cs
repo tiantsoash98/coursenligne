@@ -4,5 +4,6 @@
     {
         public string LessonId { get; set; }
         public int Count { get; set; }
+        public bool LoadAnswers { get; set; }
     }
 }
