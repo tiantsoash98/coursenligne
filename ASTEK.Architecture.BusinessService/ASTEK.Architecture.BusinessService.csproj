@@ -208,6 +208,9 @@
     <Compile Include="Entity\Study\GetStudyRequest.cs" />
     <Compile Include="Entity\Study\GetStudyResponse.cs" />
     <Compile Include="Entity\Study\StudyBusinessService.cs" />
+    <Compile Include="Entity\SubscribeActivity\NotifySubscribersRequest.cs" />
+    <Compile Include="Entity\SubscribeActivity\NotifySubscribersResponse.cs" />
+    <Compile Include="Entity\SubscribeActivity\SubscribeActivityBusinessService.cs" />
     <Compile Include="Interface\IAccountBusinessService.cs" />
     <Compile Include="Entity\Account\UpdateAccountRequest.cs" />
     <Compile Include="Entity\Account\UpdateAccountResponse.cs" />
@@ -225,6 +228,7 @@
     <Compile Include="Interface\ILessonFollowedBusinessService.cs" />
     <Compile Include="Interface\ILessonPartBusinessService.cs" />
     <Compile Include="Interface\IStudyBusinessService.cs" />
+    <Compile Include="Interface\ISubscribeActivityBusinessService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rule\ChapterCountRule.cs" />
     <Compile Include="Rule\ImageFileExtensionRule.cs" />

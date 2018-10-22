@@ -73,6 +73,7 @@
     <Compile Include="Concrete\EFLessonPartRepository.cs" />
     <Compile Include="Concrete\EFLessonRepository.cs" />
     <Compile Include="Concrete\EFStudyRepository.cs" />
+    <Compile Include="Concrete\EFSubscribeActivityRepository.cs" />
     <Compile Include="EFDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EFRepository.cs" />

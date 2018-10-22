@@ -41,6 +41,7 @@
         public virtual DbSet<Domain.Entity.AccountStudent.AccountStudent> AccountStudents { get; set; }
         public virtual DbSet<Domain.Entity.AccountTeacher.AccountTeacher> AccountTeachers { get; set; }
         public virtual DbSet<Domain.Entity.LessonPart.LessonPart> LessonParts { get; set; }
+        public virtual DbSet<Domain.Entity.SubscribeActivity.SubscribeActivity> SubscribeActivities { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -52,6 +53,7 @@
             modelBuilder.Configurations.Add(new TableConfiguration.AccountTeacherConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.FollowStateConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.GenderConfiguration());
+            modelBuilder.Configurations.Add(new TableConfiguration.SubscribeActivityConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.StudyConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.DocumentConfidentialityConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.DocumentStateConfiguration());

@@ -314,6 +314,28 @@ namespace ASTEK.Architecture.Repository
         }
         #endregion
 
+        #region SubscribeActivityConfiguration
+        public class SubscribeActivityConfiguration : EntityTypeConfiguration<Domain.Entity.SubscribeActivity.SubscribeActivity>
+        {
+            public SubscribeActivityConfiguration()
+            {
+                HasKey(e => e.Id);
+
+                Property(e => e.Id)
+                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+                Property(e => e.Id)
+                    .HasColumnName("SUBID");
+   
+                Ignore(e => e.SUBID);
+
+                Ignore(e => e.DateCreation);
+
+                Ignore(e => e.IsDeleted);
+            }
+        }
+        #endregion
+
         #region StudyConfiguration
         public class StudyConfiguration : EntityTypeConfiguration<Domain.Entity.Study.Study>
         {

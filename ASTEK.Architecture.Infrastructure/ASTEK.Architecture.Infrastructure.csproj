@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\NotificationSource.cs" />
     <Compile Include="Domain\UserRole.cs" />
     <Compile Include="Domain\BusinessRule.cs" />
     <Compile Include="Domain\EntityBase.cs" />
