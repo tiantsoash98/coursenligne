@@ -61,6 +61,24 @@ namespace ASTEK.Architecture.UI.MVC {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Student.
+        /// </summary>
+        public static string Account_Student {
+            get {
+                return ResourceManager.GetString("Account_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teacher.
+        /// </summary>
+        public static string Account_Teacher {
+            get {
+                return ResourceManager.GetString("Account_Teacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Application.
         /// </summary>
         public static string App_Title {
@@ -70,11 +88,47 @@ namespace ASTEK.Architecture.UI.MVC {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All rights reserved.
+        /// </summary>
+        public static string Footer_ReservedRight {
+            get {
+                return ResourceManager.GetString("Footer_ReservedRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Become member.
         /// </summary>
         public static string Home_BecomeMember {
             get {
                 return ResourceManager.GetString("Home_BecomeMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lessons you may like.
+        /// </summary>
+        public static string Home_LessonsMayLike {
+            get {
+                return ResourceManager.GetString("Home_LessonsMayLike", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lessons you didn&apos;t finish.
+        /// </summary>
+        public static string Home_LessonsNotFinished {
+            get {
+                return ResourceManager.GetString("Home_LessonsNotFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot your password?.
+        /// </summary>
+        public static string Login_ForgotPassword {
+            get {
+                return ResourceManager.GetString("Login_ForgotPassword", resourceCulture);
             }
         }
         
@@ -93,6 +147,105 @@ namespace ASTEK.Architecture.UI.MVC {
         public static string Login_ProviderTitle {
             get {
                 return ResourceManager.GetString("Login_ProviderTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Just sign up.
+        /// </summary>
+        public static string Login_SignUp {
+            get {
+                return ResourceManager.GetString("Login_SignUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard.
+        /// </summary>
+        public static string LoginPartial_Dashboard {
+            get {
+                return ResourceManager.GetString("LoginPartial_Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disconnect.
+        /// </summary>
+        public static string LoginPartial_Disconnect {
+            get {
+                return ResourceManager.GetString("LoginPartial_Disconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New lesson.
+        /// </summary>
+        public static string LoginPartial_NewLesson {
+            get {
+                return ResourceManager.GetString("LoginPartial_NewLesson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign in.
+        /// </summary>
+        public static string LoginPartial_SignIn {
+            get {
+                return ResourceManager.GetString("LoginPartial_SignIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign up.
+        /// </summary>
+        public static string LoginPartial_SignUp {
+            get {
+                return ResourceManager.GetString("LoginPartial_SignUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update account.
+        /// </summary>
+        public static string LoginPartial_UpdateAccount {
+            get {
+                return ResourceManager.GetString("LoginPartial_UpdateAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search for lessons.
+        /// </summary>
+        public static string Navbar_Search {
+            get {
+                return ResourceManager.GetString("Navbar_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already have an account?.
+        /// </summary>
+        public static string Register_AlreadyHaveAccount {
+            get {
+                return ResourceManager.GetString("Register_AlreadyHaveAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not registered yet?.
+        /// </summary>
+        public static string Register_NotHaveAccount {
+            get {
+                return ResourceManager.GetString("Register_NotHaveAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are....
+        /// </summary>
+        public static string RegisterModal_YouAre {
+            get {
+                return ResourceManager.GetString("RegisterModal_YouAre", resourceCulture);
             }
         }
         

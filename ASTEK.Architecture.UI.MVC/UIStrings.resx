@@ -198,4 +198,55 @@
   <data name="Title_Study_Index" xml:space="preserve">
     <value>Study - {0}</value>
   </data>
+  <data name="Account_Student" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="Account_Teacher" xml:space="preserve">
+    <value>Teacher</value>
+  </data>
+  <data name="Home_LessonsMayLike" xml:space="preserve">
+    <value>Lessons you may like</value>
+  </data>
+  <data name="Home_LessonsNotFinished" xml:space="preserve">
+    <value>Lessons you didn't finish</value>
+  </data>
+  <data name="LoginPartial_Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="LoginPartial_Disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="LoginPartial_NewLesson" xml:space="preserve">
+    <value>New lesson</value>
+  </data>
+  <data name="LoginPartial_SignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="LoginPartial_SignUp" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="LoginPartial_UpdateAccount" xml:space="preserve">
+    <value>Update account</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="Login_SignUp" xml:space="preserve">
+    <value>Just sign up</value>
+  </data>
+  <data name="Navbar_Search" xml:space="preserve">
+    <value>Search for lessons</value>
+  </data>
+  <data name="RegisterModal_YouAre" xml:space="preserve">
+    <value>You are...</value>
+  </data>
+  <data name="Register_AlreadyHaveAccount" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
+  <data name="Register_NotHaveAccount" xml:space="preserve">
+    <value>Not registered yet?</value>
+  </data>
+  <data name="Footer_ReservedRight" xml:space="preserve">
+    <value>All rights reserved</value>
+  </data>
 </root>

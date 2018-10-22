@@ -1,4 +1,5 @@
-﻿using ASTEK.Architecture.UI.MVC.Models;
+﻿using ASTEK.Architecture.Infrastructure.Utility;
+using ASTEK.Architecture.UI.MVC.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -16,18 +17,12 @@ namespace ASTEK.Architecture.UI.MVC
         public Task SendAsync(IdentityMessage message)
         {
             MailMessage mail = new MailMessage();
-            SmtpClient SmtpServer = new SmtpClient("localhost");
-
-            mail.From = new MailAddress("informatech@itu.local");
+           
             mail.To.Add(message.Destination);
             mail.Subject = message.Subject;
             mail.Body = message.Body;
 
-            SmtpServer.Port = 25;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("informatech@itu.local", "ituitu");
-            SmtpServer.EnableSsl = false;
-
-            return SmtpServer.SendMailAsync(mail);
+            return MailUtilities.SendMailAsync(mail);
         }
     }
 

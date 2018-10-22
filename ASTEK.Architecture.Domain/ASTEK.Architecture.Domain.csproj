@@ -120,6 +120,7 @@
     <Compile Include="Entity\EntityStrings\EntityStrings.cs" />
     <Compile Include="Entity\Comment\Comment.cs" />
     <Compile Include="Entity\CommentAnswer\CommentAnswer.cs" />
+    <Compile Include="Entity\TeacherFollowed\TeacherFollowed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validator\AccountStudentValidator.cs" />
     <Compile Include="Validator\AccountTeacherValidator.cs" />

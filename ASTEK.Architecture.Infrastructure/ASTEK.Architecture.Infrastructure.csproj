@@ -92,7 +92,7 @@
     <Compile Include="Utility\GuidUtilities.cs" />
     <Compile Include="Utility\ImageUtilities.cs" />
     <Compile Include="Utility\ListUtilities.cs" />
-    <Compile Include="Utility\MailFormat.cs" />
+    <Compile Include="Utility\MailUtilities.cs" />
     <Compile Include="Utility\NumberUtilities.cs" />
     <Compile Include="Utility\StringUtilities.cs" />
     <Compile Include="Utility\TimeSpanUtilities.cs" />

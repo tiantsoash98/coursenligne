@@ -3,20 +3,20 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title flex-center">Devenez-membre</h6>
+                <h6 class="modal-title flex-center">@UIStrings.Home_BecomeMember</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="container text-center">
-                    <p class="col-md-12">Vous êtes...</p>
-                    @Html.ActionLink("Etudiant", "RegisterStudent", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-outline-primary col-md-5" })
-                    @Html.ActionLink("Enseignant", "RegisterTeacher", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-outline-primary col-md-5" })
+                    <p class="col-md-12">@UIStrings.RegisterModal_YouAre</p>
+                    @Html.ActionLink(UIStrings.Account_Student, "RegisterStudent", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-outline-primary col-md-5" })
+                    @Html.ActionLink(UIStrings.Account_Teacher, "RegisterTeacher", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-outline-primary col-md-5" })
                 </div>
             </div>
             <div class="modal-footer flex-center">
-                <h6 class="modal-title">Vous avez déjà un compte?&nbsp;@Html.ActionLink("Connectez-vous", "Login", "Account")</h6>
+                <h6 class="modal-title">@UIStrings.Register_AlreadyHaveAccount&nbsp;@Html.ActionLink(UIStrings.LoginPartial_SignIn, "Login", "Account")</h6>
             </div>
         </div>
     </div>

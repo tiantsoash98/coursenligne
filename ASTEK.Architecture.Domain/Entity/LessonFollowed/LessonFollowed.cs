@@ -1,6 +1,6 @@
 namespace ASTEK.Architecture.Domain.Entity.LessonFollowed
 {
-    using ASTEK.Architecture.Infrastructure.Domain;
+    using Infrastructure.Domain;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;

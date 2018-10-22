@@ -30,7 +30,7 @@
             @Html.Partial("_ErrorAlert")
 
             <div class="col-md-12 text-left">
-                <h3>Cours que vous pourriez aimer</h3>
+                <h3>@UIStrings.Home_LessonsMayLike</h3>
             </div>
 
             @foreach (var lesson in Model.MayLike)
@@ -42,9 +42,9 @@
 
         </div><!-- row -->
 
-        <div class="small-space-top">
+        @*<div class="small-space-top">
             <a class="col-md-2 personal-btn-simple" href="#"><b>Explorer</b></a>
-        </div>
+        </div>*@
 
     </div><!-- container -->
 </section><!-- section -->

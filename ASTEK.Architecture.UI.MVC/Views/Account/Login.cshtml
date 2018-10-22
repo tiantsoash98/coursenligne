@@ -34,7 +34,7 @@
                                 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                                 {
                                     @Html.AntiForgeryToken()
-                                    <h5 class="pre-title">Se connecter</h5>
+                                    <h5 class="pre-title">@UIStrings.LoginPartial_SignIn</h5>
 
                                     <hr />
 
@@ -67,14 +67,14 @@
 
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <input type="submit" if="form-submit" value="Se connecter" class="col-md-12 personal-btn-simple" />
+                                            <input type="submit" if="form-submit" value="@UIStrings.LoginPartial_SignIn" class="col-md-12 personal-btn-simple" />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
                                             <p>
-                                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                                @Html.ActionLink(UIStrings.Login_ForgotPassword, "ForgotPassword")
                                             </p>
                                         </div>
                                     </div>           
@@ -92,7 +92,7 @@
                     </div><!-- post-top-area -->
 
                     <div class="post-bottom-area" style="padding: 20px;">
-                        <p>Vous n'avez pas encore de compte? <a href="#" data-toggle="modal" data-target="#modalRegister">Inscrivez-vous</a></p>
+                        <p>@UIStrings.Register_NotHaveAccount <a href="#" data-toggle="modal" data-target="#modalRegister">@UIStrings.Login_SignUp</a></p>
 
                     </div>
                 </div><!-- main-post -->

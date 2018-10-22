@@ -198,4 +198,55 @@
   <data name="Title_Study_Index" xml:space="preserve">
     <value>Filière - {0}</value>
   </data>
+  <data name="Account_Student" xml:space="preserve">
+    <value>Etudiant</value>
+  </data>
+  <data name="Account_Teacher" xml:space="preserve">
+    <value>Enseignant</value>
+  </data>
+  <data name="Home_LessonsMayLike" xml:space="preserve">
+    <value>Cours que vous pourriez aimer</value>
+  </data>
+  <data name="Home_LessonsNotFinished" xml:space="preserve">
+    <value>Cours que vous n'avez pas terminé</value>
+  </data>
+  <data name="LoginPartial_Dashboard" xml:space="preserve">
+    <value>Tableau de bord</value>
+  </data>
+  <data name="LoginPartial_Disconnect" xml:space="preserve">
+    <value>Se déconnecter</value>
+  </data>
+  <data name="LoginPartial_NewLesson" xml:space="preserve">
+    <value>Nouveau cours</value>
+  </data>
+  <data name="LoginPartial_SignIn" xml:space="preserve">
+    <value>Se connecter</value>
+  </data>
+  <data name="LoginPartial_SignUp" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <data name="LoginPartial_UpdateAccount" xml:space="preserve">
+    <value>Modifier profil</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>Mot de passe oublié?</value>
+  </data>
+  <data name="Login_SignUp" xml:space="preserve">
+    <value>Inscrivez-vous</value>
+  </data>
+  <data name="Navbar_Search" xml:space="preserve">
+    <value>Rechercher des cours</value>
+  </data>
+  <data name="RegisterModal_YouAre" xml:space="preserve">
+    <value>Vous êtes...</value>
+  </data>
+  <data name="Register_AlreadyHaveAccount" xml:space="preserve">
+    <value>Vous avez déjà un compte?</value>
+  </data>
+  <data name="Register_NotHaveAccount" xml:space="preserve">
+    <value>Vous n'avez pas encore de compte?</value>
+  </data>
+  <data name="Footer_ReservedRight" xml:space="preserve">
+    <value>Tous droits réservés</value>
+  </data>
 </root>
