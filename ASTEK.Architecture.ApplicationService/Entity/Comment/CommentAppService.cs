@@ -35,6 +35,21 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Comment
             };
         }
 
+        public CountCommentOutputModel Count(CountCommentInputModel input)
+        {
+            var request = new CountCommentRequest
+            {
+                LessonId = GuidUtilities.TryParse(input.LessonId),
+            };
+
+            CountCommentResponse response = _service.Count(request);
+
+            return new CountCommentOutputModel
+            {
+                Response = response
+            };
+        }
+
         public GetAllCommentOutputModel GetAll(GetAllCommentInputModel input)
         {
             var request = new GetAllCommentRequest

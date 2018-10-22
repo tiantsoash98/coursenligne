@@ -28,6 +28,11 @@ namespace ASTEK.Architecture.Repository.Concrete
             base.Add(entity);
         }
 
+        public int Count(Guid LessonId)
+        {
+            return Context.Comments.Count(c => c.LSNID.Equals(LessonId));
+        }
+
         public List<Comment> FindAll(Guid lessonId, bool loadAnswers = false)
         {
             Context.Comments.Include(c => c.Account.AccountStudents).ToList();

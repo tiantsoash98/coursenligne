@@ -82,6 +82,28 @@ namespace ASTEK.Architecture.BusinessService.Entity.Comment
             }
         }
 
+        public CountCommentResponse Count(CountCommentRequest request)
+        {
+            try
+            {
+                var comments = _repository.Count(request.LessonId);
+
+                return new CountCommentResponse
+                {
+                    Success = true,
+                    Count = comments
+                };
+            }
+            catch (Exception ex)
+            {
+                return new CountCommentResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
+
         public GetAllCommentResponse GetAll(GetAllCommentRequest request)
         {
             try

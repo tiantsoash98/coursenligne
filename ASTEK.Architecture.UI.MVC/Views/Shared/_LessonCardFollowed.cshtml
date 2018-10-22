@@ -56,7 +56,7 @@
 
         <ul class="post-footer">
             <li><i class="ion-person"></i>@Html.Action("CountFollow", "Lesson", new { lessonId = Model.LSNID })</li>
-            <li><i class="ion-chatbubble"></i>6</li>
+            <li><i class="ion-chatbubble"></i>@Html.Action("Count", "Comment", new { lessonId = Model.Id })</li>
             <li><i class="ion-eye"></i>138</li>
         </ul>
     </div>

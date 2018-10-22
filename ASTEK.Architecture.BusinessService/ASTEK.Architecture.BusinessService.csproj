@@ -104,6 +104,8 @@
     <Compile Include="Entity\Comment\AddCommentRequest.cs" />
     <Compile Include="Entity\Comment\AddCommentResponse.cs" />
     <Compile Include="Entity\Comment\CommentBusinessService.cs" />
+    <Compile Include="Entity\Comment\CountCommentRequest.cs" />
+    <Compile Include="Entity\Comment\CountCommentResponse.cs" />
     <Compile Include="Entity\Comment\GetAllCommentRequest.cs" />
     <Compile Include="Entity\Comment\GetAllCommentResponse.cs" />
     <Compile Include="Entity\Country\CountryBusinessService.cs" />
