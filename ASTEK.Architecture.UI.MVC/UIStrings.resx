@@ -162,4 +162,40 @@
   <data name="Title_Account_UpdateAccount" xml:space="preserve">
     <value>Update profile informations</value>
   </data>
+  <data name="Title_Dashboard_Student" xml:space="preserve">
+    <value>Dashboard - Student</value>
+  </data>
+  <data name="Title_Dashboard_Teacher" xml:space="preserve">
+    <value>Dashboard - Teacher</value>
+  </data>
+  <data name="Title_Home_Index" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Title_Lesson_Add" xml:space="preserve">
+    <value>New lesson</value>
+  </data>
+  <data name="Title_Lesson_AddChapter" xml:space="preserve">
+    <value>Add chapters &amp; parts</value>
+  </data>
+  <data name="Title_Lesson_AddDetails" xml:space="preserve">
+    <value>Add a thumbnail</value>
+  </data>
+  <data name="Title_Lesson_Chapter" xml:space="preserve">
+    <value>Chapter {0}. {1}</value>
+  </data>
+  <data name="Title_Lesson_Part" xml:space="preserve">
+    <value>Part {0}. {1}</value>
+  </data>
+  <data name="Title_Lesson_Search" xml:space="preserve">
+    <value>Search results</value>
+  </data>
+  <data name="Title_Lesson_Update" xml:space="preserve">
+    <value>Update lesson</value>
+  </data>
+  <data name="Title_Lesson_UpdateChapter" xml:space="preserve">
+    <value>Update content</value>
+  </data>
+  <data name="Title_Study_Index" xml:space="preserve">
+    <value>Study - {0}</value>
+  </data>
 </root>

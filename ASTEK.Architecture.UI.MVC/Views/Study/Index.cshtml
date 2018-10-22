@@ -2,7 +2,7 @@
 @model ASTEK.Architecture.UI.MVC.Models.Study.StudyViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = string.Format(UIStrings.Title_Study_Index, Model.Study.STDNAME);
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 

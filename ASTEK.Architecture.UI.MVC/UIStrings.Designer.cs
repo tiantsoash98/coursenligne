@@ -194,5 +194,113 @@ namespace ASTEK.Architecture.UI.MVC {
                 return ResourceManager.GetString("Title_Account_UpdateAccount", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard - Student.
+        /// </summary>
+        public static string Title_Dashboard_Student {
+            get {
+                return ResourceManager.GetString("Title_Dashboard_Student", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard - Teacher.
+        /// </summary>
+        public static string Title_Dashboard_Teacher {
+            get {
+                return ResourceManager.GetString("Title_Dashboard_Teacher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string Title_Home_Index {
+            get {
+                return ResourceManager.GetString("Title_Home_Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New lesson.
+        /// </summary>
+        public static string Title_Lesson_Add {
+            get {
+                return ResourceManager.GetString("Title_Lesson_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add chapters &amp; parts.
+        /// </summary>
+        public static string Title_Lesson_AddChapter {
+            get {
+                return ResourceManager.GetString("Title_Lesson_AddChapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a thumbnail.
+        /// </summary>
+        public static string Title_Lesson_AddDetails {
+            get {
+                return ResourceManager.GetString("Title_Lesson_AddDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chapter {0}. {1}.
+        /// </summary>
+        public static string Title_Lesson_Chapter {
+            get {
+                return ResourceManager.GetString("Title_Lesson_Chapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Part {0}. {1}.
+        /// </summary>
+        public static string Title_Lesson_Part {
+            get {
+                return ResourceManager.GetString("Title_Lesson_Part", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search results.
+        /// </summary>
+        public static string Title_Lesson_Search {
+            get {
+                return ResourceManager.GetString("Title_Lesson_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update lesson.
+        /// </summary>
+        public static string Title_Lesson_Update {
+            get {
+                return ResourceManager.GetString("Title_Lesson_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update content.
+        /// </summary>
+        public static string Title_Lesson_UpdateChapter {
+            get {
+                return ResourceManager.GetString("Title_Lesson_UpdateChapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Study - {0}.
+        /// </summary>
+        public static string Title_Study_Index {
+            get {
+                return ResourceManager.GetString("Title_Study_Index", resourceCulture);
+            }
+        }
     }
 }

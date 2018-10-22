@@ -1,7 +1,7 @@
 ﻿@using ASTEK.Architecture.Infrastructure.Utility
 @model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonPartViewModel
 @{
-    ViewBag.Title = "Part";
+    ViewBag.Title = string.Format(UIStrings.Title_Lesson_Part, Model.Part.LSPNUMBER, Model.Part.LSPTITLE);
     Layout = "~/Views/Shared/_Layout.cshtml";
     var teacher = Model.Lesson.Account.AccountTeachers.First();
 }

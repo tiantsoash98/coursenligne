@@ -1,7 +1,7 @@
 ﻿@using ASTEK.Architecture.Infrastructure.Utility
 @model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonIndexViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Model.Lesson.LSNTITLE;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var teacher = Model.Lesson.Account.AccountTeachers.First();
 }
