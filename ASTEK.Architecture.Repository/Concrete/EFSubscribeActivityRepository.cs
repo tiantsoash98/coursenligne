@@ -17,8 +17,8 @@ namespace ASTEK.Architecture.Repository.Concrete
         public List<SubscribeActivity> GetAllSubscribers(Guid accountId)
         {
             return Context.SubscribeActivities
-                            .Include(s => s.ACCSUBSCRIBER)
-                            .Where(s => s.Subscribed.Equals(accountId))
+                            .Include(s => s.Subscriber)
+                            .Where(s => s.ACCSUBSCRIBED.Equals(accountId))
                             .ToList();
         }
 

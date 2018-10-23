@@ -19,7 +19,10 @@
                         if (Model.Editable)
                         {
                             @Html.ActionLink("Modifier les informations", "Update", "Lesson", routeValues: new { lessonId = Model.LessonId, source = "edit" }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
-                            @Html.ActionLink("Modifier le contenu", "UpdateChapter", "Lesson", routeValues: new { lessonId = Model.LessonId }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
+                            if (Model.HasChapter)
+                            {
+                                @Html.ActionLink("Modifier le contenu", "UpdateChapter", "Lesson", routeValues: new { lessonId = Model.LessonId }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
+                            }
                             @Html.ActionLink("Ajouter un chapitre", "AddChapter", "Lesson", routeValues: new { lessonId = Model.LessonId, source = "edit" }, htmlAttributes: new { @class = "btn btn-outline-primary col-md-10" })
                         }
 

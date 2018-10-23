@@ -1,7 +1,7 @@
 ﻿function toogleSubscription(subscribed) {
     $.ajax({
         data: 'accountId='+subscribed,
-        url: 'Subscribe/ToogleSubscription',
+        url: 'https://localhost:44300/Subscribe/ToogleSubscription',
         success: function (response) {
             applyResult(response);
         }
@@ -9,10 +9,8 @@
 }
 
 function applyResult(response) {
-    var result = JSON.parse(response);
-
-    if (result.Success == 'true') {
-        if (result.IsSubscribed == 'true') {
+    if (response.Success) {
+        if (response.IsSubscribed) {
             $('#subscribeBtn').text('Se désabonner');
         }
         else {

@@ -743,7 +743,8 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                 {
                     AccountId = request.AccountId,
                     LessonId = request.LessonId,
-                    NotificationSource = NotificationSource.Publish      
+                    NotificationSource = NotificationSource.Publish,
+                    UrlPath = request.UrlPath
                 };
 
                 new SubscribeActivityBusinessService().NotifySubscribers(notifyRequest);

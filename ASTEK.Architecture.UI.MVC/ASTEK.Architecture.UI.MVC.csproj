@@ -229,6 +229,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Study\StudyViewModel.cs" />
     <Compile Include="Models\SubscribeActivity\SubscribeButtonViewModel.cs" />
+    <Compile Include="Models\SubscribeActivity\ToogleSubscriptionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="UIStrings.Designer.cs">

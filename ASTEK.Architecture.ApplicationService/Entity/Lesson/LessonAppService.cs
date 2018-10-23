@@ -215,7 +215,8 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
             var request = new PublishLessonRequest
             {
                 AccountId = GuidUtilities.TryParse(input.AccountId),
-                LessonId = GuidUtilities.TryParse(input.LessonId)
+                LessonId = GuidUtilities.TryParse(input.LessonId),
+                UrlPath = input.UrlPath
             };
 
             PublishLessonResponse response = _service.Publish(request);

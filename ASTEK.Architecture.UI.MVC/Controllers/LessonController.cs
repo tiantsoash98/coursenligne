@@ -973,10 +973,19 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         {
             bool _hasImage = !string.IsNullOrEmpty(hasImage) && hasImage.ToLower().Equals("true");
 
+            var chapterAppService = new LessonChapterAppService();
+            var countChapterInput = new CountChapterGroupByLessonInputModel
+            {
+                LessonId = lessonId
+            };
+
+            var chapterCountOutput = chapterAppService.Count(countChapterInput);
+
             var editVM = new EditLessonViewModel
             {
                 LessonId = lessonId,
-                HasImage = _hasImage
+                HasImage = _hasImage,
+                HasChapter = chapterCountOutput.Response.Count > 0
             };
 
             if (type.Equals("unpublished"))

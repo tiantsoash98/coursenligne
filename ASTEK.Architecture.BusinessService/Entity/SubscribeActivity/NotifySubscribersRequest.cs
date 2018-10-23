@@ -9,5 +9,6 @@ namespace ASTEK.Architecture.BusinessService.Entity.SubscribeActivity
         public Guid AccountId { get ; set; }
         public Guid LessonId { get; set; }
         public NotificationSource NotificationSource { get; set; }
+        public string UrlPath { get; set; }
     }
 }

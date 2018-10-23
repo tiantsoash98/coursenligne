@@ -5,6 +5,7 @@ using ASTEK.Architecture.Infrastructure.Utility;
 using ASTEK.Architecture.Repository;
 using ASTEK.Architecture.Repository.Concrete;
 using System;
+using System.Linq;
 using System.Net.Mail;
 using System.Text;
 
@@ -61,13 +62,16 @@ namespace ASTEK.Architecture.BusinessService.Entity.SubscribeActivity
                 var subscribers = _repository.GetAllSubscribers(request.AccountId);
 
                 var mail = new MailMessage();
-                subscribers.ForEach(x => mail.To.Add(x.Subscriber.ACCEMAIL));
+                subscribers.ForEach(x =>  mail.To.Add(x.Subscriber.ACCEMAIL));
 
-                string name = "";
-                string firstName = "";
-                string study = "";
-                string title = "";
-                string link = "";
+                var lesson = lessonOutput.Lesson;
+                var teacher = lesson.Account.AccountTeachers.FirstOrDefault();
+
+                string name = teacher.ACTNAME;
+                string firstName = teacher.ACTFIRSTNAME;
+                string study = lesson.Study.STDNAME;
+                string title = lesson.LSNTITLE;
+                string link = request.UrlPath;
                 string appTitle = "";
 
                 if (request.NotificationSource == NotificationSource.Publish)

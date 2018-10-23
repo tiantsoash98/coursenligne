@@ -107,3 +107,14 @@
 </section><!-- post-area -->
 
 @Html.Partial("_Navigation", Model.Navigation)
+
+@section customScripts {
+    <script src="@Url.Content("~/Scripts/common-js/subscribe.js")"></script>
+    <script>
+        $(document).ready(function () {
+            $("#subscribeBtn").click(function () {
+                toogleSubscription('@Model.Lesson.ACCID');
+            });
+        });
+    </script>
+}

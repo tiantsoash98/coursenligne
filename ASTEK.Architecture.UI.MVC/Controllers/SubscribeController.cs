@@ -9,10 +9,13 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         [Authorize]
         public JsonResult ToogleSubscription(string accountId)
         {
+            string subscriberId = GetAccountLogged().Id.ToString();
+            string subscribedId = accountId;
+
             var toogleSubscribeInput = new ToogleSubscriptionInputModel
             {
-                SubscribedId = accountId,
-                SubscriberId = GetAccountLogged().Id.ToString()
+                SubscribedId = subscribedId,
+                SubscriberId = subscriberId
             };
 
             var service = new SubscribeActivityAppService();
@@ -20,32 +23,38 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             if (!toogleSubscribeOutput.Response.Success)
             {
-                var result = new
+                var resultVM = new ToogleSubscriptionViewModel
                 {
                     Success = false,
-                    Exception = toogleSubscribeOutput.Response.Exception
+                    Exception = toogleSubscribeOutput.Response.Exception,
+                    SubscribedId = subscribedId,
+                    SubscriberId = subscriberId
                 };
 
-                return Json(result, JsonRequestBehavior.AllowGet);
+                return Json(resultVM, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                var result = new
+                var resultVM = new ToogleSubscriptionViewModel
                 {
                     Success = true,
+                    SubscribedId = subscribedId,
+                    SubscriberId = subscriberId,
                     IsSubscribed = toogleSubscribeOutput.Response.IsSubscribed
                 };
 
-                return Json(result, JsonRequestBehavior.AllowGet);
+                return Json(resultVM, JsonRequestBehavior.AllowGet);
             }
         }
 
         [Authorize]
         public PartialViewResult Subscribe(string accountId)
         {
+            string subscriberId = GetAccountLogged().Id.ToString();
+
             var input = new IsSubscribedInputModel
             {
-                SubscriberId = GetAccountLogged().Id.ToString(),
+                SubscriberId = subscriberId,
                 SubscribedId = accountId
             };
 
@@ -54,7 +63,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             var subscribeVM = new SubscribeButtonViewModel
             {
-                AccountId = accountId,
+                SubscribedId = accountId,
+                SubscriberId = subscriberId,
                 IsSubscribed = output.Response.IsSubscribed
             };
        

@@ -212,6 +212,20 @@ body.modal-open {
         border: 1px solid #357cf1;
     }
 
+.personal-btn-simple-white {
+    border: 0;
+    outline: 0;
+    padding: 10px 25px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    background: #F5F6F8;
+    transition: background 0.2s;
+}
+
+    .personal-btn-simple-white:hover {
+        background: none;
+    }
+
 
 
 .lesson-content {

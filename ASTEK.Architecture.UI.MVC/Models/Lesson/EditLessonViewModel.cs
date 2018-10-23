@@ -11,5 +11,6 @@ namespace ASTEK.Architecture.UI.MVC.Models.Lesson
         public bool Editable { get; set; }
         public bool Deletable { get; set; }
         public bool HasImage { get; set; }
+        public bool HasChapter { get; set; }
     }
 }

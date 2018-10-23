@@ -136,7 +136,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var input = new PublishLessonInputModel
             {
                 AccountId = accountId.ToString(),
-                LessonId = lessonId
+                LessonId = lessonId,
+                UrlPath = Url.Action("Index", "Lesson", new { lessonId }, protocol: Request.Url.Scheme)
             };
 
             var service = new LessonAppService();

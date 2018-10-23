@@ -7,5 +7,6 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
     {
         public Guid AccountId { get; set; }
         public Guid LessonId { get; set; }
+        public string UrlPath { get; set; }
     }
 }
