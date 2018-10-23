@@ -184,6 +184,8 @@
     <Compile Include="Entity\Study\GetStudyInputModel.cs" />
     <Compile Include="Entity\Study\GetStudyOutputModel.cs" />
     <Compile Include="Entity\Study\StudyAppService.cs" />
+    <Compile Include="Entity\SubscribeActivity\IsSubscribedInputModel.cs" />
+    <Compile Include="Entity\SubscribeActivity\IsSubscribedOutputModel.cs" />
     <Compile Include="Entity\SubscribeActivity\SubscribeActivityAppService.cs" />
     <Compile Include="Entity\SubscribeActivity\ToogleSubscriptionInputModel.cs" />
     <Compile Include="Entity\SubscribeActivity\ToogleSubscriptionOutputModel.cs" />

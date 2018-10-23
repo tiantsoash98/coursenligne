@@ -1,4 +1,5 @@
 ﻿using ASTEK.Architecture.ApplicationService.Entity.SubscribeActivity;
+using ASTEK.Architecture.UI.MVC.Models.SubscribeActivity;
 using System.Web.Mvc;
 
 namespace ASTEK.Architecture.UI.MVC.Controllers
@@ -6,7 +7,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
     public class SubscribeController : BaseController
     {
         [Authorize]
-        public JsonResult SubscribeActivity(string accountId)
+        public JsonResult ToogleSubscription(string accountId)
         {
             var toogleSubscribeInput = new ToogleSubscriptionInputModel
             {
@@ -37,6 +38,17 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [Authorize]
+        public PartialViewResult Subscribe(string accountId)
+        {
+            var subscribeVM = new SubscribeButtonViewModel
+            {
+                
+            };
+       
+            return PartialView("_SubscribeButton", subscribeVM);
         }
     }
 }

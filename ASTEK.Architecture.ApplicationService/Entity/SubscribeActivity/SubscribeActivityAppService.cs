@@ -35,5 +35,23 @@ namespace ASTEK.Architecture.ApplicationService.Entity.SubscribeActivity
 
             return output;
         }
+
+        public IsSubscribedOutputModel ToogleSubscription(IsSubscribedInputModel input)
+        {
+            var request = new IsSubscribedRequest
+            {
+                SubscriberId = GuidUtilities.TryParse(input.SubscriberId),
+                SubscribedId = GuidUtilities.TryParse(input.SubscribedId)
+            };
+
+            IsSubscribedResponse response = _service.IsSubscribed(request);
+
+            var output = new IsSubscribedOutputModel
+            {
+                Response = response
+            };
+
+            return output;
+        }
     }
 }

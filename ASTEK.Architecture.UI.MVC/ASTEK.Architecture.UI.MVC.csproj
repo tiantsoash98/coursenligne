@@ -228,6 +228,7 @@
     <Compile Include="Models\Lesson\UpdateLessonViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Study\StudyViewModel.cs" />
+    <Compile Include="Models\SubscribeActivity\SubscribeButtonViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="UIStrings.Designer.cs">
@@ -799,6 +800,7 @@
     <Content Include="Views\Comment\_CommentCard.cshtml" />
     <Content Include="Views\Shared\_AccountName.cshtml" />
     <Content Include="Views\CommentAnswer\_CommentAnswerCard.cshtml" />
+    <Content Include="Views\Shared\_SubscribeButton.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

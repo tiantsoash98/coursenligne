@@ -20,6 +20,28 @@ namespace ASTEK.Architecture.BusinessService.Entity.SubscribeActivity
             _repository = new EFSubscribeActivityRepository(context);
         }
 
+        public IsSubscribedResponse IsSubscribed(IsSubscribedRequest request)
+        {
+            try
+            {
+                bool isSubscribed = _repository.IsSubscribedTo(request.SubscriberId, request.SubscribedId);
+
+                return new IsSubscribedResponse
+                {
+                    Success = true,
+                    IsSubscribed = isSubscribed
+                };
+            }
+            catch (Exception ex)
+            {
+                return new IsSubscribedResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
+
         public NotifySubscribersResponse NotifySubscribers(NotifySubscribersRequest request)
         {
             try
