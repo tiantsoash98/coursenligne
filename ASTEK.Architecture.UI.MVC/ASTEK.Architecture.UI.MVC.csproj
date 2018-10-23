@@ -662,6 +662,7 @@
     <Content Include="Scripts\common-js\new-lesson.js" />
     <Content Include="Scripts\common-js\popper.min.js" />
     <Content Include="Scripts\common-js\scripts.js" />
+    <Content Include="Scripts\common-js\subscribe.js" />
     <Content Include="Scripts\common-js\swiper.js" />
     <Content Include="Scripts\common-js\tether.min.js" />
     <Content Include="Content\scss\addons\_datatables.scss" />
