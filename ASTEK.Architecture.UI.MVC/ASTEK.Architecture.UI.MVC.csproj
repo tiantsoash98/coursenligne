@@ -187,6 +187,7 @@
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudyController.cs" />
+    <Compile Include="Controllers\SubscribeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -804,6 +805,7 @@
     <Folder Include="Content\images\Study\" />
     <Folder Include="Content\images\Thumbnail\Account\" />
     <Folder Include="Content\images\Thumbnail\Lesson\" />
+    <Folder Include="Views\Subscribe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

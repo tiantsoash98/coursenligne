@@ -77,5 +77,36 @@ namespace ASTEK.Architecture.BusinessService.Entity.SubscribeActivity
                 };
             } 
         }
+
+        public ToogleSubscriptionResponse ToogleSubscription(ToogleSubscriptionRequest request)
+        {
+            try
+            {
+                bool isSubscribed = _repository.IsSubscribedTo(request.SubscriberId, request.SubscribedId);
+
+                if (isSubscribed)
+                {
+                    _repository.Unsubscribe(request.SubscriberId, request.SubscribedId);
+                }
+                else
+                {
+                    _repository.Subscribe(request.SubscriberId, request.SubscribedId);
+                }
+
+                return new ToogleSubscriptionResponse
+                {
+                    Success = true,
+                    IsSubscribed = !isSubscribed
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ToogleSubscriptionResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
     }
 }

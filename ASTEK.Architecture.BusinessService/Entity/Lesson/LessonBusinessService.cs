@@ -19,6 +19,7 @@ using System.IO;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using ASTEK.Architecture.BusinessService.Entity.SubscribeActivity;
 
 namespace ASTEK.Architecture.BusinessService.Entity.Lesson
 {
@@ -737,6 +738,15 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                 }
 
                 _repository.Publish(request.AccountId, request.LessonId);
+
+                var notifyRequest = new NotifySubscribersRequest
+                {
+                    AccountId = request.AccountId,
+                    LessonId = request.LessonId,
+                    NotificationSource = NotificationSource.Publish      
+                };
+
+                new SubscribeActivityBusinessService().NotifySubscribers(notifyRequest);
 
                 return new PublishLessonResponse
                 {

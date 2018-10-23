@@ -211,6 +211,8 @@
     <Compile Include="Entity\SubscribeActivity\NotifySubscribersRequest.cs" />
     <Compile Include="Entity\SubscribeActivity\NotifySubscribersResponse.cs" />
     <Compile Include="Entity\SubscribeActivity\SubscribeActivityBusinessService.cs" />
+    <Compile Include="Entity\SubscribeActivity\ToogleSubscriptionResponse.cs" />
+    <Compile Include="Entity\SubscribeActivity\ToogleSubscriptionRequest.cs" />
     <Compile Include="Interface\IAccountBusinessService.cs" />
     <Compile Include="Entity\Account\UpdateAccountRequest.cs" />
     <Compile Include="Entity\Account\UpdateAccountResponse.cs" />
