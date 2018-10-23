@@ -43,9 +43,19 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         [Authorize]
         public PartialViewResult Subscribe(string accountId)
         {
+            var input = new IsSubscribedInputModel
+            {
+                SubscriberId = GetAccountLogged().Id.ToString(),
+                SubscribedId = accountId
+            };
+
+            var service = new SubscribeActivityAppService();
+            var output = service.IsSubscribed(input);
+
             var subscribeVM = new SubscribeButtonViewModel
             {
-                
+                AccountId = accountId,
+                IsSubscribed = output.Response.IsSubscribed
             };
        
             return PartialView("_SubscribeButton", subscribeVM);
