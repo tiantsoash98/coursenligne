@@ -8,6 +8,16 @@
     });
 }
 
+function toogleSubscriptionLink(subscribed) {
+    $.ajax({
+        data: 'accountId=' + subscribed,
+        url: 'https://localhost:44300/Subscribe/ToogleSubscription',
+        success: function (response) {
+            applyResultLink(response);
+        }
+    });
+}
+
 function applyResult(response) {
     if (response.Success) {
         if (response.IsSubscribed) {
@@ -15,6 +25,17 @@ function applyResult(response) {
         }
         else {
             $('#subscribeBtn').text('S\'abonner');
+        }
+    }
+}
+
+function applyResultLink(response) {
+    if (response.Success) {
+        if (response.IsSubscribed) {
+            $('#sub-' + response.SubscribedId).text('Se désabonner');
+        }
+        else {
+            $('#sub-' + response.SubscribedId).text('S\'abonner');
         }
     }
 }

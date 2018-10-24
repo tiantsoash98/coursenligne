@@ -14,10 +14,22 @@ namespace ASTEK.Architecture.Repository.Concrete
         {
         }
 
+        public List<SubscribeActivity> GetAllSubscribed(Guid accountId)
+        {
+            Context.SubscribeActivities.Include(s => s.Subscribed.AccountStudents).ToList();
+            Context.SubscribeActivities.Include(s => s.Subscribed.AccountTeachers).ToList();
+
+            return Context.SubscribeActivities
+                            .Where(s => s.ACCSUBSCRIBER.Equals(accountId))
+                            .ToList();
+        }
+
         public List<SubscribeActivity> GetAllSubscribers(Guid accountId)
         {
+            Context.SubscribeActivities.Include(s => s.Subscriber.AccountStudents).ToList();
+            Context.SubscribeActivities.Include(s => s.Subscriber.AccountTeachers).ToList();
+
             return Context.SubscribeActivities
-                            .Include(s => s.Subscriber)
                             .Where(s => s.ACCSUBSCRIBED.Equals(accountId))
                             .ToList();
         }

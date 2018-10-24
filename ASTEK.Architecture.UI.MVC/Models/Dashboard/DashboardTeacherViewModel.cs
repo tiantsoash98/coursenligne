@@ -1,8 +1,5 @@
 ﻿using ASTEK.Architecture.ApplicationService.Entity.Lesson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using ASTEK.Architecture.ApplicationService.Entity.SubscribeActivity;
 
 namespace ASTEK.Architecture.UI.MVC.Models.Dashboard
 {
@@ -11,7 +8,9 @@ namespace ASTEK.Architecture.UI.MVC.Models.Dashboard
         public int UnpublishedPage { get; set; }
         public GetLessonByStateOutputModel PostedOutput { get; set; }      
         public GetLessonByStateOutputModel UnpublishedOutput { get; set; }
+        public GetAllSubscribersOutputModel SubscribersOutput { get; set; }
         public int PostedCount { get; set; }
         public int TotalViewCount { get; set; }
+        public int SubscribersCount { get; set; }
     }
 }

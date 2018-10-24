@@ -18,6 +18,61 @@ namespace ASTEK.Architecture.ApplicationService.Entity.SubscribeActivity
             _service = new SubscribeActivityBusinessService();
         }
 
+        public CountSubscribersOutputModel CountSubscribers(CountSubscribersInputModel input)
+        {
+            var request = new CountSubscribersRequest
+            {
+                AccountId = GuidUtilities.TryParse(input.AccountId)
+            };
+
+            CountSubscribersResponse response = _service.CountSubscribers(request);
+
+            var output = new CountSubscribersOutputModel
+            {
+                Response = response
+            };
+
+            return output;
+        }
+
+        public GetAllSubscribersOutputModel GetAllSubscribers(GetAllSubscribersInputModel input)
+        {
+            var request = new GetAllSubscribersRequest
+            {
+                AccountId = GuidUtilities.TryParse(input.AccountId),
+                Page = input.Page,
+                Count = input.Count
+            };
+
+            GetAllSubscribersResponse response = _service.GetAllSubscribers(request);
+
+            var output = new GetAllSubscribersOutputModel
+            {
+                Response = response
+            };
+
+            return output;
+        }
+
+        public GetAllSubscribedOutputModel GetAllSubscribed(GetAllSubscribedInputModel input)
+        {
+            var request = new GetAllSubscribedRequest
+            {
+                AccountId = GuidUtilities.TryParse(input.AccountId),
+                Page = input.Page,
+                Count = input.Count
+            };
+
+            GetAllSubscribedResponse response = _service.GetAllSubscribed(request);
+
+            var output = new GetAllSubscribedOutputModel
+            {
+                Response = response
+            };
+
+            return output;
+        }
+
         public ToogleSubscriptionOutputModel ToogleSubscription(ToogleSubscriptionInputModel input)
         {
             var request = new ToogleSubscriptionRequest

@@ -184,6 +184,12 @@
     <Compile Include="Entity\Study\GetStudyInputModel.cs" />
     <Compile Include="Entity\Study\GetStudyOutputModel.cs" />
     <Compile Include="Entity\Study\StudyAppService.cs" />
+    <Compile Include="Entity\SubscribeActivity\CountSubscribersInputModel.cs" />
+    <Compile Include="Entity\SubscribeActivity\CountSubscribersOutputModel.cs" />
+    <Compile Include="Entity\SubscribeActivity\GetAllSubscribedOutputModel.cs" />
+    <Compile Include="Entity\SubscribeActivity\GetAllSubscribersInputModel.cs" />
+    <Compile Include="Entity\SubscribeActivity\GetAllSubscribersOutputModel.cs" />
+    <Compile Include="Entity\SubscribeActivity\GetAllSubscribedInputModel.cs" />
     <Compile Include="Entity\SubscribeActivity\IsSubscribedInputModel.cs" />
     <Compile Include="Entity\SubscribeActivity\IsSubscribedOutputModel.cs" />
     <Compile Include="Entity\SubscribeActivity\SubscribeActivityAppService.cs" />

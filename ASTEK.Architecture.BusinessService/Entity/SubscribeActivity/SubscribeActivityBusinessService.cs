@@ -1,11 +1,14 @@
 ﻿using ASTEK.Architecture.BusinessService.Entity.Lesson;
 using ASTEK.Architecture.BusinessService.Interface;
 using ASTEK.Architecture.Infrastructure.Domain;
+using ASTEK.Architecture.Infrastructure.Specification;
 using ASTEK.Architecture.Infrastructure.Utility;
 using ASTEK.Architecture.Repository;
 using ASTEK.Architecture.Repository.Concrete;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.Mail;
 using System.Text;
 
@@ -19,6 +22,92 @@ namespace ASTEK.Architecture.BusinessService.Entity.SubscribeActivity
         {
             var context = new EFDbContext();
             _repository = new EFSubscribeActivityRepository(context);
+        }
+
+        public CountSubscribersResponse CountSubscribers(CountSubscribersRequest request)
+        {
+            try
+            {
+                Expression<Func<Domain.Entity.SubscribeActivity.SubscribeActivity, bool>> findById = s => s.ACCSUBSCRIBED.Equals(request.AccountId);
+
+                int count = _repository.Count(new Specification<Domain.Entity.SubscribeActivity.SubscribeActivity>(findById));
+
+                return new CountSubscribersResponse
+                {
+                    Success = true,
+                    Count = count 
+                };
+            }
+            catch (Exception ex)
+            {
+                return new CountSubscribersResponse
+                {
+                    Success = true,
+                    Exception = ex
+                };
+            }
+        }
+
+        public GetAllSubscribedResponse GetAllSubscribed(GetAllSubscribedRequest request)
+        {
+            try
+            {
+                var subscribed = _repository.GetAllSubscribed(request.AccountId);
+
+                int totalPages = ListUtilities.GetTotalPagesCount(subscribed.Count, request.Count);
+
+                List<Domain.Entity.SubscribeActivity.SubscribeActivity> pagedList = subscribed.OrderByDescending(s => s.SUBDATE)
+                                                                                                .Skip((request.Page - 1) * request.Count)
+                                                                                                .Take(request.Count)
+                                                                                                .ToList();
+
+                return new GetAllSubscribedResponse
+                {
+                    Success = true,
+                    Subscribed = pagedList,
+                    Count = request.Count,
+                    TotalPages = totalPages
+                };
+            }
+            catch (Exception ex)
+            {
+                return new GetAllSubscribedResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
+
+        public GetAllSubscribersResponse GetAllSubscribers(GetAllSubscribersRequest request)
+        {
+            try
+            {
+                var subscribers = _repository.GetAllSubscribers(request.AccountId);
+
+                int totalPages = ListUtilities.GetTotalPagesCount(subscribers.Count, request.Count);
+
+                List<Domain.Entity.SubscribeActivity.SubscribeActivity> pagedList = subscribers.OrderByDescending(s => s.SUBDATE)
+                                                                                                .Skip((request.Page - 1) * request.Count)
+                                                                                                .Take(request.Count)
+                                                                                                .ToList();
+
+                return new GetAllSubscribersResponse
+                {
+                    Success = true,
+                    Subscribers = pagedList,
+                    Count = request.Count,
+                    TotalPages = totalPages
+                };
+            }
+            catch (Exception ex)
+            {
+                return new GetAllSubscribersResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
         }
 
         public IsSubscribedResponse IsSubscribed(IsSubscribedRequest request)

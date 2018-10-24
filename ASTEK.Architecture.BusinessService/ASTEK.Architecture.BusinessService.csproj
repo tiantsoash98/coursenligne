@@ -208,6 +208,12 @@
     <Compile Include="Entity\Study\GetStudyRequest.cs" />
     <Compile Include="Entity\Study\GetStudyResponse.cs" />
     <Compile Include="Entity\Study\StudyBusinessService.cs" />
+    <Compile Include="Entity\SubscribeActivity\CountSubscribersRequest.cs" />
+    <Compile Include="Entity\SubscribeActivity\CountSubscribersResponse.cs" />
+    <Compile Include="Entity\SubscribeActivity\GetAllSubscribedRequest.cs" />
+    <Compile Include="Entity\SubscribeActivity\GetAllSubscribedResponse.cs" />
+    <Compile Include="Entity\SubscribeActivity\GetAllSubscribersRequest.cs" />
+    <Compile Include="Entity\SubscribeActivity\GetAllSubscribersResponse.cs" />
     <Compile Include="Entity\SubscribeActivity\IsSubscribedRequest.cs" />
     <Compile Include="Entity\SubscribeActivity\IsSubscribedResponse.cs" />
     <Compile Include="Entity\SubscribeActivity\NotifySubscribersRequest.cs" />

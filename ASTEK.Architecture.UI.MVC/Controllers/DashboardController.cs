@@ -10,6 +10,7 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Web.UI;
+using ASTEK.Architecture.ApplicationService.Entity.SubscribeActivity;
 
 namespace ASTEK.Architecture.UI.MVC.Controllers
 {
@@ -22,9 +23,10 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             return RedirectToUserRoleDashboardPage(GetUserLoggedRole());
         }
 
-        public ActionResult Student(int? page)
+        public ActionResult Student(int? page, int? subscribedPage)
         {
             int _page = page ?? 1;
+            int _subscribedPage = subscribedPage ?? 1;
 
             var loggedId = GetAccountLogged().Id;
 
@@ -50,12 +52,23 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var lessonFollowedAppService = new LessonFollowedAppService();
             var countFollowedOutput = lessonFollowedAppService.CountByAccount(countFollowedInput);
 
+            var subscribeAppService = new SubscribeActivityAppService();
+
+            var subscribedInput = new GetAllSubscribedInputModel
+            {
+                AccountId = loggedId.ToString(),
+                Page = _subscribedPage,
+                Count = 8
+            };
+
+            var subscribedOutput = subscribeAppService.GetAllSubscribed(subscribedInput);
 
             var dashboardVM = new DashboardStudentViewModel
             {
                 FollowedOutput = followedOutput,
                 Page = _page,
                 FollowedCount = (int)countFollowedOutput.Response.Count,
+                SubscribedOutput = subscribedOutput,
                 FromDate = fromDate,
                 ToDate = toDate
             };
@@ -64,10 +77,11 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         }
 
         [Authorize(Roles = "TEACHER")]
-        public ActionResult Teacher(int? page, int? unpublishedPage)
+        public ActionResult Teacher(int? page, int? unpublishedPage, int? subscribersPage)
         {
             int _page = page ?? 1;
             int _unpublishedPage = unpublishedPage ?? 1;
+            int _subscribersPage = subscribersPage ?? 1;
 
             var loggedId = GetAccountLogged().Id;
 
@@ -102,6 +116,24 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             var totalViewsOutput = lessonFollowedAppService.CountTotalViewsOfAccount(totalViewInput);
 
+            var subscribeAppService = new SubscribeActivityAppService();
+
+            var subscribersInput = new GetAllSubscribersInputModel
+            {
+                AccountId = loggedId.ToString(),
+                Page = _subscribersPage,
+                Count = 8
+            };
+
+            var subscribersOutput = subscribeAppService.GetAllSubscribers(subscribersInput);
+
+            var countSubscribersInput = new CountSubscribersInputModel
+            {
+                AccountId = loggedId.ToString()
+            };
+
+            var countSubscribersOutput = subscribeAppService.CountSubscribers(countSubscribersInput);
+
             var unpublishedInput = new GetLessonByStateInputModel
             {
                 AccountId = loggedId.ToString(),
@@ -121,6 +153,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 PostedCount = (int)countPostedOutput.Response.Count,
                 TotalViewCount = (int)totalViewsOutput.Response.Count,
                 UnpublishedOutput = unpublishedOutput,
+                SubscribersOutput = subscribersOutput,
+                SubscribersCount = (int)countSubscribersOutput.Response.Count,
                 FromDate = fromDate,
                 ToDate = toDate,
             };
