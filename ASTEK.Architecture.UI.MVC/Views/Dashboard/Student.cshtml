@@ -52,7 +52,7 @@
                             <tr>
                                 <td>@Html.ActionLink(follow.Lesson.LSNTITLE, "Index", "Lesson", new { lessonId = follow.LSNID }, null)</td>
                                 <td>@Html.ActionLink(follow.Lesson.Study.STDNAME, "Index", "Study", new { id = follow.Lesson.STDCODE }, null)</td>
-                                <td>
+                                <td style="width: 200px;">
                                     @{
                                         if (follow.FollowState.FLSWORDING.Replace(" ", "").Equals("FINISHED"))
                                         {
@@ -123,7 +123,9 @@
                             <tr>
                                 <td>@Html.Partial("_AccountName", subscribed.Subscribed)</td>
                                 <td>@subscribed.SUBDATE.ToString("dd-MM-yyyy")</td>
-                                <td><a href="#" id="@subBtnId" onclick="toogleSubscriptionLink(@subscribed.ACCSUBSCRIBED)">Se désabonner</a></td>
+                                <td style="width: 200px;">
+                                    <button id="@subBtnId" class="subscribeBtn personal-btn-simple-white">Se désabonner</button>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -166,4 +168,12 @@
 
 @section customScripts {
     <script src="@Url.Content("~/Scripts/common-js/subscribe.js")"></script>
+    <script>
+        $(document).ready(function () {
+            $('.subscribeBtn').click(function () {
+                var id = $(this).attr('id').substring(4);
+                toogleSubscriptionLink(id);
+            });
+        });
+    </script>
 }

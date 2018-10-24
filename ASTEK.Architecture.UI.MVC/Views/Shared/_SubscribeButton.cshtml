@@ -5,7 +5,7 @@
 }
 
 
-@if(User.Identity.IsAuthenticated && !Model.SubscribedId.Equals(Model.SubscribedId))
+@if(User.Identity.IsAuthenticated && !Model.SubscribedId.Equals(Model.SubscriberId))
 {
     <button class="personal-btn-simple-white" id="subscribeBtn">
         @value

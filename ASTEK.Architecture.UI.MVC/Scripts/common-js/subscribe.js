@@ -13,7 +13,7 @@ function toogleSubscriptionLink(subscribed) {
         data: 'accountId=' + subscribed,
         url: 'https://localhost:44300/Subscribe/ToogleSubscription',
         success: function (response) {
-            applyResultLink(response);
+            applyResultLink(response, btnId);
         }
     });
 }
