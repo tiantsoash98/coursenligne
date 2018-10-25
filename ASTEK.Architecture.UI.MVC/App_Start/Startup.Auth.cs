@@ -54,9 +54,9 @@ namespace ASTEK.Architecture.UI.MVC
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "2126999047550544",
-            //   appSecret: "ae9c54b8a7906508b9b55bbc8caca16c");
+            app.UseFacebookAuthentication(
+               appId: "2126999047550544",
+               appSecret: "ae9c54b8a7906508b9b55bbc8caca16c");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

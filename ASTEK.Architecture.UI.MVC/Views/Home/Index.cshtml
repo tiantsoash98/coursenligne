@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = UIStrings.Title_Home_Index;
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var sliderImage = "personal-slider-2.jpg";
 }
 
 @section customStyles
@@ -10,11 +11,11 @@
     <link href="@Url.Content("~/Content/layouts/front-page-category/css/responsive.css")" rel="stylesheet" />
 }
 
-<div class="personal-slider home-slider" style="background-image: url(@Url.Content(Model.BaseFileUrl + Model.ImageFolder + "personal-slider-2.jpg"))">
+<div class="personal-slider home-slider" style="background-image: url(@Url.Content(Path.Combine(Model.BaseFileUrl, Model.ImageFolder, sliderImage)))">
     <div class="display-table  center-text">
         <div class="title display-table-cell">
-            <h2 class="hero-element-title">Ulla  uno nova cesserunt est indigestaque</h2>
-            <h6 class="hero-element-subtitle">HHow Did Van Gogh's Turbulent Mind Depict One of the Most Complex Concepts in Physics?</h6>
+            <h2 class="hero-element-title">@UIStrings.Home_Index_HeroTitle</h2>
+            <h6 class="hero-element-subtitle">@UIStrings.Home_Index_HeroSubtitle</h6>
             <a class="hero-btn" data-toggle="modal" data-target="#modalRegister"><h6><b>@UIStrings.Home_BecomeMember</b></h6></a>
         </div>
     </div>

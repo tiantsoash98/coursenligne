@@ -796,7 +796,10 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 return RedirectToAction("Login");
             }
 
-            var input = new CreateAccountStudentExternalLoginInputModel();
+            var input = new CreateAccountStudentExternalLoginInputModel
+            {
+                Email = loginInfo.Email
+            };
 
             if (loginInfo.Login.LoginProvider == "Google")
             {
@@ -805,7 +808,6 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 var lastNameClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Surname);
                 var givenNameClaim = externalIdentity.Result.Claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName);
 
-                input.Email = emailClaim.Value;
                 input.FirstName = givenNameClaim.Value;
                 input.Name = lastNameClaim.Value;
             }

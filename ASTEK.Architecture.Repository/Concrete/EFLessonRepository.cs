@@ -58,9 +58,9 @@ namespace ASTEK.Architecture.Repository.Concrete
         public List<Lesson> GetBestByStudy(Guid studyCode)
         {
             return Context.Lessons
-                                .Include(l => l.LessonFolloweds)
+                                //.Include(l => l.LessonFolloweds)
                                 .Where(l => l.STDCODE.Equals(studyCode) && l.DocumentState.DCSWORDING.Equals("VALID"))
-                                .OrderBy(l => l.LessonFolloweds.Count(x => x.LSNID.Equals(l.LSNID)))
+                                //.OrderBy(l => l.LessonFolloweds.Count(x => x.LSNID.Equals(l.LSNID)))
                                 .ToList();
         }
 
