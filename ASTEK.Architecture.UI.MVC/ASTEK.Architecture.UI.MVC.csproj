@@ -757,7 +757,7 @@
     <Content Include="Views\Shared\_FooterStudy.cshtml" />
     <Content Include="Views\Account\RegisterTeacher.cshtml" />
     <Content Include="Views\Account\RegisterStudent.cshtml" />
-    <Content Include="Views\Home\Student.cshtml" />
+    <Content Include="Views\Home\Lessons.cshtml" />
     <Content Include="Views\Home\Teacher.cshtml" />
     <Content Include="Views\Shared\_StudySlider.cshtml" />
     <Content Include="Views\Lesson\Index.cshtml" />
@@ -810,7 +810,6 @@
     <Folder Include="Content\images\Study\" />
     <Folder Include="Content\images\Thumbnail\Account\" />
     <Folder Include="Content\images\Thumbnail\Lesson\" />
-    <Folder Include="Views\Subscribe\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -230,5 +230,17 @@ namespace ASTEK.Architecture.Repository.Concrete
 
             return lesson;
         }
+
+        public List<Lesson> GetAllRecent(Guid? studyCode)
+        {
+            var lessons = Context.Lessons.OrderByDescending(l => l.LSNDATE).ToList();
+
+            if (studyCode.HasValue)
+            {
+                lessons = lessons.Where(l => l.STDCODE.Equals(studyCode.Value)).ToList();
+            }
+
+            return lessons;
+        }
     }
 }

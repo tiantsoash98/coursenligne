@@ -77,14 +77,14 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             switch (role)
             {
                 case UserRole.Student:
-                    return RedirectToAction("Student", "Home");
+                    return RedirectToAction("Lessons", "Home");
                 case UserRole.Teacher:
                     if (source.Equals("Login"))
                     {
                         return RedirectToAction("Index", "Dashboard");
                     }
 
-                    return RedirectToAction("Teacher", "Home");
+                    return RedirectToAction("Lessons", "Home");
                 case UserRole.Admin:
                 default:
                     return RedirectToAction("Login", "Account");

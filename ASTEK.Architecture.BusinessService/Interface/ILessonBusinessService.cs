@@ -18,6 +18,7 @@ namespace ASTEK.Architecture.BusinessService.Interface
         GetLessonNavigationResponse GetNavigation(GetLessonNavigationRequest request);
         GetLessonNextStepResponse GetNextStep(GetLessonNextStepRequest request);
         GetLessonByStateResponse GetByState(GetLessonByStateRequest request);
+        GetLessonRecentResponse GetRecent(GetLessonRecentRequest request);
         IsLessonLastPartResponse IsLastPart(IsLessonLastPartRequest request);
         PublishLessonResponse Publish(PublishLessonRequest request);
         Task<SearchLessonResponse> SearchAsync(SearchLessonRequest request);

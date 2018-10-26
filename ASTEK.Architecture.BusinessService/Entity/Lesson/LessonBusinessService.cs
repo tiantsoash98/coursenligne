@@ -876,5 +876,35 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                 };
             }
         }
+
+        public GetLessonRecentResponse GetRecent(GetLessonRecentRequest request)
+        {
+            try
+            {
+                var lessons = _repository.GetAllRecent(request.StudyCode);
+
+                int totalPages = ListUtilities.GetTotalPagesCount(lessons.Count, request.Count);
+
+                List<Domain.Entity.Lesson.Lesson> pagedList = lessons.OrderByDescending(l => l.LSNDATE)
+                                                                        .Skip((request.Page - 1) * request.Count)
+                                                                        .Take(request.Count)
+                                                                        .ToList();
+
+                return new GetLessonRecentResponse
+                {
+                    Success = true,
+                    Lessons = pagedList,
+                    TotalPages = totalPages
+                };
+            }
+            catch (Exception ex)
+            {
+                return new GetLessonRecentResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
     }
 }

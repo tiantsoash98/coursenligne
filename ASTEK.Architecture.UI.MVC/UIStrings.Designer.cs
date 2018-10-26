@@ -142,6 +142,15 @@ namespace ASTEK.Architecture.UI.MVC {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recently published.
+        /// </summary>
+        public static string Home_RecentLessons {
+            get {
+                return ResourceManager.GetString("Home_RecentLessons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
         public static string Login_ForgotPassword {

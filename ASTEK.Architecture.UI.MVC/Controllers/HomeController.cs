@@ -10,35 +10,61 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
     public class HomeController : BaseController
     {
         [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(int? recentPage)
         {
+            int _recentPage = recentPage ?? 1;
+
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToUserRoleHomePage(GetUserLoggedRole());
             }
 
-            var mayLikeInput = new GetLessonMayLikeInputModel()
+            var lessonAppService = new LessonAppService();
+
+            var mayLikeInput = new GetLessonMayLikeInputModel
             {
                 Page = 1,
                 Count = 16,
                 GetAlternativePicture = true,
                 GetThumbnailPicture = true
             };
-
-            var lessonAppService = new LessonAppService();
+        
             var mayLikeOutput = lessonAppService.GetMayLike(mayLikeInput);
 
-            var homeVM = new HomeViewModel()
+            if (!mayLikeOutput.Response.Success)
             {
-                MayLike = mayLikeOutput.Response.Lessons
+                ViewBag.Exception = mayLikeOutput.Response.Exception;
+                return View("Error");
+            }
+
+            var recentsInput = new GetLessonRecentInputModel
+            {
+                Page = _recentPage,
+                Count = 8,
+            };
+
+            var recentOutput = lessonAppService.GetLessonRecent(recentsInput);
+
+            if (!recentOutput.Response.Success)
+            {
+                ViewBag.Exception = recentOutput.Response.Exception;
+                return View("Error");
+            }
+
+            var homeVM = new HomeViewModel
+            {
+                MayLike = mayLikeOutput.Response.Lessons,
+                Recents = recentOutput.Response.Lessons
             };
             
             return View(homeVM);
         }
 
-        [Authorize(Roles = "STUDENT")]
-        public ActionResult Student()
+        [Authorize]
+        public ActionResult Lessons(int? recentPage)
         {
+            int _recentPage = recentPage ?? 1;
+
             var accountLogged = GetAccountLogged();
 
             var mayLikeInput = new GetLessonMayLikeInputModel
@@ -69,35 +95,52 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 return View("Error");
             }
 
-            var homeVM = new HomeStudentViewModel()
+            var recentsInput = new GetLessonRecentInputModel
+            {
+                Page = _recentPage,
+                Count = 6,
+            };
+
+            var recentOutput = lessonAppService.GetLessonRecent(recentsInput);
+
+            if (!recentOutput.Response.Success)
+            {
+                ViewBag.Exception = recentOutput.Response.Exception;
+                return View("Error");
+            }
+
+            var homeVM = new HomeStudentViewModel
             {
                 MayLike = mayLikeOutput.Response.Lessons,
-                LessonsFollowed = followedOutputModel.Response.Followed
+                LessonsFollowed = followedOutputModel.Response.Followed,
+                Recents = recentOutput.Response.Lessons,
+                TotalRecentsPage = recentOutput.Response.TotalPages,
+                RecentPage = _recentPage
             };
 
             return View(homeVM);
         }
 
-        [Authorize(Roles = "TEACHER")]
-        public ActionResult Teacher()
-        {
-            var mayLikeInput = new GetLessonMayLikeInputModel()
-            {
-                Page = 1,
-                Count = 16,
-                GetAlternativePicture = true,
-                GetThumbnailPicture = true
-            };
+        //[Authorize(Roles = "TEACHER")]
+        //public ActionResult Teacher()
+        //{
+        //    var mayLikeInput = new GetLessonMayLikeInputModel()
+        //    {
+        //        Page = 1,
+        //        Count = 16,
+        //        GetAlternativePicture = true,
+        //        GetThumbnailPicture = true
+        //    };
 
-            var lessonAppService = new LessonAppService();
-            var mayLikeOutput = lessonAppService.GetMayLike(mayLikeInput);
+        //    var lessonAppService = new LessonAppService();
+        //    var mayLikeOutput = lessonAppService.GetMayLike(mayLikeInput);
 
-            var homeVM = new HomeTeacherViewModel()
-            {
-                MayLike = mayLikeOutput.Response.Lessons
-            };
+        //    var homeVM = new HomeTeacherViewModel()
+        //    {
+        //        MayLike = mayLikeOutput.Response.Lessons
+        //    };
 
-            return View(homeVM);
-        }
+        //    return View(homeVM);
+        //}
     }
 }

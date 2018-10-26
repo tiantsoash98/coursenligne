@@ -184,6 +184,8 @@
     <Compile Include="Entity\Lesson\GetLessonNextStepResponse.cs" />
     <Compile Include="Entity\Lesson\GetLessonByStateRequest.cs" />
     <Compile Include="Entity\Lesson\GetLessonByStateResponse.cs" />
+    <Compile Include="Entity\Lesson\GetLessonRecentRequest.cs" />
+    <Compile Include="Entity\Lesson\GetLessonRecentResponse.cs" />
     <Compile Include="Entity\Lesson\GetLessonRequest.cs" />
     <Compile Include="Entity\Lesson\GetLessonResponse.cs" />
     <Compile Include="Entity\Lesson\GetLessonMayLikeRequest.cs" />

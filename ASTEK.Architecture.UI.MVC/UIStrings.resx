@@ -255,4 +255,7 @@
   <data name="Home_Index_HeroTitle" xml:space="preserve">
     <value>Ulla  uno nova cesserunt est indigestaque</value>
   </data>
+  <data name="Home_RecentLessons" xml:space="preserve">
+    <value>Recently published</value>
+  </data>
 </root>

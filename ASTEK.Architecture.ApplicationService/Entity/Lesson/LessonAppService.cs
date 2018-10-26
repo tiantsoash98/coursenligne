@@ -266,5 +266,23 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
 
             return new DeleteLessonOutputModel { Response = response };
         }
+
+        public GetLessonRecentOutputModel GetLessonRecent(GetLessonRecentInputModel input)
+        {
+            var request = new GetLessonRecentRequest
+            {
+                Page = input.Page,
+                Count = input.Count
+            };
+
+            if (input.StudyCode != null)
+            {
+                request.StudyCode = GuidUtilities.TryParse(input.StudyCode);
+            }
+
+            GetLessonRecentResponse response = _service.GetRecent(request);
+
+            return new GetLessonRecentOutputModel { Response = response };
+        }
     }
 }

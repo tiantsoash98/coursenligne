@@ -8,7 +8,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
     public class StudyController : BaseController
     {
         // GET: Study
-        public ActionResult Index(string id, int? page)
+        public ActionResult Index(string id, int? page, int? recentPage)
         {
             if (string.IsNullOrEmpty(id))
             {
@@ -16,16 +16,9 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             }
 
             int _page = page ?? 1;
+            int _recentPage = recentPage ?? 1;
           
-            var bestInput = new GetBestLessonByStudyInputModel()
-            {
-                StudyCode = id,
-                Page = 1,
-                Count = _page * 8,
-                GetAlternativePicture = true,
-                GetThumbnailPicture = true
-            };
-
+            
             var studyAppService = new StudyAppService();
             var studyOutput = studyAppService.Get(new GetStudyInputModel() { Code = id, Culture = CurrentCultureCode });
 
@@ -35,14 +28,44 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             }
 
             var lessonAppService = new LessonAppService();
+
+            var bestInput = new GetBestLessonByStudyInputModel
+            {
+                StudyCode = id,
+                Page = _page,
+                Count = 8,
+                GetAlternativePicture = true,
+                GetThumbnailPicture = true
+            };
+
+            
             var bestOutput = lessonAppService.GetBestByStudy(bestInput);
 
-            var studyVM = new StudyViewModel()
+            var recentsInput = new GetLessonRecentInputModel
+            {
+                Page = _recentPage,
+                Count = 6,
+                StudyCode = id
+            };
+
+            var recentOutput = lessonAppService.GetLessonRecent(recentsInput);
+
+            if (!recentOutput.Response.Success)
+            {
+                ViewBag.Exception = recentOutput.Response.Exception;
+                return View("Error");
+            }
+
+            var studyVM = new StudyViewModel
             {
                 Id = id,
                 Study = studyOutput.Response.Study,
                 Page = _page,
-                BestLessons = bestOutput.Response.Lessons
+                BestLessons = bestOutput.Response.Lessons,
+                RecentLessons = recentOutput.Response.Lessons,
+                TotalPage = bestOutput.Response.TotalPages,
+                TotalRecentsPage = recentOutput.Response.TotalPages,
+                RecentPage = _recentPage
             };
 
             return View(studyVM);

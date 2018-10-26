@@ -170,6 +170,8 @@
     <Compile Include="Entity\Lesson\GetLessonOutputModel.cs" />
     <Compile Include="Entity\Lesson\GetLessonByStateInputModel.cs" />
     <Compile Include="Entity\Lesson\GetLessonByStateOutputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonRecentInputModel.cs" />
+    <Compile Include="Entity\Lesson\GetLessonRecentOutputModel.cs" />
     <Compile Include="Entity\Lesson\LessonAppService.cs" />
     <Compile Include="Entity\Lesson\PublishLessonInputModel.cs" />
     <Compile Include="Entity\Lesson\PublishLessonOutputModel.cs" />

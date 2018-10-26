@@ -20,7 +20,54 @@
             </div>
 
             <hr />
+        </div>
 
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <h3>Récemment publiés pour cette filière</h3>
+            </div>
+
+            @foreach (var lesson in Model.RecentLessons)
+            {
+                <div class="col-lg-2 col-md-3">
+                    @Html.Partial("_LessonCard", lesson)
+                </div><!-- col-lg-4 col-md-6 -->
+            }
+        </div><!-- row -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="small-space-top">
+                    @using (Html.BeginForm("Index", "Study", FormMethod.Get, new { @class = "pagination-form" }))
+                    {
+                        @Html.HiddenFor(m => m.Page)
+                        @Html.Hidden("id", Model.Study.Id)
+
+                        <div class="form-group row">
+                            <label for="page" class="control-label">Page</label>
+
+                            <ul class="personal-pagination-list">
+                                @for (var i = 1; i <= Model.TotalRecentsPage; i++)
+                                {
+                                    <li>
+                                        @if (i == Model.RecentPage)
+                                        {
+                                            <input type="submit" name="recentPage" value="@i" class="personal-pagination-item current-page" />
+                                        }
+                                        @if (i != Model.RecentPage)
+                                        {
+                                            <input type="submit" name="recentPage" value="@i" class="personal-pagination-item" />
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-md-12 text-left">
                 <h3>Meilleurs cours dans la filière</h3>
             </div>
@@ -35,13 +82,36 @@
 
         </div><!-- row -->
 
-        <div class="small-space-top">
-            @using (Html.BeginForm("Index", "Study", FormMethod.Get))
-            {
-                <input type="hidden" name="page" value="@(Model.Page + 1)" />
-                <input type="submit" class="col-md-2 personal-btn-simple" value="Voir plus" />
-            }
-        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="small-space-top">
+                    @using (Html.BeginForm("Index", "Study", FormMethod.Get, new { @class = "pagination-form" }))
+                    {
+                        @Html.HiddenFor(m => m.RecentPage)
+                        @Html.Hidden("id", Model.Study.Id)
 
+                        <div class="form-group row">
+                            <label for="page" class="control-label">Page</label>
+
+                            <ul class="personal-pagination-list">
+                                @for (var i = 1; i <= Model.TotalPage; i++)
+                                {
+                                    <li>
+                                        @if (i == Model.RecentPage)
+                                        {
+                                            <input type="submit" name="page" value="@i" class="personal-pagination-item current-page" />
+                                        }
+                                        @if (i != Model.RecentPage)
+                                        {
+                                            <input type="submit" name="page" value="@i" class="personal-pagination-item" />
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
     </div><!-- container -->
 </section><!-- section -->
