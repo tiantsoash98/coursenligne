@@ -11,7 +11,7 @@
 
     var teacher = Model.Account.AccountTeachers.First();
     string name = StringUtilities.UserName(teacher.ACTFIRSTNAME, teacher.ACTNAME);
-    string date = Model.LSNDATE.ToString("dd-MM-yyyy");
+    string date = Model.LSNDATE.ToString("dd/MM/yyyy");
     string contentLimited = StringUtilities.LimitTextLength(Model.LSNTITLE, textLimitLength);
     ViewBag.ThumbnailAccountProfile = true;
 }

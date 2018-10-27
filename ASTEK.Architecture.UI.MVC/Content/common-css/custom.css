@@ -1,5 +1,6 @@
 ﻿body {
-    background-color: #e8eaee;
+    background-color: #f7f7f7 !important;
+    font-family: 'Open Sans', sans-serif !important;
 }
 
 body.modal-open {
@@ -20,9 +21,23 @@ body.modal-open {
     overflow-y: auto;
 }
 
+.personal-search-bar {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+personal-dropdown-study {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 10px !important;
+}
 /* ---------------------------------
 4. SLIDER
 --------------------------------- */
+.personal-small-slider {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    margin: 0;
+}
 
 .personal-slider {
     height: 400px;
@@ -109,7 +124,7 @@ body.modal-open {
     }
 
 .lesson-title a {
-    font-weight: 500;
+    font-weight: 800;
 }
 
 .lesson-date {
@@ -132,6 +147,8 @@ body.modal-open {
 
 .lesson-target {
     margin-bottom: 20px;
+    font-weight: 700;
+    color: #000;
 }
 
 .lesson-target-list li {
@@ -488,4 +505,9 @@ body.modal-open {
     box-shadow: none;
     padding: 0;
     max-width: 100%;
+}
+
+
+.personal-footer {
+    border-top: 1px solid #dddddd;
 }

@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account_Student" xml:space="preserve">
+    <value>Mpianatra</value>
+  </data>
+  <data name="Account_Teacher" xml:space="preserve">
+    <value>Mpampianatra</value>
+  </data>
+  <data name="App_Title" xml:space="preserve">
+    <value>Lesona</value>
+  </data>
+  <data name="Footer_ReservedRight" xml:space="preserve">
+    <value>Tranokala voatokana.</value>
+  </data>
+  <data name="Home_BecomeMember" xml:space="preserve">
+    <value>Hiditra mpikambana</value>
+  </data>
+  <data name="Home_Index_HeroSubtitle" xml:space="preserve">
+    <value>How Did Van Gogh's Turbulent Mind Depict One of the Most Complex Concepts in Physics?</value>
+  </data>
+  <data name="Home_Index_HeroTitle" xml:space="preserve">
+    <value>Ulla  uno nova cesserunt est indigestaque</value>
+  </data>
+  <data name="Home_LessonsMayLike" xml:space="preserve">
+    <value>Lesona mety mahaliana</value>
+  </data>
+  <data name="Home_LessonsNotFinished" xml:space="preserve">
+    <value>Lesona tsy vita</value>
+  </data>
+  <data name="Home_RecentLessons" xml:space="preserve">
+    <value>Vao haingana no nivoaka</value>
+  </data>
+  <data name="LoginPartial_Dashboard" xml:space="preserve">
+    <value>Tatitra</value>
+  </data>
+  <data name="LoginPartial_Disconnect" xml:space="preserve">
+    <value>Hivoaka</value>
+  </data>
+  <data name="LoginPartial_NewLesson" xml:space="preserve">
+    <value>Lesona vaovao</value>
+  </data>
+  <data name="LoginPartial_SignIn" xml:space="preserve">
+    <value>Hiditra</value>
+  </data>
+  <data name="LoginPartial_SignUp" xml:space="preserve">
+    <value>Hamorona kaonty</value>
+  </data>
+  <data name="LoginPartial_UpdateAccount" xml:space="preserve">
+    <value>Hanova ny mombamomba</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>Hadino ny teny miafina?</value>
+  </data>
+  <data name="Login_OtherService" xml:space="preserve">
+    <value>Fidirana faingana</value>
+  </data>
+  <data name="Login_ProviderTitle" xml:space="preserve">
+    <value>Fidirana amin'ny alalan'ny kaonty {0}</value>
+  </data>
+  <data name="Login_SignUp" xml:space="preserve">
+    <value>Hamorona kaonty</value>
+  </data>
+  <data name="Navbar_Search" xml:space="preserve">
+    <value>Hitady lesona</value>
+  </data>
+  <data name="RegisterModal_YouAre" xml:space="preserve">
+    <value>Ianao dia...</value>
+  </data>
+  <data name="Register_AlreadyHaveAccount" xml:space="preserve">
+    <value>Efa manana kaonty?</value>
+  </data>
+  <data name="Register_NotHaveAccount" xml:space="preserve">
+    <value>Mbola tsy manana kaonty?</value>
+  </data>
+  <data name="Studies" xml:space="preserve">
+    <value>Taranja</value>
+  </data>
+  <data name="Title_Account_ConfirmationForgotPassword" xml:space="preserve">
+    <value>Fanamarinana tenimiafina adino</value>
+  </data>
+  <data name="Title_Account_ConfirmEmail" xml:space="preserve">
+    <value>Fanamarinana mailaka</value>
+  </data>
+  <data name="Title_Account_ConfirmReset" xml:space="preserve">
+    <value>Fanamarinana famerenana tenimiafina</value>
+  </data>
+  <data name="Title_Account_ExternalLoginAccountType" xml:space="preserve">
+    <value>Karazan'ny kaonty</value>
+  </data>
+  <data name="Title_Account_ForgotPassword" xml:space="preserve">
+    <value>Nanadino tenimiafina?</value>
+  </data>
+  <data name="Title_Account_Login" xml:space="preserve">
+    <value>Hiditra</value>
+  </data>
+  <data name="Title_Account_RegisterStudent" xml:space="preserve">
+    <value>Famoronana kaonty mpianatra</value>
+  </data>
+  <data name="Title_Account_RegisterTeacher" xml:space="preserve">
+    <value>Famoronana kaonty mpampianatra</value>
+  </data>
+  <data name="Title_Account_ResetPassword" xml:space="preserve">
+    <value>Famerenana tenimiafina</value>
+  </data>
+  <data name="Title_Account_UpdateAccount" xml:space="preserve">
+    <value>Hanova ny mombamomba</value>
+  </data>
+  <data name="Title_Dashboard_Student" xml:space="preserve">
+    <value>Tatitra - Mpianatra</value>
+  </data>
+  <data name="Title_Dashboard_Teacher" xml:space="preserve">
+    <value>Tatitra - Mpampianatra </value>
+  </data>
+  <data name="Title_Home_Index" xml:space="preserve">
+    <value>Fandraisana</value>
+  </data>
+  <data name="Title_Lesson_Add" xml:space="preserve">
+    <value>Lesona vaovao</value>
+  </data>
+  <data name="Title_Lesson_AddChapter" xml:space="preserve">
+    <value>Hanampy toko sy fizarana</value>
+  </data>
+  <data name="Title_Lesson_AddDetails" xml:space="preserve">
+    <value>Hanampy sary</value>
+  </data>
+  <data name="Title_Lesson_Chapter" xml:space="preserve">
+    <value>Toko {0}, {1}</value>
+  </data>
+  <data name="Title_Lesson_Part" xml:space="preserve">
+    <value>Fizarana {0}. {1}</value>
+  </data>
+  <data name="Title_Lesson_Search" xml:space="preserve">
+    <value>Vokatrin'ny fitadiavana</value>
+  </data>
+  <data name="Title_Lesson_Update" xml:space="preserve">
+    <value>Hanova lesona</value>
+  </data>
+  <data name="Title_Lesson_UpdateChapter" xml:space="preserve">
+    <value>Hanova hevitra ao anatiny</value>
+  </data>
+  <data name="Title_Study_Index" xml:space="preserve">
+    <value>Taranja - {0}</value>
+  </data>
+</root>

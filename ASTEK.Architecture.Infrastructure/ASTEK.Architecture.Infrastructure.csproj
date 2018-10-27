@@ -80,6 +80,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InfrastructureStrings.Fr-fr.resx</DependentUpon>
     </Compile>
+    <Compile Include="InfrastructureStrings.Mg-mg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InfrastructureStrings.Mg-mg.resx</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\ChapterNavigation.cs" />
     <Compile Include="Navigation\LessonNavigation.cs" />
     <Compile Include="Navigation\PartNavigation.cs" />
@@ -129,6 +134,10 @@
     <EmbeddedResource Include="InfrastructureStrings.Fr-fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>InfrastructureStrings.Fr-fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfrastructureStrings.Mg-mg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>InfrastructureStrings.Mg-mg.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="InfrastructureStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

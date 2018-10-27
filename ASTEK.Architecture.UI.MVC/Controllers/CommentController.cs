@@ -7,6 +7,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
     public class CommentController : BaseController
     {
         // GET: Comment
+        [AllowAnonymous]
         public PartialViewResult Count(string lessonId)
         {
             var service = new CommentAppService();

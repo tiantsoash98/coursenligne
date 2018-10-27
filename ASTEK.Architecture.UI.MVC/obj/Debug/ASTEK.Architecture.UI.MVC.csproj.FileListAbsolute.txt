@@ -163,3 +163,9 @@ C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.UI.MVC\obj\Debug\Fr-fr\ASTEK.Architecture.UI.MVC.resources.dll
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.UI.MVC\obj\Debug\ASTEK.Architecture.UI.MVC.dll
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.UI.MVC\obj\Debug\ASTEK.Architecture.UI.MVC.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.UI.MVC\bin\Mg-mg\ASTEK.Architecture.UI.MVC.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.UI.MVC\obj\Debug\ASTEK.Architecture.UI.MVC.UIStrings.Mg-mg.resources
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.UI.MVC\obj\Debug\Mg-mg\ASTEK.Architecture.UI.MVC.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.UI.MVC\bin\Mg-mg\ASTEK.Architecture.ApplicationService.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.UI.MVC\bin\Mg-mg\ASTEK.Architecture.BusinessService.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.UI.MVC\bin\Mg-mg\ASTEK.Architecture.Infrastructure.resources.dll

@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationStrings.Mg-mg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationStrings.Mg-mg.resx</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -214,6 +219,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ApplicationStrings.Mg-mg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ApplicationStrings.Mg-mg.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationStrings.Fr-fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ApplicationStrings.Fr-fr.Designer.cs</LastGenOutput>

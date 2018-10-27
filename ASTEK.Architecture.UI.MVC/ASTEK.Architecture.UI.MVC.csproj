@@ -882,6 +882,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UIStrings.Fr-fr.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIStrings.Mg-mg.resx" />
     <EmbeddedResource Include="UIStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UIStrings.Designer.cs</LastGenOutput>

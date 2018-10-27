@@ -25,10 +25,10 @@
         @if (User.Identity.IsAuthenticated)
         {
             <hr />
+            <div class="name personal-name">
+                @Html.Action("Subscribe", "Subscribe", new { accountId = Model.ACCID })
+            </div>
         }
 
-        <div class="name personal-name">
-            @Html.Action("Subscribe", "Subscribe", new { accountId = Model.ACCID })
-        </div>
     </div>
 </div>

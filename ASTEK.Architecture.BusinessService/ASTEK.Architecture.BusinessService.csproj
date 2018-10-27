@@ -67,6 +67,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BusinessStrings.resx</DependentUpon>
     </Compile>
+    <Compile Include="BusinessStrings.Mg-mg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinessStrings.Mg-mg.resx</DependentUpon>
+    </Compile>
     <Compile Include="Entity\AccountStudent\AccountStudentBusinessService.cs" />
     <Compile Include="Entity\AccountStudent\UpdateAccountStudentRequest.cs" />
     <Compile Include="Entity\AccountStudent\UpdateAccountStudentResponse.cs" />
@@ -273,6 +278,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BusinessStrings.Fr-fr.resx" />
+    <EmbeddedResource Include="BusinessStrings.Mg-mg.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BusinessStrings.Mg-mg.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinessStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BusinessStrings.Designer.cs</LastGenOutput>

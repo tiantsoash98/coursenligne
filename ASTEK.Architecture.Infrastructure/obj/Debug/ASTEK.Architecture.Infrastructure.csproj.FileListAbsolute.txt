@@ -48,3 +48,6 @@ C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Infrastructure\bin\Debug\System.ValueTuple.xml
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Infrastructure\obj\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
 E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.csprojResolveAssemblyReference.cache
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\bin\Debug\Mg-mg\ASTEK.Architecture.Infrastructure.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\ASTEK.Architecture.Infrastructure.InfrastructureStrings.Mg-mg.resources
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Infrastructure\obj\Debug\Mg-mg\ASTEK.Architecture.Infrastructure.resources.dll

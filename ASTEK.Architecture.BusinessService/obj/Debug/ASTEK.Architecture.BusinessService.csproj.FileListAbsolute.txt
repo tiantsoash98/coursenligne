@@ -109,3 +109,7 @@ C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\Fr-fr\ASTEK.Architecture.BusinessService.resources.dll
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.dll
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\Mg-mg\ASTEK.Architecture.BusinessService.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\bin\Debug\Mg-mg\ASTEK.Architecture.Infrastructure.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\ASTEK.Architecture.BusinessService.BusinessStrings.Mg-mg.resources
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessService\obj\Debug\Mg-mg\ASTEK.Architecture.BusinessService.resources.dll

@@ -79,3 +79,4 @@ C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\System.ValueTuple.xml
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\bin\Debug\Fr-fr\ASTEK.Architecture.Infrastructure.resources.dll
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.Domain\obj\Debug\Fr-fr\ASTEK.Architecture.Domain.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.Domain\bin\Debug\Mg-mg\ASTEK.Architecture.Infrastructure.resources.dll
