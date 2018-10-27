@@ -23,7 +23,12 @@ namespace ASTEK.Architecture.UI.MVC.Models
             get { return ConfigurationManager.AppSettings.Get("AccountFolder"); }
         }
 
-        
+        public string StudyFolder
+        {
+            get { return ConfigurationManager.AppSettings.Get("StudyFolder"); }
+        }
+
+
         public GetAllStudyOutputModel Studies
         {
             get
