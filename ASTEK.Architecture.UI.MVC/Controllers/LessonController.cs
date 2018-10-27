@@ -256,6 +256,20 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         }
 
         [AllowAnonymous]
+        public PartialViewResult CountChapter(string lessonId)
+        {
+            var service = new LessonChapterAppService();  
+            var input = new CountChapterGroupByLessonInputModel
+            {
+                LessonId = lessonId,
+            };
+         
+            var output = service.Count(input);
+
+            return PartialView("_CountResult", output.Response.Count);
+        }
+
+        [AllowAnonymous]
         public PartialViewResult GetProgression(string lessonId, short chapterNumber, short? partNumber)
         {
             var service = new LessonAppService();

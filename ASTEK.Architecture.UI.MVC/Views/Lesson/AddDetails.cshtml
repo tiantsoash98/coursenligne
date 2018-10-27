@@ -10,8 +10,7 @@
     <link href="@Url.Content("~/Content/layouts/single-post-2/css/styles.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/layouts/single-post-2/css/responsive.css")" rel="stylesheet" />
 }
-<div class="slider" style="background-image: url(@Url.Content("~/Content/images/slider-1.jpg")"></div><!-- slider -->
-
+<div class="slider personal-slider-center" style="background-image: url(@Url.Content(Model.BaseFileUrl + Model.ImageFolder + "slider-1c2.jpg"))"></div><!-- slider -->
 <section class="post-area">
     <div class="container">
 
@@ -34,7 +33,7 @@
                         </div><!-- post-top-area -->
 
                         <div class="post-content new-lesson">
-                            @using (Html.BeginForm("AddDetails","Lesson", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            @using (Html.BeginForm("AddDetails", "Lesson", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
                                 <div class="form-group">
                                     <div class="col-md-12">
@@ -47,11 +46,11 @@
                                     <label for="image" class="col-md-12 control-label">Image pour le cours</label>
 
                                     <div class="col-md-12">
-                                        <input type="file" name="image" id="image" class="form-control"/>
-                                        
+                                        <input type="file" name="image" id="image" class="form-control" />
+
                                     </div>
                                 </div>
-                                
+
                                 @Html.HiddenFor(m => m.LessonId)
 
                                 <div class="form-group text-right space-top">

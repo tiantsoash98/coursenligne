@@ -40,6 +40,10 @@ personal-dropdown-study {
     background-position-y: center;
 }
 
+.personal-slider-center{
+    background-position-y: center;
+}
+
 .personal-slider {
     height: 400px;
     width: 100%;
@@ -50,6 +54,14 @@ personal-dropdown-study {
     .personal-slider .title {
         color: #fff;
         text-shadow: 2px 2px 10px rgba(0,0,0,.3);
+    }
+
+.personal-section {
+    padding: 20px 0 40px;
+}
+
+    .personal-section .heading {
+        padding-bottom: 70px;
     }
 
 .personal-study-slider div {
@@ -69,6 +81,8 @@ personal-dropdown-study {
     background-color: inherit;
     margin-bottom: 0px;
 }
+
+
 
 .post-style-1 .blog-info {
     padding: 0 10px 10px 30px;

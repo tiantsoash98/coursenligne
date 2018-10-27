@@ -12,7 +12,8 @@
     <link href="@Url.Content("~/Content/layouts/single-post-2/css/styles.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/layouts/single-post-2/css/responsive.css")" rel="stylesheet" />
 }
-<div class="slider" style="background-image: url(@Url.Content("~/Content/images/slider-1.jpg")"></div><!-- slider -->
+
+<div class="slider personal-slider-center" style="background-image: url(@Url.Content(Model.BaseFileUrl + Model.ImageFolder + "slider-1c2.jpg"))"></div><!-- slider -->
 
 <section class="post-area">
     <div class="container-fluid">
@@ -110,43 +111,43 @@
 
                                 <div id="chapter-parts">
                                     <div class="col-md-12">
-                                            @Html.ValidationMessage("PartErrors", new { @class = "text-danger" })
-                                            @Html.ValidationMessage("ValidatorPartErrors", new { @class = "text-danger" })
-                                        </div>
+                                        @Html.ValidationMessage("PartErrors", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("ValidatorPartErrors", new { @class = "text-danger" })
+                                    </div>
 
-                                        @{
-                                            for (int i = 1; i <= countParts; i++)
-                                            {
-                                                var divId = "part" + i;
+                                    @{
+                                        for (int i = 1; i <= countParts; i++)
+                                        {
+                                            var divId = "part" + i;
 
-                                                <div id="@divId" class="lesson-part">
-                                                    <hr />
-                                                    <div class="col-md-12">
-                                                        <h5 class="pre-title col-md-10">Partie @i</h5>
-                                                    </div>
-                                                    
-
-                                                    <div class="form-group small-space-top" id="form-group-title-@i">
-                                                        @Html.LabelFor(m => Model.PartsInput[i - 1].Title, new { @class = "col-md-12 control-label", @for = "title-part-" + i })
-
-                                                        <div class="col-md-12" id="row-title-@i">
-                                                            @Html.TextAreaFor(m => m.PartsInput[i - 1].Title, new { @class = "form-control col-md-12", @rows = "3", id = "title-part-" + i })
-                                                            @Html.ValidationMessageFor(m => m.PartsInput[i - 1].Title, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group small-space-top">
-                                                        @Html.LabelFor(m => Model.PartsInput[i - 1].Content, new { @class = "col-md-12 control-label", @for = "content-part-" + i })
-
-                                                        <div class="col-md-12">
-                                                            @Html.TextAreaFor(m => m.PartsInput[i - 1].Content, new { @class = "form-control col-md-12", @rows = "10", id = "content-part-" + i })
-                                                            @Html.ValidationMessageFor(m => m.PartsInput[i - 1].Content, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
+                                            <div id="@divId" class="lesson-part">
+                                                <hr />
+                                                <div class="col-md-12">
+                                                    <h5 class="pre-title col-md-10">Partie @i</h5>
                                                 </div>
-                                            }
+
+
+                                                <div class="form-group small-space-top" id="form-group-title-@i">
+                                                    @Html.LabelFor(m => Model.PartsInput[i - 1].Title, new { @class = "col-md-12 control-label", @for = "title-part-" + i })
+
+                                                    <div class="col-md-12" id="row-title-@i">
+                                                        @Html.TextAreaFor(m => m.PartsInput[i - 1].Title, new { @class = "form-control col-md-12", @rows = "3", id = "title-part-" + i })
+                                                        @Html.ValidationMessageFor(m => m.PartsInput[i - 1].Title, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group small-space-top">
+                                                    @Html.LabelFor(m => Model.PartsInput[i - 1].Content, new { @class = "col-md-12 control-label", @for = "content-part-" + i })
+
+                                                    <div class="col-md-12">
+                                                        @Html.TextAreaFor(m => m.PartsInput[i - 1].Content, new { @class = "form-control col-md-12", @rows = "10", id = "content-part-" + i })
+                                                        @Html.ValidationMessageFor(m => m.PartsInput[i - 1].Content, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         }
+                                    }
                                 </div>
 
                                 <div class="form-group text-center small-space-top">
