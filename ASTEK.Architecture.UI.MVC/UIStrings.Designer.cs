@@ -106,7 +106,7 @@ namespace ASTEK.Architecture.UI.MVC {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to How Did Van Gogh&apos;s Turbulent Mind Depict One of the Most Complex Concepts in Physics?.
+        ///   Looks up a localized string similar to Find courses published by qualified teachers.
         /// </summary>
         public static string Home_Index_HeroSubtitle {
             get {
@@ -115,7 +115,7 @@ namespace ASTEK.Architecture.UI.MVC {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ulla  uno nova cesserunt est indigestaque.
+        ///   Looks up a localized string similar to Get your life easy with Estudia.
         /// </summary>
         public static string Home_Index_HeroTitle {
             get {

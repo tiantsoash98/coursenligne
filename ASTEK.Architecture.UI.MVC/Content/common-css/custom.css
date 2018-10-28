@@ -32,9 +32,18 @@ personal-dropdown-study {
 /* ---------------------------------
 4. SLIDER
 --------------------------------- */
-.home-slider div {
-    background-color: rgba(0, 0, 0, 0.2);
+.home-slider{
+    background-position-y: center;
 }
+
+    .home-slider div {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#efa953+0,419ac6+100&0.16+60,0.62+100 */
+        background: -moz-linear-gradient(45deg, rgba(239,169,83,0.16) 0%, rgba(135,160,152,0.16) 60%, rgba(65,154,198,0.62) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, rgba(239,169,83,0.16) 0%,rgba(135,160,152,0.16) 60%,rgba(65,154,198,0.62) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, rgba(239,169,83,0.16) 0%,rgba(135,160,152,0.16) 60%,rgba(65,154,198,0.62) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#29efa953', endColorstr='#9e419ac6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        background-color: rgba(0, 0, 0, 0.1);
+    }
 
 .personal-small-slider {
     height: 200px;
@@ -57,7 +66,7 @@ personal-dropdown-study {
 
     .personal-slider .title {
         color: #fff;
-        text-shadow: 2px 2px 10px rgba(0,0,0,.3);
+        /*text-shadow: 2px 2px 10px rgba(0,0,0,.3);*/
     }
 
 .personal-section {
@@ -101,6 +110,7 @@ personal-dropdown-study {
 }
 
 .hero-element-subtitle {
+    padding-top: 10px;
     margin-bottom: 20px;
 }
 
@@ -117,7 +127,7 @@ personal-dropdown-study {
     .hero-btn:hover {
         transform: translateY(-2px);
         box-shadow: 5px 10px 20px rgba(0,0,0,.3);
-        background: #38a6e4;
+        background: #6299f4;
         color: #fff;
     }
 
