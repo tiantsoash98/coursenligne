@@ -1,0 +1,17 @@
+- SubscribeActivity
+- CommentAnswer
+- Comment
+
+- LessonPart
+- LessonChapter
+- Lesson
+
+- LessonFollowed
+
+- AspNetUserRoles
+- AspNetUserLogins
+- AspNetUsers
+
+- AccountStudent
+- AccountTeacher
+- Account

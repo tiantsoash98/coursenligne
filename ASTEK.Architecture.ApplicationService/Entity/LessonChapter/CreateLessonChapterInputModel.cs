@@ -14,7 +14,7 @@ namespace ASTEK.Architecture.ApplicationService.Entity.LessonChapter
         public string Description { get; set; }
 
         [Display(Name = "Display_Content", ResourceType = typeof(Infrastructure.InfrastructureStrings))]
-        [Required(ErrorMessageResourceName = "ApplicationValidation_ContentRequired", ErrorMessageResourceType = typeof(ApplicationStrings))]   
+        [Required(ErrorMessageResourceName = "ApplicationValidation_ContentRequired", ErrorMessageResourceType = typeof(ApplicationStrings))]
         public string Content { get; set; }
 
         [Display(Name = "Display_Hour", ResourceType = typeof(Infrastructure.InfrastructureStrings))]

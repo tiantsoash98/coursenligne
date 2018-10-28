@@ -628,6 +628,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         {
             if (!ModelState.IsValid)
             {
+                InitAddLessonChapterViewModel(model);
                 return View(model);
             }
 

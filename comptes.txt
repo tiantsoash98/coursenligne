@@ -1,0 +1,12 @@
+jean@itu.local Jean1@itu et
+etudiant1@itu.local Etudiant1@itu et
+etudiant2@itu.local Etudiant2@itu et
+etudiant3@itu.local  Etudiant3@itu et
+
+rakoto@itu.local Rakoto1@itu ens
+soa@itu.local Soa1@itu ens  Marketing
+philo@itu.local	Philo1@itu ens
+droit@itu.local Droit@itu	ens
+sciences@itu.local Sciences1@itu	ens
+management@itu.local Management1@itu	ens
+tech@itu.local	Tech1@itu

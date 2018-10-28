@@ -592,6 +592,7 @@
     <Content Include="Content\common-css\export-lesson.css" />
     <Content Include="Content\common-css\inherit.css" />
     <Content Include="Content\common-css\ionicons.css" />
+    <Content Include="Content\common-css\lesson-format.css" />
     <Content Include="Content\common-css\mdb.css" />
     <Content Include="Content\common-css\mdb.min.css" />
     <Content Include="Content\common-css\navbar.css" />

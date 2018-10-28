@@ -233,7 +233,9 @@ namespace ASTEK.Architecture.Repository.Concrete
 
         public List<Lesson> GetAllRecent(Guid? studyCode)
         {
-            var lessons = Context.Lessons.OrderByDescending(l => l.LSNDATE).ToList();
+            var lessons = Context.Lessons
+                                    .Where(l => l.DocumentState.DCSWORDING.Equals("VALID"))
+                                    .OrderByDescending(l => l.LSNDATE).ToList();
 
             if (studyCode.HasValue)
             {

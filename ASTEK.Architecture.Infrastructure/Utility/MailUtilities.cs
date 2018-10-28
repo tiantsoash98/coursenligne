@@ -20,11 +20,11 @@ namespace ASTEK.Architecture.Infrastructure.Utility
 
         public static void SendMail(MailMessage message)
         {
-            message.From = new MailAddress("informatech@itu.local");
+            message.From = new MailAddress("estudia@itu.local");
 
             SmtpClient SmtpServer = new SmtpClient("localhost");
             SmtpServer.Port = 25;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("informatech@itu.local", "ituitu");
+            SmtpServer.Credentials = new System.Net.NetworkCredential("estudia@itu.local", "ituitu");
             SmtpServer.EnableSsl = false;
 
             SmtpServer.Send(message);

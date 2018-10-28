@@ -127,7 +127,7 @@
     <value>Estudia</value>
   </data>
   <data name="Footer_ReservedRight" xml:space="preserve">
-    <value>Tranokala voatokana.</value>
+    <value>Tranokala voatokana</value>
   </data>
   <data name="Home_BecomeMember" xml:space="preserve">
     <value>Hiditra mpikambana</value>
@@ -139,7 +139,7 @@
     <value>Amaivano ny fiainanao miaraka amin'Estudia</value>
   </data>
   <data name="Home_LessonsMayLike" xml:space="preserve">
-    <value>Lesona mety mahaliana</value>
+    <value>Lesona mety hahaliana</value>
   </data>
   <data name="Home_LessonsNotFinished" xml:space="preserve">
     <value>Lesona tsy vita</value>

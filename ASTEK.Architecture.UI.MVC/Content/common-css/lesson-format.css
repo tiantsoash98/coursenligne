@@ -1,0 +1,11 @@
+﻿.format-lesson ul{
+    list-style: circle outside none !important;
+}
+
+    .format-lesson ul li {
+        padding-top: 20px;
+    }
+
+.format-lesson strong {
+    font-weight: 800;
+}
