@@ -79,7 +79,7 @@ namespace ASTEK.Architecture.UI.MVC {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Application.
+        ///   Looks up a localized string similar to Estudia.
         /// </summary>
         public static string App_Title {
             get {

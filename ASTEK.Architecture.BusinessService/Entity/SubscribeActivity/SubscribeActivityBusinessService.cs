@@ -161,7 +161,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.SubscribeActivity
                 string study = lesson.Study.STDNAME;
                 string title = lesson.LSNTITLE;
                 string link = request.UrlPath;
-                string appTitle = "";
+                string appTitle = "Estudia";
 
                 if (request.NotificationSource == NotificationSource.Publish)
                 {         
@@ -169,7 +169,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.SubscribeActivity
 
                     var sb = new StringBuilder();
                     sb.AppendLine("{0} {1} vient de publier un nouveau cours, sur la filière {2}, intitulé: \"{3}\".");
-                    sb.AppendLine("Cliquer <a href=\"{4}\">ici</> pour voir le cours");
+                    sb.AppendLine("Accédez rapidement au cours via ce lien: {4}");
                     sb.AppendLine("");
                     sb.AppendLine("{5} - Plateforme de cours en ligne");
 

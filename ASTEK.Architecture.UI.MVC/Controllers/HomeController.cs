@@ -24,7 +24,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var mayLikeInput = new GetLessonMayLikeInputModel
             {
                 Page = 1,
-                Count = 16,
+                Count = 12,
                 GetAlternativePicture = true,
                 GetThumbnailPicture = true
             };
@@ -40,7 +40,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var recentsInput = new GetLessonRecentInputModel
             {
                 Page = _recentPage,
-                Count = 8,
+                Count = 6,
             };
 
             var recentOutput = lessonAppService.GetLessonRecent(recentsInput);
@@ -54,7 +54,9 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var homeVM = new HomeViewModel
             {
                 MayLike = mayLikeOutput.Response.Lessons,
-                Recents = recentOutput.Response.Lessons
+                Recents = recentOutput.Response.Lessons,
+                TotalRecentsPage = recentOutput.Response.TotalPages,
+                RecentPage = _recentPage
             };
             
             return View(homeVM);

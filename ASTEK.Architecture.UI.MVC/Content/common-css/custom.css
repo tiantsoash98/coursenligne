@@ -32,6 +32,10 @@ personal-dropdown-study {
 /* ---------------------------------
 4. SLIDER
 --------------------------------- */
+.home-slider div {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 .personal-small-slider {
     height: 200px;
     width: 100%;

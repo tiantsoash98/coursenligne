@@ -42,9 +42,47 @@
 
         </div><!-- row -->
 
-        @*<div class="small-space-top">
-            <a class="col-md-2 personal-btn-simple" href="#"><b>Explorer</b></a>
-        </div>*@
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <h3>@UIStrings.Home_RecentLessons</h3>
+            </div>
+
+            @foreach (var lesson in Model.Recents)
+            {
+                <div class="col-lg-2 col-md-3">
+                    @Html.Partial("_LessonCard", lesson)
+                </div><!-- col-lg-4 col-md-6 -->
+            }
+        </div><!-- row -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="small-space-top">
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "pagination-form" }))
+                    {
+                        <div class="form-group row">
+                            <label for="page" class="control-label">Page</label>
+
+                            <ul class="personal-pagination-list">
+                                @for (var i = 1; i <= Model.TotalRecentsPage; i++)
+                                {
+                                    <li>
+                                        @if (i == Model.RecentPage)
+                                        {
+                                            <input type="submit" name="recentPage" value="@i" class="personal-pagination-item current-page" />
+                                        }
+                                        @if (i != Model.RecentPage)
+                                        {
+                                            <input type="submit" name="recentPage" value="@i" class="personal-pagination-item" />
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
 
     </div><!-- container -->
 </section><!-- section -->
