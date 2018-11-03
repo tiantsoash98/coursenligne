@@ -72,7 +72,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var mayLikeInput = new GetLessonMayLikeInputModel
             {
                 Page = 1,
-                Count = 16,
+                Count = 12,
                 GetAlternativePicture = true,
                 GetThumbnailPicture = true
             };

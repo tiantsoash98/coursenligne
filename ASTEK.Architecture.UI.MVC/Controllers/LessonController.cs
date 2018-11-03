@@ -1000,7 +1000,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             {
                 LessonId = lessonId,
                 HasImage = _hasImage,
-                HasChapter = chapterCountOutput.Response.Count > 0
+                HasChapter = chapterCountOutput.Response.Count > 0,
+                Editable = true
             };
 
             if (type.Equals("unpublished"))

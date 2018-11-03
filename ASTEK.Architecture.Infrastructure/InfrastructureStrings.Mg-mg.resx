@@ -148,7 +148,7 @@
     <value>Fanampin'anarana</value>
   </data>
   <data name="Display_Gender" xml:space="preserve">
-    <value>Sexe</value>
+    <value />
   </data>
   <data name="Display_Hour" xml:space="preserve">
     <value>Ora</value>
