@@ -80,6 +80,7 @@
     <Compile Include="Entity\AccountStudent\AccountStudent.cs" />
     <Compile Include="Entity\AccountTeacher\AccountTeacher.cs" />
     <Compile Include="Entity\AccountType.cs" />
+    <Compile Include="Entity\AnswerExercice\IAnswerExerciceRepository.cs" />
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\CommentAnswer\ICommentAnswerRepository.cs" />
     <Compile Include="Entity\Comment\ICommentRepository.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Entity\CommentAnswer\CommentAnswer.cs" />
     <Compile Include="Entity\SubscribeActivity\ISubscribeActivityRepository.cs" />
     <Compile Include="Entity\SubscribeActivity\SubscribeActivity.cs" />
+    <Compile Include="Entity\AnswerExercice\AnswerExercice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validator\AccountStudentValidator.cs" />
     <Compile Include="Validator\AccountTeacherValidator.cs" />

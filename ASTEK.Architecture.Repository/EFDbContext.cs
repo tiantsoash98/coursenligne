@@ -13,6 +13,7 @@
 
         public virtual DbSet<Domain.Entity.Account.Account> Accounts { get; set; }
         public virtual DbSet<AccountType> AccountTypes { get; set; }
+        public virtual DbSet<Domain.Entity.AnswerExercice.AnswerExercice> AnswerExercices  { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Domain.Entity.Comment.Comment> Comments { get; set; }
         public virtual DbSet<Domain.Entity.CommentAnswer.CommentAnswer> CommentAnswers { get; set; }
@@ -64,6 +65,7 @@
             modelBuilder.Configurations.Add(new TableConfiguration.ExerciceConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.CommentConfiguration());
             modelBuilder.Configurations.Add(new TableConfiguration.CommentAnswerConfiguration());
+            modelBuilder.Configurations.Add(new TableConfiguration.AnswerExerciceConfiguration());
 
 
             modelBuilder.Entity<AccountType>()

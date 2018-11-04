@@ -23,6 +23,7 @@ namespace ASTEK.Architecture.Domain.Entity.Account
             Lessons = new HashSet<Lesson.Lesson>();
             LessonFolloweds = new HashSet<LessonFollowed.LessonFollowed>();
             Studies = new HashSet<Study.Study>();
+            AnswerExercices = new HashSet<AnswerExercice.AnswerExercice>();
         }
 
         [Key]
@@ -74,5 +75,8 @@ namespace ASTEK.Architecture.Domain.Entity.Account
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Study.Study> Studies { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AnswerExercice.AnswerExercice> AnswerExercices { get; set; }
     }
 }

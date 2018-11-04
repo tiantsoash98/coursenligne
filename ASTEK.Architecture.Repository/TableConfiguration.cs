@@ -74,6 +74,45 @@ namespace ASTEK.Architecture.Repository
 
         #endregion
 
+        #region AnswerExerciceConfiguration
+        public class AnswerExerciceConfiguration : EntityTypeConfiguration<Domain.Entity.AnswerExercice.AnswerExercice>
+        {
+            public AnswerExerciceConfiguration()
+            {
+                HasKey(e => e.Id);
+
+                Property(e => e.Id)
+                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+                Property(e => e.Id)
+                    .HasColumnName("ANSID");
+
+                Ignore(e => e.ANSID);
+
+                Ignore(e => e.DateCreation);
+
+                Ignore(e => e.IsDeleted);
+
+
+                Property(e => e.ANSFILE)
+                    .IsUnicode(false);
+
+                Property(e => e.ANSCOMMENT)
+                    .IsUnicode(false);
+
+
+                Property(e => e.ANSMARK)
+                    .HasPrecision(5, 2);
+
+                Property(e => e.ANSCOMMENTCORRECTION)
+                    .IsUnicode(false);
+
+                Property(e => e.ANSVALUATION)
+                    .IsUnicode(false);
+            }
+        }
+        #endregion
+
         #region CommentConfiguration
         public class CommentConfiguration : EntityTypeConfiguration<Domain.Entity.Comment.Comment>
         {

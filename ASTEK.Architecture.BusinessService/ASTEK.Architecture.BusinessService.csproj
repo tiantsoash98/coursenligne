@@ -101,6 +101,11 @@
     <Compile Include="Entity\Account\UpdateAccountImageResponse.cs" />
     <Compile Include="Entity\Account\UploadAccountImageRequest.cs" />
     <Compile Include="Entity\Account\UploadAccountImageResponse.cs" />
+    <Compile Include="Entity\AnswerExercice\AnswerExerciceBusinessService.cs" />
+    <Compile Include="Entity\AnswerExercice\CorrectAnswerRequest.cs" />
+    <Compile Include="Entity\AnswerExercice\CorrectAnswerResponse.cs" />
+    <Compile Include="Entity\AnswerExercice\UploadAnswerRequest.cs" />
+    <Compile Include="Entity\AnswerExercice\UploadAnswerResponse.cs" />
     <Compile Include="Entity\CommentAnswer\AddCommentAnswerRequest.cs" />
     <Compile Include="Entity\CommentAnswer\AddCommentAnswerResponse.cs" />
     <Compile Include="Entity\CommentAnswer\CommentAnswerBusinessService.cs" />
@@ -235,6 +240,7 @@
     <Compile Include="Entity\Account\UpdateAccountResponse.cs" />
     <Compile Include="Interface\IAccountStudentBusinessService.cs" />
     <Compile Include="Interface\IAccountTeacherBusinessService.cs" />
+    <Compile Include="Interface\IAnswerExerciceBusinessService.cs" />
     <Compile Include="Interface\ICommentAnswerBusinessService.cs" />
     <Compile Include="Interface\ICommentBusinessService.cs" />
     <Compile Include="Interface\ICountryBusinessService.cs" />

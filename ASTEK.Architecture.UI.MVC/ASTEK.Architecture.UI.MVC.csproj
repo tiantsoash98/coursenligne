@@ -183,6 +183,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\ExerciceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Models\Dashboard\DashboardViewModel.cs" />
     <Compile Include="Models\Dashboard\FollowerProgressionViewModel.cs" />
     <Compile Include="Models\Dashboard\StudentsProgressionViewModel.cs" />
+    <Compile Include="Models\Exercice\AnswerViewModel.cs" />
     <Compile Include="Models\Home\HomeStudentViewModel.cs" />
     <Compile Include="Models\Home\HomeTeacherViewModel.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
@@ -808,9 +810,11 @@
     <Content Include="Views\Shared\_SubscribeButton.cshtml" />
     <Content Include="Views\Shared\_LessonLevel.cshtml" />
     <Content Include="Views\Lesson\Media.cshtml" />
+    <Content Include="Views\Exercice\Answer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Answer\" />
     <Folder Include="Content\attached\Document\" />
     <Folder Include="Content\attached\Exercice\" />
     <Folder Include="Content\attached\Sound\" />

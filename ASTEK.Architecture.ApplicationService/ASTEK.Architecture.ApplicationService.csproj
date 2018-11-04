@@ -80,6 +80,9 @@
     <Compile Include="Entity\AccountStudent\UpdateAccountStudentInputModel.cs" />
     <Compile Include="Entity\Account\UploadAccountImageInputModel.cs" />
     <Compile Include="Entity\Account\UploadAccountImageOutputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\AnswerExerciceAppService.cs" />
+    <Compile Include="Entity\AnswerExercice\UploadAnswerInputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\UploadAnswerOutputModel.cs" />
     <Compile Include="Entity\CommentAnswer\AddCommentAnswerInputModel.cs" />
     <Compile Include="Entity\CommentAnswer\AddCommentAnswerOutputModel.cs" />
     <Compile Include="Entity\CommentAnswer\CommentAnswerAppService.cs" />
