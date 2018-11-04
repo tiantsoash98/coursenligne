@@ -24,6 +24,7 @@ namespace ASTEK.Architecture.BusinessService.Interface
         Task<SearchLessonResponse> SearchAsync(SearchLessonRequest request);
         UpdateLessonResponse Update(UpdateLessonRequest request);
         UpdateLessonImageResponse UpdateImage(UpdateLessonImageRequest request);
+        UpdateAttachedFilesResponse UpdateAttachedFiles(UpdateAttachedFilesRequest request);
         UploadLessonImageResponse UploadImage(UploadLessonImageRequest request);
     }
 }

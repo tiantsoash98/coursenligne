@@ -153,6 +153,9 @@
   <data name="Display_Hour" xml:space="preserve">
     <value>Hour</value>
   </data>
+  <data name="Display_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
   <data name="Display_Minute" xml:space="preserve">
     <value>Minute</value>
   </data>
@@ -179,6 +182,9 @@
   </data>
   <data name="Display_Town" xml:space="preserve">
     <value>Town</value>
+  </data>
+  <data name="Display_University" xml:space="preserve">
+    <value>University</value>
   </data>
   <data name="NotFound_Account" xml:space="preserve">
     <value>Account not found</value>

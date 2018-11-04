@@ -43,7 +43,8 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
                 Study = GuidUtilities.TryParse(input.Study),
                 Description = input.Description,
                 Target = input.Targets,
-                Confidentiality = new Guid(input.Confidentiality)
+                Confidentiality = new Guid(input.Confidentiality),
+                Level = input.Level
             };
 
             CreateLessonResponse response = _service.Create(request);
@@ -77,7 +78,8 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
                 Page = input.Page,
                 Count = input.Count,
                 GetAlternativePicture = input.GetAlternativePicture,
-                GetThumbnailPicture = input.GetThumbnailPicture
+                GetThumbnailPicture = input.GetThumbnailPicture,
+                Level = input.Level
             };
 
             GetBestLessonByStudyResponse response = _service.GetBestByStudy(request);
@@ -92,7 +94,8 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
                 Page = input.Page,
                 Count = input.Count,
                 GetAlternativePicture = input.GetAlternativePicture,
-                GetThumbnailPicture = input.GetThumbnailPicture
+                GetThumbnailPicture = input.GetThumbnailPicture,
+                Level = input.Level
             };
 
             GetLessonMayLikeResponse response = _service.GetMayLike(request);
@@ -233,12 +236,30 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
                 Study = GuidUtilities.TryParse(input.Study),
                 Title = input.Title,
                 Description = input.Description,
-                Targets = input.Targets
+                Targets = input.Targets,
+                Level = input.Level
             };
 
             UpdateLessonResponse response = _service.Update(request);
 
-            return new UpdateLessonOutputModel() { Response = response };
+            return new UpdateLessonOutputModel { Response = response };
+        }
+
+        public UpdateAttachedFilesOutputModel UpdateAttached(UpdateAttachedFilesInputModel input)
+        {
+            var request = new UpdateAttachedFilesRequest
+            {
+                LessonId = GuidUtilities.TryParse(input.LessonId),
+                VideoFile = input.VideoFile,
+                SoundFile = input.SoundFile,
+                DocumentFile = input.DocumentFile,
+                ExerciceFile = input.ExerciceFile,
+                CorrectionFile = input.CorrectionFile
+            };
+
+            UpdateAttachedFilesResponse response = _service.UpdateAttachedFiles(request);
+
+            return new UpdateAttachedFilesOutputModel { Response = response };
         }
 
         public GetLessonAlternativePictureOutputModel GetAlternativePicture(GetLessonAlternativePictureInputModel input)
@@ -272,7 +293,8 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
             var request = new GetLessonRecentRequest
             {
                 Page = input.Page,
-                Count = input.Count
+                Count = input.Count,
+                Level = input.Level
             };
 
             if (input.StudyCode != null)

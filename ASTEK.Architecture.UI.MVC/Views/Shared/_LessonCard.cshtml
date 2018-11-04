@@ -44,7 +44,7 @@
         <ul class="post-footer">
             <li><i class="ion-person"></i>@Html.Action("CountFollow", "Lesson", new { lessonId = Model.Id })</li>
             <li><i class="ion-chatbubble"></i>@Html.Action("Count", "Comment", new { lessonId = Model.Id })</li>
-            <li><i class="ion-ios-albums"></i>@Html.Action("CountChapter", "Lesson", new { lessonId = Model.Id })</li>
+            <li><i class="ion-podium"></i>@Html.Partial("_LessonLevel", Model.LSNLEVEL)</li>
         </ul>
     </div>
 </div>

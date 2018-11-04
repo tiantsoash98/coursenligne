@@ -11,5 +11,6 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
         public string Title { get; set; }
         public string Description { get; set; }
         public string Targets { get; set; }
+        public int Level { get; set; }
     }
 }

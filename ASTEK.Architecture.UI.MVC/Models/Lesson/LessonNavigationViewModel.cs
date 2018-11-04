@@ -12,5 +12,10 @@ namespace ASTEK.Architecture.UI.MVC.Models.Lesson
         public string LessonId { get; set; }
         public short CurrentChapter { get; set; }
         public short CurrentPart { get; set; }
+        public bool HasExercice { get; set; }
+        public bool HasDocument { get; set; }
+        public bool HasVideo { get; set; }
+        public bool HasAudio { get; set; }
+        public bool HasCorrection { get; set; }
     }
 }

@@ -1,14 +1,16 @@
 ﻿
 @model ASTEK.Architecture.UI.MVC.Models.SubscribeActivity.SubscribeButtonViewModel
-@{ 
+@{
     string value = Model.IsSubscribed ? "Se désabonner" : "S'abonner";
 }
 
 
-@if(User.Identity.IsAuthenticated && !Model.SubscribedId.Equals(Model.SubscriberId))
+@if (User.Identity.IsAuthenticated && !Model.SubscribedId.Equals(Model.SubscriberId))
 {
-    <button class="personal-btn-simple-white" id="subscribeBtn">
-        @value
-    </button>
+    <hr />
+    <div class="name personal-name">
+        <button class="personal-btn-simple-white" id="subscribeBtn">
+            @value
+        </button>
+    </div>
 }
-    

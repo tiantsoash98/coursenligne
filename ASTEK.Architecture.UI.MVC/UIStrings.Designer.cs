@@ -439,6 +439,15 @@ namespace ASTEK.Architecture.UI.MVC {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Media.
+        /// </summary>
+        public static string Title_Lesson_Media {
+            get {
+                return ResourceManager.GetString("Title_Lesson_Media", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Part {0}. {1}.
         /// </summary>
         public static string Title_Lesson_Part {

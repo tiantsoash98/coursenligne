@@ -2,7 +2,7 @@
 
 <button id="navigateButton" type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#modalNavigation">
     <i class="ion-ios-list-outline"></i>
-</button> 
+</button>
 
 <!-- Modal: modalNavigation -->
 <div class="modal fade right" id="modalNavigation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
@@ -35,7 +35,7 @@
                             <div id="@collapseId" class="panel-collapse collapse">
 
                                 <ul class="part-list">
-                                    @{ 
+                                    @{
                                         var partsCount = chapter.Parts.Count;
                                         var i = 0;
                                     }
@@ -53,7 +53,7 @@
                                                 }
 
                                                 i++;
-                                            }                                       
+                                            }
                                         </li>
                                     }
                                 </ul>
@@ -63,13 +63,35 @@
                     </div>
 
                     <hr>
-                }                  
+                }
 
             </div> <!-- Modal-body -->
             <!--Footer-->
-            @*<div class="modal-footer justify-content-center">
-                <a href="#" class="btn btn-primary">Voir l'exercice</a>
-            </div>*@
+
+            @if (Model.HasVideo)
+            {
+                <div class="modal-footer justify-content-center">
+                    @Html.ActionLink("Voir la vidéo", "Attached", "Lesson", new { lessonId = Model.LessonId, type = "video" }, null)
+                </div>
+            }
+            @if (Model.HasAudio)
+            {
+                <div class="modal-footer justify-content-center">
+                    @Html.ActionLink("Ecouter l'audio", "Attached", "Lesson", new { lessonId = Model.LessonId, type = "audio" }, null)
+                </div>
+            }
+            @if (Model.HasDocument)
+            {
+                <div class="modal-footer justify-content-center">
+                    @Html.ActionLink("Voir le document attaché", "Attached", "Lesson", new { lessonId = Model.LessonId, type = "document" }, null)
+                </div>
+            }
+            @if (Model.HasExercice)
+            {
+                <div class="modal-footer justify-content-center">
+                    @Html.ActionLink("Voir l'exercice", "Attached", "Lesson", new { lessonId = Model.LessonId, type = "exercice" }, null)
+                </div>
+            }
         </div>
     </div>
 </div>

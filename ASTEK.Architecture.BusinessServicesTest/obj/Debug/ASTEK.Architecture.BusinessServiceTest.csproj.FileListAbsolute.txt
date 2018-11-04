@@ -81,3 +81,5 @@ C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessServicesTest\obj\Debug\ASTEK.Architecture.BusinessServiceTest.csprojResolveAssemblyReference.cache
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessServicesTest\obj\Debug\ASTEK.Architecture.BusinessServicesTest.dll
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.BusinessServicesTest\obj\Debug\ASTEK.Architecture.BusinessServicesTest.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessServicesTest\bin\Debug\Mg-mg\ASTEK.Architecture.BusinessService.resources.dll
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.BusinessServicesTest\bin\Debug\Mg-mg\ASTEK.Architecture.Infrastructure.resources.dll

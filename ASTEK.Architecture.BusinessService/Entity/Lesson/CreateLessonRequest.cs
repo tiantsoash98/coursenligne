@@ -12,5 +12,6 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
         public string Target { get; set; }
         public long? Duration { get; set; }
         public Guid Confidentiality { get; set; }
+        public int Level { get; set; }
     }
 }

@@ -1,0 +1,85 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Lesson.LessonMediaViewModel
+@{
+    ViewBag.Title = UIStrings.Title_Lesson_Media;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var teacher = Model.Lesson.Account.AccountTeachers.First();
+    ViewBag.ShortenLevel = true;
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/responsive.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/common-css/lesson-format.css")" rel="stylesheet" />
+    <script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
+}
+
+<div class="slider personal-slider-lesson" style="background-image: url(@Url.Content(Model.BaseFileUrl + "images/")@Model.Lesson.LSNPICTURE)">
+    @*style="background-image: url(@Url.Content("~/Content/images/Lesson/")@Model.Lesson.LSNPICTURE)">*@
+    <!-- <div class="display-table  center-text"> -->
+    <!-- <h1 class="title display-table-cell"><b>DESIGN</b></h1> -->
+    <!-- </div> -->
+</div>
+
+@Html.Partial("_BreadCrumb", Model.BreadCrumbs)
+
+<section class="post-area section">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-9 col-md-12 no-right-padding">
+
+                <div class="main-post lesson-content">
+
+                    <div class="blog-post-inner">
+
+                        <h4><b>@Model.Lesson.LSNTITLE</b></h4>
+
+                        <h6 class="lesson-study">@Html.Action("StudyName", "Study", new { code = Model.Lesson.STDCODE })</h6>
+
+                        <hr />
+
+                        @if (!string.IsNullOrEmpty(Model.Lesson.LSNATTACHEDVIDEO))
+                        {
+                            <div class="col-md-12">
+                                <video class="afterglow" id="videoplayer" width="800">
+                                    <source type="video/mp4" src="@Url.Content(string.Concat(Model.FullPath, Model.FileName))" />
+                                </video>
+                            </div>
+                        }
+                    </div><!-- blog-post-inner -->
+
+                </div><!-- main-post -->
+            </div><!-- col-lg-8 col-md-12 -->
+
+            <div class="col-lg-3 col-md-12 no-left-padding">
+
+                <div class="single-post info-area">
+
+                    @Html.Partial("_TeacherInformation", Model.Lesson)
+
+                </div><!-- info-area -->
+
+            </div><!-- col-lg-4 col-md-12 -->
+
+        </div><!-- row -->
+
+        @Html.Partial("_NextPartButton", Model.NextStep)
+
+    </div><!-- container -->
+</section><!-- post-area -->
+
+@Html.Partial("_Navigation", Model.Navigation)
+
+@section customScripts {
+    <script src="@Url.Content("~/Scripts/common-js/subscribe.js")"></script>
+    <script>
+        $(document).ready(function () {
+            $("#subscribeBtn").click(function () {
+                toogleSubscription('@Model.Lesson.ACCID');
+            });
+        });
+    </script>
+}

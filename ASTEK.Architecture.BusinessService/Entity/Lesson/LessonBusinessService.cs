@@ -167,7 +167,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
         {
             try
             {
-                var lessons = _repository.GetMayLike();
+                var lessons = _repository.GetMayLike(request.Level);
 
                 if(lessons == null)
                 {
@@ -183,7 +183,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
 
                 int totalPages = ListUtilities.GetTotalPagesCount(lessons.Count, request.Count);
 
-                List<Domain.Entity.Lesson.Lesson> pagedList = lessons.OrderByDescending(l => l.LSNDATE)
+                List<Domain.Entity.Lesson.Lesson> pagedList = lessons
                                                                         .Skip((request.Page - 1) * request.Count)
                                                                         .Take(request.Count)
                                                                         .ToList();
@@ -249,6 +249,29 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
             try
             {
                 LessonNavigation navigation = request.Navigation;
+
+                if (request.CurrentChapter == 0)
+                {
+                    if (navigation.Chapters.Count > 0)
+                    {
+                        return new GetLessonNextStepResponse
+                        {
+                            Exist = true,
+                            Type = "Chapter",
+                            NextChapterNumber = 1,
+                            Title = navigation.Chapters.FirstOrDefault().Title,
+                            LessonId = request.LessonId,
+                            CurrentChapterNumber = request.CurrentChapter,
+                            CurrentPartNumber = request.CurrentPart
+                        };
+                    }
+
+                    return new GetLessonNextStepResponse
+                    {
+                        Exist = false,
+                        LessonId = request.LessonId
+                    };                   
+                }
 
                 // Finds the index of the current chapter
                 int currChapterIndex = navigation.Chapters.FindIndex(c => c.Number == request.CurrentChapter);
@@ -348,7 +371,8 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                 LSNTARGET = StringUtilities.GetListFormated(request.Target),
                 LSNDURATION = request.Duration,
                 LSNDATE = DateTime.Now,
-                DCFCODE = request.Confidentiality
+                DCFCODE = request.Confidentiality,
+                LSNLEVEL = request.Level        
             };
 
             return lesson;
@@ -464,7 +488,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
         {
             try
             {
-                var lessons = _repository.GetBestByStudy(request.StudyCode);
+                var lessons = _repository.GetBestByStudy(request.StudyCode, request.Level);
 
                 int totalPages = ListUtilities.GetTotalPagesCount(lessons.Count, request.Count);
 
@@ -777,7 +801,8 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                     LSNTITLE = request.Title,
                     LSNDESCRIPTION = request.Description,
                     LSNTARGET = StringUtilities.GetListFormated(request.Targets),
-                    STDCODE = request.Study
+                    STDCODE = request.Study,
+                    LSNLEVEL = request.Level
                 };
 
                 errors.AddRange(GetErrors(lesson, ValidationType.Update));
@@ -881,7 +906,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
         {
             try
             {
-                var lessons = _repository.GetAllRecent(request.StudyCode);
+                var lessons = _repository.GetAllRecent(request.StudyCode, request.Level);
 
                 int totalPages = ListUtilities.GetTotalPagesCount(lessons.Count, request.Count);
 
@@ -903,6 +928,56 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                 {
                     Success = false,
                     Exception = ex
+                };
+            }
+        }
+
+        public UpdateAttachedFilesResponse UpdateAttachedFiles(UpdateAttachedFilesRequest request)
+        {
+            try
+            {
+                var lesson = _repository.FindBy(request.LessonId);
+
+                if (lesson == null)
+                {
+                    throw new EntityNotFoundException(Infrastructure.InfrastructureStrings.NotFound_Lesson);
+                }
+
+
+                if (!string.IsNullOrEmpty(request.VideoFile))
+                {
+                    lesson.LSNATTACHEDVIDEO = request.VideoFile;
+                }
+
+                if (!string.IsNullOrEmpty(request.SoundFile))
+                {
+                    lesson.LSNATTACHEDSOUND = request.SoundFile;
+                }
+
+                if (!string.IsNullOrEmpty(request.DocumentFile))
+                {
+                    lesson.LSNATTACHEDDOC = request.DocumentFile;
+                }
+
+                if (!string.IsNullOrEmpty(request.ExerciceFile))
+                {
+                    lesson.LSNATTACHEDEXC = request.ExerciceFile;
+                }
+
+                _repository.Save(lesson);
+
+                return new UpdateAttachedFilesResponse
+                {
+                    Updated = lesson,
+                    Success = true
+                };
+            }
+            catch (Exception e)
+            {
+                return new UpdateAttachedFilesResponse
+                {
+                    Success = false,
+                    Exception = e
                 };
             }
         }

@@ -202,6 +202,8 @@
     <Compile Include="Entity\Lesson\PublishLessonResponse.cs" />
     <Compile Include="Entity\Lesson\SearchLessonRequest.cs" />
     <Compile Include="Entity\Lesson\SearchLessonResponse.cs" />
+    <Compile Include="Entity\Lesson\UpdateAttachedFilesRequest.cs" />
+    <Compile Include="Entity\Lesson\UpdateAttachedFilesResponse.cs" />
     <Compile Include="Entity\Lesson\UpdateLessonImageRequest.cs" />
     <Compile Include="Entity\Lesson\UpdateLessonImageResponse.cs" />
     <Compile Include="Entity\Lesson\UpdateLessonRequest.cs" />

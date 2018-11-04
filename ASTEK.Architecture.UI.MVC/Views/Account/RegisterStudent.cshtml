@@ -94,6 +94,24 @@
                             </div>
 
                             <div class="form-group">
+                                @Html.LabelFor(m => m.Input.University, new { @class = "col-md-12 control-label" })
+
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(m => m.Input.University, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Input.University, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Input.Level, new { @class = "col-md-12 control-label" })
+
+                                <div class="col-md-12">
+                                    @Html.DropDownListFor(m => m.Input.Level, Model.LevelList, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Input.Level, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 @Html.LabelFor(m => m.Input.Email, new { @class = "col-md-12 control-label" })
                                 <div class="col-md-12">
                                     @Html.TextBoxFor(m => m.Input.Email, new { @class = "form-control" })

@@ -27,7 +27,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.AccountStudent
             var response = new CreateAccountStudentResponse();
             List<ValidationFailure> errors = new List<ValidationFailure>();
 
-            var account = new Domain.Entity.Account.Account()
+            var account = new Domain.Entity.Account.Account
             {
                 CTRCODE = request.Contry,
                 ACCEMAIL = request.Email,
@@ -75,14 +75,16 @@ namespace ASTEK.Architecture.BusinessService.Entity.AccountStudent
                 var accBusinessService = new Account.AccountBusinessService();
                 errors.AddRange(accBusinessService.GetErrors(account, ValidationType.Update));
 
-                var accountStudent = new Domain.Entity.AccountStudent.AccountStudent()
+                var accountStudent = new Domain.Entity.AccountStudent.AccountStudent
                 {
                     ACCID = request.AccountId,
                     ACSNAME = request.Name,
                     ACSFIRSTNAME = request.FirstName,
                     ACSBIRTHDAY = request.BirthDay,
                     GENCODE = request.Gender,
-                    Account = account
+                    Account = account,
+                    ACSLEVEL = request.Level,
+                    ACSUNIVERSITY = request.University
                 };
 
                 errors.AddRange(GetErrors(accountStudent, ValidationType.Update));
@@ -116,12 +118,14 @@ namespace ASTEK.Architecture.BusinessService.Entity.AccountStudent
 
         private Domain.Entity.AccountStudent.AccountStudent AssignAvailablePropertiesToDomain(CreateAccountStudentRequest request)
         {
-            var accountStudent = new Domain.Entity.AccountStudent.AccountStudent()
+            var accountStudent = new Domain.Entity.AccountStudent.AccountStudent
             {
                 ACSNAME = request.Name,
                 ACSFIRSTNAME = request.FirstName,
                 ACSBIRTHDAY = request.BirthDay,
-                GENCODE = request.Gender
+                GENCODE = request.Gender,
+                ACSLEVEL = request.Level,
+                ACSUNIVERSITY = request.University
             };
 
             return accountStudent;

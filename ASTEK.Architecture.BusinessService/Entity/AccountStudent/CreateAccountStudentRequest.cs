@@ -14,5 +14,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.AccountStudent
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
         public bool IsExternalLogin { get; set; }
+        public int Level { get; set; }
+        public string University { get; set; }
     }
 }

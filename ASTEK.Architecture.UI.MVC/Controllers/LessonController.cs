@@ -5,6 +5,7 @@ using ASTEK.Architecture.ApplicationService.Entity.Lesson;
 using ASTEK.Architecture.ApplicationService.Entity.LessonChapter;
 using ASTEK.Architecture.ApplicationService.Entity.LessonFollowed;
 using ASTEK.Architecture.ApplicationService.Entity.LessonPart;
+using ASTEK.Architecture.Infrastructure.Domain;
 using ASTEK.Architecture.Infrastructure.Utility;
 using ASTEK.Architecture.UI.MVC.Models;
 using ASTEK.Architecture.UI.MVC.Models.Comment;
@@ -12,6 +13,7 @@ using ASTEK.Architecture.UI.MVC.Models.Lesson;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -258,12 +260,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         [AllowAnonymous]
         public PartialViewResult CountChapter(string lessonId)
         {
-            var service = new LessonChapterAppService();  
+            var service = new LessonChapterAppService();
             var input = new CountChapterGroupByLessonInputModel
             {
                 LessonId = lessonId,
             };
-         
+
             var output = service.Count(input);
 
             return PartialView("_CountResult", output.Response.Count);
@@ -318,7 +320,77 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+            var appService = new LessonAppService();
+
+            GetLessonOutputModel output = appService.Get(new GetLessonInputModel() { Id = lessonId, GetAlternativePicture = true });
+
+            if (!output.Response.Success)
+            {
+                return LessonNotFound(lessonId, output.Response.Exception);
+            }
+
+            var lesson = output.Response.Lesson;
+
+            if (!string.IsNullOrEmpty(lesson.LSNATTACHEDVIDEO))
+            {
+                return RedirectToAction("Media", new { lessonId });
+            }
+
             return RedirectToAction("Chapter", new { lessonId });
+        }
+
+        public ActionResult Media(string lessonId, string type = "video")
+        {
+            var appService = new LessonAppService();
+
+            GetLessonOutputModel output = appService.Get(new GetLessonInputModel() { Id = lessonId, GetAlternativePicture = true });
+
+            if (!output.Response.Success)
+            {
+                return LessonNotFound(lessonId, output.Response.Exception);
+            }
+
+            var lesson = output.Response.Lesson;
+
+            GetLessonNavigationOutputModel navigationOutput = appService.GetNavigation(new GetLessonNavigationInputModel() { LessonId = lessonId });
+
+            var navigation = navigationOutput.Response.Navigation;
+            var navigationVM = new LessonNavigationViewModel
+            {
+                LessonId = lessonId,
+                Navigation = navigation,
+                CurrentChapter = 0,
+                HasExercice = !string.IsNullOrEmpty(lesson.LSNATTACHEDEXC),
+                HasCorrection = false,
+                HasDocument = !string.IsNullOrEmpty(lesson.LSNATTACHEDDOC),
+                HasVideo = !string.IsNullOrEmpty(lesson.LSNATTACHEDVIDEO),
+                HasAudio = !string.IsNullOrEmpty(lesson.LSNATTACHEDSOUND),
+            };
+
+            GetLessonNextStepOutputModel nextOutputModel =
+                appService.GetNextStep(new GetLessonNextStepInputModel
+                {
+                    Navigation = navigation,
+                    CurrentChapter = 0,
+                    CurrentPart = 0,
+                    LessonId = lessonId
+                });
+
+            string fullPath = string.Concat(ConfigurationManager.AppSettings.Get("BaseFileUrl"),
+                                                            ConfigurationManager.AppSettings.Get("AttachedFolder"),
+                                                                ConfigurationManager.AppSettings.Get("VideoAttachedFolder"));      
+
+            var mediaVM = new LessonMediaViewModel
+            {
+                FileName = lesson.LSNATTACHEDVIDEO,
+                FullPath = fullPath,
+                Navigation = navigationVM,
+                NextStep = nextOutputModel,
+                BreadCrumbs = GetBreadCrumbs(lesson.LSNTITLE, lessonId, "Media"),
+                Lesson = lesson
+            };
+
+            return View(mediaVM);
         }
 
         public ActionResult Chapter(string lessonId, short? chapterNumber)
@@ -363,7 +435,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             {
                 LessonId = lessonId,
                 Navigation = navigation,
-                CurrentChapter = number
+                CurrentChapter = number,
+                HasExercice = !string.IsNullOrEmpty(lesson.LSNATTACHEDEXC),
+                HasCorrection = false,
+                HasDocument = !string.IsNullOrEmpty(lesson.LSNATTACHEDDOC),
+                HasVideo = !string.IsNullOrEmpty(lesson.LSNATTACHEDVIDEO),
+                HasAudio = !string.IsNullOrEmpty(lesson.LSNATTACHEDSOUND),
             };
 
             GetLessonNextStepOutputModel nextOutputModel =
@@ -430,7 +507,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 LessonId = lessonId,
                 Navigation = navigation,
                 CurrentChapter = chapterNumber,
-                CurrentPart = number
+                CurrentPart = number,
+                HasExercice = !string.IsNullOrEmpty(lesson.LSNATTACHEDEXC),
+                HasCorrection = false,
+                HasDocument = !string.IsNullOrEmpty(lesson.LSNATTACHEDDOC),
+                HasVideo = !string.IsNullOrEmpty(lesson.LSNATTACHEDVIDEO),
+                HasAudio = !string.IsNullOrEmpty(lesson.LSNATTACHEDSOUND),
             };
 
             GetLessonNextStepOutputModel nextOutputModel =
@@ -510,6 +592,62 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             }
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Attached(string lessonId, string type)
+        {
+            var appService = new LessonAppService();
+
+            GetLessonOutputModel output = appService.Get(new GetLessonInputModel() { Id = lessonId });
+
+            if (!output.Response.Success)
+            {
+                return LessonNotFound(lessonId, output.Response.Exception);
+            }
+
+            var lesson = output.Response.Lesson;
+
+            string baseFileUrl = Server.MapPath(ConfigurationManager.AppSettings.Get("BaseFileUrl"));
+            string attachedFolder = ConfigurationManager.AppSettings.Get("AttachedFolder");
+
+            if (type.Equals("document"))
+            {
+                string folder = ConfigurationManager.AppSettings.Get("DocumentAttachedFolder");
+                byte[] fileBytes = System.IO.File.ReadAllBytes(string.Concat(baseFileUrl, attachedFolder, folder, lesson.LSNATTACHEDDOC));
+                string extension = Path.GetExtension(lesson.LSNATTACHEDDOC);
+                string fileName = string.Concat("Doc-", lesson.LSNTITLE, extension);
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            }
+            if (type.Equals("exercice"))
+            {
+                string folder = ConfigurationManager.AppSettings.Get("ExerciceAttachedFolder");
+                byte[] fileBytes = System.IO.File.ReadAllBytes(string.Concat(baseFileUrl, attachedFolder, folder, lesson.LSNATTACHEDEXC));
+                string extension = Path.GetExtension(lesson.LSNATTACHEDEXC);
+                string fileName = string.Concat("Exercice-", lesson.LSNTITLE, extension);
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            }
+            if (type.Equals("video"))
+            {
+                return RedirectToAction("Media", new { lessonId });
+            }
+            if (type.Equals("audio"))
+            {
+                string folder = ConfigurationManager.AppSettings.Get("SoundAttachedFolder");
+                byte[] fileBytes = System.IO.File.ReadAllBytes(string.Concat(baseFileUrl, attachedFolder, folder, lesson.LSNATTACHEDSOUND));
+                string extension = Path.GetExtension(lesson.LSNATTACHEDSOUND);
+                string fileName = string.Concat("Audio-", lesson.LSNTITLE, extension);
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            }
+            //if (type.Equals("correction"))
+            //{
+            //    string folder = ConfigurationManager.AppSettings.Get("CorrectionAttachedFolder");
+            //    byte[] fileBytes = System.IO.File.ReadAllBytes(string.Concat(baseFileUrl, attachedFolder, folder, lesson.LSNATTACHEDSOUND));
+            //    string extension = Path.GetExtension(lesson.LSNATTACHEDSOUND);
+            //    string fileName = string.Concat("Correction-", lesson.LSNTITLE, extension);
+            //    return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            //}
+
+            return RedirectToAction("Index", "Lesson", new { lessonId });
         }
 
         [AllowAnonymous]
@@ -715,7 +853,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
         [Authorize(Roles = "TEACHER")]
         [HttpPost]
-        public ActionResult AddDetails(string lessonId, HttpPostedFileBase image)
+        public ActionResult AddDetails(string lessonId, HttpPostedFileBase image, HttpPostedFileBase video, HttpPostedFileBase sound, HttpPostedFileBase document, HttpPostedFileBase exercice, HttpPostedFileBase correction)
         {
             var service = new LessonAppService();
 
@@ -754,6 +892,88 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
                     return View(addVM);
                 }
+            }
+
+            string baseFileUrl = Server.MapPath(ConfigurationManager.AppSettings.Get("BaseFileUrl"));
+            string attachedFolder = ConfigurationManager.AppSettings.Get("AttachedFolder");
+
+            var updateAttachedInput = new UpdateAttachedFilesInputModel
+            {
+                LessonId = lessonId
+            };
+
+            if (video != null && video.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(video.FileName);
+                var fileName = lessonId;
+                var folderPath = ConfigurationManager.AppSettings.Get("VideoAttachedFolder");
+                var fullName = string.Concat(baseFileUrl, attachedFolder, folderPath, fileName.ToString(), extension);
+
+                video.SaveAs(fullName);
+
+                updateAttachedInput.VideoFile = string.Concat(fileName, extension);
+            }
+
+            if (sound != null && sound.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(sound.FileName);
+                var fileName = lessonId;
+                var folderPath = ConfigurationManager.AppSettings.Get("SoundAttachedFolder");
+                var fullName = string.Concat(baseFileUrl, attachedFolder, folderPath, fileName.ToString(), extension);
+
+                sound.SaveAs(fullName);
+
+                updateAttachedInput.SoundFile = string.Concat(fileName, extension);
+            }
+
+            if (document != null && document.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(document.FileName);
+                var fileName = lessonId;
+                var folderPath = ConfigurationManager.AppSettings.Get("DocumentAttachedFolder");
+                var fullName = string.Concat(baseFileUrl, attachedFolder, folderPath, fileName.ToString(), extension);
+
+                document.SaveAs(fullName);
+
+                updateAttachedInput.DocumentFile = string.Concat(fileName, extension);
+            }
+
+            if (exercice != null && exercice.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(exercice.FileName);
+                var fileName = lessonId;
+                var folderPath = ConfigurationManager.AppSettings.Get("ExerciceAttachedFolder");
+                var fullName = string.Concat(baseFileUrl, attachedFolder, folderPath, fileName.ToString(), extension);
+
+                exercice.SaveAs(fullName);
+
+                updateAttachedInput.ExerciceFile = string.Concat(fileName, extension);
+            }
+
+            if (correction != null && correction.ContentLength > 0)
+            {
+                string extension = Path.GetExtension(correction.FileName);
+                var fileName = lessonId;
+                var folderPath = ConfigurationManager.AppSettings.Get("CorrectionAttachedFolder");
+                var fullName = string.Concat(baseFileUrl, attachedFolder, folderPath, fileName.ToString(), extension);
+
+                correction.SaveAs(fullName);
+
+                updateAttachedInput.CorrectionFile = string.Concat(fileName, extension);
+            }
+
+            var updateAttachedOutput = service.UpdateAttached(updateAttachedInput);
+
+            if (!updateAttachedOutput.Response.Success)
+            {
+                ModelState.AddModelError("AttachedFiles", updateAttachedOutput.Response.Exception);
+
+                var addVM = new LessonAddDetailsViewModels
+                {
+                    LessonId = lessonId
+                };
+
+                return View(addVM);
             }
 
             return RedirectToAction("Index", "Lesson", new { lessonId });
@@ -810,13 +1030,15 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 Description = lesson.LSNDESCRIPTION,
                 Targets = StringUtilities.GetListFromFormated(lesson.LSNTARGET),
                 Study = lesson.STDCODE.ToString(),
-                Confidentiality = lesson.DCFCODE.ToString()
+                Confidentiality = lesson.DCFCODE.ToString(),
+                Level = lesson.LSNLEVEL
             };
 
             var updateVM = new UpdateLessonViewModel
             {
                 Input = updateInput,
-                Status = status
+                Status = status,
+                LevelList = new SelectList(Level.GetLevels(), "Value", "Wording")
             };
 
             return View(updateVM);
@@ -828,6 +1050,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         {
             if (!ModelState.IsValid)
             {
+                model.LevelList = new SelectList(Level.GetLevels(), "Value", "Wording");
                 return View(model);
             }
 
@@ -849,6 +1072,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                     }
                 }
 
+                model.LevelList = new SelectList(Level.GetLevels(), "Value", "Wording");
                 return View(model);
             }
 
@@ -1111,10 +1335,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 Targets = output.Response.Lesson.LSNTARGET.Split(targetSeparator)
             };
         }
+
         private void InitAddLessonViewModel(LessonAddViewModel viewModel)
         {
-            // In case there are values that need to be initialized again
+            viewModel.LevelList = new SelectList(Level.GetLevels(), "Value", "Wording");
         }
+
         private void InitAddLessonChapterViewModel(LessonAddChapterViewModel viewModel)
         {
             var appService = new LessonAppService();
@@ -1167,6 +1393,23 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                     IsCurrent = isCurrent
                 }
             };
+        }
+
+        private List<BreadCrumbViewModel> GetBreadCrumbs(string lessonTitle, string lessonId, string media, bool isCurrent = true)
+        {
+            var bc = new BreadCrumbViewModel()
+            {
+                Action = "Media",
+                Controller = "Lesson",
+                Title = media,
+                RouteValues = new RouteValueDictionary { { "lessonId", lessonId } },
+                IsCurrent = isCurrent
+            };
+
+            var list = GetBreadCrumbs(lessonTitle, lessonId, false);
+            list.Add(bc);
+
+            return list;
         }
 
         private List<BreadCrumbViewModel> GetBreadCrumbs(string lessonTitle, string lessonId, string chapterTitle, short chapterNumber, bool isCurrent = true)

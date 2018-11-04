@@ -2,6 +2,7 @@
 using ASTEK.Architecture.ApplicationService.Entity.LessonFollowed;
 using ASTEK.Architecture.UI.MVC.Models.Home;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace ASTEK.Architecture.UI.MVC.Controllers
 {
@@ -69,12 +70,15 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             var accountLogged = GetAccountLogged();
 
+            int? _level = accountLogged.AccountStudents?.FirstOrDefault()?.ACSLEVEL;
+
             var mayLikeInput = new GetLessonMayLikeInputModel
             {
                 Page = 1,
                 Count = 12,
                 GetAlternativePicture = true,
-                GetThumbnailPicture = true
+                GetThumbnailPicture = true,
+                Level = _level.GetValueOrDefault()
             };
 
             var lessonAppService = new LessonAppService();
@@ -101,6 +105,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             {
                 Page = _recentPage,
                 Count = 6,
+                Level = _level.GetValueOrDefault()
             };
 
             var recentOutput = lessonAppService.GetLessonRecent(recentsInput);

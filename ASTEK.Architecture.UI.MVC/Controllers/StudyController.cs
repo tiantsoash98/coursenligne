@@ -2,6 +2,7 @@
 using ASTEK.Architecture.ApplicationService.Entity.Study;
 using ASTEK.Architecture.UI.MVC.Models.Study;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace ASTEK.Architecture.UI.MVC.Controllers
 {
@@ -27,6 +28,9 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 return StudyNotFound(id, studyOutput.Response.Exception);
             }
 
+            var account = GetAccountLogged();
+            int? _level = account.AccountStudents?.FirstOrDefault()?.ACSLEVEL;
+
             var lessonAppService = new LessonAppService();
 
             var bestInput = new GetBestLessonByStudyInputModel
@@ -35,7 +39,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 Page = _page,
                 Count = 8,
                 GetAlternativePicture = true,
-                GetThumbnailPicture = true
+                GetThumbnailPicture = true,
+                Level = _level.GetValueOrDefault()
             };
 
             
@@ -45,7 +50,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             {
                 Page = _recentPage,
                 Count = 6,
-                StudyCode = id
+                StudyCode = id,
+                Level = _level.GetValueOrDefault()
             };
 
             var recentOutput = lessonAppService.GetLessonRecent(recentsInput);

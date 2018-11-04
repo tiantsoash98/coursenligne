@@ -182,6 +182,8 @@
     <Compile Include="Entity\Lesson\PublishLessonOutputModel.cs" />
     <Compile Include="Entity\Lesson\SearchLessonInputModel.cs" />
     <Compile Include="Entity\Lesson\SearchLessonOutputModel.cs" />
+    <Compile Include="Entity\Lesson\UpdateAttachedFilesInputModel.cs" />
+    <Compile Include="Entity\Lesson\UpdateAttachedFilesOutputModel.cs" />
     <Compile Include="Entity\Lesson\UpdateLessonInputModel.cs" />
     <Compile Include="Entity\Lesson\UpdateLessonOutputModel.cs" />
     <Compile Include="Entity\Lesson\UploadLessonImageInputModel.cs" />

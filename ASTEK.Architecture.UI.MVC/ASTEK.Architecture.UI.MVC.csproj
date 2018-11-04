@@ -218,6 +218,7 @@
     <Compile Include="Models\Lesson\LessonAddViewModel.cs" />
     <Compile Include="Models\Lesson\LessonAlternativePictureViewModel.cs" />
     <Compile Include="Models\Lesson\LessonChapterViewModel.cs" />
+    <Compile Include="Models\Lesson\LessonMediaViewModel.cs" />
     <Compile Include="Models\Lesson\LessonNavigationViewModel.cs" />
     <Compile Include="Models\Lesson\LessonPartViewModel.cs" />
     <Compile Include="Models\Lesson\LessonIndexViewModel.cs" />
@@ -805,9 +806,15 @@
     <Content Include="Views\Shared\_AccountName.cshtml" />
     <Content Include="Views\CommentAnswer\_CommentAnswerCard.cshtml" />
     <Content Include="Views\Shared\_SubscribeButton.cshtml" />
+    <Content Include="Views\Shared\_LessonLevel.cshtml" />
+    <Content Include="Views\Lesson\Media.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\attached\Document\" />
+    <Folder Include="Content\attached\Exercice\" />
+    <Folder Include="Content\attached\Sound\" />
+    <Folder Include="Content\attached\Video\" />
     <Folder Include="Content\images\Study\" />
     <Folder Include="Content\images\Thumbnail\Account\" />
     <Folder Include="Content\images\Thumbnail\Lesson\" />

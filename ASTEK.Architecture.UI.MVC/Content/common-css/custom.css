@@ -210,16 +210,24 @@ personal-dropdown-study {
     box-shadow: 0px 0px 10px rgba(0,0,0,.2);
 }
 
+.personal-sidebar-area {
+    border-bottom: 1px solid #ddd;
+}
+
+    .personal-sidebar-area:last-child{
+        border-bottom: none;
+    }
+
 .personal-name {
     margin-top: 10px;
 }
 
 .lesson-info {
     display: inline-block;
-    width: 80px;
-    height: 80px;
-    margin: 0 5px;
-    padding: 5px;
+    width: 70px;
+    height: 70px;
+    margin: 0px 5px 15px 10px;
+    padding: 0px 0px 5px 5px;
     border: 1px solid #eee;
     background: #F5F6F8;
     border-radius: 50px;
@@ -229,6 +237,10 @@ personal-dropdown-study {
     .lesson-info i {
         color: gray;
         font-size: 160%;
+    }
+
+    .lesson-info i[class*="fas"]{
+        font-size: 15px;
     }
 
     .lesson-info .lesson-info-value {
@@ -289,6 +301,12 @@ personal-dropdown-study {
 
 .lesson-content {
     padding-bottom: 100px;
+    min-height: 475px;
+}
+
+.personal-video-player{
+    height: auto;
+    background-color: red;
 }
 
 
@@ -343,6 +361,10 @@ personal-dropdown-study {
 
 .small-space-top {
     margin-top: 25px;
+}
+
+.small-space-left{
+    margin-left: 15px;
 }
 
 .lesson-part {

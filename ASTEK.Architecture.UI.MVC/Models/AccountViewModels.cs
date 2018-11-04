@@ -8,6 +8,7 @@ using ASTEK.Architecture.ApplicationService.Entity.Study;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace ASTEK.Architecture.UI.MVC.Models
 {
@@ -93,7 +94,7 @@ namespace ASTEK.Architecture.UI.MVC.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -102,6 +103,7 @@ namespace ASTEK.Architecture.UI.MVC.Models
         public CreateAccountStudentInputModel Input { get; set; }
         public GetAllCountryOutputModel CountryOutput { get; set; }
         public GetAllGenderOutputModel GenderOutput { get; set; }
+        public SelectList LevelList { get; set; }
     }
 
     public class RegisterTeacherViewModel: BaseViewModel
@@ -127,7 +129,7 @@ namespace ASTEK.Architecture.UI.MVC.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

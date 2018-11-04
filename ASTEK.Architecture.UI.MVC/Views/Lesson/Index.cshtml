@@ -4,6 +4,7 @@
     ViewBag.Title = Model.Lesson.LSNTITLE;
     Layout = "~/Views/Shared/_Layout.cshtml";
     var teacher = Model.Lesson.Account.AccountTeachers.First();
+    ViewBag.ShortenLevel = true;
 }
 
 @section customStyles
@@ -61,41 +62,56 @@
 
                     @Html.Partial("_TeacherInformation", Model.Lesson)
 
-                    <div class="sidebar-area">
-
-                        @if (Model.Lesson.LSNDURATION.HasValue)
-                        {
-                            <div class="lesson-info">
-                                <i class="ion-clock"></i>
-                                <p class="lesson-info-value">@TimeSpanUtilities.Display(Model.Lesson.LSNDURATION)</p>
-                            </div>
-                        }
+                    <div class="personal-sidebar-area no-left-padding">
+                        <div class="lesson-info">
+                            <i class="ion-podium"></i>
+                            <p class="lesson-info-value">@Html.Partial("_LessonLevel", Model.Lesson.LSNLEVEL)</p>
+                        </div>
 
                         <div class="lesson-info">
                             <i class="ion-ios-albums-outline"></i>
                             <p class="lesson-info-value">@Model.ChapterCount chap.</p>
                         </div>
 
-                        @if (Model.ExerciceCount > 0)
-                        {
-                            <div class="lesson-info">
-                                <i class="ion-ios-book-outline"></i>
-                                <p class="lesson-info-value">@Model.ExerciceCount exo.</p>
-                            </div>
-                        }
-
-                    </div>
-
-                    <div class="sidebar-area">
-
                         <div class="lesson-info">
                             <i class="ion-person"></i>
                             <p class="lesson-info-value">@Model.FollowCount vues</p>
                         </div>
-
                     </div>
 
-                    @Html.Partial("_TagArea")
+                    <div class="personal-sidebar-area small-space-top no-left-padding">
+                        @if (!string.IsNullOrEmpty(Model.Lesson.LSNATTACHEDEXC))
+                        {
+                            <div class="lesson-info">
+                                <i class="ion-ios-book-outline"></i>
+                                <p class="lesson-info-value">Exo.</p>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.Lesson.LSNATTACHEDVIDEO))
+                        {
+                            <div class="lesson-info">
+                                <i class="ion-ios-videocam"></i>
+                                <p class="lesson-info-value">Video</p>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.Lesson.LSNATTACHEDSOUND))
+                        {
+                            <div class="lesson-info">
+                                <i class="ion-volume-high"></i>
+                                <p class="lesson-info-value">Audio</p>
+                            </div>
+                        }
+
+                        @if (!string.IsNullOrEmpty(Model.Lesson.LSNATTACHEDDOC))
+                        {
+                            <div class="lesson-info">
+                                <i class="ion-android-attach"></i>
+                                <p class="lesson-info-value">Doc.</p>
+                            </div>
+                        }
+                    </div>
                 </div><!-- info-area -->
 
             </div><!-- col-lg-4 col-md-12 -->
@@ -111,8 +127,6 @@
             </div><!-- col-sm-12 -->
         </div>
     </div>
-
-
 </section><!-- post-area -->
 
 @Html.Partial("_LessonIndexCommentSection", Model.CommentSectionViewModel)

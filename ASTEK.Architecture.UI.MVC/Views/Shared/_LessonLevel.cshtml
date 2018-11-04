@@ -1,0 +1,8 @@
+﻿@model int
+
+@{ 
+    bool shorten = ViewBag.ShortenLevel != null ? (bool)ViewBag.ShortenLevel : false;
+}
+
+
+@ASTEK.Architecture.Infrastructure.Domain.Level.GetWording(Model, shorten)

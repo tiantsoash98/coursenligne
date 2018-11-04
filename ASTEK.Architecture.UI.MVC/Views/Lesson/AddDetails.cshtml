@@ -26,7 +26,7 @@
 
                             <!-- <h5 class="pre-title">FASHION</h5> -->
 
-                            <h3 class="pre-title">Ajouter une miniature</h3>
+                            <h3 class="pre-title">Complétez le cours</h3>
 
                             <hr />
 
@@ -39,14 +39,60 @@
                                     <div class="col-md-12">
                                         @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "display: block;" })
                                         @Html.ValidationMessage("Error", new { @class = "text-danger" })
+                                        @Html.ValidationMessage("AttachedFiles", new { @class = "text-danger" })
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="image" class="col-md-12 control-label">Image pour le cours</label>
+                                    <label for="image" class="col-md-12 control-label">Attacher une illustration</label>
 
                                     <div class="col-md-12">
                                         <input type="file" name="image" id="image" class="form-control" />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="file" class="col-md-12 control-label">Attacher une vidéo </label>
+
+                                    <div class="col-md-12">
+                                        <input type="file" name="video" id="document" class="form-control" />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="file" class="col-md-12 control-label">Attacher un audio</label>
+
+                                    <div class="col-md-12">
+                                        <input type="file" name="sound" id="document" class="form-control" />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="file" class="col-md-12 control-label">Attacher un document</label>
+
+                                    <div class="col-md-12">
+                                        <input type="file" name="document" id="document" class="form-control" />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="file" class="col-md-12 control-label">Attacher un exercice</label>
+
+                                    <div class="col-md-12">
+                                        <input type="file" name="exercice" id="document" class="form-control" />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="file" class="col-md-12 control-label">Attacher la correction</label>
+
+                                    <div class="col-md-12">
+                                        <input type="file" name="correction" id="document" class="form-control" />
 
                                     </div>
                                 </div>

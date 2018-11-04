@@ -26,7 +26,12 @@ namespace ASTEK.Architecture.Domain.Entity.AccountStudent
         public string ACSNAME { get; set; }
 
         public DateTime ACSBIRTHDAY { get; set; }
-   
+
+        public int ACSLEVEL { get; set; }
+
+        [StringLength(50)]
+        public string ACSUNIVERSITY { get; set; }
+
         [ForeignKey("ACCID")]
         public virtual Account.Account Account { get; set; }
 

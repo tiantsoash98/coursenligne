@@ -196,10 +196,11 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         [AllowAnonymous]
         public ActionResult RegisterStudent()
         {
-            var viewModel = new RegisterStudentViewModel()
+            var viewModel = new RegisterStudentViewModel
             {
                 CountryOutput = CountryOutputModel,
-                GenderOutput = GenderOutputModel
+                GenderOutput = GenderOutputModel,
+                LevelList = new SelectList(Level.GetLevels(), "Value", "Wording")
             };
 
             return View(viewModel);
@@ -226,6 +227,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
                     model.CountryOutput = CountryOutputModel;
                     model.GenderOutput = GenderOutputModel;
+                    model.LevelList = new SelectList(Level.GetLevels(), "Value", "Wording");
 
                     return View(model);
                 }
@@ -375,7 +377,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                     GenderOutput = GenderOutputModel,
                     Status = status,
                     EmailConfirmed = GetUserLogged().EmailConfirmed,
-                    HasPassword = HasPassword()
+                    HasPassword = HasPassword(),
+                    LevelList = new SelectList(Level.GetLevels(), "Value", "Wording"),
                 };
 
                 return View("UpdateStudent", profileVM);
@@ -494,6 +497,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             {
                 model.CountryOutput = CountryOutputModel;
                 model.GenderOutput = GenderOutputModel;
+                model.LevelList = new SelectList(Level.GetLevels(), "Value", "Wording");
                 return View();
             }
 
@@ -517,6 +521,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
                 model.CountryOutput = CountryOutputModel;
                 model.GenderOutput = GenderOutputModel;
+                model.LevelList = new SelectList(Level.GetLevels(), "Value", "Wording");
                 return View(model);
             }
 
@@ -1049,10 +1054,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 ACSBIRTHDAY = input.BirthDay,
                 ACSFIRSTNAME = input.FirstName,
                 ACSNAME = input.Name,
-                GENCODE = new Guid(input.Gender)
+                GENCODE = new Guid(input.Gender),
+                ACSLEVEL = input.Level,
+                ACSUNIVERSITY = input.University
             };
 
-            var account = new Account()
+            var account = new Account
             {
                 CTRCODE = new Guid(input.Country),
                 ATPCODE = new Guid("09ee69af-a191-e811-821f-2c600c6934be"),
@@ -1203,7 +1210,9 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 Gender = details.GENCODE.ToString(),
                 BirthDay = details.ACSBIRTHDAY,
                 PhoneNumber = account.ACCPHONECONTACT,
-                Picture = account.ACCPICTURE
+                Picture = account.ACCPICTURE,
+                Level = details.ACSLEVEL,
+                University = details.ACSUNIVERSITY
             };
 
             return input;

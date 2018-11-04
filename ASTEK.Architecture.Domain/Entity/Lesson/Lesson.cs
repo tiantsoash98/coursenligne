@@ -7,6 +7,7 @@ namespace ASTEK.Architecture.Domain.Entity.Lesson
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Validator;
+    using System.Linq;
 
     [Table("Lesson")]
     [Validator(typeof(LessonValidator))]
@@ -51,6 +52,21 @@ namespace ASTEK.Architecture.Domain.Entity.Lesson
 
         public long? LSNDURATION { get; set; }
 
+        public int LSNLEVEL { get; set; }
+
+        [StringLength(100)]
+        public string LSNATTACHEDSOUND { get; set; }
+
+        [StringLength(100)]
+        public string LSNATTACHEDVIDEO { get; set; }
+
+        [StringLength(100)]
+        public string LSNATTACHEDDOC { get; set; }
+
+        [StringLength(100)]
+        public string LSNATTACHEDEXC { get; set; }
+
+
         [ForeignKey("ACCID")]
         public virtual Account.Account Account { get; set; }
 
@@ -74,5 +90,21 @@ namespace ASTEK.Architecture.Domain.Entity.Lesson
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LessonFollowed.LessonFollowed> LessonFolloweds { get; set; }
+    }
+
+    public static class LessonExtensions
+    {
+        public static List<Lesson> PreferLevel(this List<Lesson> lessons, int level)
+        {
+            var result = new List<Lesson>();
+
+            var extracted = lessons.Where(l => l.LSNLEVEL == level);
+            var removed = lessons.Where(l => l.LSNLEVEL != level);
+
+            result.AddRange(extracted);
+            result.AddRange(removed);
+
+            return result;
+        }
     }
 }

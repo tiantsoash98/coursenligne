@@ -29,6 +29,8 @@ namespace ASTEK.Architecture.Repository.Concrete
             student.ACSFIRSTNAME = entity.ACSFIRSTNAME;
             student.ACSNAME = entity.ACSNAME;
             student.GENCODE = entity.GENCODE;
+            student.ACSLEVEL = entity.ACSLEVEL;
+            student.ACSUNIVERSITY = entity.ACSUNIVERSITY;
 
             student.Account.CTRCODE = entity.Account.CTRCODE;
             student.Account.ACCPHONECONTACT = entity.Account.ACCPHONECONTACT;

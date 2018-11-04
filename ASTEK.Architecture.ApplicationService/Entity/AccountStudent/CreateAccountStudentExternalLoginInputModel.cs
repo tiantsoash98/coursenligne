@@ -25,6 +25,12 @@ namespace ASTEK.Architecture.ApplicationService.Entity.AccountStudent
         [Required(ErrorMessageResourceName = "ApplicationValidation_CountryRequired", ErrorMessageResourceType = typeof(ApplicationStrings))]
         public string Country { get; set; }
 
+        [Display(Name = "Display_University", ResourceType = typeof(Infrastructure.InfrastructureStrings))]
+        public string University { get; set; }
+
+        [Display(Name = "Display_Level", ResourceType = typeof(Infrastructure.InfrastructureStrings))]
+        public int Level { get; set; }
+
         [Display(Name = "Display_Email", ResourceType = typeof(Infrastructure.InfrastructureStrings))]
         [Required(ErrorMessageResourceName = "ApplicationValidation_EmailRequired", ErrorMessageResourceType = typeof(ApplicationStrings))]
         [EmailAddress(ErrorMessageResourceName = "ApplicationValidation_EmailFormat", ErrorMessageResourceType = typeof(ApplicationStrings))]

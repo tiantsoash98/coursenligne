@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
+﻿namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
 {
     public class GetLessonMayLikeInputModel
     {
@@ -12,5 +6,6 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
         public int Count { get; set; }
         public bool GetAlternativePicture { get; set; }
         public bool GetThumbnailPicture { get; set; }
+        public int Level { get; set; }
     }
 }

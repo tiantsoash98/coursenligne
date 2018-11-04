@@ -258,4 +258,7 @@
   <data name="Home_RecentLessons" xml:space="preserve">
     <value>Récemment publiés</value>
   </data>
+  <data name="Title_Lesson_Media" xml:space="preserve">
+    <value>Média</value>
+  </data>
 </root>

@@ -258,4 +258,7 @@
   <data name="Title_Study_Index" xml:space="preserve">
     <value>Taranja - {0}</value>
   </data>
+  <data name="Title_Lesson_Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
 </root>

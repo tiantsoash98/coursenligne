@@ -12,5 +12,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.AccountStudent
         public Guid Gender { get; set; }
         public Guid Country { get; set; }
         public string Phone { get; set; }
+        public int Level { get; set; }
+        public string University { get; set; }
     }
 }

@@ -13,6 +13,9 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
         [Required(ErrorMessageResourceName = "ApplicationValidation_StudyRequired", ErrorMessageResourceType = typeof(ApplicationStrings))]
         public string Study { get; set; }
 
+        [Display(Name = "Display_Level", ResourceType = typeof(Infrastructure.InfrastructureStrings))]
+        public int Level { get; set; }
+
         [Display(Name = "Display_Description", ResourceType = typeof(Infrastructure.InfrastructureStrings))]
         [Required(ErrorMessageResourceName = "ApplicationValidation_DescriptionRequired", ErrorMessageResourceType = typeof(ApplicationStrings))]
         [StringLength(1000, ErrorMessageResourceName = "ApplicationValidation_DescriptionLength", ErrorMessageResourceType = typeof(ApplicationStrings))]

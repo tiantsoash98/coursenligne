@@ -1,4 +1,5 @@
 ﻿using ASTEK.Architecture.ApplicationService.Entity.Lesson;
+using System.Web.Mvc;
 
 namespace ASTEK.Architecture.UI.MVC.Models.Lesson
 {
@@ -6,5 +7,6 @@ namespace ASTEK.Architecture.UI.MVC.Models.Lesson
     {
         public UpdateLessonInputModel Input { get; set; }
         public string Status { get; set; }
+        public SelectList LevelList { get; set; }
     }
 }

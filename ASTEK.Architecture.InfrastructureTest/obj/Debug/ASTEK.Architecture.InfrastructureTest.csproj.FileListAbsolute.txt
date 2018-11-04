@@ -49,3 +49,4 @@ C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.InfrastructureTest\obj\Debug\ASTEK.Architecture.InfrastructureTest.csprojResolveAssemblyReference.cache
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.InfrastructureTest\obj\Debug\ASTEK.Architecture.InfrastructureTest.dll
 C:\Users\trabemananjara\Documents\Cours en ligne\coursenligne\ASTEK.Architecture.InfrastructureTest\obj\Debug\ASTEK.Architecture.InfrastructureTest.pdb
+E:\ITU\Astek\Réseau universitaire\rtcoursenligne\Projet\ASTEK.Architecture.Cours\ASTEK.Architecture.InfrastructureTest\bin\Debug\Mg-mg\ASTEK.Architecture.Infrastructure.resources.dll

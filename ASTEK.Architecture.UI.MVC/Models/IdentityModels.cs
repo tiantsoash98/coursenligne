@@ -28,6 +28,7 @@ namespace ASTEK.Architecture.UI.MVC.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
             Configuration.LazyLoadingEnabled = true;
+            Configuration.ProxyCreationEnabled = true;
         }
 
         public DbSet<Domain.Entity.Account.Account> Accounts { get; set; }

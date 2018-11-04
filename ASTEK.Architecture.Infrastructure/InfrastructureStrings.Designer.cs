@@ -169,6 +169,15 @@ namespace ASTEK.Architecture.Infrastructure {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Level.
+        /// </summary>
+        public static string Display_Level {
+            get {
+                return ResourceManager.GetString("Display_Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Minute.
         /// </summary>
         public static string Display_Minute {
@@ -246,6 +255,15 @@ namespace ASTEK.Architecture.Infrastructure {
         public static string Display_Town {
             get {
                 return ResourceManager.GetString("Display_Town", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to University.
+        /// </summary>
+        public static string Display_University {
+            get {
+                return ResourceManager.GetString("Display_University", resourceCulture);
             }
         }
         

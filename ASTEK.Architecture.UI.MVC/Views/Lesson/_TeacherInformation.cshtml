@@ -19,15 +19,13 @@
             <h6><b>@StringUtilities.UserName(teacher.ACTFIRSTNAME, teacher.ACTNAME)</b></h6>
         </div>
         <div class="name personal-name">
-            <h6>Posté le @Model.LSNDATE.ToString("dd-MM-yyyy")</h6>
+            <h6>Posté le @Model.LSNDATE.ToString("dd/MM/yyyy")</h6>
         </div>
 
         @if (User.Identity.IsAuthenticated)
         {
-            <hr />
-            <div class="name personal-name">
-                @Html.Action("Subscribe", "Subscribe", new { accountId = Model.ACCID })
-            </div>
+            @Html.Action("Subscribe", "Subscribe", new { accountId = Model.ACCID })
+
         }
 
     </div>

@@ -55,13 +55,20 @@ namespace ASTEK.Architecture.Repository.Concrete
             return Context.Lessons.FirstOrDefault(l => l.Id.Equals(lessonId));
         }
 
-        public List<Lesson> GetBestByStudy(Guid studyCode)
+        public List<Lesson> GetBestByStudy(Guid studyCode, int level = 0)
         {
-            return Context.Lessons
+            var lessons =  Context.Lessons
                                 //.Include(l => l.LessonFolloweds)
                                 .Where(l => l.STDCODE.Equals(studyCode) && l.DocumentState.DCSWORDING.Equals("VALID"))
                                 //.OrderBy(l => l.LessonFolloweds.Count(x => x.LSNID.Equals(l.LSNID)))
                                 .ToList();
+
+            if(level != 0)
+            {
+                lessons = lessons.PreferLevel(level);
+            }
+
+            return lessons;
         }
 
         public int GetChapterCount(Guid lessonId)
@@ -137,11 +144,17 @@ namespace ASTEK.Architecture.Repository.Concrete
             };
         }
 
-        public List<Lesson> GetMayLike()
+        public List<Lesson> GetMayLike(int level = 0)
         {
-            return Context.Lessons.Where(l => l.DocumentState.DCSWORDING.Equals("VALID"))
+            var lessons = Context.Lessons.Where(l => l.DocumentState.DCSWORDING.Equals("VALID"))
                                     .ToList();
-                                    
+
+            if (level != 0)
+            {
+                lessons = lessons.PreferLevel(level);
+            }
+
+            return lessons;
         }
 
         public List<Lesson> GetByState(Guid accountId, string state)
@@ -197,7 +210,8 @@ namespace ASTEK.Architecture.Repository.Concrete
             lesson.STDCODE = entity.STDCODE;
             lesson.DCFCODE = entity.DCFCODE;
             lesson.LSNDURATION = entity.LSNDURATION;
-
+            lesson.LSNLEVEL = entity.LSNLEVEL;
+            
             Save(lesson);
 
             return lesson;
@@ -231,7 +245,7 @@ namespace ASTEK.Architecture.Repository.Concrete
             return lesson;
         }
 
-        public List<Lesson> GetAllRecent(Guid? studyCode)
+        public List<Lesson> GetAllRecent(Guid? studyCode, int level = 0)
         {
             var lessons = Context.Lessons
                                     .Where(l => l.DocumentState.DCSWORDING.Equals("VALID"))
@@ -240,6 +254,11 @@ namespace ASTEK.Architecture.Repository.Concrete
             if (studyCode.HasValue)
             {
                 lessons = lessons.Where(l => l.STDCODE.Equals(studyCode.Value)).ToList();
+            }
+
+            if(level != 0)
+            {
+                lessons = lessons.PreferLevel(level);
             }
 
             return lessons;
