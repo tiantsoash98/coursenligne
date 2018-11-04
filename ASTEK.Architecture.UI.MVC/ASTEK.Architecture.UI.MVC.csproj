@@ -203,12 +203,14 @@
     <Compile Include="Models\Comment\CommentViewModel.cs" />
     <Compile Include="Models\Comment\ListCommentViewModel.cs" />
     <Compile Include="Models\CultureViewModel.cs" />
+    <Compile Include="Models\Dashboard\AddAnswerViewModel.cs" />
     <Compile Include="Models\Dashboard\DashboardStudentViewModel.cs" />
     <Compile Include="Models\Dashboard\DashboardTeacherViewModel.cs" />
     <Compile Include="Models\Dashboard\DashboardViewModel.cs" />
     <Compile Include="Models\Dashboard\FollowerProgressionViewModel.cs" />
     <Compile Include="Models\Dashboard\StudentsProgressionViewModel.cs" />
     <Compile Include="Models\Exercice\AnswerViewModel.cs" />
+    <Compile Include="Models\Exercice\ResultViewModel.cs" />
     <Compile Include="Models\Home\HomeStudentViewModel.cs" />
     <Compile Include="Models\Home\HomeTeacherViewModel.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
@@ -811,6 +813,8 @@
     <Content Include="Views\Shared\_LessonLevel.cshtml" />
     <Content Include="Views\Lesson\Media.cshtml" />
     <Content Include="Views\Exercice\Answer.cshtml" />
+    <Content Include="Views\Exercice\Result.cshtml" />
+    <Content Include="Views\Dashboard\_AddAnswerButton.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

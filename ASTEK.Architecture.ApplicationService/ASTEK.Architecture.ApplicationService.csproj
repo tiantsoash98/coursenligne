@@ -81,6 +81,10 @@
     <Compile Include="Entity\Account\UploadAccountImageInputModel.cs" />
     <Compile Include="Entity\Account\UploadAccountImageOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\AnswerExerciceAppService.cs" />
+    <Compile Include="Entity\AnswerExercice\GetAllInputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\GetAllOutputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\GetAnswerExerciceInputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\GetAnswerExerciceOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerInputModel.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerOutputModel.cs" />
     <Compile Include="Entity\CommentAnswer\AddCommentAnswerInputModel.cs" />
@@ -104,6 +108,8 @@
     <Compile Include="Entity\DocumentConfidentiality\DocumentConfidentialityAppService.cs" />
     <Compile Include="Entity\DocumentConfidentiality\GetAllDocumentConfidentialityInputModel.cs" />
     <Compile Include="Entity\DocumentConfidentiality\GetAllDocumentConfidentialityOutputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\CorrectAnswerInputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\CorrectAnswerOutputModel.cs" />
     <Compile Include="Entity\Exercice\CountExerciceGroupByLessonInputModel.cs" />
     <Compile Include="Entity\Exercice\CountExerciceGroupByLessonOutputModel.cs" />
     <Compile Include="Entity\Exercice\ExerciceAppService.cs" />

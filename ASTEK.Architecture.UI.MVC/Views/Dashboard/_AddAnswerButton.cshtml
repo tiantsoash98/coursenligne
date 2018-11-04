@@ -1,0 +1,6 @@
+﻿@model ASTEK.Architecture.UI.MVC.Models.Dashboard.AddAnswerViewModel
+
+@if (Model.Addable)
+{
+    @Html.ActionLink("Importer les réponses", "Answer", "Exercice", new { lessonId = Model.LessonId }, new { @class = "personal-btn-simple table-btn" })
+}

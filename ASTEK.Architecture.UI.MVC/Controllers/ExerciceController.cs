@@ -88,5 +88,89 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             return RedirectToAction("Index", "Dashboard");
         }
+
+        public ActionResult Result(string answerId)
+        {
+            if (string.IsNullOrWhiteSpace(answerId))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var resultVM = new ResultViewModel
+            {
+                Input = new CorrectAnswerInputModel
+                {
+                    AnswerId = answerId
+                }
+            };
+
+            InitResultVM(resultVM);
+
+            return View(resultVM);
+        }
+
+        [HttpPost]
+        public ActionResult Result(ResultViewModel model)
+        {
+            var appService = new AnswerExerciceAppService();
+
+            if (!ModelState.IsValid)
+            {
+                InitResultVM(model);
+                return View(model);
+            }
+     
+            var output = appService.Correct(model.Input);
+
+            if (!output.Response.Success)
+            {
+                ViewBag.Exception = output.Response.Exception;
+                return View("Error");
+            }
+
+            return RedirectToAction("Index", "Dashboard");
+        }
+
+        public ActionResult AnswerFile(string answerId)
+        {
+            var appService = new AnswerExerciceAppService();
+
+            GetAnswerExerciceOutputModel output = appService.Get(new GetAnswerExerciceInputModel { AnswerId = answerId });
+
+            if (!output.Response.Success)
+            {
+                throw output.Response.Exception;
+            }
+
+            var answer = output.Response.AnswerExercice;
+
+            string baseFileUrl = Server.MapPath(ConfigurationManager.AppSettings.Get("BaseFileUrl"));
+            string answerFolder = ConfigurationManager.AppSettings.Get("AnswerFolder");
+
+            byte[] fileBytes = System.IO.File.ReadAllBytes(string.Concat(baseFileUrl, answerFolder, answer.ANSFILE));
+            string extension = Path.GetExtension(answer.ANSFILE);
+            string fileName = string.Concat("Réponses", extension);
+
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+        private void InitResultVM(ResultViewModel viewModel)
+        {
+            var appService = new AnswerExerciceAppService();
+
+            GetAnswerExerciceOutputModel output = appService.Get(new GetAnswerExerciceInputModel { AnswerId = viewModel.Input.AnswerId });
+
+            if (!output.Response.Success)
+            {
+                throw output.Response.Exception;
+            }
+
+            var answer = output.Response.AnswerExercice;
+            string fullPath = Path.Combine(ConfigurationManager.AppSettings.Get("BaseFileUrl"),
+                                            ConfigurationManager.AppSettings.Get("AnswerFolder"));
+
+            viewModel.AnswerExercice = answer;
+            viewModel.FullPath = fullPath;
+        }
     }
 }

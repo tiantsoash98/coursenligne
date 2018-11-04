@@ -27,5 +27,53 @@ namespace ASTEK.Architecture.ApplicationService.Entity.AnswerExercice
 
             return new UploadAnswerOutputModel { Response = response };
         }
+
+        public CorrectAnswerOutputModel Correct(CorrectAnswerInputModel input)
+        {
+            var request = new CorrectAnswerRequest
+            {
+                AnswerId = GuidUtilities.TryParse(input.AnswerId),
+                Comment = input.Comment,
+                Mark = input.Mark,
+                Valuation = input.Valuation
+            };
+
+            CorrectAnswerResponse response = _service.Correct(request);
+
+            return new CorrectAnswerOutputModel { Response = response };
+        }
+
+        public GetAnswerExerciceOutputModel Get(GetAnswerExerciceInputModel input)
+        {
+            var request = new GetAnswerExerciceRequest
+            {
+                AnswerId = GuidUtilities.TryParse(input.AnswerId)
+            };
+
+            GetAnswerExerciceResponse response = _service.Get(request);
+
+            return new GetAnswerExerciceOutputModel { Response = response };
+        }
+
+        public GetAllOutputModel GetAll(GetAllInputModel input)
+        {
+            var request = new GetAllRequest
+            {
+                AccountId = GuidUtilities.TryParse(input.AccountId),
+                Page = input.Page,
+                Count = input.Count,
+                Type = input.Type,
+                Marked = input.Marked
+            };
+
+            if (!string.IsNullOrEmpty(input.LessonId))
+            {
+                request.LessonId = GuidUtilities.TryParse(input.LessonId);
+            }
+
+            GetAllResponse response = _service.GetAll(request);
+
+            return new GetAllOutputModel { Response = response };
+        }
     }
 }

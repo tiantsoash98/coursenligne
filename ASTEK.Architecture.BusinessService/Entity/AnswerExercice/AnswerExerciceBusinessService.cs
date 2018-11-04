@@ -1,11 +1,13 @@
 ﻿using ASTEK.Architecture.BusinessService.Abstract;
 using ASTEK.Architecture.BusinessService.Interface;
 using ASTEK.Architecture.Infrastructure.Domain;
+using ASTEK.Architecture.Infrastructure.Utility;
 using ASTEK.Architecture.Repository;
 using ASTEK.Architecture.Repository.Concrete;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ASTEK.Architecture.BusinessService.Entity.AnswerExercice
 {
@@ -50,6 +52,84 @@ namespace ASTEK.Architecture.BusinessService.Entity.AnswerExercice
                 {
                     Success = false,
                     Exception = e
+                };
+            }
+        }
+
+        public GetAnswerExerciceResponse Get(GetAnswerExerciceRequest request)
+        {
+            try
+            {             
+                var result = _repository.FindBy(request.AnswerId);
+
+                return new GetAnswerExerciceResponse
+                {
+                    AnswerExercice = result,
+                    Success = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new GetAnswerExerciceResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
+
+        public GetAllResponse GetAll(GetAllRequest request)
+        {
+            try
+            {
+                List<Domain.Entity.AnswerExercice.AnswerExercice> answerExercices = null;
+
+                if (request.Type.Equals("Teacher"))
+                {
+                    if (request.Marked)
+                    {
+                        answerExercices = _repository.GetAllMarkedTeacher(request.AccountId, request.LessonId);
+                    }
+                    else
+                    {
+                        answerExercices = _repository.GetAllUnmarkedTeacher(request.AccountId, request.LessonId);
+                    }
+                }
+                else
+                {
+                    if (request.Marked)
+                    {
+                        answerExercices = _repository.GetAllMarkedStudent(request.AccountId);
+                    }
+                    else
+                    {
+                        answerExercices = _repository.GetAllUnmarkedStudent(request.AccountId);
+                    }
+                }
+
+                int totalPages = ListUtilities.GetTotalPagesCount(answerExercices.Count, request.Count);
+
+                List<Domain.Entity.AnswerExercice.AnswerExercice> pagedList = answerExercices.OrderByDescending(l => l.ANSDATEPOSTED)
+                                                                                .Skip((request.Page - 1) * request.Count)
+                                                                                .Take(request.Count)
+                                                                                .ToList();
+
+                return new GetAllResponse
+                {
+                    AnswerExercices = pagedList,
+                    Type = request.Type,
+                    TotalPages = totalPages,
+                    Count = request.Count,
+                    Marked = request.Marked,
+                    Success = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new GetAllResponse
+                {
+                    Success = false,
+                    Exception = ex
                 };
             }
         }

@@ -104,6 +104,10 @@
     <Compile Include="Entity\AnswerExercice\AnswerExerciceBusinessService.cs" />
     <Compile Include="Entity\AnswerExercice\CorrectAnswerRequest.cs" />
     <Compile Include="Entity\AnswerExercice\CorrectAnswerResponse.cs" />
+    <Compile Include="Entity\AnswerExercice\GetAllRequest.cs" />
+    <Compile Include="Entity\AnswerExercice\GetAllResponse.cs" />
+    <Compile Include="Entity\AnswerExercice\GetAnswerExerciceRequest.cs" />
+    <Compile Include="Entity\AnswerExercice\GetAnswerExerciceResponse.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerRequest.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerResponse.cs" />
     <Compile Include="Entity\CommentAnswer\AddCommentAnswerRequest.cs" />

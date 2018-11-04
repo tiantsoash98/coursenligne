@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Web.UI;
 using ASTEK.Architecture.ApplicationService.Entity.SubscribeActivity;
+using ASTEK.Architecture.ApplicationService.Entity.AnswerExercice;
 
 namespace ASTEK.Architecture.UI.MVC.Controllers
 {
@@ -23,10 +24,12 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             return RedirectToUserRoleDashboardPage(GetUserLoggedRole());
         }
 
-        public ActionResult Student(int? page, int? subscribedPage)
+        public ActionResult Student(int? page, int? subscribedPage, int? unmarkedPage, int? markedPage)
         {
             int _page = page ?? 1;
             int _subscribedPage = subscribedPage ?? 1;
+            int _unmarkedPage = unmarkedPage ?? 1;
+            int _markedPage = markedPage ?? 1;
 
             var loggedId = GetAccountLogged().Id;
 
@@ -63,12 +66,52 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             var subscribedOutput = subscribeAppService.GetAllSubscribed(subscribedInput);
 
+            var answerExerciceAppService = new AnswerExerciceAppService();
+
+            var unmarkedInput = new GetAllInputModel
+            {
+                AccountId = loggedId.ToString(),
+                Marked = false,
+                Page = _unmarkedPage,
+                Count = 8,
+                Type = "Student"
+            };
+
+            var unmarkedOutput = answerExerciceAppService.GetAll(unmarkedInput);
+
+            if (!unmarkedOutput.Response.Success)
+            {
+                ViewBag.Exception = unmarkedOutput.Response.Exception;
+                return View("Error");
+            }
+
+            var markedInput = new GetAllInputModel
+            {
+                AccountId = loggedId.ToString(),
+                Marked = true,
+                Page = _markedPage,
+                Count = 8,
+                Type = "Student"
+            };
+
+            var markedOutput = answerExerciceAppService.GetAll(markedInput);
+
+            if (!markedOutput.Response.Success)
+            {
+                ViewBag.Exception = markedOutput.Response.Exception;
+                return View("Error");
+            }
+
             var dashboardVM = new DashboardStudentViewModel
             {
                 FollowedOutput = followedOutput,
                 Page = _page,
                 FollowedCount = (int)countFollowedOutput.Response.Count,
                 SubscribedOutput = subscribedOutput,
+                GetAllUnmarkedOutput = unmarkedOutput,
+                GetAllMarkedOutput = markedOutput,
+                TotalMarked = (int)markedOutput.Response.Count,
+                TotalUnmarked = (int)unmarkedOutput.Response.Count,
                 FromDate = fromDate,
                 ToDate = toDate
             };
@@ -77,11 +120,13 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
         }
 
         [Authorize(Roles = "TEACHER")]
-        public ActionResult Teacher(int? page, int? unpublishedPage, int? subscribersPage)
+        public ActionResult Teacher(int? page, int? unpublishedPage, int? subscribersPage, int? markedPage, int? unmarkedPage)
         {
             int _page = page ?? 1;
             int _unpublishedPage = unpublishedPage ?? 1;
             int _subscribersPage = subscribersPage ?? 1;
+            int _markedPage = markedPage ?? 1;
+            int _unmarkedPage = unmarkedPage ?? 1;
 
             var loggedId = GetAccountLogged().Id;
 
@@ -144,6 +189,42 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             var unpublishedOutput = lessonAppService.GetByState(unpublishedInput);
 
+            var answerExerciceAppService = new AnswerExerciceAppService();
+
+            var unmarkedInput = new GetAllInputModel
+            {
+                AccountId = loggedId.ToString(),
+                Marked = false,
+                Page = _unmarkedPage,
+                Count = 8,
+                Type = "Teacher"
+            };
+
+            var unmarkedOutput = answerExerciceAppService.GetAll(unmarkedInput);
+
+            if (!unmarkedOutput.Response.Success)
+            {
+                ViewBag.Exception = unmarkedOutput.Response.Exception;
+                return View("Error");
+            }
+
+            var markedInput = new GetAllInputModel
+            {
+                AccountId = loggedId.ToString(),
+                Marked = true,
+                Page = _markedPage,
+                Count = 8,
+                Type = "Teacher"
+            };
+
+            var markedOutput = answerExerciceAppService.GetAll(markedInput);
+
+            if (!markedOutput.Response.Success)
+            {
+                ViewBag.Exception = markedOutput.Response.Exception;
+                return View("Error");
+            }
+
 
             var dashboardVM = new DashboardTeacherViewModel
             {
@@ -155,6 +236,10 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 UnpublishedOutput = unpublishedOutput,
                 SubscribersOutput = subscribersOutput,
                 SubscribersCount = (int)countSubscribersOutput.Response.Count,
+                GetAllUnmarkedOutput = unmarkedOutput,
+                GetAllMarkedOutput = markedOutput,
+                TotalMarked = (int)markedOutput.Response.Count,
+                TotalUnmarked = (int)unmarkedOutput.Response.Count,
                 FromDate = fromDate,
                 ToDate = toDate,
             };
@@ -262,6 +347,30 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             };
 
             return PartialView("_StudentsProgressionModal", progressionVM);
+        }
+
+        public PartialViewResult AddAnswer(string lessonId)
+        {
+            bool canAdd = true;
+
+            var appService = new LessonAppService();
+
+            GetLessonOutputModel output = appService.Get(new GetLessonInputModel
+            {
+                Id = lessonId
+            });
+
+            var lesson = output.Response.Lesson;
+
+            canAdd = !string.IsNullOrEmpty(lesson.LSNATTACHEDEXC);
+
+            var answerVM = new AddAnswerViewModel
+            {
+                LessonId = lessonId,
+                Addable = canAdd
+            };
+
+            return PartialView("_AddAnswerButton", answerVM);
         }
 
         private string GetName(LessonFollowed follow)
