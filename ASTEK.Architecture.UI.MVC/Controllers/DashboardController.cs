@@ -102,6 +102,15 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 return View("Error");
             }
 
+            var countUnmarkedInput = new CountAnswerInputModel
+            {
+                AccountId = loggedId.ToString(),
+                Marked = false,
+                Type = "Student"
+            };
+
+            var countUnmarkedOutput = answerExerciceAppService.CountAnswer(countUnmarkedInput);
+
             var dashboardVM = new DashboardStudentViewModel
             {
                 FollowedOutput = followedOutput,
@@ -112,6 +121,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 GetAllMarkedOutput = markedOutput,
                 TotalMarked = (int)markedOutput.Response.Count,
                 TotalUnmarked = (int)unmarkedOutput.Response.Count,
+                UnmarkedCount = (int)countUnmarkedOutput.Response.Count,
                 FromDate = fromDate,
                 ToDate = toDate
             };
@@ -225,6 +235,14 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 return View("Error");
             }
 
+            var countUnmarkedInput = new CountAnswerInputModel
+            {
+                AccountId = loggedId.ToString(),
+                Marked = false,
+                Type = "Teacher"
+            };
+
+            var countUnmarkedOutput = answerExerciceAppService.CountAnswer(countUnmarkedInput);
 
             var dashboardVM = new DashboardTeacherViewModel
             {
@@ -240,6 +258,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 GetAllMarkedOutput = markedOutput,
                 TotalMarked = (int)markedOutput.Response.Count,
                 TotalUnmarked = (int)unmarkedOutput.Response.Count,
+                UnmarkedCount = (int)countUnmarkedOutput.Response.Count,
                 FromDate = fromDate,
                 ToDate = toDate,
             };

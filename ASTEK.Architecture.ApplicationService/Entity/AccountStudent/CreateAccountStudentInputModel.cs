@@ -28,6 +28,9 @@ namespace ASTEK.Architecture.ApplicationService.Entity.AccountStudent
         [Display(Name = "Display_University", ResourceType = typeof(Infrastructure.InfrastructureStrings))]
         public string University { get; set; }
 
+        [Display(Name = "Display_Study", ResourceType = typeof(Infrastructure.InfrastructureStrings))] 
+        public string Study { get; set; }
+
         [Display(Name = "Display_Level", ResourceType = typeof(Infrastructure.InfrastructureStrings))]
         public int Level { get; set; }
 

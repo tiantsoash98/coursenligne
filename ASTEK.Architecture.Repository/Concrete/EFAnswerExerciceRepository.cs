@@ -90,5 +90,72 @@ namespace ASTEK.Architecture.Repository.Concrete
         {
             return Context.AnswerExercices.Any(a => a.ACCID.Equals(accountId) && a.LSNID.Equals(lessonId));
         }
+
+        public int CountUnmarkedTeacher(Guid accountId, Guid? lessonId)
+        {
+            var list =  Context.AnswerExercices.Where(a => a.Lesson.ACCID.Equals(accountId) && !a.ANSISCORRECTED);
+
+            if (lessonId.HasValue)
+            {
+                list = list.Where(a => a.LSNID.Equals(lessonId));
+            }
+
+            return list.Count();
+        }
+
+        public int CountMarkedTeacher(Guid accountId, Guid? lessonId)
+        {
+            var list = Context.AnswerExercices.Where(a => a.Lesson.ACCID.Equals(accountId) && a.ANSISCORRECTED);
+
+            if (lessonId.HasValue)
+            {
+                list = list.Where(a => a.LSNID.Equals(lessonId));
+            }
+
+            return list.Count();
+        }
+
+        public int CountUnmarkedStudent(Guid accountId)
+        {
+            return Context.AnswerExercices.Count(a => a.ACCID.Equals(accountId) && !a.ANSISCORRECTED);
+        }
+
+        public int CountMarkedStudent(Guid accountId)
+        {
+            return Context.AnswerExercices.Count(a => a.ACCID.Equals(accountId) && a.ANSISCORRECTED);
+        }
+
+        public AnswerExercice GetLowestMarkOfStudent(Guid accountId, Guid studyCode, int level)
+        {
+            var marks = Context.AnswerExercices
+                                    .Where(a => a.ACCID.Equals(accountId) && a.Lesson.STDCODE.Equals(studyCode) && a.Lesson.LSNLEVEL.Equals(level) && a.ANSISCORRECTED)
+                                    .OrderBy(a => a.ANSMARK.GetValueOrDefault());
+
+            return marks?.FirstOrDefault();
+        }
+
+        public AnswerExercice GetHighestMarkOfStudent(Guid accountId, Guid studyCode, int level)
+        {
+            var marks = Context.AnswerExercices
+                                    .Where(a => a.ACCID.Equals(accountId) && a.Lesson.STDCODE.Equals(studyCode) && a.Lesson.LSNLEVEL.Equals(level) && a.ANSISCORRECTED)
+                                    .OrderByDescending(a => a.ANSMARK.GetValueOrDefault());
+
+            return marks?.FirstOrDefault();
+        }
+
+        public decimal GetAverageMarkOfStudent(Guid accountId, Guid studyCode, int level)
+        {
+            return Context.AnswerExercices
+                                    .Where(a => a.ACCID.Equals(accountId) && a.Lesson.STDCODE.Equals(studyCode) && a.Lesson.LSNLEVEL.Equals(level) && a.ANSISCORRECTED)
+                                    .Average(a => a.ANSMARK.GetValueOrDefault());
+        }
+
+        public List<AnswerExercice> GetMarksOfStudent(Guid accountId, Guid studyCode, int level)
+        {
+            return Context.AnswerExercices
+                                    .Where(a => a.ACCID.Equals(accountId) && a.Lesson.STDCODE.Equals(studyCode) && a.Lesson.LSNLEVEL.Equals(level) && a.ANSISCORRECTED)
+                                    .OrderByDescending(a => a.ANSDATEPOSTED)
+                                    .ToList();
+        }
     }
 }

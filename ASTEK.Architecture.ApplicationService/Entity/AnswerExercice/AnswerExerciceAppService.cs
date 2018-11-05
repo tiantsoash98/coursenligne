@@ -88,5 +88,38 @@ namespace ASTEK.Architecture.ApplicationService.Entity.AnswerExercice
 
             return new GetAllOutputModel { Response = response };
         }
+
+        public CountAnswerOutputModel CountAnswer(CountAnswerInputModel input)
+        {
+            var request = new CountAnswerRequest
+            {
+                AccountId = GuidUtilities.TryParse(input.AccountId),
+                Type = input.Type,
+                Marked = input.Marked
+            };
+
+            if (!string.IsNullOrEmpty(input.LessonId))
+            {
+                request.LessonId = GuidUtilities.TryParse(input.LessonId);
+            }
+
+            CountAnswerResponse response = _service.Count(request);
+
+            return new CountAnswerOutputModel { Response = response };
+        }
+
+        public GetMarksOfStudentOutputModel GetMarksOfStudent(GetMarksOfStudentInputModel input)
+        {
+            var request = new GetMarksOfStudentRequest
+            {
+                AccountId = GuidUtilities.TryParse(input.AccountId),
+                StudyCode = GuidUtilities.TryParse(input.StudyCode),
+                Level = input.Level
+            };
+
+            GetMarksOfStudentResponse response = _service.GetMarksOfStudent(request);
+
+            return new GetMarksOfStudentOutputModel { Response = response };
+        }
     }
 }

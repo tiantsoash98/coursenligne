@@ -81,10 +81,14 @@
     <Compile Include="Entity\Account\UploadAccountImageInputModel.cs" />
     <Compile Include="Entity\Account\UploadAccountImageOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\AnswerExerciceAppService.cs" />
+    <Compile Include="Entity\AnswerExercice\CountAnswerInputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\CountAnswerOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\GetAllInputModel.cs" />
     <Compile Include="Entity\AnswerExercice\GetAllOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\GetAnswerExerciceInputModel.cs" />
     <Compile Include="Entity\AnswerExercice\GetAnswerExerciceOutputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\GetMarksOfStudentInputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\GetMarksOfStudentOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\HasPostedInputModel.cs" />
     <Compile Include="Entity\AnswerExercice\HasPostedOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerInputModel.cs" />

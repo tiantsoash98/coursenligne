@@ -9,5 +9,7 @@ namespace ASTEK.Architecture.BusinessService.Interface
         CorrectAnswerResponse Correct(CorrectAnswerRequest request);
         GetAllResponse GetAll(GetAllRequest request);
         HasPostedResponse HasPosted(HasPostedRequest request);
+        CountAnswerResponse Count(CountAnswerRequest request);
+        GetMarksOfStudentResponse GetMarksOfStudent(GetMarksOfStudentRequest request);
     }
 }

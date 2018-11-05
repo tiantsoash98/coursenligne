@@ -104,10 +104,14 @@
     <Compile Include="Entity\AnswerExercice\AnswerExerciceBusinessService.cs" />
     <Compile Include="Entity\AnswerExercice\CorrectAnswerRequest.cs" />
     <Compile Include="Entity\AnswerExercice\CorrectAnswerResponse.cs" />
+    <Compile Include="Entity\AnswerExercice\CountAnswerRequest.cs" />
+    <Compile Include="Entity\AnswerExercice\CountAnswerResponse.cs" />
     <Compile Include="Entity\AnswerExercice\GetAllRequest.cs" />
     <Compile Include="Entity\AnswerExercice\GetAllResponse.cs" />
     <Compile Include="Entity\AnswerExercice\GetAnswerExerciceRequest.cs" />
     <Compile Include="Entity\AnswerExercice\GetAnswerExerciceResponse.cs" />
+    <Compile Include="Entity\AnswerExercice\GetMarksOfStudentRequest.cs" />
+    <Compile Include="Entity\AnswerExercice\GetMarksOfStudentResponse.cs" />
     <Compile Include="Entity\AnswerExercice\HasPostedRequest.cs" />
     <Compile Include="Entity\AnswerExercice\HasPostedResponse.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerRequest.cs" />

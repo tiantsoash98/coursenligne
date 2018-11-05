@@ -18,6 +18,8 @@ namespace ASTEK.Architecture.Domain.Entity.AccountStudent
 
         public Guid GENCODE { get; set; }
 
+        public Guid STDCODE { get; set; }
+
         [Required]
         [StringLength(50)]
         public string ACSFIRSTNAME { get; set; }
@@ -37,5 +39,8 @@ namespace ASTEK.Architecture.Domain.Entity.AccountStudent
 
         [ForeignKey("GENCODE")]
         public virtual Gender.Gender Gender { get; set; }
+
+        [ForeignKey("STDCODE")]
+        public virtual Study.Study Study { get; set; }
     }
 }

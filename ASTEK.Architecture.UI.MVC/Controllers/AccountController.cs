@@ -1056,7 +1056,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 ACSNAME = input.Name,
                 GENCODE = new Guid(input.Gender),
                 ACSLEVEL = input.Level,
-                ACSUNIVERSITY = input.University
+                ACSUNIVERSITY = input.University,
+                STDCODE = new Guid(input.Study)
             };
 
             var account = new Account

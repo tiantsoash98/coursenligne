@@ -56,6 +56,54 @@ namespace ASTEK.Architecture.BusinessService.Entity.AnswerExercice
             }
         }
 
+        public CountAnswerResponse Count(CountAnswerRequest request)
+        {
+            try
+            {
+                int count = 0;
+
+                if (request.Type.Equals("Teacher"))
+                {
+                    if (request.Marked)
+                    {
+                        count = _repository.CountMarkedTeacher(request.AccountId, request.LessonId);
+                    }
+                    else
+                    {
+                        count = _repository.CountUnmarkedTeacher(request.AccountId, request.LessonId);
+                    }
+                }
+                else
+                {
+                    if (request.Marked)
+                    {
+                        count = _repository.CountMarkedStudent(request.AccountId);
+                    }
+                    else
+                    {
+                        count = _repository.CountUnmarkedStudent(request.AccountId);
+                    }
+                }
+
+
+                return new CountAnswerResponse
+                {
+                    Type = request.Type,
+                    Count = request.Count,
+                    Marked = request.Marked,
+                    Success = true
+                };
+            }
+            catch (Exception e)
+            {
+                return new CountAnswerResponse
+                {
+                    Exception = e,
+                    Success = false
+                };
+            }
+        }
+
         public GetAnswerExerciceResponse Get(GetAnswerExerciceRequest request)
         {
             try
@@ -137,6 +185,28 @@ namespace ASTEK.Architecture.BusinessService.Entity.AnswerExercice
         public override List<ValidationFailure> GetErrors(Domain.Entity.AnswerExercice.AnswerExercice entity, ValidationType validationType)
         {
             throw new NotImplementedException();
+        }
+
+        public GetMarksOfStudentResponse GetMarksOfStudent(GetMarksOfStudentRequest request)
+        {
+            try
+            {
+                var marks = _repository.GetMarksOfStudent(request.AccountId, request.StudyCode, request.Level);
+
+                return new GetMarksOfStudentResponse
+                {
+                    MarksList = marks,
+                    Success = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new GetMarksOfStudentResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
         }
 
         public HasPostedResponse HasPosted(HasPostedRequest request)
