@@ -89,7 +89,7 @@ namespace ASTEK.Architecture.BusinessService.Entity.AnswerExercice
                 return new CountAnswerResponse
                 {
                     Type = request.Type,
-                    Count = request.Count,
+                    Count = count,
                     Marked = request.Marked,
                     Success = true
                 };

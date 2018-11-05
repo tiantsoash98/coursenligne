@@ -283,7 +283,7 @@
                                     <td>
                                         <a data-toggle="modal" data-target="#@modalTarget">Détails</a>
                                     </td>
-                                    <td>@Html.ActionLink("Voir la progression", "AnswerFile", "Exercice", new { answerId = exercice.Id }, null)</td>
+                                    <td>@Html.ActionLink("Voir la progression", "Index", "Stats", new { accountId = exercice.ACCID }, null)</td>
                                 </tr>
                             }
                         </tbody>

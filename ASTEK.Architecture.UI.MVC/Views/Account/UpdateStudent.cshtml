@@ -146,6 +146,15 @@
                         </div>
 
                         <div class="col-md-12">
+                            @Html.LabelFor(m => m.Input.Study, new { @class = "col-md-12 control-label" })
+
+                            <div class="col-md-12">
+                                @Html.DropDownListFor(m => m.Input.Study, new SelectList(Model.Studies.Response.Studies, "STDCODE", "STDNAME"), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Input.Study, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
                             @Html.LabelFor(m => m.Input.Level, new { @class = "col-md-12 control-label" })
 
                             <div class="col-md-12">

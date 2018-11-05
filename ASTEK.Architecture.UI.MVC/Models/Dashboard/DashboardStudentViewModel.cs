@@ -10,6 +10,7 @@ namespace ASTEK.Architecture.UI.MVC.Models.Dashboard
 {
     public class DashboardStudentViewModel: DashboardViewModel
     {      
+        public string AccountId { get; set; }
         public GetFollowedByOutputModel FollowedOutput { get; set; }
         public GetAllSubscribedOutputModel SubscribedOutput { get; set; }
         public int FollowedCount { get; set; }

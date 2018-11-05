@@ -1,0 +1,43 @@
+Soutenance:
+
+-Choisir un bon titre:
+Prestaloc - Application de location de vaisselle
+
+-Table des matières: 
+	-Ne pas utiliser des puces
+	-Bien distinger les sections (I - 1 - a)
+	-Ne pas mettre trop lourd
+
+-Introduction:
+	-Présenter la problématique:
+		-Eviter la fausse interprétation: Il faut éxpliquer pourquoi avoir créér le site (Contexte -> Objectif)
+-Choix technique
+	- Justifier + Comparaison
+-Mettre des titres ou figures sur les images / tableaux
+-Eviter de changer de police
+-Eviter les débordements
+-Mettre des éléments bien lisibles
+
+-Analyse: 
+	-Statistiques
+	- Outil d'aide à l'administration (Courbes - tableaux ...)
+	
+	
+	
+Oral + Slide:
+-Ajouter de la dynamisme
+	-Eviter de toujours lire
+	-Eviter les techniques trop sophistiquées
+	-Toujours attirer l'attention
+	-Changer assez souvent de slide
+	
+-Ajouter des points sur les titres sur le slide:
+-Eviter les éléments trop technique qui ne sont pas à la portée de tout public
+-Bien se préparer la présentation: 
+	- Tout d'abord... ensuite.... après celà... enfin...
+	
+- Bien préparer le slide
+	- Bien distinger chaque scénario et tests.
+	
+
+

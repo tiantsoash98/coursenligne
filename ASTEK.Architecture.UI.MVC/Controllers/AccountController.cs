@@ -1213,7 +1213,9 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 PhoneNumber = account.ACCPHONECONTACT,
                 Picture = account.ACCPICTURE,
                 Level = details.ACSLEVEL,
-                University = details.ACSUNIVERSITY
+                University = details.ACSUNIVERSITY,
+                Study = details.STDCODE.ToString()
+                
             };
 
             return input;

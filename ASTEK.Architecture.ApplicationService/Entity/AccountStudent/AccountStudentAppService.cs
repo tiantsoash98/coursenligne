@@ -68,9 +68,11 @@ namespace ASTEK.Architecture.ApplicationService.Entity.AccountStudent
                 BirthDay = input.BirthDay,
                 Gender = GuidUtilities.TryParse(input.Gender),
                 Country = GuidUtilities.TryParse(input.Country),
+                StudyCode = GuidUtilities.TryParse(input.Study),
                 Phone = input.PhoneNumber,
                 University = input.University,
-                Level = input.Level
+                Level = input.Level,
+                
             };
 
             UpdateAccountStudentResponse response = _service.Update(request);

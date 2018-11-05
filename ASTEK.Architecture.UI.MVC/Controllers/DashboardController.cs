@@ -113,6 +113,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
 
             var dashboardVM = new DashboardStudentViewModel
             {
+                AccountId = loggedId.ToString(),
                 FollowedOutput = followedOutput,
                 Page = _page,
                 FollowedCount = (int)countFollowedOutput.Response.Count,

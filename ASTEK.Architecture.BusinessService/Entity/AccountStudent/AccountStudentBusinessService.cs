@@ -84,7 +84,8 @@ namespace ASTEK.Architecture.BusinessService.Entity.AccountStudent
                     GENCODE = request.Gender,
                     Account = account,
                     ACSLEVEL = request.Level,
-                    ACSUNIVERSITY = request.University
+                    ACSUNIVERSITY = request.University,
+                    STDCODE = request.StudyCode
                 };
 
                 errors.AddRange(GetErrors(accountStudent, ValidationType.Update));

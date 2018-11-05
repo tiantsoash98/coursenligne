@@ -822,6 +822,7 @@
     <Content Include="Views\Dashboard\_AddAnswerButton.cshtml" />
     <Content Include="Views\Dashboard\_MarkedAnswerModal.cshtml" />
     <Content Include="Views\Dashboard\_UnmarkedAnswerModal.cshtml" />
+    <Content Include="Views\Stats\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -833,7 +834,6 @@
     <Folder Include="Content\images\Study\" />
     <Folder Include="Content\images\Thumbnail\Account\" />
     <Folder Include="Content\images\Thumbnail\Lesson\" />
-    <Folder Include="Views\Stats\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

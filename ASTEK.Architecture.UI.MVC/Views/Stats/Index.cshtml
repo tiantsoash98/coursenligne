@@ -1,0 +1,139 @@
+﻿@using ASTEK.Architecture.Infrastructure.Utility
+@model ASTEK.Architecture.UI.MVC.Models.Stats.StatsIndexViewModel
+@{
+    ViewBag.Title = UIStrings.Title_Dashboard_Teacher;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section customStyles
+{
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/styles.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/layouts/single-post-1/css/responsive.css")" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+}
+
+
+<section class="post-area section">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="pre-title">@Html.Partial("_AccountName", Model.Account)</h3>
+                <h4 class="pre-title small-space-top">@Html.Action("StudyName", "Study", new { code = Model.StudyCode })</h4>
+                <h4 class="pre-title">@Html.Partial("_LessonLevel", Model.Level)</h4>
+            </div>
+
+            <div class="col-md-12 small-space-top">
+                <div class="row">
+
+                    @if (Model.Highest != null)
+                    {
+                        <div class="col-md-3">
+                            <div class="stat-bloc text-right">
+                                <h5>@Model.Highest.ANSMARK.GetValueOrDefault() note la plus haute</h5>
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.Lowest != null)
+                    {
+                        <div class="col-md-3">
+                            <div class="stat-bloc text-right">
+                                <h5>@Model.Lowest.ANSMARK.GetValueOrDefault() note la plus basse</h5>
+                            </div>
+                        </div>
+                    }
+
+                    @if (Model.Average > 0)
+                    {
+                        <div class="col-md-3">
+                            <div class="stat-bloc text-right">
+                                <h5>@Model.Average moyenne</h5>
+                            </div>
+                        </div>
+                    }
+
+
+                    @if (Model.PreviousAverage.HasValue)
+                    {
+                        <div class="col-md-3">
+                            <div class="stat-bloc text-right">
+                                <h5>@Model.PreviousAverage.GetValueOrDefault() moyenne prec.</h5>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+
+            <canvas id="myChart" class="col-md-12 small-space-top" height="400"></canvas>
+
+            <div class="col-md-12 no-right-padding space-top">
+                <div id="posted">
+                    <div class="table-header">
+                        <h4 class="pre-title">Notes</h4>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Cours</th>
+                                <th>Note</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var element in Model.Marks)
+                            {
+                                <tr>
+                                    <td>@element.Lesson.LSNTITLE</td>
+                                    <td>@element.ANSMARK</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- post-area -->
+
+@section customScripts
+{
+    <script>
+        $(document).ready(function () {
+            loadData('@Model.Account.Id', '@Model.StudyCode', '@Model.Level');
+        });
+
+        function loadData(accountId, studyCode, level) {
+            $.ajax({
+                url: 'https://localhost:44300/Stats/StudentMarks',
+                type: 'GET',
+                data: { accountId: accountId, studyCode: studyCode, level: level },
+                success: function (response, status) {
+                    loadChart(response);
+                }
+            });
+        }
+
+        function loadChart(data) {
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+
+    </script>
+}
