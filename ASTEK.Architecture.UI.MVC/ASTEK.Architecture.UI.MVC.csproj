@@ -187,6 +187,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LessonController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StatsController.cs" />
     <Compile Include="Controllers\StudyController.cs" />
     <Compile Include="Controllers\SubscribeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -234,6 +235,8 @@
     <Compile Include="Models\Lesson\UpdateLessonChapterViewModel.cs" />
     <Compile Include="Models\Lesson\UpdateLessonViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Stats\StatsIndexViewModel.cs" />
+    <Compile Include="Models\Stats\StatsMarksStudentJsonViewModel.cs" />
     <Compile Include="Models\Study\StudyViewModel.cs" />
     <Compile Include="Models\SubscribeActivity\SubscribeButtonViewModel.cs" />
     <Compile Include="Models\SubscribeActivity\ToogleSubscriptionViewModel.cs" />
@@ -830,6 +833,7 @@
     <Folder Include="Content\images\Study\" />
     <Folder Include="Content\images\Thumbnail\Account\" />
     <Folder Include="Content\images\Thumbnail\Lesson\" />
+    <Folder Include="Views\Stats\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

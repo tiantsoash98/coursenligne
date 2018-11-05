@@ -152,6 +152,10 @@ namespace ASTEK.Architecture.Repository.Concrete
 
         public List<AnswerExercice> GetMarksOfStudent(Guid accountId, Guid studyCode, int level)
         {
+            Context.AnswerExercices.Include(a => a.Account.AccountStudents).ToList();
+            Context.AnswerExercices.Include(a => a.Account.AccountTeachers).ToList();
+            Context.AnswerExercices.Include(a => a.Lesson.Study).ToList();
+
             return Context.AnswerExercices
                                     .Where(a => a.ACCID.Equals(accountId) && a.Lesson.STDCODE.Equals(studyCode) && a.Lesson.LSNLEVEL.Equals(level) && a.ANSISCORRECTED)
                                     .OrderByDescending(a => a.ANSDATEPOSTED)
