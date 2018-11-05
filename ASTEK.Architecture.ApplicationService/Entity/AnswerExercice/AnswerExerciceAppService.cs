@@ -55,6 +55,19 @@ namespace ASTEK.Architecture.ApplicationService.Entity.AnswerExercice
             return new GetAnswerExerciceOutputModel { Response = response };
         }
 
+        public HasPostedOutputModel HasPosted(HasPostedInputModel input)
+        {
+            var request = new HasPostedRequest
+            {
+                AccountId = GuidUtilities.TryParse(input.AccountId),
+                LessonId = GuidUtilities.TryParse(input.LessonId)
+            };
+
+            HasPostedResponse response = _service.HasPosted(request);
+
+            return new HasPostedOutputModel { Response = response };
+        }
+
         public GetAllOutputModel GetAll(GetAllInputModel input)
         {
             var request = new GetAllRequest

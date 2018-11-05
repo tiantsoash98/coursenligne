@@ -108,6 +108,8 @@
     <Compile Include="Entity\AnswerExercice\GetAllResponse.cs" />
     <Compile Include="Entity\AnswerExercice\GetAnswerExerciceRequest.cs" />
     <Compile Include="Entity\AnswerExercice\GetAnswerExerciceResponse.cs" />
+    <Compile Include="Entity\AnswerExercice\HasPostedRequest.cs" />
+    <Compile Include="Entity\AnswerExercice\HasPostedResponse.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerRequest.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerResponse.cs" />
     <Compile Include="Entity\CommentAnswer\AddCommentAnswerRequest.cs" />

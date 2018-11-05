@@ -11,5 +11,6 @@ namespace ASTEK.Architecture.Domain.Entity.AnswerExercice
         List<AnswerExercice> GetAllMarkedTeacher(Guid accountId, Guid? lessonId);
         List<AnswerExercice> GetAllUnmarkedStudent(Guid accountId);
         List<AnswerExercice> GetAllMarkedStudent(Guid accountId);
+        bool HasPosted(Guid accountId, Guid lessonId);
     }
 }

@@ -85,5 +85,10 @@ namespace ASTEK.Architecture.Repository.Concrete
 
             return answers.ToList();
         }
+
+        public bool HasPosted(Guid accountId, Guid lessonId)
+        {
+            return Context.AnswerExercices.Any(a => a.ACCID.Equals(accountId) && a.LSNID.Equals(lessonId));
+        }
     }
 }

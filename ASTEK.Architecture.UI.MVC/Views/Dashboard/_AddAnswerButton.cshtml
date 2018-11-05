@@ -2,5 +2,16 @@
 
 @if (Model.Addable)
 {
-    @Html.ActionLink("Importer les réponses", "Answer", "Exercice", new { lessonId = Model.LessonId }, new { @class = "personal-btn-simple table-btn" })
+    if (!Model.GetCorrection)
+    {
+        @Html.ActionLink("Importer les réponses", "Answer", "Exercice", new { lessonId = Model.LessonId }, new { @class = "personal-btn-simple table-btn" })
+    }
+    else
+    {
+        @Html.ActionLink("Voir la correction", "Attached", "Lesson", new { lessonId = Model.LessonId, type = "correction" }, new { @class = "personal-btn-simple table-btn" })
+    }
+}
+else
+{
+    <p>Pas d'exercice disponible</p>
 }

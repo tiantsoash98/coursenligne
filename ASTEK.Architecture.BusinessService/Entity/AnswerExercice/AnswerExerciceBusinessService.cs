@@ -139,6 +139,28 @@ namespace ASTEK.Architecture.BusinessService.Entity.AnswerExercice
             throw new NotImplementedException();
         }
 
+        public HasPostedResponse HasPosted(HasPostedRequest request)
+        {
+            try
+            {
+                var result = _repository.HasPosted(request.AccountId, request.LessonId);
+
+                return new HasPostedResponse
+                {
+                    HasPosted = result,
+                    Success = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new HasPostedResponse
+                {
+                    Success = false,
+                    Exception = ex
+                };
+            }
+        }
+
         public UploadAnswerResponse Upload(UploadAnswerRequest request)
         {
             try

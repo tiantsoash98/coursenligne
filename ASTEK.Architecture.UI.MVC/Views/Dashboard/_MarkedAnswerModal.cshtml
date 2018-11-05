@@ -1,0 +1,69 @@
+﻿
+@model ASTEK.Architecture.UI.MVC.Models.Dashboard.MarkedAnswerViewModel
+
+@{
+    var id = string.Concat("marked-", Model.AnswerOutput.Response.AnswerExercice.Id);
+}
+
+<div class="modal fade" id="@id" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog personal-modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalPreviewLabel">Détails de la correction</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body personal-modal-body">
+                <div class="container text-center">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Informations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Etudiant</td>
+                                <td>@Html.Partial("_AccountName", Model.AnswerOutput.Response.AnswerExercice.Account)</td>
+                            </tr>
+                            <tr>
+                                <td>Cours</td>
+                                <td>@Model.AnswerOutput.Response.AnswerExercice.Lesson.LSNTITLE</td>
+                            </tr>
+                            <tr>
+                                <td>Note /20</td>
+                                <td>@Model.AnswerOutput.Response.AnswerExercice.ANSMARK</td>
+                            </tr>
+                            <tr>
+                                <td>Appréciation</td>
+                                <td>@Model.AnswerOutput.Response.AnswerExercice.ANSVALUATION</td>
+                            </tr>
+                            <tr>
+                                <td>Commentaire de l'étudiant</td>
+                                <td>@Model.AnswerOutput.Response.AnswerExercice.ANSCOMMENT</td>
+                            </tr>
+                            <tr>
+                                <td>Commentaire de la correction</td>
+                                <td>@Model.AnswerOutput.Response.AnswerExercice.ANSCOMMENTCORRECTION</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer flex-center">
+                Note: @Model.AnswerOutput.Response.AnswerExercice.ANSMARK / 20
+            </div>
+            <div class="modal-footer flex-center">
+                @Html.ActionLink("Revoir les réponses envoyées", "AnswerFile", "Exercice", new { answerId = Model.AnswerOutput.Response.AnswerExercice.Id }, new { @class = "text-right" })
+            </div>
+            @if (!string.IsNullOrEmpty(Model.AnswerOutput.Response.AnswerExercice.Lesson.LSNATTACHEDCORR))
+            {
+                <div class="modal-footer flex-center">
+                    @Html.ActionLink("Voir la correction", "Attached", "Lesson", new { lessonId = Model.AnswerOutput.Response.AnswerExercice.LSNID, type = "correction" }, new { @class = "text-right" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

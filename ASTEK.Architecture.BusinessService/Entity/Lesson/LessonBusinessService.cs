@@ -964,6 +964,11 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
                     lesson.LSNATTACHEDEXC = request.ExerciceFile;
                 }
 
+                if (!string.IsNullOrEmpty(request.CorrectionFile))
+                {
+                    lesson.LSNATTACHEDCORR = request.CorrectionFile;
+                }
+
                 _repository.Save(lesson);
 
                 return new UpdateAttachedFilesResponse

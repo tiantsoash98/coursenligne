@@ -638,14 +638,14 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 string fileName = string.Concat("Audio-", lesson.LSNTITLE, extension);
                 return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
             }
-            //if (type.Equals("correction"))
-            //{
-            //    string folder = ConfigurationManager.AppSettings.Get("CorrectionAttachedFolder");
-            //    byte[] fileBytes = System.IO.File.ReadAllBytes(string.Concat(baseFileUrl, attachedFolder, folder, lesson.LSNATTACHEDSOUND));
-            //    string extension = Path.GetExtension(lesson.LSNATTACHEDSOUND);
-            //    string fileName = string.Concat("Correction-", lesson.LSNTITLE, extension);
-            //    return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
-            //}
+            if (type.Equals("correction"))
+            {
+                string folder = ConfigurationManager.AppSettings.Get("CorrectionAttachedFolder");
+                byte[] fileBytes = System.IO.File.ReadAllBytes(string.Concat(baseFileUrl, attachedFolder, folder, lesson.LSNATTACHEDCORR));
+                string extension = Path.GetExtension(lesson.LSNATTACHEDCORR);
+                string fileName = string.Concat("Correction-", lesson.LSNTITLE, extension);
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            }
 
             return RedirectToAction("Index", "Lesson", new { lessonId });
         }

@@ -85,6 +85,8 @@
     <Compile Include="Entity\AnswerExercice\GetAllOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\GetAnswerExerciceInputModel.cs" />
     <Compile Include="Entity\AnswerExercice\GetAnswerExerciceOutputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\HasPostedInputModel.cs" />
+    <Compile Include="Entity\AnswerExercice\HasPostedOutputModel.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerInputModel.cs" />
     <Compile Include="Entity\AnswerExercice\UploadAnswerOutputModel.cs" />
     <Compile Include="Entity\CommentAnswer\AddCommentAnswerInputModel.cs" />

@@ -349,6 +349,45 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             return PartialView("_StudentsProgressionModal", progressionVM);
         }
 
+        public PartialViewResult MarkedAnswerModal(string answerId)
+        {
+            var markedInput = new GetAnswerExerciceInputModel
+            {
+                AnswerId = answerId
+            };
+
+            var appService = new AnswerExerciceAppService();
+
+            var output = appService.Get(markedInput);
+
+            var markedVM = new MarkedAnswerViewModel
+            {
+                AnswerOutput = output
+            };
+
+            return PartialView("_MarkedAnswerModal", markedVM);
+        }
+
+        public PartialViewResult UnmarkedAnswerModal(string answerId)
+        {
+            var markedInput = new GetAnswerExerciceInputModel
+            {
+                AnswerId = answerId
+            };
+
+            var appService = new AnswerExerciceAppService();
+
+            var output = appService.Get(markedInput);
+
+            var markedVM = new UnmarkedAnswerViewModel
+            {
+                AnswerOutput = output,
+                IsTeacher = User.IsInRole("TEACHER")
+            };
+
+            return PartialView("_UnmarkedAnswerModal", markedVM);
+        }
+
         public PartialViewResult AddAnswer(string lessonId)
         {
             bool canAdd = true;
@@ -363,11 +402,28 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var lesson = output.Response.Lesson;
 
             canAdd = !string.IsNullOrEmpty(lesson.LSNATTACHEDEXC);
+            bool getCorrection = false;
+
+            var hasPostedInput = new HasPostedInputModel
+            {
+                AccountId = GetAccountLogged().Id.ToString(),
+                LessonId = lessonId
+            };
+
+            var answerAppService = new AnswerExerciceAppService();
+
+            var hasPostedOutput = answerAppService.HasPosted(hasPostedInput);
+
+            if (hasPostedOutput.Response.HasPosted)
+            {
+                getCorrection = true;
+            }
 
             var answerVM = new AddAnswerViewModel
             {
                 LessonId = lessonId,
-                Addable = canAdd
+                Addable = canAdd,
+                GetCorrection = getCorrection
             };
 
             return PartialView("_AddAnswerButton", answerVM);

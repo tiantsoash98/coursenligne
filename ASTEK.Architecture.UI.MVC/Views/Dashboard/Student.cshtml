@@ -121,11 +121,15 @@
                     <tbody>
                         @foreach (var exercice in Model.GetAllUnmarkedOutput.Response.AnswerExercices)
                         {
+                            var modalTarget = string.Concat("unmarked-", exercice.Id);
+
                             <tr>
                                 <td>@Html.ActionLink(exercice.Lesson.LSNTITLE, "Index", "Lesson", new { lessonId = exercice.LSNID }, null)</td>
                                 <td>@Html.ActionLink(exercice.Lesson.Study.STDNAME, "Index", "Study", new { id = exercice.Lesson.STDCODE }, null)</td>
                                 <td>@exercice.ANSDATEPOSTED.ToString("dd/MM/yyyy hh:mm")</td>
-                                <td>@Html.ActionLink("Revoir les réponses envoyées", "AnswerFile", "Exercice", new { answerId = exercice.Id }, null)</td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#@modalTarget">Détails</a>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -181,14 +185,17 @@
                     <tbody>
                         @foreach (var exercice in Model.GetAllMarkedOutput.Response.AnswerExercices)
                         {
-                        <tr>
-                            <td>@Html.ActionLink(exercice.Lesson.LSNTITLE, "Index", "Lesson", new { lessonId = exercice.LSNID }, null)</td>
-                            <td>@Html.ActionLink(exercice.Lesson.Study.STDNAME, "Index", "Study", new { id = exercice.Lesson.STDCODE }, null)</td>
-                            <td>@exercice.ANSDATEPOSTED.ToString("dd/MM/yyyy hh:mm")</td>
-                            <td>@exercice.ANSDATECORRECTION.GetValueOrDefault().ToString("dd/MM/yyyy hh:mm")</td>    
-                            <td>@Html.ActionLink("Détails", "AnswerFile", "Exercice", new { answerId = exercice.Id }, null)</td>
-                            <td>@Html.ActionLink("Revoir les réponses envoyées", "AnswerFile", "Exercice", new { answerId = exercice.Id }, null)</td>
-                        </tr>
+                            var modalTarget = string.Concat("marked-", exercice.Id);
+
+                            <tr>
+                                <td>@Html.ActionLink(exercice.Lesson.LSNTITLE, "Index", "Lesson", new { lessonId = exercice.LSNID }, null)</td>
+                                <td>@Html.ActionLink(exercice.Lesson.Study.STDNAME, "Index", "Study", new { id = exercice.Lesson.STDCODE }, null)</td>
+                                <td>@exercice.ANSDATEPOSTED.ToString("dd/MM/yyyy hh:mm")</td>
+                                <td>@exercice.ANSDATECORRECTION.GetValueOrDefault().ToString("dd/MM/yyyy hh:mm")</td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#@modalTarget">Détails</a>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                 </table>
@@ -288,6 +295,17 @@
         </div><!-- row -->
     </div>
 </section><!-- post-area -->
+
+<div id="modals">
+    @foreach (var marked in Model.GetAllUnmarkedOutput.Response.AnswerExercices)
+    {
+        @Html.Action("UnmarkedAnswerModal", "Dashboard", new { answerId = marked.Id })
+    }
+    @foreach (var marked in Model.GetAllMarkedOutput.Response.AnswerExercices)
+    {
+        @Html.Action("MarkedAnswerModal", "Dashboard", new { answerId = marked.Id })
+    }
+</div>
 
 @section customScripts {
     <script src="@Url.Content("~/Scripts/common-js/subscribe.js")"></script>

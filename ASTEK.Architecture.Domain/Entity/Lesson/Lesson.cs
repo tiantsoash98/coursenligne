@@ -67,6 +67,8 @@ namespace ASTEK.Architecture.Domain.Entity.Lesson
         [StringLength(100)]
         public string LSNATTACHEDEXC { get; set; }
 
+        [StringLength(100)]
+        public string LSNATTACHEDCORR { get; set; }
 
         [ForeignKey("ACCID")]
         public virtual Account.Account Account { get; set; }

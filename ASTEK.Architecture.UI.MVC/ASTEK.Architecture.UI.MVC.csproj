@@ -208,7 +208,9 @@
     <Compile Include="Models\Dashboard\DashboardTeacherViewModel.cs" />
     <Compile Include="Models\Dashboard\DashboardViewModel.cs" />
     <Compile Include="Models\Dashboard\FollowerProgressionViewModel.cs" />
+    <Compile Include="Models\Dashboard\MarkedAnswerViewModel.cs" />
     <Compile Include="Models\Dashboard\StudentsProgressionViewModel.cs" />
+    <Compile Include="Models\Dashboard\UnmarkedAnswerViewModel.cs" />
     <Compile Include="Models\Exercice\AnswerViewModel.cs" />
     <Compile Include="Models\Exercice\ResultViewModel.cs" />
     <Compile Include="Models\Home\HomeStudentViewModel.cs" />
@@ -815,6 +817,8 @@
     <Content Include="Views\Exercice\Answer.cshtml" />
     <Content Include="Views\Exercice\Result.cshtml" />
     <Content Include="Views\Dashboard\_AddAnswerButton.cshtml" />
+    <Content Include="Views\Dashboard\_MarkedAnswerModal.cshtml" />
+    <Content Include="Views\Dashboard\_UnmarkedAnswerModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8,5 +8,6 @@ namespace ASTEK.Architecture.BusinessService.Interface
         UploadAnswerResponse Upload(UploadAnswerRequest request);
         CorrectAnswerResponse Correct(CorrectAnswerRequest request);
         GetAllResponse GetAll(GetAllRequest request);
+        HasPostedResponse HasPosted(HasPostedRequest request);
     }
 }
