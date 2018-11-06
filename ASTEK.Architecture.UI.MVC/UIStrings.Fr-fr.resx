@@ -205,7 +205,7 @@
     <value>Enseignant</value>
   </data>
   <data name="Home_LessonsMayLike" xml:space="preserve">
-    <value>Cours que vous pourriez aimer</value>
+    <value>Cours qui vous sont proposés</value>
   </data>
   <data name="Home_LessonsNotFinished" xml:space="preserve">
     <value>Cours que vous n'avez pas terminé</value>

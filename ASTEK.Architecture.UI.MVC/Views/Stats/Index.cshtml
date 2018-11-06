@@ -19,51 +19,81 @@
         <div class="row">
             <div class="col-md-12">
                 <h3 class="pre-title">@Html.Partial("_AccountName", Model.Account)</h3>
-                <h4 class="pre-title small-space-top">@Html.Action("StudyName", "Study", new { code = Model.StudyCode })</h4>
-                <h4 class="pre-title">@Html.Partial("_LessonLevel", Model.Level)</h4>
+            </div>
+            <hr />
+            <div class="col-md-12">
+                <div class="row small-space-top">
+                    <div class="col-md-3">
+                        @if (Model.Level > 1)
+                        {
+                            <a href="@Url.Action("Index", "Stats", new { accountId = Model.Account.Id, studyCode = Model.StudyCode, level = Model.Level - 1 })" class="personal-btn-simple-white">
+                                < &nbsp; @Html.Partial("_LessonLevel", Model.Level - 1)
+                            </a>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="pre-title small-space-top text-center">@Html.Action("StudyName", "Study", new { code = Model.StudyCode })</h4>
+                        <h4 class="pre-title text-center">@Html.Partial("_LessonLevel", Model.Level)</h4>
+                    </div>
+
+                    <div class="col-md-3">
+                        @if (Model.Level < 6)
+                        {
+                            <a href="@Url.Action("Index", "Stats", new { accountId = Model.Account.Id, studyCode = Model.StudyCode, level = Model.Level + 1 })" class="personal-btn-simple-white">
+                                @Html.Partial("_LessonLevel", Model.Level + 1) &nbsp; >
+                            </a>
+                        }
+                    </div>
+                </div>
+
             </div>
 
             <div class="col-md-12 small-space-top">
                 <div class="row">
 
+                    <div class="col-md-2"></div>
+
                     @if (Model.Highest != null)
                     {
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="stat-bloc text-right">
-                                <h5>@Model.Highest.ANSMARK.GetValueOrDefault() note la plus haute</h5>
+                                <h5>@NumberUtilities.Format(Model.Highest.ANSMARK.GetValueOrDefault()) note max</h5>
                             </div>
                         </div>
                     }
 
                     @if (Model.Lowest != null)
                     {
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="stat-bloc text-right">
-                                <h5>@Model.Lowest.ANSMARK.GetValueOrDefault() note la plus basse</h5>
+                                <h5>@NumberUtilities.Format(Model.Lowest.ANSMARK.GetValueOrDefault()) note min</h5>
                             </div>
                         </div>
                     }
 
                     @if (Model.Average > 0)
                     {
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="stat-bloc text-right">
-                                <h5>@Model.Average moyenne</h5>
+                                <h5>@NumberUtilities.Format(Model.Average) moyenne</h5>
                             </div>
                         </div>
                     }
 
 
-                    @if (Model.PreviousAverage.HasValue)
-                    {
-                        <div class="col-md-3">
-                            <div class="stat-bloc text-right">
-                                <h5>@Model.PreviousAverage.GetValueOrDefault() moyenne prec.</h5>
-                            </div>
+                    <div class="col-md-2">
+                        <div class="stat-bloc text-right">
+                            @if (Model.PreviousAverage.HasValue)
+                            {
+                                <h5>@NumberUtilities.Format(Model.PreviousAverage.GetValueOrDefault()) moy. prec.</h5>
+                            }
+                            else
+                            {
+                                <h5>-- moyenne prec.</h5>
+                            }
+
                         </div>
-                    }
-
-
+                    </div>
                 </div>
             </div>
 

@@ -45,6 +45,16 @@
                                     @Html.ActionLink("Télécharger le fichier", "AnswerFile", "Exercice", new { answerId = Model.Input.AnswerId }, null)
                                 </div>
 
+                                if (!string.IsNullOrEmpty(Model.AnswerExercice.ANSCOMMENT))
+                                {
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <h4>Commentaire de l'étudiant </h4>
+                                            <p>@Model.AnswerExercice.ANSCOMMENT</p>
+                                        </div>
+                                    </div>
+                                }
+
                                 <div class="form-group space-top">
                                     @Html.LabelFor(m => m.Input.Mark, new { @class = "col-md-12 control-label" })
 

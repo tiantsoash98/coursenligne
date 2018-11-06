@@ -104,13 +104,59 @@ namespace ASTEK.Architecture.Domain.Entity.Lesson
         {
             var result = new List<Lesson>();
 
-            var extracted = lessons.Where(l => l.LSNLEVEL == level);
-            var removed = lessons.Where(l => l.LSNLEVEL != level);
+            var _array = new Lesson[lessons.Count];
+            lessons.CopyTo(_array);
 
-            result.AddRange(extracted);
-            result.AddRange(removed);
+            var _list = _array.ToList();
+
+            result.AddRange(_list.Where(l => l.LSNLEVEL == level));
+            _list.RemoveAll(l => l.LSNLEVEL == level);
+
+            result.AddRange(_list);
 
             return result;
         }
+
+        public static List<Lesson> PreferLevel(this List<Lesson> lessons, Guid studyCode)
+        {
+            var result = new List<Lesson>();
+
+            var _array = new Lesson[lessons.Count];
+            lessons.CopyTo(_array);
+
+            var _list = _array.ToList();
+
+            result.AddRange(_list.Where(l => l.STDCODE.Equals(studyCode)));
+            _list.RemoveAll(l => l.STDCODE.Equals(studyCode));
+
+            result.AddRange(_list);
+
+            return result.ToList();
+        }
+
+        public static List<Lesson> PreferLevel(this List<Lesson> lessons, Guid studyCode, int level)
+        {
+            var result = new List<Lesson>();
+
+            var _array = new Lesson[lessons.Count];
+            lessons.CopyTo(_array);
+
+            var _list = _array.ToList();
+
+            result.AddRange(_list.Where(l => l.STDCODE.Equals(studyCode) && l.LSNLEVEL == level));
+            _list.RemoveAll(l => l.STDCODE.Equals(studyCode) && l.LSNLEVEL == level);
+
+            result.AddRange(_list.Where(l => l.LSNLEVEL == level));
+            _list.RemoveAll(l => l.LSNLEVEL == level);
+
+            result.AddRange(_list);      
+
+            foreach(var e in result)
+            {
+                Console.WriteLine(e.LSNLEVEL + " " + e.LSNTITLE);
+            }
+
+            return result;
+        } 
     }
 }

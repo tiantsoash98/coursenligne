@@ -60,5 +60,10 @@ namespace ASTEK.Architecture.Infrastructure.Utility
 
             return sb.ToString();
         }
+
+        public static string Format(decimal number)
+        {
+            return number.ToString().Substring(0, 5);
+        }
     }
 }

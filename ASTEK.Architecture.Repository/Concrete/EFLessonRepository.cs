@@ -263,5 +263,23 @@ namespace ASTEK.Architecture.Repository.Concrete
 
             return lessons;
         }
+
+        public List<Lesson> GetMayLike(Guid studyCode, int level = 0)
+        {
+            var lessons = Context.Lessons.Where(l => l.DocumentState.DCSWORDING.Equals("VALID"))
+                                    .ToList();
+
+            if (level != 0)
+            {
+                lessons = lessons.PreferLevel(studyCode, level);
+            }
+            else
+            {
+                lessons = lessons.PreferLevel(studyCode);
+            }
+            
+
+            return lessons;
+        }
     }
 }

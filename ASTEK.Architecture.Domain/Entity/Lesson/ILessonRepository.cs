@@ -17,6 +17,7 @@ namespace ASTEK.Architecture.Domain.Entity.Lesson
         Lesson GetAllContent(Guid lessonId);
         LessonNavigation GetLessonNavigation(Guid lessonId);
         List<Lesson> GetMayLike(int level = 0);
+        List<Lesson> GetMayLike(Guid studyCode, int level = 0);
         List<Lesson> GetByState(Guid accountId, string state);
         List<Lesson> GetAllRecent(Guid? studyCode, int level = 0);
         void Publish(Guid accountId, Guid lessonId);   

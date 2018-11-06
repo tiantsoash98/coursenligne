@@ -17,6 +17,9 @@ namespace ASTEK.Architecture.Repository.Concrete
 
         public Account FindByEmail(string email)
         {
+            Context.Accounts.Include(account => account.AccountStudents).ToList();
+            Context.Accounts.Include(account => account.AccountTeachers).ToList();
+
             return Context.Accounts
                             .FirstOrDefault(account => account.ACCEMAIL.Equals(email));
         }

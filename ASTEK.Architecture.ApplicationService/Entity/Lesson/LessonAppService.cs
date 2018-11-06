@@ -98,6 +98,12 @@ namespace ASTEK.Architecture.ApplicationService.Entity.Lesson
                 Level = input.Level
             };
 
+            if (!string.IsNullOrEmpty(input.StudyCode))
+            {
+                System.Diagnostics.Debug.WriteLine("****Study: " + request.StudyCode);
+                request.StudyCode = GuidUtilities.TryParse(input.StudyCode);
+            }
+
             GetLessonMayLikeResponse response = _service.GetMayLike(request);
 
             return new GetLessonMayLikeOutputModel { Response = response };

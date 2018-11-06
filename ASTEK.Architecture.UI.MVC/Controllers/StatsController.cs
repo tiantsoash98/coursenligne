@@ -126,8 +126,15 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 return Json(new { success = false, exception = marksOutput.Response.Exception }, JsonRequestBehavior.AllowGet);
             }
 
-            List<string> labels = marksOutput.Response.MarksList.Select(x => StringUtilities.LimitTextLength(x.Lesson.LSNTITLE, 60)).ToList();
-            List<decimal> data = marksOutput.Response.MarksList.Select(x => x.ANSMARK.GetValueOrDefault()).ToList();
+            List<string> labels = marksOutput.Response.MarksList
+                                                            .OrderBy(a => a.ANSDATEPOSTED)
+                                                            .Select(x => StringUtilities.LimitTextLength(x.Lesson.LSNTITLE, 60))
+                                                            .ToList();
+
+            List<decimal> data = marksOutput.Response.MarksList
+                                                            .OrderBy(a => a.ANSDATEPOSTED)
+                                                            .Select(x => x.ANSMARK.GetValueOrDefault())
+                                                            .ToList();
 
             List<DataSets> datasets = new List<DataSets>();
             datasets.Add(new DataSets

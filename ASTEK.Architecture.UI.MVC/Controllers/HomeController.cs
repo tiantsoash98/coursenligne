@@ -71,6 +71,7 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
             var accountLogged = GetAccountLogged();
 
             int? _level = accountLogged.AccountStudents?.FirstOrDefault()?.ACSLEVEL;
+            string study = accountLogged.AccountStudents?.FirstOrDefault()?.STDCODE.ToString();
 
             var mayLikeInput = new GetLessonMayLikeInputModel
             {
@@ -78,7 +79,8 @@ namespace ASTEK.Architecture.UI.MVC.Controllers
                 Count = 12,
                 GetAlternativePicture = true,
                 GetThumbnailPicture = true,
-                Level = _level.GetValueOrDefault()
+                Level = _level.GetValueOrDefault(),
+                StudyCode = study
             };
 
             var lessonAppService = new LessonAppService();

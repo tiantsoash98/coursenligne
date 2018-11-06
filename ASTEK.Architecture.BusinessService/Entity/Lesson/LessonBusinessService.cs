@@ -167,7 +167,17 @@ namespace ASTEK.Architecture.BusinessService.Entity.Lesson
         {
             try
             {
-                var lessons = _repository.GetMayLike(request.Level);
+                List<Domain.Entity.Lesson.Lesson> lessons = null;
+
+                if (request.StudyCode.HasValue)
+                {
+                    System.Diagnostics.Debug.WriteLine("Study: " + request.StudyCode.Value + " & " + request.Level);
+                    lessons = _repository.GetMayLike(request.StudyCode.Value, request.Level);
+                }
+                else
+                {
+                    lessons = _repository.GetMayLike(request.Level);
+                }
 
                 if(lessons == null)
                 {

@@ -171,6 +171,24 @@ namespace ASTEK.Architecture.RepositoryTest.Lesson
         }
 
         [TestMethod]
+        public void GetMayLike()
+        {
+            var studyCode = new Guid("F79B7A04-1EA1-E811-8221-2C600C6934BE");
+            int level = 3;
+
+            var context = new EFDbContext();
+            var rep = new EFLessonRepository(context);
+
+            List<Domain.Entity.Lesson.Lesson> studies = rep.GetMayLike(studyCode, level);
+
+
+            studies.ForEach(x =>
+            {
+                Console.WriteLine(x.LSNLEVEL + " " + x.LSNTITLE);
+            });
+        }
+
+        [TestMethod]
         public void Update()
         {
             var context = new EFDbContext();

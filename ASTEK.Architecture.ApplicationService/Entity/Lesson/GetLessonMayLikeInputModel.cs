@@ -7,5 +7,6 @@
         public bool GetAlternativePicture { get; set; }
         public bool GetThumbnailPicture { get; set; }
         public int Level { get; set; }
+        public string StudyCode { get; set; }
     }
 }

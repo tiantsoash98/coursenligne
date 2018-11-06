@@ -55,6 +55,26 @@ namespace ASTEK.Architecture.ApplicationServiceTest.Lesson
         }
 
         [TestMethod]
+        public void GetMayLike()
+        {
+            var input = new GetLessonMayLikeInputModel
+            {
+                StudyCode = "F79B7A04-1EA1-E811-8221-2C600C6934BE",
+                Level = 3,
+                Page = 1,
+                Count = 8,
+                GetAlternativePicture = true,
+                GetThumbnailPicture = true
+            };
+
+            var service = new LessonAppService();
+
+            GetLessonMayLikeOutputModel output = service.GetMayLike(input);
+
+            Assert.IsTrue(output.Response.Success);
+        }
+
+        [TestMethod]
         public async Task Search()
         {
             var input = new SearchLessonInputModel()
